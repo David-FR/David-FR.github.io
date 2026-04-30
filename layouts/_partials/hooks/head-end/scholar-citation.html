@@ -1,0 +1,77 @@
+{{/* Emit Google Scholar citation_* meta tags on publication pages */}}
+{{ if and (eq .Kind "page") (eq .Section "publications") }}
+
+  {{ $title := .Params.title }}
+
+  {{/* Publication date: YYYY/MM/DD */}}
+  {{ $pub_date := "" }}
+  {{ with .Date }}{{ $pub_date = .Format "2006/01/02" }}{{ end }}
+
+  {{/* Authors: resolve "me" via author profile, pass everyone else through */}}
+  {{ $authors := slice }}
+  {{ $authors_raw := .Params.authors }}
+  {{ if reflect.IsSlice $authors_raw }}
+    {{ range $authors_raw }}
+      {{ $a := printf "%v" . }}
+      {{ if eq $a "me" }}
+        {{ $profile := partial "functions/get_author_profile" "me" }}
+        {{ with $profile.title }}{{ $authors = $authors | append (printf "%v" .) }}{{ end }}
+      {{ else }}
+        {{ $authors = $authors | append $a }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{/* Venue: strip surrounding markdown asterisks */}}
+  {{ $venue := "" }}
+  {{ with .Params.publication }}
+    {{ $venue = strings.TrimSpace (printf "%v" .) }}
+    {{ $venue = replace $venue "*" "" }}
+  {{ end }}
+
+  {{/* Conference vs journal */}}
+  {{ $is_conference := false }}
+  {{ $types := .Params.publication_types }}
+  {{ if reflect.IsSlice $types }}
+    {{ range $types }}
+      {{ if eq (printf "%v" .) "paper-conference" }}{{ $is_conference = true }}{{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{/* DOI */}}
+  {{ $doi := "" }}
+  {{ with .Params.hugoblox }}
+    {{ with .ids }}
+      {{ with .doi }}{{ $doi = printf "%v" . }}{{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{/* PDF URL: prefer links[type=pdf] with a local path, made absolute */}}
+  {{ $pdf_url := "" }}
+  {{ $links := .Params.links }}
+  {{ if reflect.IsSlice $links }}
+    {{ range $links }}
+      {{ if and (reflect.IsMap .) (eq (printf "%v" (index . "type")) "pdf") }}
+        {{ $u := printf "%v" (index . "url") }}
+        {{ if not $pdf_url }}
+          {{ if or (strings.HasPrefix $u "http://") (strings.HasPrefix $u "https://") }}
+            {{ $pdf_url = $u }}
+          {{ else }}
+            {{ $pdf_url = $u | absURL }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  <meta name="citation_title" content="{{ $title }}">
+  {{ range $authors }}<meta name="citation_author" content="{{ . }}">
+  {{ end }}
+  {{ with $pub_date }}<meta name="citation_publication_date" content="{{ . }}">{{ end }}
+  {{ with $venue }}
+    {{ if $is_conference }}<meta name="citation_conference_title" content="{{ . }}">{{ else }}<meta name="citation_journal_title" content="{{ . }}">{{ end }}
+  {{ end }}
+  {{ with $doi }}<meta name="citation_doi" content="{{ . }}">{{ end }}
+  {{ with $pdf_url }}<meta name="citation_pdf_url" content="{{ . }}">{{ end }}
+  <meta name="citation_fulltext_html_url" content="{{ .Permalink }}">
+{{ end }}
