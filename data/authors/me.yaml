@@ -2,115 +2,75 @@ schema: hugoblox/author/v1
 slug: me
 is_owner: true
 name:
-  display: Dr. Alex Johnson
-  given: Alex
-  family: Johnson
-  alternate: ''  # Example: 王伟
-  pronunciation: ''  # Example: Wáng Wěi
-  pronouns: he/him
-postnominals:
-  - PhD
-  - MIEEE
-status:
-  icon: "☕️"
-role: Senior AI Research Scientist
+  display: David Fernandez
+  given: David
+  family: Fernandez
+role: PhD Candidate in Computer Science
+
 bio: |
-  Alex Johnson is a Senior AI Research Scientist at Meta AI. His research
-  has been published in top conferences like NeurIPS and ICML, with over
-  10,000 citations. Alex is passionate about pushing the boundaries of AI
-  while ensuring ethical development.
+  David Fernandez is a PhD candidate in Computer Science at Clemson
+  University, working on safe, efficient, and explainable AI for
+  safety-critical systems. His research spans perception, adversarial
+  robustness, and on-device deployment of large foundation models —
+  including LLMs and VLMs — with five first-authored publications on
+  component-level explainability, zero-shot reasoning, and adversarial
+  scenario analysis, alongside collaborative work on edge AI for
+  industrial agentic systems. Much of this research is grounded in
+  autonomous driving, where trustworthiness, latency, and robustness
+  constraints are unforgiving, but the underlying methods transfer
+  broadly to other high-stakes domains.
+
+  As a member of Clemson's VIPR-GS Research Program, he develops
+  hierarchical LLM reasoning frameworks and VLM evaluation systems for the
+  U.S. Army's Next Generation Combat Vehicle (NGCV) program. At BMW Group,
+  he builds AI production security frameworks and edge deployment systems.
+  His work focuses on robust, interpretable AI that bridges rigorous
+  research and real-world deployment.
 
 affiliations:
-  - name: Meta AI
-    url: https://ai.meta.com/
+  - name: Clemson University
+    url: https://www.clemson.edu/
 
 links:
   - icon: at-symbol
-    url: mailto:alex.johnson@example.com
+    url: mailto:dferna3@clemson.edu
     label: E-mail Me
-  - icon: brands/x
-    url: https://x.com/example
   - icon: brands/github
-    url: https://github.com/example
+    url: https://github.com/David-FR
   - icon: brands/linkedin
-    url: https://www.linkedin.com/in/example/
+    url: https://www.linkedin.com/in/david-fernan
   - icon: academicons/google-scholar
-    url: https://scholar.google.com/citations?user=example
+    url: https://scholar.google.com/citations?user=KICgEp8AAAAJ&hl=en
   - icon: academicons/orcid
-    url: https://orcid.org/0000-0002-1825-0097
+    url: https://orcid.org/0009-0006-6531-0490
 
 interests:
-  - Large Language Models
-  - Computer Vision
-  - Reinforcement Learning
-  - AI Ethics
+  - Explainable AI (XAI)
+  - Large Language Models (LLMs)
+  - Vision Language Models (VLMs)
+  - Autonomous Vehicle Safety and Perception
+  - AI Security and Adversarial Robustness
+  - Multimodal Machine Learning
 
 education:
-  - degree: PhD Computer Science
-    institution: Stanford University
-    start: 2015-09-01
-    end: 2019-06-30
-    summary: |
-      Thesis on scaling laws for neural language models. Published 5 papers in NeurIPS and ICML.
-    button:
-      text: Download dissertation
-      url: /resume.pdf
-      icon: hero/arrow-down-tray
-  - degree: MS Computer Science
-    institution: Carnegie Mellon University
-    start: 2013-09-01
-    end: 2015-05-31
-  - degree: BS Computer Science
-    institution: MIT
-    start: 2009-09-01
-    end: 2013-05-31
+  - degree: PhD in Computer Science
+    institution: Clemson University
+    start: 2024-01-01
+    summary: GPA 4.0/4.0
+  - degree: MS in Data Science and Informatics
+    institution: Clemson University
+    start: 2022-01-01
+    end: 2024-01-01
+    summary: GPA 4.0/4.0
+  - degree: BS in Computer Engineering
+    institution: ITAM, Mexico City
+  - degree: BS in Business Administration
+    institution: ITAM, Mexico City
 
 experience:
-  - role: Senior AI Research Scientist
-    org: Meta AI
-    start: 2020-01-01
-    summary: |
-      Leading research on multimodal AI systems. Contributed to Llama 2 and other open-source models.
-    button:
-      text: View portfolio
-      url: /
-      icon: hero/arrow-down-tray
-  - role: AI Research Intern
-    org: OpenAI
-    start: 2019-06-01
-    end: 2019-12-31
-    summary: |
-      Worked on GPT-3 scaling. Co-authored paper on prompt engineering.
-
-skills:
-  - name: Technical Skills
-    items:
-      - label: Python
-        level: 5
-      - label: Machine Learning
-        level: 5
-      - label: Cloud Computing
-        level: 4
-  - name: Research & Communication
-    items:
-      - label: Academic Writing
-        level: 5
-      - label: Conference Presentations
-        level: 4
-      - label: Grant Proposals
-        level: 4
-
-languages:
-  - name: English
-    level: 5
-    label: Native
-  - name: Spanish
-    level: 4
-    label: Fluent
-
-awards:
-  - title: Best Paper Award
-    awarder: NeurIPS
-    date: "2022-12-01"
-    summary: Awarded for groundbreaking work on efficient training of large models.
-    icon: hero/trophy
+  - role: AI Researcher
+    org: BMW Group
+    start: 2024-01-01
+  - role: Research Assistant, VIPR-GS Program
+    org: Clemson University (U.S. Army NGCV)
+    start: 2025-01-01

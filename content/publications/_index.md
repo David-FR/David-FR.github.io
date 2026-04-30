@@ -1,12 +1,18 @@
 ---
 title: Publications
-cms_exclude: true
+type: landing
 
-# View.
-view: citation
-
-# Optional header image (relative to `static/media/` folder).
-banner:
-  caption: ''
-  image: ''
+sections:
+  - block: collection
+    content:
+      title: Publications
+      count: 0
+      filters:
+        folders:
+          - publications
+        exclude_featured: false
+      sort_by: Date
+      sort_order: Desc
+    design:
+      view: publication-list
 ---

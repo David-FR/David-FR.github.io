@@ -1,0 +1,127 @@
+{{ $item := .item }}
+{{ $year_value := $item.Params.event_start | default $item.Date }}
+{{ $year := (time $year_value).Format "2006" }}
+
+{{/* Resolve PDF link from front-matter `links` (type: pdf) or auto-detected resource */}}
+{{ $pdf_url := "" }}
+{{ with $item.Params.links }}
+  {{ range . }}
+    {{ if eq (.type | default "") "pdf" }}
+      {{ $pdf_url = .url }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ if not $pdf_url }}
+  {{ with $item.File.ContentBaseName }}
+    {{ with ($item.Resources.GetMatch (printf "%s.pdf" .)) }}
+      {{ $pdf_url = .RelPermalink }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{/* Cite source: prefer sibling cite.bib; otherwise build BibTeX from frontmatter */}}
+{{ $bib := $item.Resources.GetMatch "cite.bib" }}
+{{ $bib_text := "" }}
+{{ $bib_filename := printf "%s.bib" (or $item.File.ContentBaseName (urlize $item.Title)) }}
+{{ with $bib }}
+  {{ $bib_text = .Content }}
+{{ end }}
+{{ if not $bib_text }}
+  {{/* Build a minimal BibTeX entry from frontmatter */}}
+  {{ $pub_types := $item.Params.publication_types | default (slice "article") }}
+  {{ $pt := index $pub_types 0 }}
+  {{ $entry_type := "misc" }}
+  {{ if eq $pt "paper-conference" }}{{ $entry_type = "inproceedings" }}
+  {{ else if eq $pt "article-journal" }}{{ $entry_type = "article" }}
+  {{ else if eq $pt "article" }}{{ $entry_type = "article" }}
+  {{ else if eq $pt "book" }}{{ $entry_type = "book" }}
+  {{ else if eq $pt "thesis" }}{{ $entry_type = "phdthesis" }}
+  {{ else if eq $pt "report" }}{{ $entry_type = "techreport" }}
+  {{ end }}
+
+  {{ $authors_raw := $item.Params.authors | default slice }}
+  {{ if not (reflect.IsSlice $authors_raw) }}{{ $authors_raw = slice $authors_raw }}{{ end }}
+  {{ $author_names := slice }}
+  {{ range $authors_raw }}
+    {{ $slug := . | urlize }}
+    {{ $profile := partial "functions/get_author_profile" (dict "slug" $slug "title" .) }}
+    {{ $author_names = $author_names | append ($profile.title | default .) }}
+  {{ end }}
+  {{ $authors_str := delimit $author_names " and " }}
+
+  {{ $first_author := index $author_names 0 | default "anon" }}
+  {{ $last := index (split $first_author " ") (sub (len (split $first_author " ")) 1) }}
+  {{ $key := printf "%s%s" (lower (replace $last " " "")) $year }}
+
+  {{ $venue := $item.Params.publication | default $item.Params.publication_short | default "" }}
+  {{ $venue = replaceRE "\\*" "" $venue }}
+
+  {{ $field := "journal" }}
+  {{ if eq $entry_type "inproceedings" }}{{ $field = "booktitle" }}{{ end }}
+
+  {{ $lines := slice (printf "@%s{%s," $entry_type $key) }}
+  {{ $lines = $lines | append (printf "  title={%s}," $item.Title) }}
+  {{ if $authors_str }}{{ $lines = $lines | append (printf "  author={%s}," $authors_str) }}{{ end }}
+  {{ if $year }}{{ $lines = $lines | append (printf "  year={%s}," $year) }}{{ end }}
+  {{ if $venue }}{{ $lines = $lines | append (printf "  %s={%s}," $field $venue) }}{{ end }}
+  {{ if $item.Permalink }}{{ $lines = $lines | append (printf "  url={%s}," $item.Permalink) }}{{ end }}
+  {{ $lines = $lines | append "}" }}
+  {{ $bib_text = delimit $lines "\n" }}
+{{ end }}
+
+<li class="pub-list-item">
+  <div class="pub-authors text-sm text-gray-600 dark:text-gray-400">
+    {{- $authors := $item.Params.authors -}}
+    {{- if $authors -}}
+      {{- if not (reflect.IsSlice $authors) -}}
+        {{- $authors = slice $authors -}}
+      {{- end -}}
+      {{- range $i, $raw := $authors -}}
+        {{- $slug := $raw | urlize -}}
+        {{- $profile := partial "functions/get_author_profile" (dict "slug" $slug "title" $raw) -}}
+        {{- $display := $profile.title | default $raw -}}
+        {{- $is_owner := or (eq $slug "me") $profile.is_owner -}}
+        {{- if gt $i 0 }}, {{ end -}}
+        {{- if $is_owner -}}
+          <span class="font-bold text-gray-900 dark:text-gray-100">{{ $display }}</span>
+        {{- else -}}
+          {{ $display }}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+    {{ with $year }} ({{ . }}){{ end }}
+  </div>
+
+  <div class="pub-title mt-1">
+    <a href="{{ $item.RelPermalink }}" class="font-medium underline text-gray-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+      {{ $item.Title }}
+    </a>
+  </div>
+
+  {{ with ($item.Params.publication | default $item.Params.publication_short) }}
+    <div class="pub-venue text-sm text-gray-700 dark:text-gray-300 italic mt-1">
+      {{ . | markdownify }}
+    </div>
+  {{ end }}
+
+  <div class="pub-actions flex flex-wrap gap-3 mt-2 text-sm">
+    {{ with $pdf_url }}
+      <a href="{{ . | safeURL }}" target="_blank" rel="noopener"
+         class="inline-flex items-center gap-1 text-primary-600 dark:text-primary-400 hover:underline">
+        <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h7l5 5v11a2 2 0 01-2 2z"/>
+        </svg>
+        PDF
+      </a>
+    {{ end }}
+    <a href="#"
+       class="pub-cite-link inline-flex items-center gap-1 text-primary-600 dark:text-primary-400 hover:underline cursor-pointer"
+       data-cite-text="{{ $bib_text }}"
+       data-cite-filename="{{ $bib_filename }}">
+      <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M7 7h3v3H7zM14 7h3v3h-3zM7 7c0 4 0 6-3 8m10-8c0 4 0 6-3 8"/>
+      </svg>
+      Cite
+    </a>
+  </div>
+</li>

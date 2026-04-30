@@ -1,0 +1,30 @@
+  </ol>
+</div>
+
+<script>
+(function () {
+  if (window.__pubCiteHandlerInstalled) return;
+  window.__pubCiteHandlerInstalled = true;
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a.pub-cite-link');
+    if (!a) return;
+    e.preventDefault();
+    var text = a.getAttribute('data-cite-text') || '';
+    var filename = a.getAttribute('data-cite-filename') || 'cite.bib';
+    if (!text) {
+      window.open(a.getAttribute('href'), '_blank', 'noopener');
+      return;
+    }
+    var blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+    var blobUrl = URL.createObjectURL(blob);
+    window.open(blobUrl, '_blank', 'noopener');
+    var dl = document.createElement('a');
+    dl.href = blobUrl;
+    dl.download = filename;
+    document.body.appendChild(dl);
+    dl.click();
+    dl.remove();
+    setTimeout(function () { URL.revokeObjectURL(blobUrl); }, 60000);
+  });
+})();
+</script>
