@@ -11,7 +11,7 @@ sections:
       text: ''
       button:
         text: Download CV
-        url: files/CV_DavidFernandez.pdf
+        url: files/cv_davidfernandez.pdf
       headings:
         about: 'About Me'
         education: ''
