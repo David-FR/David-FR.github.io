@@ -1,0 +1,165 @@
+{{ $is_list := .is_list }}
+{{ $page := .page }}
+
+{{ $built := partial "functions/build_links" (dict "page" $page "is_list" $is_list) }}
+
+{{ $ctx := cond $is_list "list" "page" }}
+
+{{/* Build BibTeX from frontmatter for Cite button */}}
+{{ $year_value := $page.Params.event_start | default $page.Date }}
+{{ $year := (time $year_value).Format "2006" }}
+{{ $pub_types := $page.Params.publication_types | default (slice "article") }}
+{{ $pt := index $pub_types 0 }}
+{{ $entry_type := "misc" }}
+{{ if eq $pt "paper-conference" }}{{ $entry_type = "inproceedings" }}
+{{ else if eq $pt "article-journal" }}{{ $entry_type = "article" }}
+{{ else if eq $pt "article" }}{{ $entry_type = "article" }}
+{{ else if eq $pt "book" }}{{ $entry_type = "book" }}
+{{ else if eq $pt "thesis" }}{{ $entry_type = "phdthesis" }}
+{{ else if eq $pt "report" }}{{ $entry_type = "techreport" }}
+{{ end }}
+{{ $authors_raw := $page.Params.authors | default slice }}
+{{ if not (reflect.IsSlice $authors_raw) }}{{ $authors_raw = slice $authors_raw }}{{ end }}
+{{ $author_names := slice }}
+{{ range $authors_raw }}
+  {{ $slug := . | urlize }}
+  {{ $profile := partial "functions/get_author_profile" (dict "slug" $slug "title" .) }}
+  {{ $author_names = $author_names | append ($profile.title | default .) }}
+{{ end }}
+{{ $authors_str := delimit $author_names " and " }}
+{{ $first_author := index $author_names 0 | default "anon" }}
+{{ $last := index (split $first_author " ") (sub (len (split $first_author " ")) 1) }}
+{{ $key := printf "%s%s" (lower (replace $last " " "")) $year }}
+{{ $venue := $page.Params.publication | default $page.Params.publication_short | default "" }}
+{{ $venue = replaceRE "\\*" "" $venue }}
+{{ $field := "journal" }}
+{{ if eq $entry_type "inproceedings" }}{{ $field = "booktitle" }}{{ end }}
+{{ $lines := slice (printf "@%s{%s," $entry_type $key) }}
+{{ $lines = $lines | append (printf "  title={%s}," $page.Title) }}
+{{ if $authors_str }}{{ $lines = $lines | append (printf "  author={%s}," $authors_str) }}{{ end }}
+{{ if $year }}{{ $lines = $lines | append (printf "  year={%s}," $year) }}{{ end }}
+{{ if $venue }}{{ $lines = $lines | append (printf "  %s={%s}," $field $venue) }}{{ end }}
+{{ if $page.Permalink }}{{ $lines = $lines | append (printf "  url={%s}," $page.Permalink) }}{{ end }}
+{{ $lines = $lines | append "}" }}
+{{ $bib_text := delimit $lines "\n" }}
+{{ $bib_filename := printf "%s.bib" (or $page.File.ContentBaseName (urlize $page.Title)) }}
+
+{{/* Check if a cite.bib resource exists (use its content if so) */}}
+{{ with $page.Resources.GetMatch "cite.bib" }}
+  {{ $bib_text = .Content }}
+{{ end }}
+
+<div class="flex flex-wrap gap-2 mt-1">
+{{ range $built }}
+  {{ if in .contexts $ctx }}
+    {{ $url := .url | default "" }}
+    {{ $scheme := (urls.Parse $url).Scheme }}
+    {{ $target := "" }}
+    {{ $rel := slice }}
+    {{ with .rel }}{{ $rel = . }}{{ end }}
+    {{ if not $scheme }}
+      {{ with ($page.Resources.GetMatch $url) }}
+        {{ $url = .RelPermalink }}
+      {{ else }}
+        {{ $url = $url | relURL }}
+      {{ end }}
+    {{ else if in (slice "http" "https") $scheme }}
+      {{ $target = `target="_blank"` }}
+      {{ $rel = $rel | append "noopener" }}
+    {{ end }}
+
+    {{ $label := .label }}
+    {{ $fallbackByKey := dict
+      "btn_pdf" "PDF"
+      "btn_preprint" "Preprint"
+      "btn_doi" "DOI"
+      "btn_code" "Code"
+      "btn_dataset" "Dataset"
+      "btn_model" "Model"
+      "btn_slides" "Slides"
+      "btn_video" "Video"
+      "btn_poster" "Poster"
+      "btn_project" "Project"
+      "btn_site" "Site"
+      "btn_source" "Source Document"
+      "btn_canonical" "Canonical"
+      "btn_crosspost" "Crosspost"
+      "btn_discussion" "Discussion"
+      "btn_event" "Event"
+      "btn_calendar" "Calendar"
+      "btn_registration" "Registration"
+      "btn_demo" "Demo"
+      "btn_cite" "Cite"
+    }}
+    {{ with .labelKey }}
+      {{ if not $label }}
+        {{ $label = (i18n .) | default (index $fallbackByKey .) | default "Link" }}
+      {{ end }}
+    {{ end }}
+    {{ if not $label }}{{ $label = "Link" }}{{ end }}
+
+    {{ $type := .type }}
+
+    {{ if eq $type "pdf" }}
+      <a href="{{ $url | safeURL }}" {{ $target | safeHTMLAttr }} {{ with $rel }}rel="{{ delimit . " " }}"{{ end }}
+         class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-semibold bg-emerald-100 text-emerald-700 hover:bg-emerald-200 dark:bg-emerald-900/40 dark:text-emerald-300 dark:hover:bg-emerald-800/60 transition-colors">
+        <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h7l5 5v11a2 2 0 01-2 2z"/>
+        </svg>
+        {{ $label }}
+      </a>
+    {{ else if eq $type "doi" }}
+      <a href="{{ $url | safeURL }}" {{ $target | safeHTMLAttr }} {{ with $rel }}rel="{{ delimit . " " }}"{{ end }}
+         class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-semibold bg-violet-100 text-violet-700 hover:bg-violet-200 dark:bg-violet-900/40 dark:text-violet-300 dark:hover:bg-violet-800/60 transition-colors">
+        <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+        </svg>
+        {{ $label }}
+      </a>
+    {{ else if eq $type "bibtex" }}
+      {{/* skip — we render our own Cite button below */}}
+    {{ else }}
+      <a href="{{ $url | safeURL }}" {{ $target | safeHTMLAttr }} {{ with $rel }}rel="{{ delimit . " " }}"{{ end }}
+         class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-semibold bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700 transition-colors">
+        {{ $label }}
+      </a>
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{/* Always render Cite button using BibTeX from frontmatter */}}
+<a href="#"
+   class="pub-cite-link-single inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-semibold bg-blue-100 text-blue-700 hover:bg-blue-200 dark:bg-blue-900/40 dark:text-blue-300 dark:hover:bg-blue-800/60 transition-colors cursor-pointer"
+   data-cite-text="{{ $bib_text }}"
+   data-cite-filename="{{ $bib_filename }}">
+  <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M7 7h3v3H7zM14 7h3v3h-3zM7 7c0 4 0 6-3 8m10-8c0 4 0 6-3 8"/>
+  </svg>
+  Cite
+</a>
+</div>
+
+<script>
+(function () {
+  if (window.__pubCiteSingleHandlerInstalled) return;
+  window.__pubCiteSingleHandlerInstalled = true;
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a.pub-cite-link-single');
+    if (!a) return;
+    e.preventDefault();
+    var text = a.getAttribute('data-cite-text') || '';
+    var filename = a.getAttribute('data-cite-filename') || 'cite.bib';
+    if (!text) return;
+    var blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+    var blobUrl = URL.createObjectURL(blob);
+    window.open(blobUrl, '_blank', 'noopener');
+    var dl = document.createElement('a');
+    dl.href = blobUrl;
+    dl.download = filename;
+    document.body.appendChild(dl);
+    dl.click();
+    dl.remove();
+    setTimeout(function () { URL.revokeObjectURL(blobUrl); }, 60000);
+  });
+})();
+</script>

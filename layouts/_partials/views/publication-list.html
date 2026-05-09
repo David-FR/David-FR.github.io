@@ -70,7 +70,7 @@
 {{ end }}
 
 <li class="pub-list-item">
-  <div class="pub-authors text-sm text-gray-600 dark:text-gray-400">
+  <div class="pub-authors text-base text-gray-600 dark:text-gray-400">
     {{- $authors := $item.Params.authors -}}
     {{- if $authors -}}
       {{- if not (reflect.IsSlice $authors) -}}
@@ -99,15 +99,15 @@
   </div>
 
   {{ with ($item.Params.publication | default $item.Params.publication_short) }}
-    <div class="pub-venue text-sm text-gray-700 dark:text-gray-300 italic mt-1">
+    <div class="pub-venue text-base text-gray-700 dark:text-gray-300 italic mt-1">
       {{ . | markdownify }}
     </div>
   {{ end }}
 
-  <div class="pub-actions flex flex-wrap gap-3 mt-2 text-sm">
+  <div class="pub-actions flex flex-wrap gap-2 mt-3">
     {{ with $pdf_url }}
       <a href="{{ . | safeURL }}" target="_blank" rel="noopener"
-         class="inline-flex items-center gap-1 text-primary-600 dark:text-primary-400 hover:underline">
+         class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-semibold bg-emerald-100 text-emerald-700 hover:bg-emerald-200 dark:bg-emerald-900/40 dark:text-emerald-300 dark:hover:bg-emerald-800/60 transition-colors">
         <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h7l5 5v11a2 2 0 01-2 2z"/>
         </svg>
@@ -115,7 +115,7 @@
       </a>
     {{ end }}
     <a href="#"
-       class="pub-cite-link inline-flex items-center gap-1 text-primary-600 dark:text-primary-400 hover:underline cursor-pointer"
+       class="pub-cite-link inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-semibold bg-blue-100 text-blue-700 hover:bg-blue-200 dark:bg-blue-900/40 dark:text-blue-300 dark:hover:bg-blue-800/60 transition-colors cursor-pointer"
        data-cite-text="{{ $bib_text }}"
        data-cite-filename="{{ $bib_filename }}">
       <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
