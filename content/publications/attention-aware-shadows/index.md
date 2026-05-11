@@ -3,7 +3,11 @@ title: 'Attention-Aware Temporal Adversarial Shadows on Traffic Sign Sequences'
 
 authors:
   - Pedram MohajerAnsari
+  - Amir Salarpour
   - me
+  - Cigdem Kokenoz
+  - Bing Li
+  - Mert D. Pesé
 
 date: '2025-06-01T00:00:00Z'
 publishDate: '2025-06-01T00:00:00Z'

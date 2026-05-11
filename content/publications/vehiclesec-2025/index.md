@@ -30,4 +30,6 @@ featured: true
 links:
   - type: pdf
     url: https://www.usenix.org/system/files/vehiclesec25-fernandez.pdf
+  - type: code
+    url: https://github.com/tigerseclab/VehicleSec25_LLM_Reasoning
 ---

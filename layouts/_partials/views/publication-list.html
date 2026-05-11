@@ -2,12 +2,16 @@
 {{ $year_value := $item.Params.event_start | default $item.Date }}
 {{ $year := (time $year_value).Format "2006" }}
 
-{{/* Resolve PDF link from front-matter `links` (type: pdf) or auto-detected resource */}}
+{{/* Resolve PDF and Code links from front-matter */}}
 {{ $pdf_url := "" }}
+{{ $code_url := "" }}
 {{ with $item.Params.links }}
   {{ range . }}
     {{ if eq (.type | default "") "pdf" }}
       {{ $pdf_url = .url }}
+    {{ end }}
+    {{ if eq (.type | default "") "code" }}
+      {{ $code_url = .url }}
     {{ end }}
   {{ end }}
 {{ end }}
@@ -112,6 +116,15 @@
           <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h7l5 5v11a2 2 0 01-2 2z"/>
         </svg>
         PDF
+      </a>
+    {{ end }}
+    {{ with $code_url }}
+      <a href="{{ . | safeURL }}" target="_blank" rel="noopener"
+         class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-semibold bg-orange-100 text-orange-700 hover:bg-orange-200 dark:bg-orange-900/40 dark:text-orange-300 dark:hover:bg-orange-800/60 transition-colors">
+        <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+        </svg>
+        Code
       </a>
     {{ end }}
     <a href="#"

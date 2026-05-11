@@ -28,6 +28,6 @@ tags:
 featured: true
 
 links:
-  - name: Code
-    url: https://github.com/David-FR/VLMsPatchAttack
+  - type: code
+    url: https://github.com/David-FR/MIRAGE_CLEAR
 ---

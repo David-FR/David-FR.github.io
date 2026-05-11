@@ -4,6 +4,8 @@ title: 'Small Language Models on the Edge for Real-World Agentic Systems in Indu
 authors:
   - Edward B. Duffy
   - me
+  - Alta de Waal
+  - Mert D. Pesé
 
 date: '2025-12-01T00:00:00Z'
 publishDate: '2025-12-01T00:00:00Z'

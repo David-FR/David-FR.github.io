@@ -3,7 +3,11 @@ title: 'David vs. Goliath: A Comparative Study of Different-Sized LLMs for Code 
 
 authors:
   - Philipp Bauerfeind
+  - Amir Salarpour
   - me
+  - Pedram MohajerAnsari
+  - Johannes Reschke
+  - Mert D. Pesé
 
 date: '2025-01-01T00:00:00Z'
 publishDate: '2025-01-01T00:00:00Z'
