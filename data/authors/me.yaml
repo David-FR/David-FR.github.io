@@ -46,11 +46,12 @@ links:
 
 interests:
   - Explainable AI (XAI)
-  - Large Language Models (LLMs)
-  - Vision Language Models (VLMs)
-  - Autonomous Vehicle Safety and Perception
-  - AI Security and Adversarial Robustness
-  - Multimodal Machine Learning
+  - Multimodal Foundation Model Architectures (LLMs & VLMs)
+  - AI Security and Adversarial Robustness in Autonomous Systems
+  - Agentic AI Systems and LLM Orchestration
+  - Autonomous Prompt Optimization and Meta-Learning
+  - Context-Aware AI Safety and Content Moderation
+  - Edge AI and On-Device Deployment
 
 education:
   - degree: PhD in Computer Science
