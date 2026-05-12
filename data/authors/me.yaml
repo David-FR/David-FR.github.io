@@ -22,10 +22,15 @@ bio: |
 
   As a member of Clemson's VIPR-GS Research Program, he develops
   hierarchical LLM reasoning frameworks and VLM evaluation systems for the
-  U.S. Army's Next Generation Combat Vehicle (NGCV) program. At BMW Group,
-  he builds AI production security frameworks and edge deployment systems.
-  His work focuses on robust, interpretable AI that bridges rigorous
-  research and real-world deployment.
+  U.S. Army's Next Generation Combat Vehicle (NGCV) program, focusing on
+  zero-shot reasoning and component-level explainability under real-world
+  deployment constraints.
+
+  At BMW Group, he designs agentic AI systems for enterprise environments,
+  building autonomous prompt optimization pipelines that enable continual
+  agent improvement without model retraining and context-aware moderation
+  frameworks that detect coordinated multi-turn adversarial attacks in
+  production deployments.
 
 affiliations:
   - name: Clemson University
