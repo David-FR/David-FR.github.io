@@ -29,4 +29,6 @@ featured: false
 links:
   - type: pdf
     url: https://arxiv.org/pdf/2510.14115
+  - type: doi
+    url: https://doi.org/10.48550/arXiv.2510.14115
 ---

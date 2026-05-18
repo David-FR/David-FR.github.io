@@ -32,4 +32,6 @@ links:
     url: https://arxiv.org/pdf/2603.08897
   - type: code
     url: https://github.com/David-FR/VLMsPatchAttack
+  - type: doi
+    url: https://doi.org/10.48550/arXiv.2603.08897
 ---

@@ -31,4 +31,6 @@ hugoblox:
 links:
   - type: pdf
     url: /files/publications/fernandez-2025-avoiding-the-crash.pdf
+  - type: doi
+    url: https://doi.org/10.4271/2025-01-8213
 ---

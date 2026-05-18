@@ -32,4 +32,6 @@ hugoblox:
 links:
   - type: pdf
     url: /files/publications/fernandez-2026-adversarial-transferability-vlm.pdf
+  - type: doi
+    url: https://doi.org/10.4271/2026-01-0170
 ---

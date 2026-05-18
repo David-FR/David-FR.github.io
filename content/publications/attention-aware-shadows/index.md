@@ -31,4 +31,6 @@ links:
     url: https://openaccess.thecvf.com/content/CVPR2025W/AdvML/papers/MohajerAnsari_Attention-Aware_Temporal_Adversarial_Shadows_on_Traffic_Sign_Sequences_CVPRW_2025_paper.pdf
   - type: code
     url: https://github.com/pedram-mohajer/ShadowSeq
+  - type: doi
+    url: https://doi.org/10.1109/CVPRW67362.2025.00344
 ---
