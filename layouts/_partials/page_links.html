@@ -49,6 +49,8 @@
   {{ $bib_text = .Content }}
 {{ end }}
 
+{{ $seen_urls := slice }}
+{{ $seen_types := slice }}
 <div class="flex flex-wrap gap-2 mt-1">
 {{ range $built }}
   {{ if in .contexts $ctx }}
@@ -68,79 +70,105 @@
       {{ $rel = $rel | append "noopener" }}
     {{ end }}
 
-    {{ $label := .label }}
-    {{ $fallbackByKey := dict
-      "btn_pdf" "PDF"
-      "btn_preprint" "Preprint"
-      "btn_doi" "DOI"
-      "btn_code" "Code"
-      "btn_dataset" "Dataset"
-      "btn_model" "Model"
-      "btn_slides" "Slides"
-      "btn_video" "Video"
-      "btn_poster" "Poster"
-      "btn_project" "Project"
-      "btn_site" "Site"
-      "btn_source" "Source Document"
-      "btn_canonical" "Canonical"
-      "btn_crosspost" "Crosspost"
-      "btn_discussion" "Discussion"
-      "btn_event" "Event"
-      "btn_calendar" "Calendar"
-      "btn_registration" "Registration"
-      "btn_demo" "Demo"
-      "btn_cite" "Cite"
-    }}
-    {{ with .labelKey }}
-      {{ if not $label }}
-        {{ $label = (i18n .) | default (index $fallbackByKey .) | default "Link" }}
-      {{ end }}
-    {{ end }}
-    {{ if not $label }}{{ $label = "Link" }}{{ end }}
-
     {{ $type := .type }}
 
-    {{ if eq $type "pdf" }}
-      <a href="{{ $url | safeURL }}" {{ $target | safeHTMLAttr }} {{ with $rel }}rel="{{ delimit . " " }}"{{ end }}
-         class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-semibold bg-emerald-100 text-emerald-700 hover:bg-emerald-200 dark:bg-emerald-900/40 dark:text-emerald-300 dark:hover:bg-emerald-800/60 transition-colors">
-        <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h7l5 5v11a2 2 0 01-2 2z"/>
-        </svg>
-        {{ $label }}
-      </a>
-    {{ else if eq $type "doi" }}
-      <a href="{{ $url | safeURL }}" {{ $target | safeHTMLAttr }} {{ with $rel }}rel="{{ delimit . " " }}"{{ end }}
-         class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-semibold bg-violet-100 text-violet-700 hover:bg-violet-200 dark:bg-violet-900/40 dark:text-violet-300 dark:hover:bg-violet-800/60 transition-colors">
-        <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
-        </svg>
-        {{ $label }}
-      </a>
-    {{ else if eq $type "code" }}
-      <a href="{{ $url | safeURL }}" {{ $target | safeHTMLAttr }} {{ with $rel }}rel="{{ delimit . " " }}"{{ end }}
-         class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-semibold bg-orange-100 text-orange-700 hover:bg-orange-200 dark:bg-orange-900/40 dark:text-orange-300 dark:hover:bg-orange-800/60 transition-colors">
-        <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-        </svg>
-        {{ $label }}
-      </a>
-    {{ else if eq $type "bibtex" }}
-      {{/* skip — we render our own Cite button below */}}
-    {{ else }}
-      <a href="{{ $url | safeURL }}" {{ $target | safeHTMLAttr }} {{ with $rel }}rel="{{ delimit . " " }}"{{ end }}
-         class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-semibold bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700 transition-colors">
-        {{ $label }}
-      </a>
+    {{/* Deduplicate buttons (especially double DOI links) */}}
+    {{ $should_render := true }}
+    {{ if in $seen_urls $url }}
+      {{ $should_render = false }}
+    {{ else if and (eq $type "doi") (in $seen_types "doi") }}
+      {{ $should_render = false }}
+    {{ end }}
+
+    {{ if $should_render }}
+      {{ $seen_urls = $seen_urls | append $url }}
+      {{ if eq $type "doi" }}
+        {{ $seen_types = $seen_types | append "doi" }}
+      {{ end }}
+
+      {{ $label := .label }}
+      {{ $fallbackByKey := dict
+        "btn_pdf" "PDF"
+        "btn_preprint" "Preprint"
+        "btn_doi" "DOI"
+        "btn_code" "Code"
+        "btn_dataset" "Dataset"
+        "btn_model" "Model"
+        "btn_slides" "Slides"
+        "btn_video" "Video"
+        "btn_poster" "Poster"
+        "btn_project" "Project"
+        "btn_site" "Site"
+        "btn_source" "Source Document"
+        "btn_canonical" "Canonical"
+        "btn_crosspost" "Crosspost"
+        "btn_discussion" "Discussion"
+        "btn_event" "Event"
+        "btn_calendar" "Calendar"
+        "btn_registration" "Registration"
+        "btn_demo" "Demo"
+        "btn_cite" "Cite"
+      }}
+      {{ with .labelKey }}
+        {{ if not $label }}
+          {{ $label = (i18n .) | default (index $fallbackByKey .) | default "Link" }}
+        {{ end }}
+      {{ end }}
+      {{ if not $label }}{{ $label = "Link" }}{{ end }}
+
+      {{ if eq $type "pdf" }}
+        <a href="{{ $url | safeURL }}" {{ $target | safeHTMLAttr }} {{ with $rel }}rel="{{ delimit . " " }}"{{ end }}
+           class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-slate-50/60 dark:bg-slate-900/40 hover:bg-slate-100/80 dark:hover:bg-slate-800/60 text-slate-800 dark:text-slate-200 border border-slate-200/20 dark:border-slate-800/30 backdrop-blur-md transition-all duration-300 transform hover:scale-[1.03] hover:shadow-lg">
+          <svg class="h-4 w-4 text-emerald-500 dark:text-emerald-400 drop-shadow-[0_0_8px_rgba(16,185,129,0.4)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h7l5 5v11a2 2 0 01-2 2z"/>
+          </svg>
+          {{ $label }}
+        </a>
+      {{ else if eq $type "doi" }}
+        <a href="{{ $url | safeURL }}" {{ $target | safeHTMLAttr }} {{ with $rel }}rel="{{ delimit . " " }}"{{ end }}
+           class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-slate-50/60 dark:bg-slate-900/40 hover:bg-slate-100/80 dark:hover:bg-slate-800/60 text-slate-800 dark:text-slate-200 border border-slate-200/20 dark:border-slate-800/30 backdrop-blur-md transition-all duration-300 transform hover:scale-[1.03] hover:shadow-lg">
+          <svg class="h-4 w-4 text-violet-500 dark:text-violet-400 drop-shadow-[0_0_8px_rgba(139,92,246,0.4)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+          </svg>
+          {{ $label }}
+        </a>
+      {{ else if eq $type "code" }}
+        <a href="{{ $url | safeURL }}" {{ $target | safeHTMLAttr }} {{ with $rel }}rel="{{ delimit . " " }}"{{ end }}
+           class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-slate-50/60 dark:bg-slate-900/40 hover:bg-slate-100/80 dark:hover:bg-slate-800/60 text-slate-800 dark:text-slate-200 border border-slate-200/20 dark:border-slate-800/30 backdrop-blur-md transition-all duration-300 transform hover:scale-[1.03] hover:shadow-lg">
+          <svg class="h-4 w-4 text-orange-500 dark:text-orange-400 drop-shadow-[0_0_8px_rgba(249,115,22,0.4)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+          </svg>
+          {{ $label }}
+        </a>
+      {{ else if eq $type "award" }}
+        <a href="{{ $url | safeURL }}" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-amber-500/10 hover:bg-amber-500/20 text-amber-600 dark:text-amber-400 border border-amber-500/30 dark:border-amber-400/40 backdrop-blur-md transition-all duration-300 transform hover:scale-[1.03] hover:shadow-lg hover:shadow-amber-500/20">
+          <svg class="h-4 w-4 drop-shadow-[0_0_8px_rgba(245,158,11,0.6)]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+          {{ $label }}
+        </a>
+      {{ else if eq $type "bibtex" }}
+        {{/* skip — we render our own Cite button below */}}
+      {{ else }}
+        <a href="{{ $url | safeURL }}" {{ $target | safeHTMLAttr }} {{ with $rel }}rel="{{ delimit . " " }}"{{ end }}
+           class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-slate-50/60 dark:bg-slate-900/40 hover:bg-slate-100/80 dark:hover:bg-slate-800/60 text-slate-800 dark:text-slate-200 border border-slate-200/20 dark:border-slate-800/30 backdrop-blur-md transition-all duration-300 transform hover:scale-[1.03] hover:shadow-lg">
+          <svg class="h-4 w-4 text-indigo-500 dark:text-indigo-400 drop-shadow-[0_0_8px_rgba(99,102,241,0.4)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+          </svg>
+          {{ $label }}
+        </a>
+      {{ end }}
     {{ end }}
   {{ end }}
 {{ end }}
 
 {{/* Always render Cite button using BibTeX from frontmatter */}}
 <a href="#"
-   class="pub-cite-link-single inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-semibold bg-blue-100 text-blue-700 hover:bg-blue-200 dark:bg-blue-900/40 dark:text-blue-300 dark:hover:bg-blue-800/60 transition-colors cursor-pointer"
+   class="pub-cite-link-single inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-slate-50/60 dark:bg-slate-900/40 hover:bg-slate-100/80 dark:hover:bg-slate-800/60 text-slate-800 dark:text-slate-200 border border-slate-200/20 dark:border-slate-800/30 backdrop-blur-md transition-all duration-300 transform hover:scale-[1.03] hover:shadow-lg cursor-pointer"
    data-cite-text="{{ $bib_text }}"
    data-cite-filename="{{ $bib_filename }}">
-  <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+  <svg class="h-4 w-4 text-blue-500 dark:text-blue-400 drop-shadow-[0_0_8px_rgba(59,130,246,0.4)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
     <path stroke-linecap="round" stroke-linejoin="round" d="M7 7h3v3H7zM14 7h3v3h-3zM7 7c0 4 0 6-3 8m10-8c0 4 0 6-3 8"/>
   </svg>
   Cite
