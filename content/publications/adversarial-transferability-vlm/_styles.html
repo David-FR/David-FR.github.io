@@ -1,0 +1,75 @@
+<style>
+/* ── Scroll-reveal: scenario cards & methodology phases ── */
+@keyframes adv-card-up {
+  from { opacity: 0; transform: translateY(18px) }
+  to   { opacity: 1; transform: translateY(0) }
+}
+@media screen {
+  .adv-scenario .adv-img    { opacity: 0; transform: translateY(18px) }
+  .adv-scenario .adv-matrix { opacity: 0; transform: translateY(14px) }
+}
+@media screen and (prefers-reduced-motion: no-preference) {
+  .adv-scenario.adv-visible .adv-img    { animation: adv-card-up .6s .1s ease forwards }
+  .adv-scenario.adv-visible .adv-matrix { animation: adv-card-up .5s .4s ease forwards }
+}
+@media screen and (prefers-reduced-motion: reduce) {
+  .adv-scenario.adv-visible .adv-img,
+  .adv-scenario.adv-visible .adv-matrix { opacity: 1; transform: none; transition: opacity .2s ease }
+}
+
+/* ── Methodology pipeline phase reveal ── */
+@media screen {
+  .adv-pipe-phase { opacity: 0; transform: translateY(12px) }
+}
+@media screen and (prefers-reduced-motion: no-preference) {
+  .adv-pipe-phase.adv-visible { animation: adv-card-up .45s ease forwards }
+}
+@media screen and (prefers-reduced-motion: reduce) {
+  .adv-pipe-phase.adv-visible { opacity: 1; transform: none; transition: opacity .15s ease }
+}
+
+/* ── Threat model: normal car (drives through safely) ── */
+@keyframes adv-safe {
+  from { transform: translateX(100vw) }
+  to   { transform: translateX(-20vw) }
+}
+
+/* ── Threat model: crash car (sees patch, veers, stops) ── */
+/* Uses left:% so the stop position is container-relative and aligns with the flash */
+@keyframes adv-crash-drive {
+  0%   { left: 110%; opacity: 1   }
+  60%  { left: 65%;  opacity: 1   }
+  78%  { left: 30%;  opacity: 1   }
+  83%  { left: 29%;  opacity: .85 }
+  92%  { left: 29%;  opacity: .2  }
+  100% { left: 29%;  opacity: 0   }
+}
+
+/* ── Threat model: red burst at crash point ── */
+@keyframes adv-flash {
+  0%, 76% { opacity: 0; transform: translate(-50%, -50%) scale(0) }
+  78%     { opacity: 1; transform: translate(-50%, -50%) scale(.5) }
+  82%     { opacity: 1; transform: translate(-50%, -50%) scale(2)  }
+  89%     { opacity: 0; transform: translate(-50%, -50%) scale(2.5)}
+  100%    { opacity: 0 }
+}
+
+.adv-car-safe  {
+  position: absolute; left: 0; will-change: transform;
+  animation: adv-safe 7s linear infinite;
+}
+.adv-car-crash {
+  position: absolute; left: 110%; will-change: left, opacity;
+  animation: adv-crash-drive 11s ease-in-out infinite;
+}
+.adv-flash {
+  position: absolute; pointer-events: none;
+  animation: adv-flash 11s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .adv-car-safe  { animation: none; transform: translateX(60vw) }
+  .adv-car-crash { animation: none; left: 30% }
+  .adv-flash     { display: none }
+}
+</style>

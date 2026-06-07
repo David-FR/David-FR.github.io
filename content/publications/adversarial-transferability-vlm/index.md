@@ -25,6 +25,14 @@ tags:
 
 featured: true
 
+image:
+  preview_only: true
+
+key_takeaways:
+  - "Adversarial patches transfer across VLM architectures with **73–91% success rate**; attackers need no knowledge of the deployed model to mount effective attacks."
+  - "Introduces a **Transfer Matrix** framework revealing that CLIP-based vision encoders (Dolphins, LeapVAD) drive stronger bidirectional transferability than EVA-CLIP (OmniDrive)."
+  - "Attacks persist across **64–79% of frames** throughout the critical decision window, too sustained for temporal filtering or ensemble defenses to reliably mitigate."
+
 hugoblox:
   ids:
     doi: 10.4271/2026-01-0170
@@ -35,3 +43,10 @@ links:
   - type: doi
     url: https://doi.org/10.4271/2026-01-0170
 ---
+
+{{< pub-html "_styles.html" >}}
+{{< pub-html "_intro.html" >}}
+{{< pub-html "_threat.html" >}}
+{{< pub-html "_methodology.html" >}}
+{{< pub-html "_results.html" >}}
+{{< pub-html "_footer.html" >}}
