@@ -115,7 +115,7 @@ To browse other blocks/views: previews live under `~/Library/Caches/hugo_cache/m
 ## Updating site identity
 
 - Name, tagline, description: `config/_default/params.yaml` under `hugoblox.identity`
-- baseURL: `config/_default/hugo.yaml` (currently `https://david-fr.github.io/`)
+- baseURL: `config/_default/hugo.yaml` (currently `https://davidferna.com/`)
 - Custom domain: also add `static/CNAME` containing the domain
 
 ## Removed starter content

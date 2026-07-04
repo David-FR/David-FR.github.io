@@ -76,7 +76,7 @@
 - **Title:** David vs. Goliath: A comparative study of different-sized LLMs for code generation in the domain of automotive scenario generation
 - **Authors:** Philipp Bauerfeind et al. (co-author)
 - **Venue:** arXiv preprint (2025)
-- **Link:** https://arxiv.org/abs/2603.08897
+- **Link:** https://arxiv.org/abs/2510.14115
 - **Status:** Preprint
 
 ### 8. Understanding Adversarial Transferability in VLMs
@@ -91,6 +91,13 @@
 - **Authors:** Pedram MohajerAnsari et al. (co-author)
 - **Venue:** IEEE/CVF CVPR Workshops, pp. 3600-3608 -- June 2025
 - **Link:** https://openaccess.thecvf.com/content/CVPR2025W/AdvML/papers/MohajerAnsari_Attention-Aware_Temporal_Adversarial_Shadows_on_Traffic_Sign_Sequences_CVPRW_2025_paper.pdf
+- **Status:** Published
+
+### 9. Comparative Analysis of Patch Attack on VLM-Based Autonomous Driving Architectures
+- **Title:** Comparative Analysis of Patch Attack on VLM-Based Autonomous Driving Architectures
+- **Authors:** David Fernandez, Pedram MohajerAnsari, Amir Salarpour, Long Cheng, Abolfazl Razi, Mert D. Pesé
+- **Venue:** 2026 IEEE Intelligent Vehicles Symposium (IV)
+- **Link:** https://arxiv.org/pdf/2603.08897
 - **Status:** Published
 
 ---
