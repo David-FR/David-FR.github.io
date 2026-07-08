@@ -142,46 +142,321 @@
   </div>
 </div>
 
-<div style="grid-column:1/-1;position:relative;height:3.5rem;margin:-.1rem 0;">
-  <svg viewBox="0 0 300 56" style="width:100%;height:100%;display:block;" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <line x1="150" y1="0" x2="150" y2="20" stroke="rgba(59,130,246,.5)" stroke-width="1.5"/>
-    <line x1="50" y1="20" x2="250" y2="20" stroke="rgba(99,102,241,.4)" stroke-width="1.5"/>
-    <line x1="50" y1="20" x2="50" y2="50" stroke="rgba(99,102,241,.5)" stroke-width="1.5"/>
-    <line x1="150" y1="20" x2="150" y2="50" stroke="rgba(99,102,241,.5)" stroke-width="1.5"/>
-    <line x1="250" y1="20" x2="250" y2="50" stroke="rgba(99,102,241,.5)" stroke-width="1.5"/>
-    <polygon points="46,46 50,54 54,46" fill="rgba(99,102,241,.6)"/>
-    <polygon points="146,46 150,54 154,46" fill="rgba(99,102,241,.6)"/>
-    <polygon points="246,46 250,54 254,46" fill="rgba(99,102,241,.6)"/>
-  </svg>
+<div style="grid-column:1/-1;display:flex;flex-direction:column;align-items:center;padding:.2rem 0;">
+  <div style="width:1.5px;height:1.1rem;background:linear-gradient(to bottom,rgba(59,130,246,.55),rgba(99,102,241,.3));"></div>
+  <span style="font-size:.6rem;color:rgba(129,140,248,.85);letter-spacing:.06em;padding:.15rem .5rem;white-space:nowrap;background:rgba(99,102,241,.06);border:1px solid rgba(99,102,241,.2);border-radius:.3rem;">Patched driving frames &nbsp;&rarr;&nbsp; fed to all three VLM architectures</span>
+  <div style="width:1.5px;height:1.1rem;background:linear-gradient(to bottom,rgba(99,102,241,.3),rgba(99,102,241,.55));"></div>
+  <svg width="10" height="6" viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg"><polygon points="0,0 10,0 5,6" fill="rgba(99,102,241,.65)"/></svg>
 </div>
 
 <div class="adv-pipe-phase" style="grid-column:1/-1;border-radius:1rem;border:1px solid rgba(99,102,241,.25);background:rgba(99,102,241,.04);overflow:hidden;">
-  <div style="padding:.7rem 1rem;border-bottom:1px solid rgba(99,102,241,.12);">
-    <div style="font-size:.6rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#818cf8;margin-bottom:.15rem;">Phase 03 &nbsp;&middot;&nbsp; VLM Inference</div>
-    <div style="font-size:.8rem;font-weight:600;color:#e2e8f0;">Three architectures receive the patched scene and produce driving decisions</div>
-  </div>
-  <div style="padding:.875rem 1rem;">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.75rem;">
-<div style="border-radius:.875rem;border:2px solid rgba(99,102,241,.4);background:rgba(99,102,241,.07);overflow:hidden;"><div style="padding:.5rem .75rem;background:rgba(99,102,241,.13);border-bottom:1px solid rgba(99,102,241,.12);display:flex;align-items:center;justify-content:space-between;gap:.4rem;"><div><div style="font-size:.9rem;font-weight:700;color:#e2e8f0;">Dolphins</div><div style="font-size:.58rem;color:#818cf8;margin-top:.05rem;">OpenFlamingo-based</div></div><span style="flex-shrink:0;font-size:.55rem;font-weight:700;background:#6366f1;color:#fff;border-radius:9999px;padding:.1rem .4rem;letter-spacing:.04em;">CLIP shared</span></div><div style="padding:.375rem .75rem .25rem;border-bottom:1px solid rgba(99,102,241,.1);"><svg viewBox="0 0 200 222" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;"><rect x="20" y="3" width="160" height="18" rx="3" fill="rgba(99,102,241,.12)" stroke="rgba(99,102,241,.35)" stroke-width="1.1"/><text x="100" y="15" text-anchor="middle" font-size="6.5" font-weight="bold" fill="#818cf8">Multi-frame video input</text><line x1="100" y1="21" x2="100" y2="39" stroke="#6366f1" stroke-width="1.8" opacity=".78"/><polygon points="96,39 100,47 104,39" fill="#6366f1" opacity=".82"/><rect x="16" y="47" width="168" height="30" rx="3" fill="rgba(99,102,241,.16)" stroke="#6366f1" stroke-width="1.2"/><text x="100" y="60" text-anchor="middle" font-size="7.5" font-weight="bold" fill="#a5b4fc">CLIP ViT-L/14</text><text x="100" y="69" text-anchor="middle" font-size="5.5" fill="#64748b">InfoNCE contrastive · 24 layers · 1024-d</text><line x1="100" y1="77" x2="100" y2="80" stroke="#6366f1" stroke-width="1.4" opacity=".65"/><polygon points="97,80 100,84 103,80" fill="#6366f1" opacity=".72"/><rect x="30" y="84" width="140" height="10" rx="2" fill="rgba(139,92,246,.12)" stroke="#8b5cf6" stroke-width=".8"/><text x="100" y="91" text-anchor="middle" font-size="5" fill="#c4b5fd">Perceiver Resampler · compresses visual tokens</text><line x1="100" y1="94" x2="100" y2="97" stroke="#6366f1" stroke-width="1.4" opacity=".65"/><polygon points="97,97 100,101 103,97" fill="#6366f1" opacity=".72"/><rect x="2" y="101" width="196" height="24" rx="3" fill="rgba(99,102,241,.11)" stroke="rgba(99,102,241,.42)" stroke-width="1.1"/><text x="100" y="112" text-anchor="middle" font-size="7" font-weight="bold" fill="#818cf8">Cross-attention (Flamingo)</text><text x="100" y="120" text-anchor="middle" font-size="5.5" fill="#64748b">Q: lang tokens · KV: visual features · GCoT</text><line x1="100" y1="125" x2="100" y2="143" stroke="#6366f1" stroke-width="1.8" opacity=".78"/><polygon points="96,143 100,151 104,143" fill="#6366f1" opacity=".82"/><rect x="2" y="151" width="196" height="36" rx="3" fill="rgba(99,102,241,.14)" stroke="#6366f1" stroke-width="1.1"/><text x="100" y="165" text-anchor="middle" font-size="7.5" font-weight="bold" fill="#a5b4fc">MPT-7B</text><text x="100" y="174" text-anchor="middle" font-size="5.5" fill="#64748b">6.7B params · frozen LM</text><text x="100" y="182" text-anchor="middle" font-size="5.5" fill="#64748b">Grounded Chain-of-Thought</text><line x1="100" y1="187" x2="100" y2="201" stroke="#6366f1" stroke-width="1.8" opacity=".78"/><polygon points="96,201 100,209 104,201" fill="#6366f1" opacity=".82"/><rect x="12" y="209" width="176" height="13" rx="3" fill="rgba(99,102,241,.22)" stroke="#6366f1" stroke-width=".9"/><text x="100" y="218" text-anchor="middle" font-size="6" font-weight="bold" fill="#c7d2fe">Grounded Chain-of-Thought output</text></svg></div><div style="padding:.5rem .75rem;"><div style="font-size:.56rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#6366f1;margin-bottom:.12rem;">Vision Encoder</div><div style="font-size:.78rem;font-weight:700;color:#c7d2fe;">CLIP ViT-L/14</div><div style="font-size:.63rem;color:#64748b;line-height:1.4;margin-top:.08rem;">InfoNCE contrastive &nbsp;&middot;&nbsp; 24 layers &nbsp;&middot;&nbsp; 1024-d</div></div><div style="text-align:center;font-size:.6rem;color:#818cf8;padding:.08rem .75rem;">&#8595; Perceiver Resampler</div><div style="padding:.5rem .75rem;border-top:1px solid rgba(99,102,241,.1);"><div style="font-size:.56rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#6366f1;margin-bottom:.12rem;">Connector</div><div style="font-size:.78rem;font-weight:700;color:#c7d2fe;">Cross-attention (Flamingo)</div><div style="font-size:.63rem;color:#64748b;line-height:1.4;margin-top:.08rem;">Q: language tokens &nbsp;&middot;&nbsp; KV: visual features &nbsp;&middot;&nbsp; GCoT</div></div><div style="text-align:center;font-size:.6rem;color:#818cf8;padding:.08rem .75rem;">&#8595;</div><div style="padding:.5rem .75rem;border-top:1px solid rgba(99,102,241,.1);"><div style="font-size:.56rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#6366f1;margin-bottom:.12rem;">Language Model</div><div style="font-size:.78rem;font-weight:700;color:#c7d2fe;">MPT-7B</div><div style="font-size:.63rem;color:#64748b;line-height:1.4;margin-top:.08rem;">6.7B params &nbsp;&middot;&nbsp; Grounded Chain of Thought</div></div></div>
-<div style="border-radius:.875rem;border:1px solid rgba(148,163,184,.2);background:rgba(148,163,184,.04);overflow:hidden;"><div style="padding:.5rem .75rem;background:rgba(148,163,184,.07);border-bottom:1px solid rgba(148,163,184,.1);display:flex;align-items:center;justify-content:space-between;gap:.4rem;"><div><div style="font-size:.9rem;font-weight:700;color:#e2e8f0;">OmniDrive</div><div style="font-size:.58rem;color:#64748b;margin-top:.05rem;">Omni-L &amp; Omni-Q variants</div></div><span style="flex-shrink:0;font-size:.55rem;font-weight:600;color:#64748b;border:1px solid rgba(148,163,184,.3);border-radius:9999px;padding:.1rem .4rem;">Distinct</span></div><div style="padding:.375rem .75rem .25rem;border-bottom:1px solid rgba(148,163,184,.08);"><svg viewBox="0 0 200 222" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;"><rect x="8" y="4" width="34" height="18" rx="2" fill="rgba(148,163,184,.08)" stroke="rgba(148,163,184,.3)" stroke-width="1"/><text x="25" y="15" text-anchor="middle" font-size="5.5" fill="#94a3b8">Cam 1</text><rect x="83" y="4" width="34" height="18" rx="2" fill="rgba(148,163,184,.08)" stroke="rgba(148,163,184,.3)" stroke-width="1"/><text x="100" y="15" text-anchor="middle" font-size="5.5" fill="#94a3b8">Cam 2</text><rect x="158" y="4" width="34" height="18" rx="2" fill="rgba(148,163,184,.08)" stroke="rgba(148,163,184,.3)" stroke-width="1"/><text x="175" y="15" text-anchor="middle" font-size="5.5" fill="#94a3b8">Cam N</text><text x="62" y="14" text-anchor="middle" font-size="9" fill="#475569" opacity=".7">···</text><text x="138" y="14" text-anchor="middle" font-size="9" fill="#475569" opacity=".7">···</text><line x1="25" y1="22" x2="96" y2="39" stroke="#64748b" stroke-width="1.4" opacity=".55"/><line x1="100" y1="22" x2="100" y2="39" stroke="#64748b" stroke-width="1.4" opacity=".55"/><line x1="175" y1="22" x2="104" y2="39" stroke="#64748b" stroke-width="1.4" opacity=".55"/><polygon points="96,39 100,47 104,39" fill="#64748b" opacity=".72"/><rect x="16" y="47" width="168" height="30" rx="3" fill="rgba(148,163,184,.11)" stroke="rgba(148,163,184,.45)" stroke-width="1.2"/><text x="100" y="60" text-anchor="middle" font-size="7.5" font-weight="bold" fill="#cbd5e1">EVA-02-L</text><text x="100" y="69" text-anchor="middle" font-size="5.5" fill="#64748b">MIM distills CLIP · multi-view N×C×H×W · 3D pos.</text><line x1="100" y1="77" x2="100" y2="93" stroke="#64748b" stroke-width="1.8" opacity=".72"/><polygon points="96,93 100,101 104,93" fill="#64748b" opacity=".78"/><rect x="2" y="101" width="90" height="24" rx="3" fill="rgba(148,163,184,.07)" stroke="rgba(148,163,184,.3)" stroke-width="1"/><text x="47" y="112" text-anchor="middle" font-size="6.5" font-weight="bold" fill="#94a3b8">MLP (Omni-L)</text><text x="47" y="120" text-anchor="middle" font-size="5" fill="#64748b">linear · LLaVA-style</text><rect x="108" y="101" width="90" height="24" rx="3" fill="rgba(148,163,184,.09)" stroke="rgba(148,163,184,.32)" stroke-width="1"/><text x="153" y="112" text-anchor="middle" font-size="6.5" font-weight="bold" fill="#94a3b8">Q-Former (Omni-Q)</text><text x="153" y="120" text-anchor="middle" font-size="5" fill="#64748b">carrier + perception queries</text><line x1="47" y1="125" x2="96" y2="143" stroke="#64748b" stroke-width="1.4" opacity=".55"/><line x1="153" y1="125" x2="104" y2="143" stroke="#64748b" stroke-width="1.4" opacity=".55"/><polygon points="96,143 100,151 104,143" fill="#64748b" opacity=".72"/><rect x="16" y="151" width="168" height="36" rx="3" fill="rgba(148,163,184,.13)" stroke="rgba(148,163,184,.48)" stroke-width="1.2"/><text x="100" y="165" text-anchor="middle" font-size="7.5" font-weight="bold" fill="#cbd5e1">LLaMA2-7B</text><text x="100" y="174" text-anchor="middle" font-size="5.5" fill="#64748b">4096-d embeddings · causal decoder</text><text x="100" y="182" text-anchor="middle" font-size="5.5" fill="#64748b">3D detection + language tasks</text><line x1="60" y1="187" x2="44" y2="201" stroke="#64748b" stroke-width="1.3" opacity=".5"/><polygon points="40,201 44,209 48,201" fill="#64748b" opacity=".62"/><line x1="140" y1="187" x2="156" y2="201" stroke="#64748b" stroke-width="1.3" opacity=".5"/><polygon points="152,201 156,209 160,201" fill="#64748b" opacity=".62"/><text x="44" y="218" text-anchor="middle" font-size="5.5" fill="#94a3b8">3D detection</text><text x="156" y="218" text-anchor="middle" font-size="5.5" fill="#94a3b8">language output</text></svg></div><div style="padding:.5rem .75rem;"><div style="font-size:.56rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#64748b;margin-bottom:.12rem;">Vision Encoder</div><div style="font-size:.78rem;font-weight:700;color:#cbd5e1;">EVA-02-L</div><div style="font-size:.63rem;color:#64748b;line-height:1.4;margin-top:.08rem;">MIM distills CLIP &nbsp;&middot;&nbsp; multi-view N&times;C&times;H&times;W &nbsp;&middot;&nbsp; 3D pos. enc.</div></div><div style="text-align:center;font-size:.6rem;color:#64748b;padding:.08rem .75rem;">&#8595; projected features</div><div style="padding:.5rem .75rem;border-top:1px solid rgba(148,163,184,.08);"><div style="font-size:.56rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#64748b;margin-bottom:.12rem;">Connector</div><div style="font-size:.78rem;font-weight:700;color:#cbd5e1;">MLP <span style="font-weight:400;font-size:.7rem;color:#64748b;">or</span> Q-Former</div><div style="font-size:.63rem;color:#64748b;line-height:1.4;margin-top:.08rem;">Omni-L: linear (LLaVA-style) &nbsp;&middot;&nbsp; Omni-Q: carrier + perception queries</div></div><div style="text-align:center;font-size:.6rem;color:#64748b;padding:.08rem .75rem;">&#8595;</div><div style="padding:.5rem .75rem;border-top:1px solid rgba(148,163,184,.08);"><div style="font-size:.56rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#64748b;margin-bottom:.12rem;">Language Model</div><div style="font-size:.78rem;font-weight:700;color:#cbd5e1;">LLaMA2-7B</div><div style="font-size:.63rem;color:#64748b;line-height:1.4;margin-top:.08rem;">4096-d embeddings &nbsp;&middot;&nbsp; 3D detection + language tasks</div></div></div>
-<div style="border-radius:.875rem;border:2px solid rgba(99,102,241,.4);background:rgba(99,102,241,.07);overflow:hidden;"><div style="padding:.5rem .75rem;background:rgba(99,102,241,.13);border-bottom:1px solid rgba(99,102,241,.12);display:flex;align-items:center;justify-content:space-between;gap:.4rem;"><div><div style="font-size:.9rem;font-weight:700;color:#e2e8f0;">LeapVAD</div><div style="font-size:.58rem;color:#818cf8;margin-top:.05rem;">Dual-process system</div></div><span style="flex-shrink:0;font-size:.55rem;font-weight:700;background:#6366f1;color:#fff;border-radius:9999px;padding:.1rem .4rem;letter-spacing:.04em;">CLIP shared</span></div><div style="padding:.375rem .75rem .25rem;border-bottom:1px solid rgba(99,102,241,.1);"><svg viewBox="0 0 200 222" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;"><rect x="44" y="3" width="112" height="18" rx="3" fill="rgba(99,102,241,.12)" stroke="rgba(99,102,241,.35)" stroke-width="1.1"/><text x="100" y="15" text-anchor="middle" font-size="6.5" font-weight="bold" fill="#818cf8">Multi-view · multi-frame input</text><line x1="75" y1="21" x2="48" y2="39" stroke="#6366f1" stroke-width="1.4" opacity=".6"/><line x1="125" y1="21" x2="152" y2="39" stroke="#6366f1" stroke-width="1.4" opacity=".6"/><polygon points="45,39 48,47 51,39" fill="#6366f1" opacity=".72"/><polygon points="149,39 152,47 155,39" fill="#6366f1" opacity=".72"/><rect x="2" y="47" width="90" height="30" rx="3" fill="rgba(99,102,241,.13)" stroke="#6366f1" stroke-width="1.1"/><text x="47" y="60" text-anchor="middle" font-size="6.5" font-weight="bold" fill="#a5b4fc">Qwen-VL-7B</text><text x="47" y="69" text-anchor="middle" font-size="5" fill="#64748b">CLIP-based ViT · scene VLM</text><rect x="108" y="47" width="90" height="30" rx="3" fill="rgba(99,102,241,.1)" stroke="#818cf8" stroke-width="1"/><text x="153" y="59" text-anchor="middle" font-size="6.5" font-weight="bold" fill="#a5b4fc">Scene Encoder</text><text x="153" y="68" text-anchor="middle" font-size="5" fill="#64748b">256-d · ACT 128 + ACC 128</text><line x1="47" y1="77" x2="47" y2="93" stroke="#6366f1" stroke-width="1.8" opacity=".78"/><polygon points="43,93 47,101 51,93" fill="#6366f1" opacity=".82"/><line x1="153" y1="77" x2="153" y2="93" stroke="#818cf8" stroke-width="1.8" opacity=".78"/><polygon points="149,93 153,101 157,93" fill="#818cf8" opacity=".82"/><rect x="2" y="101" width="90" height="24" rx="3" fill="rgba(99,102,241,.07)" stroke="rgba(99,102,241,.22)" stroke-width=".9"/><text x="47" y="113" text-anchor="middle" font-size="5.5" fill="#818cf8">scene description</text><rect x="108" y="101" width="90" height="24" rx="3" fill="rgba(99,102,241,.09)" stroke="rgba(99,102,241,.25)" stroke-width=".9"/><text x="153" y="111" text-anchor="middle" font-size="5.5" fill="#818cf8">Memory Bank</text><text x="153" y="119" text-anchor="middle" font-size="4.5" fill="#64748b">top-k cosine retrieval</text><line x1="65" y1="125" x2="96" y2="143" stroke="#6366f1" stroke-width="1.4" opacity=".6"/><line x1="135" y1="125" x2="104" y2="143" stroke="#6366f1" stroke-width="1.4" opacity=".6"/><polygon points="96,143 100,151 104,143" fill="#6366f1" opacity=".72"/><rect x="2" y="151" width="90" height="36" rx="3" fill="rgba(139,92,246,.15)" stroke="#8b5cf6" stroke-width="1.1"/><text x="47" y="166" text-anchor="middle" font-size="6.5" font-weight="bold" fill="#c4b5fd">Sys-II: GPT-4o</text><text x="47" y="175" text-anchor="middle" font-size="5" fill="#64748b">analytical · logical</text><line x1="96" y1="151" x2="96" y2="187" stroke="rgba(99,102,241,.2)" stroke-width="1"/><rect x="108" y="151" width="90" height="36" rx="3" fill="rgba(99,102,241,.11)" stroke="#6366f1" stroke-width="1"/><text x="153" y="166" text-anchor="middle" font-size="6.5" font-weight="bold" fill="#a5b4fc">Sys-I: 1.8B</text><text x="153" y="175" text-anchor="middle" font-size="5" fill="#64748b">heuristic · 5× faster</text><line x1="47" y1="187" x2="96" y2="201" stroke="#6366f1" stroke-width="1.4" opacity=".6"/><line x1="153" y1="187" x2="104" y2="201" stroke="#6366f1" stroke-width="1.4" opacity=".6"/><polygon points="96,201 100,209 104,201" fill="#6366f1" opacity=".72"/><rect x="12" y="209" width="176" height="13" rx="2" fill="rgba(99,102,241,.22)" stroke="#6366f1" stroke-width=".9"/><text x="100" y="218" text-anchor="middle" font-size="5.5" font-weight="bold" fill="#c7d2fe">control signal output</text></svg></div><div style="padding:.5rem .75rem;"><div style="font-size:.56rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#6366f1;margin-bottom:.12rem;">Vision Layer</div><div style="font-size:.78rem;font-weight:700;color:#c7d2fe;">Qwen-VL-7B</div><div style="font-size:.63rem;color:#64748b;line-height:1.4;margin-top:.08rem;">CLIP-based ViT &nbsp;&middot;&nbsp; multi-view + multi-frame &nbsp;&middot;&nbsp; 7.1K CARLA fine-tune</div></div><div style="text-align:center;font-size:.6rem;color:#818cf8;padding:.08rem .75rem;">&#8595; Scene Encoder &rarr; 256-d (ACT 128-d + ACC 128-d)</div><div style="padding:.5rem .75rem;border-top:1px solid rgba(99,102,241,.1);"><div style="font-size:.56rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#6366f1;margin-bottom:.12rem;">Memory System</div><div style="font-size:.78rem;font-weight:700;color:#c7d2fe;">Contrastive Scene Tokens</div><div style="font-size:.63rem;color:#64748b;line-height:1.4;margin-top:.08rem;">ACT + ACC spaces &nbsp;&middot;&nbsp; top-k cosine retrieval from memory bank</div></div><div style="text-align:center;font-size:.6rem;color:#818cf8;padding:.08rem .75rem;">&#8595;</div><div style="padding:.5rem .75rem;border-top:1px solid rgba(99,102,241,.1);"><div style="font-size:.56rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#6366f1;margin-bottom:.12rem;">Dual-Process Reasoning</div><div style="font-size:.78rem;font-weight:700;color:#c7d2fe;">GPT-4o + Qwen1.5-1.8B</div><div style="font-size:.63rem;color:#64748b;line-height:1.4;margin-top:.08rem;">System-II: GPT-4o (analytical) &nbsp;&middot;&nbsp; System-I: 1.8B (5&times; faster)</div></div></div>
+  <div style="padding:.7rem 1rem;border-bottom:1px solid rgba(99,102,241,.12);display:flex;flex-wrap:wrap;align-items:flex-end;gap:.4rem 1rem;">
+    <div style="flex:1 1 auto;min-width:240px;">
+      <div style="font-size:.6rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#818cf8;margin-bottom:.15rem;">Phase 03 &nbsp;&middot;&nbsp; VLM Inference</div>
+      <div style="font-size:.8rem;font-weight:600;color:#e2e8f0;">Three architectures receive the patched scene and produce driving decisions</div>
     </div>
+    <div style="display:flex;flex-wrap:wrap;gap:.7rem;font-size:.62rem;color:#64748b;align-items:center;padding-bottom:.1rem;">
+      <span>&#10052; frozen</span>
+      <span>&#128293; trained / fine-tuned</span>
+      <span style="display:inline-flex;align-items:center;gap:.3rem;"><span style="width:.55rem;height:.55rem;background:#f97316;border-radius:2px;display:inline-block;"></span>patch entry point</span>
+    </div>
+  </div>
+  <div style="padding:.875rem 1rem;display:flex;flex-direction:column;gap:.875rem;">
+
+    <!-- ═══════════ (a) Dolphins ═══════════ -->
+    <div style="border-radius:.875rem;border:2px solid rgba(99,102,241,.4);background:rgba(99,102,241,.05);overflow:hidden;">
+      <div style="padding:.5rem .75rem;background:rgba(99,102,241,.12);border-bottom:1px solid rgba(99,102,241,.12);display:flex;align-items:center;justify-content:space-between;gap:.4rem;">
+        <div style="display:flex;align-items:baseline;gap:.5rem;flex-wrap:wrap;"><div style="font-size:.9rem;font-weight:700;color:#e2e8f0;">Dolphins</div><div style="font-size:.6rem;color:#818cf8;">OpenFlamingo-based &middot; video VLM</div></div>
+        <span style="flex-shrink:0;font-size:.55rem;font-weight:700;background:#6366f1;color:#fff;border-radius:9999px;padding:.1rem .4rem;letter-spacing:.04em;">CLIP shared</span>
+      </div>
+      <div style="overflow-x:auto;">
+      <svg viewBox="0 0 880 272" style="min-width:640px;width:100%;display:block;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dolphins architecture: video frames to CLIP ViT-L/14, Perceiver Resampler, gated cross-attention into frozen MPT-7B, driving decision output">
+        <!-- input: stacked video frames -->
+        <rect x="12" y="86" width="64" height="44" rx="3" fill="rgba(30,41,59,.5)" stroke="rgba(148,163,184,.3)" stroke-width="1"/>
+        <rect x="20" y="94" width="64" height="44" rx="3" fill="rgba(30,41,59,.65)" stroke="rgba(148,163,184,.38)" stroke-width="1"/>
+        <rect x="28" y="102" width="64" height="44" rx="3" fill="rgba(15,23,42,.9)" stroke="rgba(148,163,184,.5)" stroke-width="1.2"/>
+        <line x1="28" y1="118" x2="92" y2="118" stroke="rgba(148,163,184,.25)" stroke-width="1"/>
+        <line x1="46" y1="146" x2="56" y2="118" stroke="rgba(148,163,184,.4)" stroke-width="1"/>
+        <line x1="78" y1="146" x2="68" y2="118" stroke="rgba(148,163,184,.4)" stroke-width="1"/>
+        <rect x="72" y="106" width="13" height="10" rx="1.5" fill="#f97316" stroke="#fdba74" stroke-width=".8"/>
+        <text x="52" y="164" text-anchor="middle" font-size="8" fill="#94a3b8">T video frames</text>
+        <text x="52" y="175" text-anchor="middle" font-size="7.5" fill="#fb923c">patched scene &#948;*</text>
+        <!-- arrow: input -> CLIP -->
+        <line x1="96" y1="124" x2="112" y2="124" stroke="rgba(99,102,241,.6)" stroke-width="1.6"/>
+        <polygon points="110,120 118,124 110,128" fill="rgba(99,102,241,.7)"/>
+        <!-- CLIP encoder + attack-surface halo -->
+        <rect x="116" y="74" width="118" height="100" rx="10" fill="none" stroke="rgba(249,115,22,.45)" stroke-width="1.2" stroke-dasharray="4,3"/>
+        <rect x="122" y="80" width="106" height="88" rx="8" fill="rgba(99,102,241,.13)" stroke="#6366f1" stroke-width="1.4"/>
+        <text x="172" y="100" text-anchor="middle" font-size="12" font-weight="bold" fill="#a5b4fc">CLIP ViT-L/14</text>
+        <text x="219" y="99" text-anchor="middle" font-size="10" fill="#7dd3fc">&#10052;</text>
+        <text x="175" y="113" text-anchor="middle" font-size="8" fill="#64748b">InfoNCE contrastive</text>
+        <rect x="134" y="121" width="82" height="9" rx="2" fill="rgba(99,102,241,.22)"/>
+        <rect x="134" y="134" width="82" height="9" rx="2" fill="rgba(99,102,241,.22)"/>
+        <rect x="134" y="147" width="82" height="9" rx="2" fill="rgba(99,102,241,.22)"/>
+        <text x="175" y="164" text-anchor="middle" font-size="7.5" fill="#818cf8">&#215;24 layers &middot; 1024-d</text>
+        <text x="175" y="187" text-anchor="middle" font-size="7.5" fill="#fb923c">shared CLIP attack surface</text>
+        <!-- arrow: CLIP -> resampler -->
+        <line x1="234" y1="124" x2="252" y2="124" stroke="rgba(99,102,241,.6)" stroke-width="1.6"/>
+        <polygon points="250,120 258,124 250,128" fill="rgba(99,102,241,.7)"/>
+        <!-- Perceiver Resampler -->
+        <rect x="260" y="88" width="102" height="72" rx="8" fill="rgba(139,92,246,.12)" stroke="#8b5cf6" stroke-width="1.3"/>
+        <text x="305" y="106" text-anchor="middle" font-size="11" font-weight="bold" fill="#c4b5fd">Perceiver</text>
+        <text x="305" y="119" text-anchor="middle" font-size="11" font-weight="bold" fill="#c4b5fd">Resampler</text>
+        <text x="348" y="103" text-anchor="middle" font-size="9">&#128293;</text>
+        <rect x="270" y="128" width="7" height="7" rx="1" fill="rgba(139,92,246,.45)"/>
+        <rect x="279" y="128" width="7" height="7" rx="1" fill="rgba(139,92,246,.45)"/>
+        <rect x="288" y="128" width="7" height="7" rx="1" fill="rgba(139,92,246,.45)"/>
+        <rect x="297" y="128" width="7" height="7" rx="1" fill="rgba(139,92,246,.45)"/>
+        <rect x="306" y="128" width="7" height="7" rx="1" fill="rgba(139,92,246,.45)"/>
+        <rect x="315" y="128" width="7" height="7" rx="1" fill="rgba(139,92,246,.45)"/>
+        <line x1="325" y1="131.5" x2="330" y2="131.5" stroke="rgba(196,181,253,.7)" stroke-width="1.2"/>
+        <polygon points="329,129 333,131.5 329,134" fill="rgba(196,181,253,.8)"/>
+        <rect x="336" y="128" width="7" height="7" rx="1" fill="rgba(139,92,246,.85)"/>
+        <rect x="345" y="128" width="7" height="7" rx="1" fill="rgba(139,92,246,.85)"/>
+        <rect x="354" y="128" width="7" height="7" rx="1" fill="rgba(139,92,246,.85)"/>
+        <text x="311" y="152" text-anchor="middle" font-size="7" fill="#64748b">compresses visual tokens</text>
+        <!-- vision trunk -> gated x-attn layers -->
+        <line x1="362" y1="124" x2="470" y2="124" stroke="rgba(139,92,246,.6)" stroke-width="1.8"/>
+        <text x="416" y="115" text-anchor="middle" font-size="8" fill="#a78bfa">KV &middot; visual features</text>
+        <line x1="470" y1="108.5" x2="470" y2="152.5" stroke="rgba(139,92,246,.6)" stroke-width="1.8"/>
+        <line x1="470" y1="108.5" x2="494" y2="108.5" stroke="rgba(139,92,246,.6)" stroke-width="1.8"/>
+        <polygon points="492,104.5 500,108.5 492,112.5" fill="rgba(139,92,246,.7)"/>
+        <line x1="470" y1="152.5" x2="494" y2="152.5" stroke="rgba(139,92,246,.6)" stroke-width="1.8"/>
+        <polygon points="492,148.5 500,152.5 492,156.5" fill="rgba(139,92,246,.7)"/>
+        <!-- MPT-7B stack with interleaved gated x-attn -->
+        <rect x="500" y="36" width="230" height="182" rx="10" fill="rgba(99,102,241,.07)" stroke="rgba(99,102,241,.5)" stroke-width="1.4"/>
+        <text x="608" y="56" text-anchor="middle" font-size="13" font-weight="bold" fill="#a5b4fc">MPT-7B</text>
+        <text x="650" y="55" text-anchor="middle" font-size="10" fill="#7dd3fc">&#10052;</text>
+        <text x="615" y="69" text-anchor="middle" font-size="8" fill="#64748b">6.7B params &middot; frozen decoder &middot; GCoT</text>
+        <rect x="516" y="78" width="176" height="17" rx="3" fill="rgba(99,102,241,.13)" stroke="rgba(99,102,241,.35)" stroke-width=".8"/>
+        <text x="604" y="90" text-anchor="middle" font-size="8" fill="#a5b4fc">LM self-attention block &#10052;</text>
+        <rect x="516" y="100" width="176" height="17" rx="3" fill="rgba(139,92,246,.18)" stroke="#8b5cf6" stroke-width=".8"/>
+        <text x="604" y="112" text-anchor="middle" font-size="8" fill="#c4b5fd">gated cross-attention &#128293;</text>
+        <rect x="516" y="122" width="176" height="17" rx="3" fill="rgba(99,102,241,.13)" stroke="rgba(99,102,241,.35)" stroke-width=".8"/>
+        <text x="604" y="134" text-anchor="middle" font-size="8" fill="#a5b4fc">LM self-attention block &#10052;</text>
+        <rect x="516" y="144" width="176" height="17" rx="3" fill="rgba(139,92,246,.18)" stroke="#8b5cf6" stroke-width=".8"/>
+        <text x="604" y="156" text-anchor="middle" font-size="8" fill="#c4b5fd">gated cross-attention &#128293;</text>
+        <path d="M700,78 h6 v83 h-6" fill="none" stroke="rgba(129,140,248,.5)" stroke-width="1"/>
+        <text x="716" y="123" text-anchor="middle" font-size="9" font-weight="bold" fill="#818cf8">&#215;N</text>
+        <text x="604" y="180" text-anchor="middle" font-size="11" fill="#64748b">&#8942;</text>
+        <text x="604" y="205" text-anchor="middle" font-size="7.5" fill="#64748b">Q: language tokens &middot; KV: visual features</text>
+        <!-- text prompt -->
+        <rect x="540" y="236" width="150" height="26" rx="6" fill="rgba(148,163,184,.07)" stroke="rgba(148,163,184,.3)" stroke-width="1"/>
+        <text x="615" y="252" text-anchor="middle" font-size="8" font-style="italic" fill="#94a3b8">driving instruction prompt</text>
+        <line x1="615" y1="236" x2="615" y2="224" stroke="rgba(148,163,184,.5)" stroke-width="1.4"/>
+        <polygon points="611,226 615,218 619,226" fill="rgba(148,163,184,.6)"/>
+        <!-- output -->
+        <line x1="730" y1="124" x2="750" y2="124" stroke="rgba(99,102,241,.6)" stroke-width="1.8"/>
+        <polygon points="748,120 756,124 748,128" fill="rgba(99,102,241,.7)"/>
+        <rect x="756" y="96" width="112" height="56" rx="8" fill="rgba(34,197,94,.08)" stroke="rgba(34,197,94,.45)" stroke-width="1.3"/>
+        <text x="812" y="119" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4ade80">driving decision</text>
+        <text x="812" y="133" text-anchor="middle" font-size="7.5" fill="#64748b">Grounded CoT output</text>
+      </svg>
+      </div>
+      <div style="padding:.45rem .75rem .55rem;border-top:1px solid rgba(99,102,241,.1);font-size:.68rem;line-height:1.5;color:#64748b;"><strong style="color:#a5b4fc;">(a) Dolphins.</strong> <em>Frozen CLIP ViT-L/14 features are compressed by a trained Perceiver Resampler and injected into the frozen MPT-7B decoder through interleaved gated cross-attention layers. The adversarial patch couples directly into the shared CLIP manifold.</em></div>
+    </div>
+
+    <!-- ═══════════ (b) OmniDrive ═══════════ -->
+    <div style="border-radius:.875rem;border:1px solid rgba(148,163,184,.25);background:rgba(148,163,184,.04);overflow:hidden;">
+      <div style="padding:.5rem .75rem;background:rgba(148,163,184,.07);border-bottom:1px solid rgba(148,163,184,.1);display:flex;align-items:center;justify-content:space-between;gap:.4rem;">
+        <div style="display:flex;align-items:baseline;gap:.5rem;flex-wrap:wrap;"><div style="font-size:.9rem;font-weight:700;color:#e2e8f0;">OmniDrive</div><div style="font-size:.6rem;color:#94a3b8;">Omni-L &amp; Omni-Q variants &middot; multi-view 3D</div></div>
+        <span style="flex-shrink:0;font-size:.55rem;font-weight:600;color:#94a3b8;border:1px solid rgba(148,163,184,.3);border-radius:9999px;padding:.1rem .4rem;">Distinct encoder</span>
+      </div>
+      <div style="overflow-x:auto;">
+      <svg viewBox="0 0 880 260" style="min-width:640px;width:100%;display:block;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="OmniDrive architecture: multi-view cameras to EVA-02-L encoder, MLP projector or Q-Former3D, LLaMA2-7B, language and 3D detection outputs">
+        <!-- input: multi-view cams -->
+        <rect x="12" y="58" width="62" height="40" rx="3" fill="rgba(30,41,59,.5)" stroke="rgba(148,163,184,.3)" stroke-width="1"/>
+        <rect x="20" y="96" width="62" height="40" rx="3" fill="rgba(30,41,59,.65)" stroke="rgba(148,163,184,.38)" stroke-width="1"/>
+        <rect x="28" y="134" width="62" height="40" rx="3" fill="rgba(15,23,42,.9)" stroke="rgba(148,163,184,.5)" stroke-width="1.2"/>
+        <line x1="28" y1="148" x2="90" y2="148" stroke="rgba(148,163,184,.25)" stroke-width="1"/>
+        <line x1="44" y1="174" x2="54" y2="148" stroke="rgba(148,163,184,.4)" stroke-width="1"/>
+        <line x1="74" y1="174" x2="64" y2="148" stroke="rgba(148,163,184,.4)" stroke-width="1"/>
+        <rect x="68" y="138" width="12" height="9" rx="1.5" fill="#f97316" stroke="#fdba74" stroke-width=".8"/>
+        <text x="51" y="192" text-anchor="middle" font-size="8" fill="#94a3b8">N surround-view cams</text>
+        <text x="51" y="203" text-anchor="middle" font-size="7.5" fill="#fb923c">patched billboard</text>
+        <!-- converging arrows -->
+        <line x1="74" y1="78" x2="122" y2="121" stroke="rgba(148,163,184,.45)" stroke-width="1.3"/>
+        <line x1="82" y1="116" x2="122" y2="124" stroke="rgba(148,163,184,.45)" stroke-width="1.3"/>
+        <line x1="90" y1="154" x2="122" y2="128" stroke="rgba(148,163,184,.45)" stroke-width="1.3"/>
+        <polygon points="122,120 130,125 122,130" fill="rgba(148,163,184,.6)"/>
+        <!-- EVA-02-L + manifold halo -->
+        <rect x="126" y="74" width="133" height="102" rx="10" fill="none" stroke="rgba(148,163,184,.4)" stroke-width="1.2" stroke-dasharray="4,3"/>
+        <rect x="132" y="80" width="121" height="90" rx="8" fill="rgba(148,163,184,.1)" stroke="rgba(148,163,184,.55)" stroke-width="1.4"/>
+        <text x="192" y="102" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#cbd5e1">EVA-02-L</text>
+        <text x="192" y="115" text-anchor="middle" font-size="8" fill="#64748b">MIM-distilled CLIP</text>
+        <rect x="144" y="124" width="97" height="9" rx="2" fill="rgba(148,163,184,.18)"/>
+        <rect x="144" y="137" width="97" height="9" rx="2" fill="rgba(148,163,184,.18)"/>
+        <rect x="144" y="150" width="97" height="9" rx="2" fill="rgba(148,163,184,.18)"/>
+        <text x="192" y="166" text-anchor="middle" font-size="7.5" fill="#94a3b8">multi-view N&#215;C&#215;H&#215;W</text>
+        <text x="192" y="189" text-anchor="middle" font-size="7.5" fill="#94a3b8">MIM manifold &middot; partially distinct</text>
+        <!-- split into two connector variants -->
+        <line x1="259" y1="125" x2="288" y2="125" stroke="rgba(148,163,184,.5)" stroke-width="1.6"/>
+        <line x1="288" y1="82" x2="288" y2="180" stroke="rgba(148,163,184,.5)" stroke-width="1.6"/>
+        <line x1="288" y1="82" x2="322" y2="82" stroke="rgba(148,163,184,.5)" stroke-width="1.6"/>
+        <polygon points="322,78 330,82 322,86" fill="rgba(148,163,184,.6)"/>
+        <line x1="288" y1="180" x2="322" y2="180" stroke="rgba(148,163,184,.5)" stroke-width="1.6"/>
+        <polygon points="322,176 330,180 322,184" fill="rgba(148,163,184,.6)"/>
+        <text x="414" y="44" text-anchor="middle" font-size="8" font-style="italic" fill="#64748b">two connector variants</text>
+        <!-- Omni-L: MLP -->
+        <rect x="330" y="54" width="168" height="56" rx="8" fill="rgba(148,163,184,.06)" stroke="rgba(148,163,184,.4)" stroke-width="1.2"/>
+        <rect x="338" y="60" width="44" height="13" rx="6.5" fill="rgba(148,163,184,.18)"/>
+        <text x="360" y="69.5" text-anchor="middle" font-size="6.5" font-weight="bold" fill="#cbd5e1">OMNI-L</text>
+        <text x="414" y="86" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#cbd5e1">MLP projector</text>
+        <text x="414" y="100" text-anchor="middle" font-size="8" fill="#64748b">linear &middot; LLaVA-style</text>
+        <!-- Omni-Q: Q-Former3D -->
+        <rect x="330" y="138" width="168" height="84" rx="8" fill="rgba(148,163,184,.08)" stroke="rgba(148,163,184,.45)" stroke-width="1.2"/>
+        <rect x="338" y="144" width="44" height="13" rx="6.5" fill="rgba(148,163,184,.18)"/>
+        <text x="360" y="153.5" text-anchor="middle" font-size="6.5" font-weight="bold" fill="#cbd5e1">OMNI-Q</text>
+        <text x="414" y="170" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#cbd5e1">Q-Former3D</text>
+        <text x="414" y="183" text-anchor="middle" font-size="7.5" fill="#64748b">carrier + perception queries</text>
+        <rect x="352" y="190" width="9" height="9" rx="1" fill="rgba(148,163,184,.5)"/>
+        <rect x="364" y="190" width="9" height="9" rx="1" fill="rgba(148,163,184,.5)"/>
+        <rect x="376" y="190" width="9" height="9" rx="1" fill="rgba(148,163,184,.5)"/>
+        <rect x="388" y="190" width="9" height="9" rx="1" fill="rgba(148,163,184,.5)"/>
+        <text x="374" y="212" text-anchor="middle" font-size="6.5" fill="#94a3b8">carrier q</text>
+        <rect x="424" y="190" width="9" height="9" rx="1" fill="rgba(99,102,241,.6)"/>
+        <rect x="436" y="190" width="9" height="9" rx="1" fill="rgba(99,102,241,.6)"/>
+        <rect x="448" y="190" width="9" height="9" rx="1" fill="rgba(99,102,241,.6)"/>
+        <rect x="460" y="190" width="9" height="9" rx="1" fill="rgba(99,102,241,.6)"/>
+        <text x="446" y="212" text-anchor="middle" font-size="6.5" fill="#818cf8">perception q</text>
+        <!-- 3D position encoding -->
+        <line x1="414" y1="240" x2="414" y2="230" stroke="rgba(148,163,184,.5)" stroke-width="1.3"/>
+        <polygon points="410,231 414,224 418,231" fill="rgba(148,163,184,.6)"/>
+        <text x="414" y="252" text-anchor="middle" font-size="8" fill="#64748b">3D position encoding</text>
+        <!-- merge -->
+        <line x1="498" y1="82" x2="528" y2="82" stroke="rgba(148,163,184,.5)" stroke-width="1.6"/>
+        <line x1="498" y1="180" x2="528" y2="180" stroke="rgba(148,163,184,.5)" stroke-width="1.6"/>
+        <line x1="528" y1="82" x2="528" y2="180" stroke="rgba(148,163,184,.5)" stroke-width="1.6"/>
+        <line x1="528" y1="125" x2="550" y2="125" stroke="rgba(148,163,184,.5)" stroke-width="1.6"/>
+        <polygon points="550,121 558,125 550,129" fill="rgba(148,163,184,.6)"/>
+        <!-- LLaMA2-7B -->
+        <rect x="560" y="78" width="148" height="94" rx="8" fill="rgba(148,163,184,.1)" stroke="rgba(148,163,184,.55)" stroke-width="1.4"/>
+        <text x="634" y="102" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#cbd5e1">LLaMA2-7B</text>
+        <text x="634" y="115" text-anchor="middle" font-size="8" fill="#64748b">causal decoder &middot; 4096-d</text>
+        <rect x="574" y="124" width="120" height="9" rx="2" fill="rgba(148,163,184,.18)"/>
+        <rect x="574" y="137" width="120" height="9" rx="2" fill="rgba(148,163,184,.18)"/>
+        <rect x="574" y="150" width="120" height="9" rx="2" fill="rgba(148,163,184,.18)"/>
+        <text x="634" y="166" text-anchor="middle" font-size="7.5" fill="#94a3b8">vision-language alignment</text>
+        <!-- outputs -->
+        <line x1="708" y1="125" x2="736" y2="125" stroke="rgba(148,163,184,.5)" stroke-width="1.6"/>
+        <line x1="736" y1="95" x2="736" y2="155" stroke="rgba(148,163,184,.5)" stroke-width="1.6"/>
+        <line x1="736" y1="95" x2="748" y2="95" stroke="rgba(148,163,184,.5)" stroke-width="1.6"/>
+        <polygon points="748,91 756,95 748,99" fill="rgba(148,163,184,.6)"/>
+        <line x1="736" y1="155" x2="748" y2="155" stroke="rgba(148,163,184,.5)" stroke-width="1.6"/>
+        <polygon points="748,151 756,155 748,159" fill="rgba(148,163,184,.6)"/>
+        <rect x="756" y="72" width="112" height="46" rx="8" fill="rgba(34,197,94,.08)" stroke="rgba(34,197,94,.45)" stroke-width="1.3"/>
+        <text x="812" y="91" text-anchor="middle" font-size="10" font-weight="bold" fill="#4ade80">language output</text>
+        <text x="812" y="105" text-anchor="middle" font-size="7.5" fill="#64748b">planning &middot; QA</text>
+        <rect x="756" y="132" width="112" height="46" rx="8" fill="rgba(148,163,184,.07)" stroke="rgba(148,163,184,.4)" stroke-width="1.3"/>
+        <text x="812" y="151" text-anchor="middle" font-size="10" font-weight="bold" fill="#cbd5e1">3D detection</text>
+        <text x="812" y="165" text-anchor="middle" font-size="7.5" fill="#64748b">perception outputs</text>
+      </svg>
+      </div>
+      <div style="padding:.45rem .75rem .55rem;border-top:1px solid rgba(148,163,184,.1);font-size:.68rem;line-height:1.5;color:#64748b;"><strong style="color:#cbd5e1;">(b) OmniDrive.</strong> <em>Multi-view features from the MIM-distilled EVA-02-L encoder reach LLaMA2-7B through either a linear MLP projector (Omni-L) or a Q-Former3D with carrier and perception queries (Omni-Q). Its partially distinct feature manifold weakens incoming CLIP-optimised patches (TR 0.42&ndash;0.57).</em></div>
+    </div>
+
+    <!-- ═══════════ (c) LeapVAD ═══════════ -->
+    <div style="border-radius:.875rem;border:2px solid rgba(99,102,241,.4);background:rgba(99,102,241,.05);overflow:hidden;">
+      <div style="padding:.5rem .75rem;background:rgba(99,102,241,.12);border-bottom:1px solid rgba(99,102,241,.12);display:flex;align-items:center;justify-content:space-between;gap:.4rem;">
+        <div style="display:flex;align-items:baseline;gap:.5rem;flex-wrap:wrap;"><div style="font-size:.9rem;font-weight:700;color:#e2e8f0;">LeapVAD</div><div style="font-size:.6rem;color:#818cf8;">dual-process &middot; cognitive driving</div></div>
+        <span style="flex-shrink:0;font-size:.55rem;font-weight:700;background:#6366f1;color:#fff;border-radius:9999px;padding:.1rem .4rem;letter-spacing:.04em;">CLIP shared</span>
+      </div>
+      <div style="overflow-x:auto;">
+      <svg viewBox="0 0 880 278" style="min-width:640px;width:100%;display:block;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="LeapVAD architecture: patched frames to Qwen-VL-7B scene VLM, scene description, scene encoder and memory bank, System-II GPT-4o distilled into System-I Qwen1.5-1.8B, control signal output">
+        <!-- input frames -->
+        <rect x="12" y="40" width="60" height="40" rx="3" fill="rgba(30,41,59,.5)" stroke="rgba(148,163,184,.3)" stroke-width="1"/>
+        <rect x="20" y="48" width="60" height="40" rx="3" fill="rgba(30,41,59,.65)" stroke="rgba(148,163,184,.38)" stroke-width="1"/>
+        <rect x="28" y="56" width="60" height="40" rx="3" fill="rgba(15,23,42,.9)" stroke="rgba(148,163,184,.5)" stroke-width="1.2"/>
+        <line x1="28" y1="70" x2="88" y2="70" stroke="rgba(148,163,184,.25)" stroke-width="1"/>
+        <line x1="44" y1="96" x2="54" y2="70" stroke="rgba(148,163,184,.4)" stroke-width="1"/>
+        <line x1="72" y1="96" x2="62" y2="70" stroke="rgba(148,163,184,.4)" stroke-width="1"/>
+        <rect x="64" y="60" width="11" height="9" rx="1.5" fill="#f97316" stroke="#fdba74" stroke-width=".8"/>
+        <text x="50" y="112" text-anchor="middle" font-size="7.5" fill="#94a3b8">multi-view &middot; multi-frame</text>
+        <text x="50" y="122" text-anchor="middle" font-size="7" fill="#fb923c">patched scene &#948;*</text>
+        <!-- arrow -> Qwen-VL -->
+        <line x1="92" y1="68" x2="108" y2="68" stroke="rgba(99,102,241,.6)" stroke-width="1.6"/>
+        <polygon points="108,64 116,68 108,72" fill="rgba(99,102,241,.7)"/>
+        <!-- Qwen-VL-7B + attack-surface halo -->
+        <rect x="116" y="32" width="168" height="76" rx="10" fill="none" stroke="rgba(249,115,22,.45)" stroke-width="1.2" stroke-dasharray="4,3"/>
+        <rect x="120" y="36" width="160" height="68" rx="8" fill="rgba(99,102,241,.12)" stroke="#6366f1" stroke-width="1.4"/>
+        <text x="196" y="58" text-anchor="middle" font-size="12" font-weight="bold" fill="#a5b4fc">Qwen-VL-7B</text>
+        <text x="252" y="57" text-anchor="middle" font-size="9">&#128293;</text>
+        <text x="200" y="72" text-anchor="middle" font-size="8" fill="#64748b">CLIP-based ViT &middot; scene VLM</text>
+        <text x="200" y="86" text-anchor="middle" font-size="7.5" fill="#94a3b8">fine-tuned &middot; 7.1K CARLA scenes</text>
+        <text x="200" y="121" text-anchor="middle" font-size="7.5" fill="#fb923c">CLIP manifold &middot; shared attack surface</text>
+        <!-- arrow -> scene description -->
+        <line x1="284" y1="68" x2="300" y2="68" stroke="rgba(99,102,241,.6)" stroke-width="1.6"/>
+        <polygon points="300,64 308,68 300,72" fill="rgba(99,102,241,.7)"/>
+        <!-- scene description -->
+        <rect x="308" y="40" width="150" height="58" rx="8" fill="rgba(15,23,42,.3)" stroke="rgba(99,102,241,.4)" stroke-width="1.2" stroke-dasharray="5,3"/>
+        <text x="383" y="57" text-anchor="middle" font-size="9" font-weight="bold" fill="#818cf8">scene description</text>
+        <text x="383" y="71" text-anchor="middle" font-size="7.5" font-style="italic" fill="#94a3b8">&#8220;pedestrian crossing ahead,</text>
+        <text x="383" y="82" text-anchor="middle" font-size="7.5" font-style="italic" fill="#94a3b8">wet road, slow down&#8221;</text>
+        <!-- arrow -> scene encoder -->
+        <line x1="458" y1="68" x2="474" y2="68" stroke="rgba(99,102,241,.6)" stroke-width="1.6"/>
+        <polygon points="474,64 482,68 474,72" fill="rgba(99,102,241,.7)"/>
+        <!-- scene encoder -->
+        <rect x="482" y="40" width="164" height="58" rx="8" fill="rgba(99,102,241,.1)" stroke="#818cf8" stroke-width="1.3"/>
+        <text x="564" y="56" text-anchor="middle" font-size="11" font-weight="bold" fill="#a5b4fc">Scene Encoder</text>
+        <text x="564" y="69" text-anchor="middle" font-size="7.5" fill="#64748b">contrastive scene token &middot; 256-d</text>
+        <rect x="514" y="76" width="50" height="10" rx="2" fill="rgba(99,102,241,.55)"/>
+        <text x="539" y="84" text-anchor="middle" font-size="6" fill="#e0e7ff">ACT 128</text>
+        <rect x="564" y="76" width="50" height="10" rx="2" fill="rgba(139,92,246,.55)"/>
+        <text x="589" y="84" text-anchor="middle" font-size="6" fill="#ede9fe">ACC 128</text>
+        <!-- arrow -> memory -->
+        <line x1="646" y1="68" x2="696" y2="68" stroke="rgba(139,92,246,.55)" stroke-width="1.6"/>
+        <polygon points="696,64 704,68 696,72" fill="rgba(139,92,246,.65)"/>
+        <text x="674" y="61" text-anchor="middle" font-size="7.5" fill="#a78bfa">store</text>
+        <!-- memory bank cylinder -->
+        <path d="M704,48 v44 a72,10 0 0 0 144,0 v-44" fill="rgba(139,92,246,.08)" stroke="rgba(139,92,246,.5)" stroke-width="1.3"/>
+        <ellipse cx="776" cy="48" rx="72" ry="10" fill="rgba(139,92,246,.15)" stroke="rgba(139,92,246,.5)" stroke-width="1.3"/>
+        <text x="776" y="72" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#c4b5fd">Memory Bank</text>
+        <text x="776" y="85" text-anchor="middle" font-size="7" fill="#64748b">experience store</text>
+        <!-- retrieval: memory -> Sys-I -->
+        <path d="M776,102 v48 h-191 v28" fill="none" stroke="rgba(139,92,246,.5)" stroke-width="1.5"/>
+        <polygon points="581,176 585,184 589,176" fill="rgba(139,92,246,.6)"/>
+        <text x="700" y="144" text-anchor="middle" font-size="7.5" fill="#a78bfa">top-k cosine retrieval</text>
+        <!-- reasoning input: scene desc -> Sys-II -->
+        <path d="M383,98 v46 h-158 v34" fill="none" stroke="rgba(99,102,241,.45)" stroke-width="1.5"/>
+        <polygon points="221,176 225,184 229,176" fill="rgba(99,102,241,.55)"/>
+        <text x="300" y="138" text-anchor="middle" font-size="7.5" fill="#818cf8">reasoning input</text>
+        <!-- System-II -->
+        <rect x="120" y="184" width="210" height="82" rx="8" fill="rgba(139,92,246,.1)" stroke="#8b5cf6" stroke-width="1.4"/>
+        <rect x="132" y="192" width="112" height="14" rx="7" fill="rgba(139,92,246,.2)"/>
+        <text x="188" y="202" text-anchor="middle" font-size="6.5" font-weight="bold" fill="#c4b5fd">SYSTEM-II &middot; ANALYTIC</text>
+        <text x="225" y="226" text-anchor="middle" font-size="13" font-weight="bold" fill="#c4b5fd">GPT-4o</text>
+        <text x="225" y="240" text-anchor="middle" font-size="8" fill="#64748b">analytical reasoning &middot; reflection</text>
+        <text x="225" y="253" text-anchor="middle" font-size="7.5" fill="#94a3b8">slow &middot; deliberate</text>
+        <!-- distillation -->
+        <line x1="330" y1="225" x2="470" y2="225" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="5,3"/>
+        <polygon points="470,220 480,225 470,230" fill="#8b5cf6"/>
+        <text x="405" y="216" text-anchor="middle" font-size="8" fill="#a78bfa">experience distillation</text>
+        <!-- System-I -->
+        <rect x="480" y="184" width="210" height="82" rx="8" fill="rgba(99,102,241,.1)" stroke="#6366f1" stroke-width="1.4"/>
+        <rect x="492" y="192" width="116" height="14" rx="7" fill="rgba(99,102,241,.2)"/>
+        <text x="550" y="202" text-anchor="middle" font-size="6.5" font-weight="bold" fill="#a5b4fc">SYSTEM-I &middot; HEURISTIC</text>
+        <text x="585" y="226" text-anchor="middle" font-size="13" font-weight="bold" fill="#a5b4fc">Qwen1.5-1.8B</text>
+        <text x="585" y="240" text-anchor="middle" font-size="8" fill="#64748b">distilled from System-II</text>
+        <text x="585" y="253" text-anchor="middle" font-size="7.5" fill="#94a3b8">5&#215; faster inference</text>
+        <!-- output -->
+        <line x1="690" y1="225" x2="744" y2="225" stroke="rgba(34,197,94,.55)" stroke-width="1.8"/>
+        <polygon points="744,221 752,225 744,229" fill="rgba(34,197,94,.65)"/>
+        <rect x="752" y="199" width="116" height="52" rx="8" fill="rgba(34,197,94,.08)" stroke="rgba(34,197,94,.45)" stroke-width="1.3"/>
+        <text x="810" y="221" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#4ade80">control signal</text>
+        <text x="810" y="235" text-anchor="middle" font-size="7.5" fill="#64748b">driving decision</text>
+      </svg>
+      </div>
+      <div style="padding:.45rem .75rem .55rem;border-top:1px solid rgba(99,102,241,.1);font-size:.68rem;line-height:1.5;color:#64748b;"><strong style="color:#a5b4fc;">(c) LeapVAD.</strong> <em>A dual-process system: the fine-tuned Qwen-VL-7B scene VLM feeds an analytic GPT-4o reasoner (System-II) whose experience is distilled into a fast 1.8B heuristic driver (System-I), supported by top-k retrieval over 256-d contrastive scene tokens. Vision is grounded in the same CLIP manifold as Dolphins (TR 0.82&ndash;0.91).</em></div>
+    </div>
+
   </div>
 </div>
 
-<div style="grid-column:1/-1;position:relative;height:3.5rem;margin:-.1rem 0;">
-  <svg viewBox="0 0 300 56" style="width:100%;height:100%;display:block;" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <line x1="50" y1="2" x2="50" y2="28" stroke="rgba(99,102,241,.5)" stroke-width="1.5"/>
-    <line x1="150" y1="2" x2="150" y2="28" stroke="rgba(99,102,241,.5)" stroke-width="1.5"/>
-    <line x1="250" y1="2" x2="250" y2="28" stroke="rgba(99,102,241,.5)" stroke-width="1.5"/>
-    <line x1="50" y1="28" x2="250" y2="28" stroke="rgba(168,85,247,.4)" stroke-width="1.5"/>
-    <line x1="150" y1="28" x2="150" y2="50" stroke="rgba(168,85,247,.5)" stroke-width="1.5"/>
-    <polygon points="146,46 150,54 154,46" fill="rgba(168,85,247,.65)"/>
-  </svg>
-  <div style="position:absolute;top:41%;left:50%;transform:translate(-50%,-50%);
-              font-size:.6rem;font-style:italic;color:rgba(168,85,247,.75);white-space:nowrap;pointer-events:none;">
-    VLM inference outputs &rarr; CLIP embedding space
-  </div>
+<div style="grid-column:1/-1;display:flex;flex-direction:column;align-items:center;padding:.2rem 0;">
+  <div style="width:1.5px;height:1.1rem;background:linear-gradient(to bottom,rgba(99,102,241,.55),rgba(168,85,247,.3));"></div>
+  <span style="font-size:.6rem;color:rgba(168,85,247,.85);letter-spacing:.06em;padding:.15rem .5rem;white-space:nowrap;background:rgba(168,85,247,.06);border:1px solid rgba(168,85,247,.2);border-radius:.3rem;">Heterogeneous VLM outputs &nbsp;&rarr;&nbsp; shared CLIP text embedding space</span>
+  <div style="width:1.5px;height:1.1rem;background:linear-gradient(to bottom,rgba(168,85,247,.3),rgba(168,85,247,.55));"></div>
+  <svg width="10" height="6" viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg"><polygon points="0,0 10,0 5,6" fill="rgba(168,85,247,.65)"/></svg>
 </div>
 
 <div style="grid-column:1/-1;">
