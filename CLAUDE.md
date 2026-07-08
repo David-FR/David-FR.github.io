@@ -6,13 +6,31 @@ Guidance for Claude Code working in this repository.
 
 Hugo static site using [Hugo Blox Kit](https://hugoblox.com) (academic-cv template, schema v2, blox module v0.12.0). Deployed to GitHub Pages.
 
-Dependencies: Hugo (v0.160+, extended), Go (Hugo modules), Node/npm.
+Dependencies: Hugo (extended, **pinned to `build.hugo_version` in `hugoblox.yaml`** — currently 0.159.2; CI uses that pin), Go (Hugo modules), Node/npm.
+
+## Local environment (all project-local, inside `.venv/`)
+
+Hugo and Go both live in the gitignored `.venv` — nothing is installed globally. To recreate from scratch:
+
+```bash
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.txt        # Hugo extended binary via pip wheel
+GOVER=$(curl -fsSL "https://go.dev/VERSION?m=text" | head -1)
+curl -fsSL "https://go.dev/dl/${GOVER}.darwin-arm64.tar.gz" | tar -xz -C .venv
+ln -sf ../go/bin/go .venv/bin/go                 # Hugo shells out to `go` for modules
+npm install
+```
+
+Don't install a newer Hugo than the `hugoblox.yaml` pin: Hugo ≥0.164 enforces a
+`security.allowContent` policy that rejects the raw `_*.html` partials used by
+publication pages.
 
 ## Dev commands
 
 ```bash
-hugo server --port 1313   # local dev with hot reload
-hugo build                # production build to public/
+source .venv/bin/activate  # puts hugo + go on PATH
+hugo server --port 1313    # local dev with hot reload
+hugo build                 # production build to public/
 ```
 
 ## Schema v2 — important

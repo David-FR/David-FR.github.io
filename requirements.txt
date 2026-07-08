@@ -1,0 +1,3 @@
+# Local Hugo toolchain (binary shipped as a pip wheel).
+# Keep this version in sync with build.hugo_version in hugoblox.yaml (CI uses that pin).
+hugo==0.159.2
