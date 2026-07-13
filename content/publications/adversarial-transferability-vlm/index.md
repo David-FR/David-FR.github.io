@@ -25,6 +25,8 @@ tags:
 
 featured: true
 
+pull_quote: 'Adversarial patches transfer across VLM architectures at 73–91% success — an attacker needs no knowledge of which model the target vehicle runs.'
+
 image:
   preview_only: true
 

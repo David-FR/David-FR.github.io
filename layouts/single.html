@@ -279,10 +279,12 @@
           
           {{ if .Params.abstract }}
           <div class="text-xs font-semibold tracking-wider uppercase text-slate-400 dark:text-slate-500 mb-3">Abstract</div>
-          {{/* Pull quote – key finding, always visible */}}
+          {{/* Pull quote – per-page key finding from front matter `pull_quote` */}}
+          {{ with .Params.pull_quote }}
           <p class="text-[1.05rem] leading-relaxed font-medium italic text-indigo-400 dark:text-indigo-300 border-l-2 border-indigo-400/40 pl-4 mb-4">
-            "LLaVA-7B and MoE-LLaVA identified potential crash scenarios 1.13 to 1.33 seconds earlier than human drivers, highlighting their potential role in autonomous driving systems."
+            &ldquo;{{ . }}&rdquo;
           </p>
+          {{ end }}
           {{/* Collapsible abstract body */}}
           <div id="abstract-body" class="text-[0.975rem] leading-relaxed text-slate-800 dark:text-slate-200 font-normal prose prose-slate dark:prose-invert max-w-none overflow-hidden transition-all duration-500" style="max-height:5.5rem;">
             {{ .Params.abstract | markdownify }}

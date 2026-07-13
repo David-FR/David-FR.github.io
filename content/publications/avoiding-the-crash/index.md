@@ -24,6 +24,8 @@ tags:
 
 featured: true
 
+pull_quote: 'LLaVA-7B and MoE-LLaVA identified potential crash scenarios 1.13 to 1.33 seconds earlier than human drivers, highlighting their potential role in autonomous driving systems.'
+
 image:
   preview_only: true
 
