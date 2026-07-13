@@ -88,8 +88,8 @@ hugoblox:
     align: center                       # left | center | right
     # Feature toggles
     search: true
-    theme_toggle: true
-    theme_picker: true
+    theme_toggle: false                 # hide light/dark switch — site is locked to dark
+    theme_picker: false                 # hide the "Theme" pack dropdown
     language_switcher: true
     # Call-to-action button
     cta:
