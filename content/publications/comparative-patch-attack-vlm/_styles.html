@@ -1,0 +1,65 @@
+<style>
+/* ── Scroll-reveal: shared across scenario / pipeline / results ── */
+@keyframes cpa-up {
+  from { opacity: 0; transform: translateY(18px) }
+  to   { opacity: 1; transform: translateY(0) }
+}
+@media screen {
+  .cpa-reveal { opacity: 0; transform: translateY(18px) }
+}
+@media screen and (prefers-reduced-motion: no-preference) {
+  .cpa-reveal.cpa-visible { animation: cpa-up .55s ease forwards }
+  .cpa-reveal.cpa-d1.cpa-visible { animation-delay: .1s }
+  .cpa-reveal.cpa-d2.cpa-visible { animation-delay: .25s }
+  .cpa-reveal.cpa-d3.cpa-visible { animation-delay: .4s }
+}
+@media screen and (prefers-reduced-motion: reduce) {
+  .cpa-reveal.cpa-visible { opacity: 1; transform: none; transition: opacity .2s ease }
+}
+
+/* ── Bars grow from zero when scrolled into view ── */
+.cpa-bar { transform: scaleX(0); transform-origin: left center; }
+@media screen and (prefers-reduced-motion: no-preference) {
+  .cpa-visible .cpa-bar { animation: cpa-grow 1s cubic-bezier(.22,1,.36,1) forwards; }
+}
+@keyframes cpa-grow { to { transform: scaleX(1); } }
+@media screen and (prefers-reduced-motion: reduce) {
+  .cpa-bar { transform: scaleX(1); }
+}
+
+/* ── Highway: car drives forward (up), then veers right into the barrier ── */
+@keyframes cpa-drive {
+  0%   { transform: translate(205px,224px) scale(1)   rotate(0deg);  opacity: 0 }
+  6%   { transform: translate(205px,224px) scale(1)   rotate(0deg);  opacity: 1 }
+  30%  { transform: translate(203px,182px) scale(.72) rotate(0deg);  opacity: 1 }
+  52%  { transform: translate(206px,146px) scale(.55) rotate(0deg);  opacity: 1 }
+  70%  { transform: translate(226px,131px) scale(.47) rotate(16deg); opacity: 1 }
+  84%  { transform: translate(246px,126px) scale(.42) rotate(28deg); opacity: 1 }
+  89%  { transform: translate(254px,127px) scale(.40) rotate(34deg); opacity: 1 }
+  95%  { transform: translate(254px,127px) scale(.40) rotate(34deg); opacity: 0 }
+  100% { transform: translate(254px,127px) scale(.40) rotate(34deg); opacity: 0 }
+}
+.cpa-veer-car {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: cpa-drive 5s ease-in infinite;
+}
+/* ── Crash burst, synced to the moment of impact ── */
+@keyframes cpa-crash-flash {
+  0%,84% { opacity: 0;   transform: scale(0)   }
+  88%    { opacity: 1;   transform: scale(.7)  }
+  93%    { opacity: .85; transform: scale(1.5) }
+  99%    { opacity: 0;   transform: scale(1.9) }
+  100%   { opacity: 0;   transform: scale(0)   }
+}
+.cpa-crash {
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: 0;
+  animation: cpa-crash-flash 5s ease-in infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .cpa-veer-car { animation: none; transform: translate(206px,146px) scale(.6) rotate(0deg) }
+  .cpa-crash    { animation: none; opacity: 0 }
+}
+</style>

@@ -27,6 +27,13 @@ tags:
 
 featured: true
 
+pull_quote: 'All three VLM driving models fail against real, printable patches: 73 to 76% attack success, sustained for 6 to 8 frames in a row. Each one fails in its own way.'
+
+key_takeaways:
+  - "Builds the first framework that puts different VLM driving models **on equal footing**. A *semantic homogenization* step translates each model's very different output into one shared space, so a single attack and one set of metrics apply to all of them."
+  - "All three models (Dolphins, OmniDrive Omni-L, and LeapVAD) fail, with a **73 to 76% attack success rate**. That is 12 to 20 times higher than normal, and each failure lasts **6 to 8 frames in a row**, long enough to slip past defenses that check several frames before acting."
+  - "**Each architecture fails in its own way.** The cross-attention model stops seeing pedestrians (a 71-point drop in detection), the MLP model is just as easy to fool at every distance, and the dual-process model keeps seeing objects yet still makes the wrong call. Seeing correctly and acting correctly can come apart."
+
 links:
   - type: pdf
     url: https://arxiv.org/pdf/2603.08897
@@ -35,3 +42,10 @@ links:
   - type: doi
     url: https://doi.org/10.48550/arXiv.2603.08897
 ---
+
+{{< pub-html "_styles.html" >}}
+{{< pub-html "_intro.html" >}}
+{{< pub-html "_scenarios.html" >}}
+{{< pub-html "_methodology.html" >}}
+{{< pub-html "_results.html" >}}
+{{< pub-html "_footer.html" >}}

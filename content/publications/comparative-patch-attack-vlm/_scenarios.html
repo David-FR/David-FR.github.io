@@ -1,0 +1,115 @@
+<!-- ═══════════════ THREAT MODEL ═══════════════ -->
+<div style="margin-bottom:1.25rem;border-radius:1.25rem;border:1px solid rgba(239,68,68,.2);overflow:hidden;background:linear-gradient(135deg,rgba(239,68,68,.05),rgba(249,115,22,.03));">
+  <div style="padding:1.1rem 1.5rem;border-bottom:1px solid rgba(239,68,68,.12);display:flex;align-items:center;gap:.75rem;">
+    <div style="flex-shrink:0;width:2rem;height:2rem;border-radius:.5rem;background:rgba(239,68,68,.15);display:flex;align-items:center;justify-content:center;color:#f87171;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/></svg>
+    </div>
+    <div>
+      <div style="font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#f87171;margin-bottom:.15rem;">Threat Model</div>
+      <div style="font-size:.82rem;color:#94a3b8;">An attacker can print a patch on <strong style="color:#cbd5e1;">existing road infrastructure</strong>, such as a roadside ad. They never see inside the model and never touch the car&rsquo;s sensors.</div>
+    </div>
+  </div>
+  <div style="padding:1rem 1.5rem;display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem;">
+    <div style="padding:.7rem .85rem;border-radius:.7rem;background:rgba(15,23,42,.35);border:1px solid rgba(239,68,68,.12);">
+      <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#f87171;margin-bottom:.25rem;">Access</div>
+      <div style="font-size:.78rem;color:#cbd5e1;line-height:1.45;">Send an image, read the text reply. Nothing about the model&rsquo;s internals.</div>
+    </div>
+    <div style="padding:.7rem .85rem;border-radius:.7rem;background:rgba(15,23,42,.35);border:1px solid rgba(239,68,68,.12);">
+      <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#f87171;margin-bottom:.25rem;">Surface</div>
+      <div style="font-size:.78rem;color:#cbd5e1;line-height:1.45;">Existing roadside infrastructure, such as bus-shelter ad panels and billboards.</div>
+    </div>
+    <div style="padding:.7rem .85rem;border-radius:.7rem;background:rgba(15,23,42,.35);border:1px solid rgba(239,68,68,.12);">
+      <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#f87171;margin-bottom:.25rem;">Patch Generation</div>
+      <div style="font-size:.78rem;color:#cbd5e1;line-height:1.45;">About 6,000 quick tries per patch, with no access to the model&rsquo;s internals.</div>
+    </div>
+    <div style="padding:.7rem .85rem;border-radius:.7rem;background:rgba(15,23,42,.35);border:1px solid rgba(239,68,68,.12);">
+      <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#f87171;margin-bottom:.25rem;">Realizability</div>
+      <div style="font-size:.78rem;color:#cbd5e1;line-height:1.45;">Limited to printable colors and smooth patterns, so it holds up as a real print.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ ATTACK SCENARIO ═══════════════ -->
+<div style="display:flex;align-items:center;gap:.6rem;margin:1.5rem 0 .9rem;">
+  <div style="font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#94a3b8;white-space:nowrap;">The Attack in Action</div>
+  <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(148,163,184,.3),transparent);"></div>
+</div>
+<p style="margin:0 0 1rem;font-size:.9rem;line-height:1.6;color:#94a3b8;">The study runs two kinds of attack. One <strong style="color:#f87171;">hides a real hazard</strong>, such as a pedestrian at a crosswalk. The other, shown here, <strong style="color:#fbbf24;">forces an unsafe move</strong> on the highway.</p>
+
+<!-- ── SCENARIO: HIGHWAY / ACTION ── -->
+<div class="cpa-reveal" style="margin-bottom:1.5rem;border-radius:1.25rem;border:1px solid rgba(245,158,11,.3);overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.06);">
+  <div style="padding:1rem 1.5rem;background:linear-gradient(135deg,rgba(245,158,11,.1),rgba(249,115,22,.05));border-bottom:1px solid rgba(245,158,11,.15);">
+    <div style="display:flex;align-items:center;gap:.65rem;flex-wrap:wrap;">
+      <span style="font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:#f59e0b;color:#1a1205;padding:.22rem .6rem;border-radius:9999px;">Action Attack</span>
+      <span style="font-size:1.15rem;font-weight:650;color:#e2e8f0;">Highway: Hijacking the Decision</span>
+      <span style="margin-left:auto;font-size:.72rem;font-family:ui-monospace,monospace;color:#fcd34d;background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.3);border-radius:.4rem;padding:.15rem .5rem;white-space:nowrap;">1024&times;512 patch &middot; 85 km/h</span>
+    </div>
+    <div style="margin-top:.4rem;font-size:.82rem;color:#94a3b8;">Here the model still sees the road fine. The patch attacks the <strong style="color:#cbd5e1;">decision</strong> instead, nudging it to &ldquo;turn right&rdquo; straight into the concrete barrier.</div>
+  </div>
+  <div style="padding:1.25rem 1.5rem;display:grid;grid-template-columns:1.3fr 1fr;gap:1.25rem;align-items:center;">
+    <!-- illustration -->
+    <div style="border-radius:.9rem;overflow:hidden;border:1px solid rgba(245,158,11,.2);background:rgba(15,23,42,.35);">
+      <svg viewBox="0 0 380 240" style="width:100%;display:block;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Highway seen from the driver's seat. The ego-vehicle drives forward up the road, then turns right and crashes into the concrete barrier below an adversarial billboard.">
+        <defs>
+          <linearGradient id="cpa-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1e293b"/><stop offset="1" stop-color="#334155"/></linearGradient>
+          <linearGradient id="cpa-road" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#334155"/><stop offset="1" stop-color="#475569"/></linearGradient>
+          <radialGradient id="cpa-flash"><stop offset="0" stop-color="#fef08a"/><stop offset="35%" stop-color="#f97316"/><stop offset="70%" stop-color="#ef4444" stop-opacity=".7"/><stop offset="100%" stop-color="#ef4444" stop-opacity="0"/></radialGradient>
+        </defs>
+        <rect x="0" y="0" width="380" height="66" fill="url(#cpa-sky)"/>
+        <!-- road, widening toward the viewer -->
+        <polygon points="150,66 230,66 336,240 44,240" fill="url(#cpa-road)"/>
+        <!-- centre lane dashes + left edge -->
+        <g stroke="#e2e8f0" stroke-width="2.5" opacity=".45" stroke-dasharray="7 12"><line x1="190" y1="68" x2="190" y2="240"/></g>
+        <line x1="150" y1="66" x2="44" y2="240" stroke="#fbbf24" stroke-width="1.6" opacity=".55"/>
+        <!-- concrete barrier along the right edge -->
+        <polygon points="230,66 244,66 336,240 300,240" fill="#64748b" stroke="#94a3b8" stroke-width="1"/>
+        <g fill="#475569"><rect x="236" y="78" width="6" height="10"/><rect x="252" y="108" width="10" height="15"/><rect x="278" y="150" width="16" height="22"/><rect x="300" y="196" width="22" height="28"/></g>
+        <text x="272" y="150" font-size="7.5" fill="#cbd5e1" transform="rotate(69 272 150)" font-family="sans-serif" font-weight="600">CONCRETE BARRIER</text>
+        <!-- adversarial billboard, upper right -->
+        <g>
+          <rect x="300" y="22" width="66" height="44" rx="2" fill="#0f172a" stroke="#f59e0b" stroke-width="1.5"/>
+          <rect x="304" y="26" width="58" height="36" rx="1" fill="#1e293b"/>
+          <g>
+            <rect x="310" y="34" width="6" height="6" fill="#ef4444"/><rect x="316" y="34" width="6" height="6" fill="#22c55e"/><rect x="322" y="34" width="6" height="6" fill="#3b82f6"/><rect x="328" y="34" width="6" height="6" fill="#eab308"/><rect x="334" y="34" width="6" height="6" fill="#a855f7"/><rect x="340" y="34" width="6" height="6" fill="#06b6d4"/><rect x="346" y="34" width="6" height="6" fill="#f97316"/>
+            <rect x="310" y="40" width="6" height="6" fill="#22c55e"/><rect x="316" y="40" width="6" height="6" fill="#f97316"/><rect x="322" y="40" width="6" height="6" fill="#ec4899"/><rect x="328" y="40" width="6" height="6" fill="#ef4444"/><rect x="334" y="40" width="6" height="6" fill="#84cc16"/><rect x="340" y="40" width="6" height="6" fill="#3b82f6"/><rect x="346" y="40" width="6" height="6" fill="#eab308"/>
+            <rect x="310" y="46" width="6" height="6" fill="#3b82f6"/><rect x="316" y="46" width="6" height="6" fill="#eab308"/><rect x="322" y="46" width="6" height="6" fill="#14b8a6"/><rect x="328" y="46" width="6" height="6" fill="#a855f7"/><rect x="334" y="46" width="6" height="6" fill="#f97316"/><rect x="340" y="46" width="6" height="6" fill="#ef4444"/><rect x="346" y="46" width="6" height="6" fill="#22c55e"/>
+            <rect x="310" y="52" width="6" height="6" fill="#ec4899"/><rect x="316" y="52" width="6" height="6" fill="#06b6d4"/><rect x="322" y="52" width="6" height="6" fill="#eab308"/><rect x="328" y="52" width="6" height="6" fill="#22c55e"/><rect x="334" y="52" width="6" height="6" fill="#3b82f6"/><rect x="340" y="52" width="6" height="6" fill="#f97316"/><rect x="346" y="52" width="6" height="6" fill="#a855f7"/>
+          </g>
+          <rect x="331" y="66" width="3" height="18" fill="#334155"/>
+        </g>
+        <!-- intended (hijacked) trajectory: forward, then right into the barrier -->
+        <path d="M 205 224 C 203 182, 205 150, 222 134 C 238 120, 248 122, 255 128" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4 4" opacity=".3"/>
+        <polygon points="258,129 250,124 251,132" fill="#f59e0b" opacity=".45"/>
+        <!-- ego vehicle: drives up, then veers right into the barrier (animated) -->
+        <g class="cpa-veer-car">
+          <rect x="-9" y="-6" width="18" height="12" rx="2.5" fill="#f59e0b" stroke="#fde68a" stroke-width="1"/>
+          <rect x="-6" y="-4" width="12" height="4.5" rx="1" fill="#1e293b" opacity=".75"/>
+          <rect x="-8" y="4.5" width="4" height="2" rx="1" fill="#fca5a5"/><rect x="4" y="4.5" width="4" height="2" rx="1" fill="#fca5a5"/>
+        </g>
+        <!-- crash burst at the barrier -->
+        <circle class="cpa-crash" cx="254" cy="124" r="12" fill="url(#cpa-flash)"/>
+      </svg>
+    </div>
+    <!-- target output -->
+    <div>
+      <div style="display:flex;flex-direction:column;gap:.7rem;">
+        <div style="border-radius:.7rem;border:1px solid rgba(34,197,94,.25);background:rgba(34,197,94,.05);padding:.65rem .85rem;">
+          <div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#22c55e;margin-bottom:.2rem;">Safe action</div>
+          <p style="margin:0;font-size:.82rem;line-height:1.45;color:#cbd5e1;font-style:italic;">&ldquo;Maintain speed / accelerate.&rdquo;</p>
+        </div>
+        <div style="display:flex;justify-content:center;color:#f59e0b;"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3"/></svg></div>
+        <div style="border-radius:.7rem;border:1px solid rgba(239,68,68,.3);background:rgba(239,68,68,.05);padding:.65rem .85rem;">
+          <div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#f87171;margin-bottom:.2rem;">Hijacked action</div>
+          <p style="margin:0;font-size:.82rem;line-height:1.45;color:#cbd5e1;font-style:italic;">&ldquo;Turn right to exit the highway.&rdquo;</p>
+          <div style="margin-top:.35rem;font-size:.68rem;color:#f87171;">&rarr; steers toward the barrier</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="padding:0 1.5rem 1.1rem;">
+    <div style="display:flex;align-items:center;gap:.5rem;font-size:.72rem;color:#94a3b8;background:rgba(245,158,11,.05);border:1px solid rgba(245,158,11,.15);border-radius:.6rem;padding:.55rem .85rem;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="#fbbf24" stroke-width="2" style="flex-shrink:0;"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085"/></svg>
+      <span>The bigger 2 m &times; 1 m billboard patch can be seen from <strong style="color:#cbd5e1;">about 80 m</strong> away. It goes after the model&rsquo;s choice of action, not its eyesight: the model still &ldquo;sees&rdquo; the road correctly.</span>
+    </div>
+  </div>
+</div>
