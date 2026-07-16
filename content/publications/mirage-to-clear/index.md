@@ -40,3 +40,10 @@ links:
   - type: code
     url: https://github.com/David-FR/MIRAGE_CLEAR
 ---
+
+{{< pub-html "_styles.html" >}}
+{{< pub-html "_intro.html" >}}
+{{< pub-html "_problem.html" >}}
+{{< pub-html "_framework.html" >}}
+{{< pub-html "_results.html" >}}
+{{< pub-html "_footer.html" >}}
