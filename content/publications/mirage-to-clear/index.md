@@ -33,6 +33,8 @@ key_takeaways:
   - "Achieves **95.2% accuracy** in anomaly detection and **84% accuracy** in component-level attribution on safety-critical perception tasks."
 
 links:
+  - type: pdf
+    url: /files/publications/fernandez-2026-mirage-to-clear.pdf
   - type: code
     url: https://github.com/David-FR/MIRAGE_CLEAR
 ---
