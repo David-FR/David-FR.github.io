@@ -27,10 +27,12 @@ tags:
 
 featured: true
 
+pull_quote: 'When a self-driving car''s perception fails, today''s tools tell you that it failed, not which part. MIRAGE-CLEAR traces each failure to a specific module and cites the regulation it broke.'
+
 key_takeaways:
-  - "Unifies anomaly detection, violation classification, and component-level failure attribution into a single explainable framework (**MIRAGE-CLEAR**)."
-  - "Decomposes complex perception attributions into highly interpretable, audit-ready reasoning chains compliant with the **EU AI Act**."
-  - "Achieves **95.2% accuracy** in anomaly detection and **84% accuracy** in component-level attribution on safety-critical perception tasks."
+  - "When a self-driving car's perception breaks, most tools only flag *that* something is wrong. **MIRAGE-CLEAR** points to the module actually at fault (sign reading, lane keeping, or object detection) and explains the call."
+  - "Every finding is backed by the rule book. CLEAR grounds its reasoning in the **MUTCD**, the U.S. traffic-control standard, so each answer cites a real regulation. That turns an opaque model into **audit-ready evidence** for laws like the EU AI Act."
+  - "It knows when it isn't sure. CLEAR reaches **95.2%** accuracy at spotting anomalies and **84%** at blaming the right module for clear sign failures. When fog or glare hits several modules at once, it spreads its confidence instead of guessing, which matches the physics."
 
 links:
   - type: pdf
