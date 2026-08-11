@@ -9,8 +9,8 @@ authors:
   - Bing Li
   - Mert D. Pese
 
-date: '2026-01-01T00:00:00Z'
-publishDate: '2026-01-01T00:00:00Z'
+date: '2026-06-22T00:00:00Z'
+publishDate: '2026-06-22T00:00:00Z'
 
 publication_types: ['paper-conference']
 
@@ -39,6 +39,8 @@ links:
     url: /files/publications/fernandez-2026-mirage-to-clear.pdf
   - type: code
     url: https://github.com/David-FR/MIRAGE_CLEAR
+  - type: doi
+    url: https://doi.org/10.1109/dsn69566.2026.00072
 ---
 
 {{< pub-html "_styles.html" >}}

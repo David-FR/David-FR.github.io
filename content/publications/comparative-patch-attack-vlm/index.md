@@ -9,8 +9,8 @@ authors:
   - Abolfazl Razi
   - Mert D. Pesé
 
-date: '2026-03-09T00:00:00Z'
-publishDate: '2026-03-09T00:00:00Z'
+date: '2026-06-22T00:00:00Z'
+publishDate: '2026-06-22T00:00:00Z'
 
 publication_types: ['paper-conference']
 
@@ -36,11 +36,11 @@ key_takeaways:
 
 links:
   - type: pdf
-    url: https://arxiv.org/pdf/2603.08897
+    url: /files/publications/fernandez-2026-comparative-patch-attack-vlm.pdf
   - type: code
     url: https://github.com/David-FR/VLMsPatchAttack
   - type: doi
-    url: https://doi.org/10.48550/arXiv.2603.08897
+    url: https://doi.org/10.1109/iv66570.2026.11624055
 ---
 
 {{< pub-html "_styles.html" >}}
