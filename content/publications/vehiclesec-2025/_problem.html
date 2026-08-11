@@ -1,0 +1,135 @@
+<div class="dx-reveal" style="margin-bottom:1.5rem;border-radius:1.25rem;border:1px solid rgba(239,68,68,.2);overflow:hidden;background:linear-gradient(135deg,rgba(239,68,68,.05),rgba(244,63,94,.03));">
+  <!-- header -->
+  <div style="padding:1rem 1.5rem;border-bottom:1px solid rgba(239,68,68,.12);display:flex;align-items:center;gap:.75rem;">
+    <span style="flex-shrink:0;width:2rem;height:2rem;border-radius:.625rem;background:rgba(239,68,68,.15);display:flex;align-items:center;justify-content:center;color:#f87171;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/></svg>
+    </span>
+    <div>
+      <div style="font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#f87171;margin-bottom:.1rem;">From Detection to Explanation</div>
+      <div style="font-size:.8rem;color:#94a3b8;">A perception model can tell you a scene looks wrong. It cannot tell you why, or whether someone made it that way.</div>
+    </div>
+  </div>
+
+  <!-- ═══ Detect vs Explain ═══ -->
+  <div style="padding:1.1rem 1.5rem;border-bottom:1px solid rgba(239,68,68,.08);">
+    <div style="font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#f87171;margin-bottom:.3rem;">Why Detection Alone Is Not Enough</div>
+    <p style="margin:0 0 .9rem;font-size:.8rem;line-height:1.5;color:#94a3b8;">Conventional deep neural networks answer a yes/no question and stop there. For safety review and security forensics, that answer is a dead end: it points at nothing you can fix, audit, or defend against.</p>
+    <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:1rem;align-items:center;">
+      <!-- what a DNN gives -->
+      <div style="border-radius:.9rem;border:1px solid rgba(248,113,113,.28);background:rgba(248,113,113,.05);overflow:hidden;">
+        <div style="padding:.5rem .85rem;background:rgba(248,113,113,.1);border-bottom:1px solid rgba(248,113,113,.18);font-size:.62rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#f87171;">What a DNN Gives You</div>
+        <div style="padding:.75rem .85rem;font-family:ui-monospace,monospace;font-size:.78rem;color:#e2e8f0;line-height:1.7;">
+          <div>anomaly &nbsp;=&nbsp; <span style="color:#f87171;">true</span></div>
+          <div>score &nbsp;&nbsp;&nbsp;=&nbsp; <span style="color:#fbbf24;">0.87</span></div>
+          <div style="color:#64748b;font-size:.7rem;margin-top:.35rem;">// which module? why? attack or glitch?</div>
+          <div style="color:#64748b;font-size:.7rem;">// no answer</div>
+        </div>
+      </div>
+      <!-- arrow -->
+      <div style="display:flex;flex-direction:column;align-items:center;color:#64748b;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="#818cf8" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+        <span style="font-size:.55rem;color:#64748b;margin-top:.2rem;text-align:center;">the gap<br>this paper<br>closes</span>
+      </div>
+      <!-- what is needed -->
+      <div style="border-radius:.9rem;border:1px solid rgba(34,197,94,.28);background:rgba(34,197,94,.05);overflow:hidden;">
+        <div style="padding:.5rem .85rem;background:rgba(34,197,94,.1);border-bottom:1px solid rgba(34,197,94,.18);font-size:.62rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#4ade80;">What Safety &amp; Security Need</div>
+        <div style="padding:.75rem .85rem;font-size:.75rem;color:#94a3b8;line-height:1.5;display:flex;flex-direction:column;gap:.3rem;">
+          <div><span style="color:#4ade80;">&#10003;</span> <strong style="color:#e2e8f0;">Why</strong> the scene is inconsistent</div>
+          <div><span style="color:#4ade80;">&#10003;</span> The exact <strong style="color:#e2e8f0;">rule</strong> it violates</div>
+          <div><span style="color:#4ade80;">&#10003;</span> Benign glitch <strong style="color:#e2e8f0;">vs.</strong> deliberate attack</div>
+          <div><span style="color:#4ade80;">&#10003;</span> A human-readable <strong style="color:#e2e8f0;">audit trail</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ Benign or adversarial? ═══ -->
+  <div style="padding:1.1rem 1.5rem;border-bottom:1px solid rgba(239,68,68,.08);">
+    <div style="font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#f87171;margin-bottom:.3rem;">The Hard Part: Glitch or Attack?</div>
+    <p style="margin:0 0 .9rem;font-size:.8rem;line-height:1.5;color:#94a3b8;">Both scenes below are a regulatory sign on a clear, sunny road. They look alike to a classifier. Only reasoning against the <strong style="color:#e2e8f0;">rule book</strong> separates a correct sign from one that should never be there.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.9rem;">
+      <!-- adversarial -->
+      <div style="border-radius:1rem;border:1px solid rgba(239,68,68,.3);background:rgba(239,68,68,.04);overflow:hidden;">
+        <div style="padding:.6rem .9rem;background:rgba(239,68,68,.1);border-bottom:1px solid rgba(239,68,68,.18);display:flex;align-items:center;justify-content:space-between;">
+          <span style="font-size:.8rem;font-weight:700;color:#e2e8f0;">STOP sign on a 65 mph highway</span>
+          <span style="font-size:.6rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#f87171;background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.3);border-radius:.35rem;padding:.12rem .45rem;">Anomalous</span>
+        </div>
+        <div style="padding:.75rem .9rem;">
+          <p style="margin:0 0 .55rem;font-size:.75rem;line-height:1.5;color:#94a3b8;">An <span style="font-family:ui-monospace,monospace;color:#cbd5e1;">R1-1 Stop Sign</span> sits on the shoulder of an open highway, in the high-speed travel area.</p>
+          <div style="border-left:3px solid #ef4444;background:rgba(15,23,42,.4);border-radius:0 .5rem .5rem 0;padding:.5rem .7rem;">
+            <div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#f87171;margin-bottom:.2rem;">Verdict &middot; violates the rule book</div>
+            <p style="margin:0;font-size:.72rem;line-height:1.5;color:#cbd5e1;">Stop signs belong at intersections and ramps, not mid-highway. <span style="font-family:ui-monospace,monospace;color:#fca5a5;">MUTCD 2B.04, 2B.05</span></p>
+          </div>
+        </div>
+      </div>
+      <!-- benign -->
+      <div style="border-radius:1rem;border:1px solid rgba(34,197,94,.3);background:rgba(34,197,94,.04);overflow:hidden;">
+        <div style="padding:.6rem .9rem;background:rgba(34,197,94,.1);border-bottom:1px solid rgba(34,197,94,.18);display:flex;align-items:center;justify-content:space-between;">
+          <span style="font-size:.8rem;font-weight:700;color:#e2e8f0;">YIELD sign at a roundabout</span>
+          <span style="font-size:.6rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#4ade80;background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.3);border-radius:.35rem;padding:.12rem .45rem;">Benign</span>
+        </div>
+        <div style="padding:.75rem .9rem;">
+          <p style="margin:0 0 .55rem;font-size:.75rem;line-height:1.5;color:#94a3b8;">An <span style="font-family:ui-monospace,monospace;color:#cbd5e1;">R1-4 Yield Sign</span> tells drivers to yield to circulating traffic on approach to a roundabout.</p>
+          <div style="border-left:3px solid #22c55e;background:rgba(15,23,42,.4);border-radius:0 .5rem .5rem 0;padding:.5rem .7rem;">
+            <div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#4ade80;margin-bottom:.2rem;">Verdict &middot; fully compliant</div>
+            <p style="margin:0;font-size:.72rem;line-height:1.5;color:#cbd5e1;">Exactly the right control for a roundabout entry. <span style="font-family:ui-monospace,monospace;color:#86efac;">MUTCD 2B.33, R4-03</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ Method comparison ═══ -->
+  <div style="padding:1.1rem 1.5rem;">
+    <div style="font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#f87171;margin-bottom:.3rem;">What Existing Methods Miss</div>
+    <p style="margin:0 0 .8rem;font-size:.8rem;line-height:1.5;color:#94a3b8;">Prior approaches flag anomalies but stop short of a grounded, human-readable reason, and most need a pile of labeled examples first. Zero-shot LLM reasoning is built to do all four.</p>
+    <div style="overflow-x:auto;">
+      <table style="width:100%;min-width:460px;border-collapse:collapse;font-size:.7rem;">
+        <thead>
+          <tr style="color:#94a3b8;">
+            <th style="text-align:left;padding:.4rem .5rem;font-weight:600;border-bottom:1px solid rgba(148,163,184,.2);">Approach</th>
+            <th style="padding:.4rem .3rem;font-weight:600;border-bottom:1px solid rgba(148,163,184,.2);">Detect</th>
+            <th style="padding:.4rem .3rem;font-weight:600;border-bottom:1px solid rgba(148,163,184,.2);">Explain</th>
+            <th style="padding:.4rem .3rem;font-weight:600;border-bottom:1px solid rgba(148,163,184,.2);">Cite rule</th>
+            <th style="padding:.4rem .3rem;font-weight:600;border-bottom:1px solid rgba(148,163,184,.2);">No labels</th>
+          </tr>
+        </thead>
+        <tbody style="color:#cbd5e1;">
+          <tr>
+            <td style="text-align:left;padding:.4rem .5rem;border-bottom:1px solid rgba(148,163,184,.08);">Statistical / threshold detectors</td>
+            <td style="text-align:center;padding:.4rem .3rem;border-bottom:1px solid rgba(148,163,184,.08);color:#4ade80;">&#10003;</td>
+            <td style="text-align:center;padding:.4rem .3rem;border-bottom:1px solid rgba(148,163,184,.08);color:#64748b;">&#10007;</td>
+            <td style="text-align:center;padding:.4rem .3rem;border-bottom:1px solid rgba(148,163,184,.08);color:#64748b;">&#10007;</td>
+            <td style="text-align:center;padding:.4rem .3rem;border-bottom:1px solid rgba(148,163,184,.08);color:#4ade80;">&#10003;</td>
+          </tr>
+          <tr>
+            <td style="text-align:left;padding:.4rem .5rem;border-bottom:1px solid rgba(148,163,184,.08);">Supervised DNN classifiers</td>
+            <td style="text-align:center;padding:.4rem .3rem;border-bottom:1px solid rgba(148,163,184,.08);color:#4ade80;">&#10003;</td>
+            <td style="text-align:center;padding:.4rem .3rem;border-bottom:1px solid rgba(148,163,184,.08);color:#64748b;">&#10007;</td>
+            <td style="text-align:center;padding:.4rem .3rem;border-bottom:1px solid rgba(148,163,184,.08);color:#64748b;">&#10007;</td>
+            <td style="text-align:center;padding:.4rem .3rem;border-bottom:1px solid rgba(148,163,184,.08);color:#64748b;">&#10007;</td>
+          </tr>
+          <tr>
+            <td style="text-align:left;padding:.4rem .5rem;border-bottom:1px solid rgba(148,163,184,.08);">Hand-written rule engines</td>
+            <td style="text-align:center;padding:.4rem .3rem;border-bottom:1px solid rgba(148,163,184,.08);color:#4ade80;">&#10003;</td>
+            <td style="text-align:center;padding:.4rem .3rem;border-bottom:1px solid rgba(148,163,184,.08);color:#fbbf24;">&#9680;</td>
+            <td style="text-align:center;padding:.4rem .3rem;border-bottom:1px solid rgba(148,163,184,.08);color:#4ade80;">&#10003;</td>
+            <td style="text-align:center;padding:.4rem .3rem;border-bottom:1px solid rgba(148,163,184,.08);color:#fbbf24;">&#9680;</td>
+          </tr>
+          <tr style="background:rgba(34,197,94,.07);">
+            <td style="text-align:left;padding:.5rem;font-weight:700;color:#e2e8f0;border-radius:.4rem 0 0 .4rem;">&#9733; LLM zero-shot reasoning (ours)</td>
+            <td style="text-align:center;padding:.5rem .3rem;color:#4ade80;font-weight:700;">&#10003;</td>
+            <td style="text-align:center;padding:.5rem .3rem;color:#4ade80;font-weight:700;">&#10003;</td>
+            <td style="text-align:center;padding:.5rem .3rem;color:#4ade80;font-weight:700;">&#10003;</td>
+            <td style="text-align:center;padding:.5rem .3rem;color:#4ade80;font-weight:700;border-radius:0 .4rem .4rem 0;">&#10003;</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:.55rem;font-size:.6rem;color:#64748b;">
+      <span><span style="color:#4ade80;">&#10003;</span> full</span>
+      <span><span style="color:#fbbf24;">&#9680;</span> partial / brittle</span>
+      <span><span style="color:#64748b;">&#10007;</span> none</span>
+    </div>
+  </div>
+</div>

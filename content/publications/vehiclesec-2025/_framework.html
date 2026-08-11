@@ -1,0 +1,166 @@
+<div class="dx-reveal" style="margin-bottom:1.5rem;border-radius:1.25rem;border:1px solid rgba(99,102,241,.2);overflow:hidden;">
+  <!-- header -->
+  <div style="padding:1rem 1.5rem;border-bottom:1px solid rgba(99,102,241,.12);background:linear-gradient(135deg,rgba(99,102,241,.1),rgba(34,197,94,.06));display:flex;align-items:center;gap:.75rem;">
+    <span style="flex-shrink:0;width:2rem;height:2rem;border-radius:.625rem;background:rgba(99,102,241,.18);display:flex;align-items:center;justify-content:center;color:#818cf8;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21a48.25 48.25 0 01-8.135-.687c-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/></svg>
+    </span>
+    <div>
+      <div style="font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#818cf8;margin-bottom:.1rem;">The Framework</div>
+      <div style="font-size:.8rem;color:#94a3b8;">Turn each scene into structured text, reason over it against the rule book, and grade both the call and the explanation.</div>
+    </div>
+  </div>
+
+  <!-- ═══ Overview figure: AutoSec-X → DSL → CoT reasoning → evaluation ═══ -->
+  <div style="padding:1.1rem 1.25rem .8rem;border-bottom:1px solid rgba(148,163,184,.08);">
+    <div style="overflow-x:auto;">
+      <svg viewBox="0 0 940 220" style="width:100%;min-width:640px;display:block;" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif" role="img" aria-label="Framework overview: GPT-4 generates the MUTCD-grounded AutoSec-X dataset, each scenario is encoded in a domain-specific language, a large language model reasons over it with zero-shot chain-of-thought, and outputs are graded on both detection accuracy and explanation quality">
+        <!-- Stage 1: AutoSec-X generation -->
+        <rect x="6" y="30" width="212" height="160" rx="14" fill="rgba(59,130,246,.06)" stroke="rgba(59,130,246,.4)" stroke-width="1.2"/>
+        <text x="112" y="54" font-size="13" font-weight="800" fill="#60a5fa" text-anchor="middle">AutoSec-X</text>
+        <text x="112" y="70" font-size="9" fill="#93c5fd" text-anchor="middle">MUTCD-grounded generation</text>
+        <rect x="26" y="84" width="172" height="30" rx="8" fill="rgba(59,130,246,.12)" stroke="rgba(59,130,246,.32)"/>
+        <text x="112" y="103" font-size="10" fill="#bfdbfe" text-anchor="middle">GPT-4 &#43; MUTCD rules</text>
+        <rect x="26" y="120" width="172" height="30" rx="8" fill="rgba(59,130,246,.12)" stroke="rgba(59,130,246,.32)"/>
+        <text x="112" y="139" font-size="10" fill="#bfdbfe" text-anchor="middle">40 driving scenarios</text>
+        <text x="112" y="172" font-size="9.5" font-style="italic" fill="#60a5fa" text-anchor="middle">20 anomalous &middot; 20 benign</text>
+        <!-- arrow 1->DSL -->
+        <line x1="218" y1="110" x2="250" y2="110" stroke="#3b82f6" stroke-width="2.6"/>
+        <polygon points="248,105 260,110 248,115" fill="#3b82f6"/>
+        <!-- DSL -->
+        <rect x="262" y="76" width="96" height="68" rx="12" fill="rgba(245,158,11,.13)" stroke="rgba(245,158,11,.55)" stroke-width="1.3"/>
+        <text x="310" y="104" font-size="16" font-weight="800" fill="#fbbf24" text-anchor="middle">DSL</text>
+        <text x="310" y="120" font-size="8.5" fill="#fcd34d" text-anchor="middle">Structured</text>
+        <text x="310" y="131" font-size="8.5" fill="#fcd34d" text-anchor="middle">scene encoding</text>
+        <!-- arrow DSL->reasoning -->
+        <line x1="358" y1="110" x2="390" y2="110" stroke="#f59e0b" stroke-width="2.6"/>
+        <polygon points="388,105 400,110 388,115" fill="#f59e0b"/>
+        <!-- Stage 3: reasoning -->
+        <rect x="402" y="30" width="316" height="160" rx="14" fill="rgba(99,102,241,.06)" stroke="rgba(99,102,241,.4)" stroke-width="1.2"/>
+        <text x="560" y="54" font-size="13" font-weight="800" fill="#818cf8" text-anchor="middle">Zero-Shot Chain-of-Thought Reasoning</text>
+        <text x="560" y="70" font-size="9" fill="#a5b4fc" text-anchor="middle">no labeled data &middot; MUTCD as knowledge base</text>
+        <g>
+          <rect x="418" y="84" width="66" height="66" rx="9" fill="rgba(99,102,241,.12)" stroke="rgba(99,102,241,.3)"/>
+          <text x="451" y="113" font-size="9" fill="#c7d2fe" text-anchor="middle">Parse</text>
+          <text x="451" y="125" font-size="9" fill="#c7d2fe" text-anchor="middle">scene</text>
+          <rect x="490" y="84" width="66" height="66" rx="9" fill="rgba(99,102,241,.12)" stroke="rgba(99,102,241,.3)"/>
+          <text x="523" y="107" font-size="9" fill="#c7d2fe" text-anchor="middle">Recall</text>
+          <text x="523" y="119" font-size="9" fill="#c7d2fe" text-anchor="middle">MUTCD</text>
+          <text x="523" y="131" font-size="9" fill="#c7d2fe" text-anchor="middle">rule</text>
+          <rect x="562" y="84" width="66" height="66" rx="9" fill="rgba(99,102,241,.12)" stroke="rgba(99,102,241,.3)"/>
+          <text x="595" y="113" font-size="9" fill="#c7d2fe" text-anchor="middle">Compare</text>
+          <text x="595" y="125" font-size="9" fill="#c7d2fe" text-anchor="middle">&amp; judge</text>
+          <rect x="634" y="84" width="70" height="66" rx="9" fill="rgba(34,197,94,.12)" stroke="rgba(34,197,94,.32)"/>
+          <text x="669" y="107" font-size="9" fill="#bbf7d0" text-anchor="middle">Verdict</text>
+          <text x="669" y="119" font-size="9" fill="#bbf7d0" text-anchor="middle">&#43; cited</text>
+          <text x="669" y="131" font-size="9" fill="#bbf7d0" text-anchor="middle">section</text>
+          <line x1="484" y1="117" x2="490" y2="117" stroke="rgba(148,163,184,.5)" stroke-width="1.4"/>
+          <line x1="556" y1="117" x2="562" y2="117" stroke="rgba(148,163,184,.5)" stroke-width="1.4"/>
+          <line x1="628" y1="117" x2="634" y2="117" stroke="rgba(148,163,184,.5)" stroke-width="1.4"/>
+        </g>
+        <text x="560" y="172" font-size="9.5" font-style="italic" fill="#818cf8" text-anchor="middle">9 LLMs benchmarked as swappable engines</text>
+        <!-- arrow reasoning->eval -->
+        <line x1="718" y1="110" x2="750" y2="110" stroke="#22c55e" stroke-width="2.6"/>
+        <polygon points="748,105 760,110 748,115" fill="#22c55e"/>
+        <!-- Stage 4: evaluation -->
+        <rect x="762" y="30" width="172" height="160" rx="14" fill="rgba(34,197,94,.06)" stroke="rgba(34,197,94,.4)" stroke-width="1.2"/>
+        <text x="848" y="54" font-size="12.5" font-weight="800" fill="#4ade80" text-anchor="middle">Dual Evaluation</text>
+        <rect x="780" y="72" width="136" height="46" rx="8" fill="rgba(34,197,94,.1)" stroke="rgba(34,197,94,.3)"/>
+        <text x="848" y="90" font-size="9.5" font-weight="700" fill="#bbf7d0" text-anchor="middle">Detection accuracy</text>
+        <text x="848" y="105" font-size="8" fill="#86efac" text-anchor="middle">anomalous vs. benign</text>
+        <rect x="780" y="124" width="136" height="52" rx="8" fill="rgba(34,197,94,.1)" stroke="rgba(34,197,94,.3)"/>
+        <text x="848" y="142" font-size="9.5" font-weight="700" fill="#bbf7d0" text-anchor="middle">Explanation quality</text>
+        <text x="848" y="157" font-size="8" fill="#86efac" text-anchor="middle">ROUGE &middot; BLEU &middot; SBERT</text>
+        <text x="848" y="169" font-size="8" fill="#86efac" text-anchor="middle">vs. expert answer</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ═══ AutoSec-X dataset ═══ -->
+  <div style="padding:1rem 1.5rem .4rem;">
+    <div style="font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#60a5fa;margin-bottom:.15rem;">AutoSec-X &middot; The Benchmark</div>
+    <p style="margin:0 0 .8rem;font-size:.8rem;line-height:1.5;color:#94a3b8;">GPT-4 drafts 40 driving scenarios anchored in the U.S. traffic-control manual, half with a genuine regulatory violation and half fully compliant. Each carries an expert-style ground-truth explanation that names the relevant MUTCD section, so a model is graded not just on the verdict, but on whether it reasons for the right reason.</p>
+  </div>
+  <div style="padding:0 1.5rem 1rem;display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;">
+    <div style="text-align:center;padding:.6rem .4rem;border-radius:.7rem;background:rgba(59,130,246,.05);border:1px solid rgba(59,130,246,.18);">
+      <div style="font-size:1.25rem;font-weight:800;font-family:ui-monospace,monospace;color:#60a5fa;line-height:1;">40</div>
+      <div style="font-size:.6rem;color:#94a3b8;margin-top:.25rem;line-height:1.3;">MUTCD-grounded<br>scenarios</div>
+    </div>
+    <div style="text-align:center;padding:.6rem .4rem;border-radius:.7rem;background:rgba(239,68,68,.05);border:1px solid rgba(239,68,68,.18);">
+      <div style="font-size:1.25rem;font-weight:800;font-family:ui-monospace,monospace;color:#f87171;line-height:1;">20&nbsp;/&nbsp;20</div>
+      <div style="font-size:.6rem;color:#94a3b8;margin-top:.25rem;line-height:1.3;">anomalous vs.<br>benign, balanced</div>
+    </div>
+    <div style="text-align:center;padding:.6rem .4rem;border-radius:.7rem;background:rgba(168,85,247,.05);border:1px solid rgba(168,85,247,.18);">
+      <div style="font-size:1.25rem;font-weight:800;font-family:ui-monospace,monospace;color:#c084fc;line-height:1;">31</div>
+      <div style="font-size:.6rem;color:#94a3b8;margin-top:.25rem;line-height:1.3;">distinct road<br>types &amp; layouts</div>
+    </div>
+    <div style="text-align:center;padding:.6rem .4rem;border-radius:.7rem;background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.18);">
+      <div style="font-size:1.25rem;font-weight:800;font-family:ui-monospace,monospace;color:#4ade80;line-height:1;">0</div>
+      <div style="font-size:.6rem;color:#94a3b8;margin-top:.25rem;line-height:1.3;">labeled examples<br>needed (zero-shot)</div>
+    </div>
+  </div>
+
+  <!-- ═══ DSL schema + worked example ═══ -->
+  <div style="padding:.4rem 1.5rem 1rem;">
+    <div style="font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#fbbf24;margin-bottom:.15rem;">The Domain-Specific Language</div>
+    <p style="margin:0 0 .8rem;font-size:.8rem;line-height:1.5;color:#94a3b8;">Raw sensor data is distilled into eight human-readable descriptors. This compact, text-only encoding is what the LLM reasons over: small enough to fit any context window, explicit enough to check against a written rule.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.9rem;align-items:start;">
+      <!-- schema -->
+      <div style="border-radius:1rem;border:1px solid rgba(245,158,11,.22);background:rgba(245,158,11,.04);overflow:hidden;">
+        <div style="padding:.55rem .9rem;border-bottom:1px solid rgba(245,158,11,.15);font-size:.62rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#fbbf24;">Scene descriptors</div>
+        <div style="padding:.7rem .9rem;display:grid;grid-template-columns:auto 1fr;gap:.35rem .7rem;font-size:.72rem;">
+          <span style="font-family:ui-monospace,monospace;color:#fcd34d;">RoadType</span><span style="color:#94a3b8;">highway, roundabout, school zone&hellip;</span>
+          <span style="font-family:ui-monospace,monospace;color:#fcd34d;">Speed</span><span style="color:#94a3b8;">posted / travel speed (mph)</span>
+          <span style="font-family:ui-monospace,monospace;color:#fcd34d;">LaneMarkings</span><span style="color:#94a3b8;">e.g. broken white, double yellow</span>
+          <span style="font-family:ui-monospace,monospace;color:#fcd34d;">TrafficSigns</span><span style="color:#94a3b8;">MUTCD sign codes present</span>
+          <span style="font-family:ui-monospace,monospace;color:#fcd34d;">TrafficControlDevices</span><span style="color:#94a3b8;">signals, beacons, markers</span>
+          <span style="font-family:ui-monospace,monospace;color:#fcd34d;">TimeOfDay</span><span style="color:#94a3b8;">lighting context</span>
+          <span style="font-family:ui-monospace,monospace;color:#fcd34d;">Weather</span><span style="color:#94a3b8;">clear, fog, rain, mist&hellip;</span>
+          <span style="font-family:ui-monospace,monospace;color:#fcd34d;">Description</span><span style="color:#94a3b8;">one-line natural-language summary</span>
+        </div>
+      </div>
+      <!-- worked example -->
+      <div style="border-radius:1rem;border:1px solid rgba(148,163,184,.2);background:rgba(15,23,42,.4);overflow:hidden;">
+        <div style="padding:.55rem .9rem;border-bottom:1px solid rgba(148,163,184,.14);font-size:.62rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#cbd5e1;">Encoded scenario &middot; #1</div>
+        <div style="padding:.7rem .9rem;font-family:ui-monospace,'Cascadia Code',monospace;font-size:.72rem;line-height:1.65;color:#e2e8f0;overflow-x:auto;">
+          <div><span style="color:#7dd3fc;">RoadType</span>: <span style="color:#fca5a5;">"Highway"</span></div>
+          <div><span style="color:#7dd3fc;">Speed</span>: <span style="color:#fbbf24;">65</span></div>
+          <div><span style="color:#7dd3fc;">LaneMarkings</span>: <span style="color:#a5b4fc;">["Broken white line"]</span></div>
+          <div><span style="color:#7dd3fc;">TrafficSigns</span>: <span style="color:#a5b4fc;">["R1-1: Stop Sign"]</span></div>
+          <div><span style="color:#7dd3fc;">Weather</span>: <span style="color:#fca5a5;">"Sunny"</span></div>
+          <div style="color:#64748b;white-space:normal;">&hellip; stop sign in a 65&#8202;mph travel lane</div>
+        </div>
+        <div style="padding:.5rem .9rem;border-top:1px solid rgba(148,163,184,.14);background:rgba(239,68,68,.06);">
+          <span style="font-size:.62rem;font-weight:700;color:#f87171;">&#9654; Ground truth: </span><span style="font-size:.7rem;color:#cbd5e1;">Inconsistency, <span style="font-family:ui-monospace,monospace;color:#fca5a5;">MUTCD 2B.04, 2B.05</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ Zero-shot CoT reasoning steps ═══ -->
+  <div style="padding:.4rem 1.5rem 1rem;border-top:1px solid rgba(99,102,241,.1);">
+    <div style="font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#818cf8;margin:.5rem 0 .15rem;">How the Reasoning Works</div>
+    <p style="margin:0 0 .8rem;font-size:.8rem;line-height:1.5;color:#94a3b8;">A single zero-shot chain-of-thought prompt walks the model through four steps. The MUTCD is the external authority; benign variation stays inside the rules, a manipulation steps outside them.</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;">
+      <div style="border-radius:.85rem;border:1px solid rgba(99,102,241,.22);background:rgba(99,102,241,.04);padding:.7rem .8rem;">
+        <div style="font-size:.9rem;font-weight:800;font-family:ui-monospace,monospace;color:#818cf8;margin-bottom:.25rem;">01</div>
+        <div style="font-size:.72rem;font-weight:700;color:#e2e8f0;margin-bottom:.2rem;">Parse the scene</div>
+        <p style="margin:0;font-size:.68rem;line-height:1.45;color:#94a3b8;">Read the DSL fields and lay out what is actually present on the road.</p>
+      </div>
+      <div style="border-radius:.85rem;border:1px solid rgba(168,85,247,.22);background:rgba(168,85,247,.04);padding:.7rem .8rem;">
+        <div style="font-size:.9rem;font-weight:800;font-family:ui-monospace,monospace;color:#c084fc;margin-bottom:.25rem;">02</div>
+        <div style="font-size:.72rem;font-weight:700;color:#e2e8f0;margin-bottom:.2rem;">Recall the rule</div>
+        <p style="margin:0;font-size:.68rem;line-height:1.45;color:#94a3b8;">Retrieve the MUTCD guidance that governs this sign, marking, or context.</p>
+      </div>
+      <div style="border-radius:.85rem;border:1px solid rgba(59,130,246,.22);background:rgba(59,130,246,.04);padding:.7rem .8rem;">
+        <div style="font-size:.9rem;font-weight:800;font-family:ui-monospace,monospace;color:#60a5fa;margin-bottom:.25rem;">03</div>
+        <div style="font-size:.72rem;font-weight:700;color:#e2e8f0;margin-bottom:.2rem;">Compare &amp; judge</div>
+        <p style="margin:0;font-size:.68rem;line-height:1.45;color:#94a3b8;">Check the scene against the rule and decide: within bounds, or a violation?</p>
+      </div>
+      <div style="border-radius:.85rem;border:1px solid rgba(34,197,94,.22);background:rgba(34,197,94,.04);padding:.7rem .8rem;">
+        <div style="font-size:.9rem;font-weight:800;font-family:ui-monospace,monospace;color:#4ade80;margin-bottom:.25rem;">04</div>
+        <div style="font-size:.72rem;font-weight:700;color:#e2e8f0;margin-bottom:.2rem;">Explain &amp; cite</div>
+        <p style="margin:0;font-size:.68rem;line-height:1.45;color:#94a3b8;">State the verdict with a written rationale and the exact MUTCD section.</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,207 @@
+<div class="dx-reveal" style="margin-bottom:1.5rem;border-radius:1.25rem;border:1px solid rgba(34,197,94,.2);overflow:hidden;background:linear-gradient(135deg,rgba(34,197,94,.05),rgba(99,102,241,.03));">
+  <!-- header -->
+  <div style="padding:1rem 1.5rem;border-bottom:1px solid rgba(34,197,94,.12);display:flex;align-items:center;gap:.75rem;">
+    <span style="flex-shrink:0;width:2rem;height:2rem;border-radius:.625rem;background:rgba(34,197,94,.15);display:flex;align-items:center;justify-content:center;color:#4ade80;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg>
+    </span>
+    <div>
+      <div style="font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#4ade80;margin-bottom:.1rem;">Results</div>
+      <div style="font-size:.8rem;color:#94a3b8;">Nine LLMs, one benchmark. Detecting the problem turns out to be the easy half.</div>
+    </div>
+  </div>
+
+  <!-- headline stat band -->
+  <div style="padding:1rem 1.25rem;display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem;border-bottom:1px solid rgba(34,197,94,.1);">
+    <div style="text-align:center;padding:.6rem .5rem;border-radius:.75rem;background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.18);">
+      <div style="font-size:1.5rem;font-weight:800;font-family:ui-monospace,monospace;color:#4ade80;line-height:1;">92.5<span style="font-size:.8rem;">%</span></div>
+      <div style="font-size:.6rem;color:#94a3b8;margin-top:.3rem;line-height:1.3;">best detection<br>accuracy (Gemini)</div>
+    </div>
+    <div style="text-align:center;padding:.6rem .5rem;border-radius:.75rem;background:rgba(99,102,241,.06);border:1px solid rgba(99,102,241,.18);">
+      <div style="font-size:1.5rem;font-weight:800;font-family:ui-monospace,monospace;color:#818cf8;line-height:1;">0.69</div>
+      <div style="font-size:.6rem;color:#94a3b8;margin-top:.3rem;line-height:1.3;">top explanation<br>similarity (SBERT)</div>
+    </div>
+    <div style="text-align:center;padding:.6rem .5rem;border-radius:.75rem;background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.18);">
+      <div style="font-size:1.5rem;font-weight:800;font-family:ui-monospace,monospace;color:#60a5fa;line-height:1;">9</div>
+      <div style="font-size:.6rem;color:#94a3b8;margin-top:.3rem;line-height:1.3;">LLMs benchmarked<br>across 4 families</div>
+    </div>
+    <div style="text-align:center;padding:.6rem .5rem;border-radius:.75rem;background:rgba(168,85,247,.06);border:1px solid rgba(168,85,247,.18);">
+      <div style="font-size:1.5rem;font-weight:800;font-family:ui-monospace,monospace;color:#c084fc;line-height:1;">0</div>
+      <div style="font-size:.6rem;color:#94a3b8;margin-top:.3rem;line-height:1.3;">labeled training<br>examples used</div>
+    </div>
+  </div>
+
+  <!-- ═══ A · Detection accuracy ═══ -->
+  <div style="padding:1.1rem 1.5rem;border-bottom:1px solid rgba(34,197,94,.08);">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:.5rem;margin-bottom:.7rem;">
+      <div style="font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#4ade80;">A &middot; Detection Accuracy (40 scenarios)</div>
+      <div style="display:flex;gap:.8rem;flex-wrap:wrap;font-size:.68rem;">
+        <span style="display:inline-flex;align-items:center;gap:.3rem;color:#93c5fd;"><span style="width:.7rem;height:.7rem;border-radius:2px;background:#3b82f6;"></span>Gemini</span>
+        <span style="display:inline-flex;align-items:center;gap:.3rem;color:#5eead4;"><span style="width:.7rem;height:.7rem;border-radius:2px;background:#2dd4bf;"></span>Llama&nbsp;3.2</span>
+        <span style="display:inline-flex;align-items:center;gap:.3rem;color:#d8b4fe;"><span style="width:.7rem;height:.7rem;border-radius:2px;background:#a855f7;"></span>Qwen&nbsp;2.5</span>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:.4rem;position:relative;">
+      <!-- rows -->
+      <div style="display:flex;align-items:center;gap:.5rem;"><span style="font-size:.68rem;color:#cbd5e1;width:135px;flex-shrink:0;">gemini-1.5-flash</span><div style="flex:1;height:.9rem;border-radius:.3rem;background:rgba(148,163,184,.1);overflow:hidden;"><div class="dx-bar" style="height:100%;width:92.5%;background:linear-gradient(90deg,#2563eb,#3b82f6);border-radius:.3rem;"></div></div><span style="font-size:.7rem;font-family:ui-monospace,monospace;color:#93c5fd;width:42px;text-align:right;">92.5</span></div>
+      <div style="display:flex;align-items:center;gap:.5rem;"><span style="font-size:.68rem;color:#cbd5e1;width:135px;flex-shrink:0;">gemini-2.0-flash-exp</span><div style="flex:1;height:.9rem;border-radius:.3rem;background:rgba(148,163,184,.1);overflow:hidden;"><div class="dx-bar" style="height:100%;width:87.5%;background:linear-gradient(90deg,#2563eb,#3b82f6);border-radius:.3rem;"></div></div><span style="font-size:.7rem;font-family:ui-monospace,monospace;color:#93c5fd;width:42px;text-align:right;">87.5</span></div>
+      <div style="display:flex;align-items:center;gap:.5rem;"><span style="font-size:.68rem;color:#cbd5e1;width:135px;flex-shrink:0;">gemini-1.5-pro</span><div style="flex:1;height:.9rem;border-radius:.3rem;background:rgba(148,163,184,.1);overflow:hidden;"><div class="dx-bar" style="height:100%;width:87.5%;background:linear-gradient(90deg,#2563eb,#3b82f6);border-radius:.3rem;"></div></div><span style="font-size:.7rem;font-family:ui-monospace,monospace;color:#93c5fd;width:42px;text-align:right;">87.5</span></div>
+      <div style="display:flex;align-items:center;gap:.5rem;"><span style="font-size:.68rem;color:#cbd5e1;width:135px;flex-shrink:0;">Llama-3.2-8B</span><div style="flex:1;height:.9rem;border-radius:.3rem;background:rgba(148,163,184,.1);overflow:hidden;"><div class="dx-bar" style="height:100%;width:87.5%;background:linear-gradient(90deg,#0d9488,#2dd4bf);border-radius:.3rem;"></div></div><span style="font-size:.7rem;font-family:ui-monospace,monospace;color:#5eead4;width:42px;text-align:right;">87.5</span></div>
+      <div style="display:flex;align-items:center;gap:.5rem;"><span style="font-size:.68rem;color:#cbd5e1;width:135px;flex-shrink:0;">gemini-1.5-flash-8b</span><div style="flex:1;height:.9rem;border-radius:.3rem;background:rgba(148,163,184,.1);overflow:hidden;"><div class="dx-bar" style="height:100%;width:82.5%;background:linear-gradient(90deg,#2563eb,#3b82f6);border-radius:.3rem;"></div></div><span style="font-size:.7rem;font-family:ui-monospace,monospace;color:#93c5fd;width:42px;text-align:right;">82.5</span></div>
+      <div style="display:flex;align-items:center;gap:.5rem;"><span style="font-size:.68rem;color:#cbd5e1;width:135px;flex-shrink:0;">Qwen2.5-7B</span><div style="flex:1;height:.9rem;border-radius:.3rem;background:rgba(148,163,184,.1);overflow:hidden;"><div class="dx-bar" style="height:100%;width:82.5%;background:linear-gradient(90deg,#7e22ce,#a855f7);border-radius:.3rem;"></div></div><span style="font-size:.7rem;font-family:ui-monospace,monospace;color:#d8b4fe;width:42px;text-align:right;">82.5</span></div>
+      <div style="display:flex;align-items:center;gap:.5rem;"><span style="font-size:.68rem;color:#cbd5e1;width:135px;flex-shrink:0;">Qwen2.5-14B</span><div style="flex:1;height:.9rem;border-radius:.3rem;background:rgba(148,163,184,.1);overflow:hidden;"><div class="dx-bar" style="height:100%;width:82.5%;background:linear-gradient(90deg,#7e22ce,#a855f7);border-radius:.3rem;"></div></div><span style="font-size:.7rem;font-family:ui-monospace,monospace;color:#d8b4fe;width:42px;text-align:right;">82.5</span></div>
+      <div style="display:flex;align-items:center;gap:.5rem;"><span style="font-size:.68rem;color:#94a3b8;width:135px;flex-shrink:0;">Llama-3.2-1B</span><div style="flex:1;height:.9rem;border-radius:.3rem;background:rgba(148,163,184,.1);overflow:hidden;"><div class="dx-bar" style="height:100%;width:55%;background:linear-gradient(90deg,#0d9488,#2dd4bf);border-radius:.3rem;opacity:.75;"></div></div><span style="font-size:.7rem;font-family:ui-monospace,monospace;color:#5eead4;width:42px;text-align:right;">55.0</span></div>
+      <div style="display:flex;align-items:center;gap:.5rem;"><span style="font-size:.68rem;color:#94a3b8;width:135px;flex-shrink:0;">Llama-3.2-3B</span><div style="flex:1;height:.9rem;border-radius:.3rem;background:rgba(148,163,184,.1);overflow:hidden;"><div class="dx-bar" style="height:100%;width:50%;background:linear-gradient(90deg,#0d9488,#2dd4bf);border-radius:.3rem;opacity:.75;"></div></div><span style="font-size:.7rem;font-family:ui-monospace,monospace;color:#5eead4;width:42px;text-align:right;">50.0</span></div>
+    </div>
+    <p style="margin:.7rem 0 0;font-size:.7rem;line-height:1.5;color:#94a3b8;">On the binary anomalous-vs-benign call, the field bunches up: four models (including the open <strong style="color:#5eead4;">Llama-3.2-8B</strong>) reach <strong style="color:#cbd5e1;">87.5%</strong> or better. Only the 1B and 3B models fall to coin-flip territory (50% on this balanced set). Detection, it turns out, is not where the models separate.</p>
+  </div>
+
+  <!-- ═══ B · The detection–explanation gap ═══ -->
+  <div style="padding:1.1rem 1.5rem;border-bottom:1px solid rgba(34,197,94,.08);">
+    <div style="font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#4ade80;margin-bottom:.3rem;">B &middot; The Detection&ndash;Explanation Gap</div>
+    <p style="margin:0 0 .6rem;font-size:.75rem;line-height:1.5;color:#94a3b8;">Plotting <em>getting the call right</em> against <em>explaining it well</em> (semantic match to the expert answer) splits the field. Only the <strong style="color:#93c5fd;">Gemini</strong> family lands in the top-right corner: right answer <em>and</em> a grounded reason. Qwen detects just as well yet its explanations barely resemble the rule-based ground truth.</p>
+    <div style="overflow-x:auto;">
+      <svg viewBox="0 0 660 300" style="width:100%;min-width:480px;display:block;" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif" role="img" aria-label="Scatter plot of detection accuracy against explanation similarity. The Gemini family clusters in the top-right, high on both axes. Qwen 2.5 models detect at 82.5 percent but score only 0.28 on explanation similarity. Small Llama models are weak at detection.">
+        <!-- quadrant shading -->
+        <rect x="441" y="40" width="159" height="120" fill="rgba(34,197,94,.05)"/>
+        <rect x="441" y="160" width="159" height="100" fill="rgba(239,68,68,.05)"/>
+        <text x="520" y="115" text-anchor="middle" font-size="8.5" fill="rgba(74,222,128,.75)" font-style="italic">detect AND explain</text>
+        <text x="520" y="205" text-anchor="middle" font-size="8.5" fill="rgba(248,113,113,.7)" font-style="italic">detect, can&#8217;t explain</text>
+        <!-- gridlines -->
+        <g stroke="rgba(148,163,184,.13)" stroke-width="1">
+          <line x1="123" y1="40" x2="123" y2="260"/><line x1="229" y1="40" x2="229" y2="260"/><line x1="335" y1="40" x2="335" y2="260"/><line x1="441" y1="40" x2="441" y2="260"/><line x1="547" y1="40" x2="547" y2="260"/>
+          <line x1="70" y1="49" x2="600" y2="49"/><line x1="70" y1="96" x2="600" y2="96"/><line x1="70" y1="143" x2="600" y2="143"/><line x1="70" y1="190" x2="600" y2="190"/><line x1="70" y1="237" x2="600" y2="237"/>
+        </g>
+        <!-- axes -->
+        <line x1="70" y1="40" x2="70" y2="260" stroke="rgba(148,163,184,.4)" stroke-width="1.2"/>
+        <line x1="70" y1="260" x2="600" y2="260" stroke="rgba(148,163,184,.4)" stroke-width="1.2"/>
+        <!-- x labels -->
+        <g font-size="9" fill="#94a3b8" font-family="monospace" text-anchor="middle">
+          <text x="123" y="274">50</text><text x="229" y="274">60</text><text x="335" y="274">70</text><text x="441" y="274">80</text><text x="547" y="274">90</text>
+        </g>
+        <text x="335" y="292" font-size="9.5" fill="#94a3b8" font-family="monospace" text-anchor="middle">Detection accuracy (%)</text>
+        <!-- y labels -->
+        <g font-size="9" fill="#94a3b8" font-family="monospace" text-anchor="end">
+          <text x="63" y="240">0.30</text><text x="63" y="193">0.40</text><text x="63" y="146">0.50</text><text x="63" y="99">0.60</text><text x="63" y="52">0.70</text>
+        </g>
+        <text x="20" y="150" font-size="9.5" fill="#94a3b8" font-family="monospace" transform="rotate(-90 20 150)" text-anchor="middle">Explanation similarity (SBERT)</text>
+        <!-- Gemini cluster highlight -->
+        <ellipse cx="520" cy="59" rx="82" ry="26" fill="none" stroke="rgba(59,130,246,.5)" stroke-width="1.3" stroke-dasharray="4,3"/>
+        <text x="520" y="26" text-anchor="middle" font-size="9.5" font-weight="700" fill="#60a5fa">Gemini family</text>
+        <line x1="520" y1="29" x2="520" y2="34" stroke="rgba(96,165,250,.5)" stroke-width="1"/>
+        <!-- Gemini points (blue) -->
+        <g fill="#3b82f6" stroke="#93c5fd" stroke-width="1">
+          <circle cx="574" cy="59" r="5"/><circle cx="512" cy="54" r="5"/><circle cx="528" cy="61" r="5"/><circle cx="468" cy="63" r="5"/>
+        </g>
+        <!-- Llama-3.2-8B (teal) -->
+        <circle cx="520" cy="154" r="5" fill="#2dd4bf" stroke="#5eead4" stroke-width="1"/>
+        <text x="520" y="172" text-anchor="middle" font-size="8.5" fill="#5eead4">Llama-3.2-8B</text>
+        <!-- Llama-1B / 3B (teal, faded) -->
+        <circle cx="176" cy="88" r="5" fill="#2dd4bf" stroke="#5eead4" stroke-width="1" opacity=".8"/>
+        <text x="176" y="80" text-anchor="middle" font-size="8.5" fill="#5eead4">Llama-3.2-1B</text>
+        <circle cx="123" cy="129" r="5" fill="#2dd4bf" stroke="#5eead4" stroke-width="1" opacity=".8"/>
+        <text x="130" y="147" text-anchor="middle" font-size="8.5" fill="#5eead4">Llama-3.2-3B</text>
+        <!-- Qwen 7B/14B (purple, overlapping) -->
+        <circle cx="462" cy="246" r="5" fill="#a855f7" stroke="#d8b4fe" stroke-width="1"/>
+        <circle cx="476" cy="240" r="5" fill="#a855f7" stroke="#d8b4fe" stroke-width="1"/>
+        <text x="469" y="228" text-anchor="middle" font-size="8.5" fill="#d8b4fe">Qwen2.5 7B / 14B</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ═══ C · Full results table ═══ -->
+  <div style="padding:1.1rem 1.5rem;border-bottom:1px solid rgba(34,197,94,.08);">
+    <div style="font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#4ade80;margin-bottom:.7rem;">C &middot; Detection and Explanation, Side by Side</div>
+    <div style="overflow-x:auto;">
+      <table style="width:100%;min-width:520px;border-collapse:collapse;font-size:.72rem;">
+        <thead>
+          <tr style="color:#94a3b8;">
+            <th style="text-align:left;padding:.45rem .5rem;font-weight:600;border-bottom:1px solid rgba(148,163,184,.2);">Model</th>
+            <th style="padding:.45rem .4rem;font-weight:600;border-bottom:1px solid rgba(148,163,184,.2);">Detect&nbsp;%</th>
+            <th style="padding:.45rem .4rem;font-weight:600;border-bottom:1px solid rgba(148,163,184,.2);">SBERT</th>
+            <th style="padding:.45rem .4rem;font-weight:600;border-bottom:1px solid rgba(148,163,184,.2);">ROUGE-1</th>
+            <th style="padding:.45rem .4rem;font-weight:600;border-bottom:1px solid rgba(148,163,184,.2);">BERTScore</th>
+          </tr>
+        </thead>
+        <tbody style="color:#cbd5e1;font-family:ui-monospace,monospace;">
+          <tr style="background:rgba(34,197,94,.07);">
+            <td style="text-align:left;padding:.45rem .5rem;font-family:system-ui,sans-serif;font-weight:700;color:#e2e8f0;border-radius:.4rem 0 0 .4rem;">&#9733; gemini-1.5-flash</td>
+            <td style="text-align:center;padding:.45rem .4rem;color:#4ade80;font-weight:700;">92.5</td>
+            <td style="text-align:center;padding:.45rem .4rem;">0.68</td>
+            <td style="text-align:center;padding:.45rem .4rem;">0.34</td>
+            <td style="text-align:center;padding:.45rem .4rem;border-radius:0 .4rem .4rem 0;">0.88</td>
+          </tr>
+          <tr>
+            <td style="text-align:left;padding:.4rem .5rem;font-family:system-ui,sans-serif;border-bottom:1px solid rgba(148,163,184,.08);">gemini-1.5-pro</td>
+            <td style="text-align:center;padding:.4rem .4rem;border-bottom:1px solid rgba(148,163,184,.08);">87.5</td>
+            <td style="text-align:center;padding:.4rem .4rem;border-bottom:1px solid rgba(148,163,184,.08);color:#86efac;">0.69</td>
+            <td style="text-align:center;padding:.4rem .4rem;border-bottom:1px solid rgba(148,163,184,.08);">0.33</td>
+            <td style="text-align:center;padding:.4rem .4rem;border-bottom:1px solid rgba(148,163,184,.08);">0.88</td>
+          </tr>
+          <tr>
+            <td style="text-align:left;padding:.4rem .5rem;font-family:system-ui,sans-serif;border-bottom:1px solid rgba(148,163,184,.08);">gemini-2.0-flash-exp</td>
+            <td style="text-align:center;padding:.4rem .4rem;border-bottom:1px solid rgba(148,163,184,.08);">87.5</td>
+            <td style="text-align:center;padding:.4rem .4rem;border-bottom:1px solid rgba(148,163,184,.08);">0.68</td>
+            <td style="text-align:center;padding:.4rem .4rem;border-bottom:1px solid rgba(148,163,184,.08);">0.32</td>
+            <td style="text-align:center;padding:.4rem .4rem;border-bottom:1px solid rgba(148,163,184,.08);">0.88</td>
+          </tr>
+          <tr>
+            <td style="text-align:left;padding:.4rem .5rem;font-family:system-ui,sans-serif;border-bottom:1px solid rgba(148,163,184,.08);">gemini-1.5-flash-8b</td>
+            <td style="text-align:center;padding:.4rem .4rem;border-bottom:1px solid rgba(148,163,184,.08);">82.5</td>
+            <td style="text-align:center;padding:.4rem .4rem;border-bottom:1px solid rgba(148,163,184,.08);">0.67</td>
+            <td style="text-align:center;padding:.4rem .4rem;border-bottom:1px solid rgba(148,163,184,.08);">0.31</td>
+            <td style="text-align:center;padding:.4rem .4rem;border-bottom:1px solid rgba(148,163,184,.08);">0.88</td>
+          </tr>
+          <tr>
+            <td style="text-align:left;padding:.4rem .5rem;font-family:system-ui,sans-serif;border-bottom:1px solid rgba(148,163,184,.08);">Llama-3.2-8B</td>
+            <td style="text-align:center;padding:.4rem .4rem;border-bottom:1px solid rgba(148,163,184,.08);">87.5</td>
+            <td style="text-align:center;padding:.4rem .4rem;border-bottom:1px solid rgba(148,163,184,.08);color:#fca5a5;">0.48</td>
+            <td style="text-align:center;padding:.4rem .4rem;border-bottom:1px solid rgba(148,163,184,.08);color:#fca5a5;">0.14</td>
+            <td style="text-align:center;padding:.4rem .4rem;border-bottom:1px solid rgba(148,163,184,.08);">0.81</td>
+          </tr>
+          <tr>
+            <td style="text-align:left;padding:.4rem .5rem;font-family:system-ui,sans-serif;border-bottom:1px solid rgba(148,163,184,.08);">Qwen2.5-7B</td>
+            <td style="text-align:center;padding:.4rem .4rem;border-bottom:1px solid rgba(148,163,184,.08);">82.5</td>
+            <td style="text-align:center;padding:.4rem .4rem;border-bottom:1px solid rgba(148,163,184,.08);color:#fca5a5;">0.28</td>
+            <td style="text-align:center;padding:.4rem .4rem;border-bottom:1px solid rgba(148,163,184,.08);">0.15</td>
+            <td style="text-align:center;padding:.4rem .4rem;border-bottom:1px solid rgba(148,163,184,.08);">0.81</td>
+          </tr>
+          <tr>
+            <td style="text-align:left;padding:.4rem .5rem;font-family:system-ui,sans-serif;border-bottom:1px solid rgba(148,163,184,.08);">Qwen2.5-14B</td>
+            <td style="text-align:center;padding:.4rem .4rem;border-bottom:1px solid rgba(148,163,184,.08);">82.5</td>
+            <td style="text-align:center;padding:.4rem .4rem;border-bottom:1px solid rgba(148,163,184,.08);color:#fca5a5;">0.28</td>
+            <td style="text-align:center;padding:.4rem .4rem;border-bottom:1px solid rgba(148,163,184,.08);">0.14</td>
+            <td style="text-align:center;padding:.4rem .4rem;border-bottom:1px solid rgba(148,163,184,.08);">0.81</td>
+          </tr>
+          <tr>
+            <td style="text-align:left;padding:.4rem .5rem;font-family:system-ui,sans-serif;border-bottom:1px solid rgba(148,163,184,.08);color:#94a3b8;">Llama-3.2-1B</td>
+            <td style="text-align:center;padding:.4rem .4rem;border-bottom:1px solid rgba(148,163,184,.08);color:#94a3b8;">55.0</td>
+            <td style="text-align:center;padding:.4rem .4rem;border-bottom:1px solid rgba(148,163,184,.08);color:#94a3b8;">0.62</td>
+            <td style="text-align:center;padding:.4rem .4rem;border-bottom:1px solid rgba(148,163,184,.08);color:#94a3b8;">0.22</td>
+            <td style="text-align:center;padding:.4rem .4rem;border-bottom:1px solid rgba(148,163,184,.08);color:#94a3b8;">0.84</td>
+          </tr>
+          <tr>
+            <td style="text-align:left;padding:.4rem .5rem;font-family:system-ui,sans-serif;color:#94a3b8;">Llama-3.2-3B</td>
+            <td style="text-align:center;padding:.4rem .4rem;color:#94a3b8;">50.0</td>
+            <td style="text-align:center;padding:.4rem .4rem;color:#94a3b8;">0.53</td>
+            <td style="text-align:center;padding:.4rem .4rem;color:#94a3b8;">0.18</td>
+            <td style="text-align:center;padding:.4rem .4rem;color:#94a3b8;">0.83</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin:.6rem 0 0;font-size:.68rem;line-height:1.5;color:#64748b;">SBERT = sentence-embedding cosine similarity to the expert explanation; ROUGE-1 and BERTScore measure word- and meaning-level overlap. <span style="color:#fca5a5;">Red</span> marks models that detect well but explain poorly.</p>
+  </div>
+
+  <!-- ═══ D · Latency reality check ═══ -->
+  <div style="padding:1.1rem 1.5rem;">
+    <div style="font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#4ade80;margin-bottom:.3rem;">D &middot; The Practical Cost</div>
+    <p style="margin:0 0 .8rem;font-size:.75rem;line-height:1.5;color:#94a3b8;">The strongest reasoners are cloud-hosted and answer in under a second. Running a small model locally for privacy trades that away fast. Median time per scenario:</p>
+    <div style="display:flex;flex-direction:column;gap:.4rem;">
+      <div style="display:flex;align-items:center;gap:.5rem;"><span style="font-size:.68rem;color:#cbd5e1;width:120px;flex-shrink:0;">gemini-1.5-flash</span><div style="flex:1;height:.8rem;border-radius:.3rem;background:rgba(148,163,184,.1);overflow:hidden;"><div style="height:100%;width:0.5%;min-width:3px;background:#3b82f6;border-radius:.3rem;"></div></div><span style="font-size:.68rem;font-family:ui-monospace,monospace;color:#93c5fd;width:66px;text-align:right;">0.8&thinsp;s</span></div>
+      <div style="display:flex;align-items:center;gap:.5rem;"><span style="font-size:.68rem;color:#cbd5e1;width:120px;flex-shrink:0;">Qwen2.5-14B</span><div style="flex:1;height:.8rem;border-radius:.3rem;background:rgba(148,163,184,.1);overflow:hidden;"><div style="height:100%;width:2%;min-width:5px;background:#a855f7;border-radius:.3rem;"></div></div><span style="font-size:.68rem;font-family:ui-monospace,monospace;color:#d8b4fe;width:66px;text-align:right;">3.4&thinsp;s</span></div>
+      <div style="display:flex;align-items:center;gap:.5rem;"><span style="font-size:.68rem;color:#cbd5e1;width:120px;flex-shrink:0;">Llama-3.2-1B</span><div style="flex:1;height:.8rem;border-radius:.3rem;background:rgba(148,163,184,.1);overflow:hidden;"><div style="height:100%;width:24%;background:#2dd4bf;border-radius:.3rem;"></div></div><span style="font-size:.68rem;font-family:ui-monospace,monospace;color:#5eead4;width:66px;text-align:right;">41&thinsp;s</span></div>
+      <div style="display:flex;align-items:center;gap:.5rem;"><span style="font-size:.68rem;color:#cbd5e1;width:120px;flex-shrink:0;">Llama-3.2-3B</span><div style="flex:1;height:.8rem;border-radius:.3rem;background:rgba(148,163,184,.1);overflow:hidden;"><div style="height:100%;width:100%;background:linear-gradient(90deg,#0d9488,#2dd4bf);border-radius:.3rem;"></div></div><span style="font-size:.68rem;font-family:ui-monospace,monospace;color:#5eead4;width:66px;text-align:right;">168&thinsp;s</span></div>
+    </div>
+    <p style="margin:.7rem 0 0;font-size:.68rem;line-height:1.5;color:#64748b;">Local Llama times reflect commodity hardware without GPU acceleration; bars are on a shared linear scale, so the sub-second cloud models are barely visible next to a three-minute local run.</p>
+  </div>
+</div>

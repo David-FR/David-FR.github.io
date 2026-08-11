@@ -1,0 +1,66 @@
+<!-- ═══ What this establishes ═══ -->
+<div style="margin-bottom:1.25rem;border-radius:1.25rem;border:1px solid rgba(34,197,94,.2);overflow:hidden;background:linear-gradient(135deg,rgba(34,197,94,.05),rgba(59,130,246,.03));">
+  <div style="padding:1rem 1.5rem;border-bottom:1px solid rgba(34,197,94,.12);display:flex;align-items:center;gap:.75rem;">
+    <span style="flex-shrink:0;width:2rem;height:2rem;border-radius:.625rem;background:rgba(34,197,94,.15);display:flex;align-items:center;justify-content:center;color:#4ade80;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+    </span>
+    <div style="font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#4ade80;">What This Establishes</div>
+  </div>
+  <div style="padding:1rem 1.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;">
+    <div style="border-radius:.8rem;border:1px solid rgba(34,197,94,.18);background:rgba(34,197,94,.04);padding:.8rem .9rem;">
+      <div style="font-size:.6rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#4ade80;margin-bottom:.3rem;">01 &middot; Detection is the easy half</div>
+      <p style="margin:0;font-size:.8rem;line-height:1.5;color:#94a3b8;">Open models match Gemini on the yes/no call: several hit <strong style="color:#e2e8f0;">87.5%</strong>. The models separate only when asked <strong style="color:#e2e8f0;">why</strong>.</p>
+    </div>
+    <div style="border-radius:.8rem;border:1px solid rgba(34,197,94,.18);background:rgba(34,197,94,.04);padding:.8rem .9rem;">
+      <div style="font-size:.6rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#4ade80;margin-bottom:.3rem;">02 &middot; Grounding beats fluency</div>
+      <p style="margin:0;font-size:.8rem;line-height:1.5;color:#94a3b8;">Gemini does not just answer: it names the <strong style="color:#e2e8f0;">MUTCD</strong> section, turning a verdict into an auditable rationale a reviewer can check.</p>
+    </div>
+    <div style="border-radius:.8rem;border:1px solid rgba(34,197,94,.18);background:rgba(34,197,94,.04);padding:.8rem .9rem;">
+      <div style="font-size:.6rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#4ade80;margin-bottom:.3rem;">03 &middot; No labels required</div>
+      <p style="margin:0;font-size:.8rem;line-height:1.5;color:#94a3b8;">Zero-shot chain-of-thought reaches <strong style="color:#e2e8f0;">92.5%</strong> with no labeled examples, so the approach ports to new rules and scenarios cheaply.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ Limitations & next steps ═══ -->
+<div style="margin-bottom:1.5rem;border-radius:1.25rem;border:1px solid rgba(251,191,36,.2);background:linear-gradient(135deg,rgba(251,191,36,.05),rgba(245,158,11,.03));overflow:hidden;">
+  <div style="padding:1rem 1.5rem;border-bottom:1px solid rgba(251,191,36,.12);display:flex;align-items:center;gap:.75rem;">
+    <span style="flex-shrink:0;width:2rem;height:2rem;border-radius:.625rem;background:rgba(251,191,36,.15);display:flex;align-items:center;justify-content:center;color:#fbbf24;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+    </span>
+    <div style="font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#fbbf24;">Work in Progress &middot; Honest Limits &amp; Next Steps</div>
+  </div>
+  <div style="padding:1rem 1.5rem;display:flex;flex-direction:column;gap:.6rem;">
+    <div style="display:flex;align-items:baseline;gap:.6rem;">
+      <span style="flex-shrink:0;font-size:.6rem;font-weight:800;color:#fbbf24;letter-spacing:.06em;text-transform:uppercase;padding:.1rem .4rem;background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.25);border-radius:.3rem;">Small set</span>
+      <p style="margin:0;font-size:.8rem;line-height:1.55;color:#94a3b8;"><strong style="color:#e2e8f0;">AutoSec-X is 40 scenarios: a signal, not a verdict.</strong> The numbers show a clear direction, but scaling the benchmark up is the immediate next step before drawing firm conclusions.</p>
+    </div>
+    <div style="display:flex;align-items:baseline;gap:.6rem;">
+      <span style="flex-shrink:0;font-size:.6rem;font-weight:800;color:#fbbf24;letter-spacing:.06em;text-transform:uppercase;padding:.1rem .4rem;background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.25);border-radius:.3rem;">Text-only</span>
+      <p style="margin:0;font-size:.8rem;line-height:1.55;color:#94a3b8;"><strong style="color:#e2e8f0;">The DSL assumes the scene is already parsed.</strong> Reasoning happens over structured text, not raw pixels; feeding multimodal inputs to the model directly is explicit future work.</p>
+    </div>
+    <div style="display:flex;align-items:baseline;gap:.6rem;">
+      <span style="flex-shrink:0;font-size:.6rem;font-weight:800;color:#fbbf24;letter-spacing:.06em;text-transform:uppercase;padding:.1rem .4rem;background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.25);border-radius:.3rem;">Synthetic</span>
+      <p style="margin:0;font-size:.8rem;line-height:1.55;color:#94a3b8;"><strong style="color:#e2e8f0;">Scenarios are GPT-4-generated and MUTCD-grounded.</strong> They are internally consistent and rule-anchored, but real-world sensor logs remain the harder test still to come.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ Where it goes next: forward link ═══ -->
+<div style="margin-bottom:1.5rem;border-radius:1rem;border:1px solid rgba(59,130,246,.22);background:linear-gradient(135deg,rgba(59,130,246,.06),rgba(34,197,94,.03));padding:1rem 1.25rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+  <span style="flex-shrink:0;width:2.25rem;height:2.25rem;border-radius:.7rem;background:rgba(59,130,246,.15);display:flex;align-items:center;justify-content:center;color:#60a5fa;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+  </span>
+  <div style="flex:1;min-width:220px;">
+    <div style="font-size:.62rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#60a5fa;margin-bottom:.2rem;">Where this line of work leads</div>
+    <p style="margin:0;font-size:.8rem;line-height:1.5;color:#94a3b8;">This work-in-progress seeded the direction that matured into <a href="/publications/mirage-to-clear/" style="color:#93c5fd;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(147,197,253,.4);">From Mirage to CLEAR</a>, which scales MUTCD-grounded LLM reasoning to module-level fault attribution on tens of thousands of real scenes.</p>
+  </div>
+</div>
+
+<!-- methodology note -->
+<div style="display:flex;align-items:flex-start;gap:.6rem;padding:.875rem 1.1rem;border-radius:.75rem;background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.15);margin-bottom:1rem;">
+  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="#22c55e" stroke-width="2" style="flex-shrink:0;margin-top:.15rem;"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"/></svg>
+  <p style="margin:0;font-size:.7rem;line-height:1.5;color:#94a3b8;">The framework was benchmarked across <strong style="color:#22c55e;">9 LLMs</strong> spanning the Gemini, Llama&nbsp;3.2, and Qwen&nbsp;2.5 families over the <strong style="color:#22c55e;">40-scenario AutoSec-X</strong> set, each queried with a single zero-shot chain-of-thought prompt. Detection is scored as accuracy on the balanced anomalous-vs-benign task; explanations are scored against expert ground-truth answers with <strong style="color:#22c55e;">ROUGE, BLEU, SBERT cosine, and BERTScore</strong>. The diagrams above rebuild the paper&rsquo;s framework and results; exact tables are in the PDF.</p>
+</div>
+
+<script>(function(){if(!("IntersectionObserver" in window))return;var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add("dx-visible");io.unobserve(e.target);}});},{threshold:0.12});document.querySelectorAll(".dx-reveal").forEach(function(el){io.observe(el);});}());</script>

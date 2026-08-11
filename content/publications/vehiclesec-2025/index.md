@@ -27,9 +27,23 @@ tags:
 
 featured: true
 
+pull_quote: 'Nine LLMs can all spot a rogue road sign. Only Gemini can tell you which regulation it breaks. Detecting the problem is the easy half; explaining it is where the models split.'
+
+key_takeaways:
+  - "**Proposes a framework that, instead of just flagging *that* a driving scene is anomalous, uses an LLM to explain *why*.** Each scene is encoded in a compact **domain-specific language** and reasoned over against the **MUTCD** traffic-rule book with zero-shot chain-of-thought, using **no labeled training data**."
+  - "**Introduces AutoSec-X, a dataset of 40 MUTCD-grounded driving scenarios,** balanced **20 anomalous / 20 benign**, each paired with an expert explanation that names the regulation at stake, so a model is graded on its *reasoning*, not just its yes/no verdict."
+  - "**Detection saturates; explanation separates.** Across **9 LLMs**, several match on the binary call (**87.5%+**), but only the **Gemini** family pairs top detection (**92.5%**) with grounded explanations that cite the exact MUTCD section. Getting the answer right and explaining *why* turn out to be two different skills."
+
 links:
   - type: pdf
     url: https://www.usenix.org/system/files/vehiclesec25-fernandez.pdf
   - type: code
     url: https://github.com/tigerseclab/VehicleSec25_LLM_Reasoning
 ---
+
+{{< pub-html "_styles.html" >}}
+{{< pub-html "_intro.html" >}}
+{{< pub-html "_problem.html" >}}
+{{< pub-html "_framework.html" >}}
+{{< pub-html "_results.html" >}}
+{{< pub-html "_footer.html" >}}
