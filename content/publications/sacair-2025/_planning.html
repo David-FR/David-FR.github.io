@@ -1,0 +1,86 @@
+<div class="slm-reveal" style="margin-bottom:1.5rem;border-radius:1.25rem;border:1px solid rgba(59,130,246,.2);overflow:hidden;">
+  <!-- header -->
+  <div style="padding:1rem 1.5rem;border-bottom:1px solid rgba(59,130,246,.12);background:linear-gradient(135deg,rgba(59,130,246,.1),rgba(99,102,241,.06));display:flex;align-items:center;gap:.75rem;">
+    <span style="flex-shrink:0;width:2rem;height:2rem;border-radius:.625rem;background:rgba(59,130,246,.18);display:flex;align-items:center;justify-content:center;color:#60a5fa;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25"/></svg>
+    </span>
+    <div>
+      <div style="font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#60a5fa;margin-bottom:.1rem;">Contribution 2 &middot; Planning a Small Model Can Follow</div>
+      <div style="font-size:.8rem;color:#94a3b8;">Asked to plan in one shot, a small model rambles. Split the job into three narrow steps and it stays on track.</div>
+    </div>
+  </div>
+
+  <!-- ═══ request → plan transformation ═══ -->
+  <div style="padding:1rem 1.5rem .6rem;border-bottom:1px solid rgba(59,130,246,.08);">
+    <div style="display:flex;align-items:center;justify-content:center;gap:.6rem;flex-wrap:wrap;font-size:.72rem;color:#94a3b8;">
+      <span style="border-radius:.5rem;border:1px solid rgba(148,163,184,.3);background:rgba(148,163,184,.06);padding:.35rem .7rem;color:#cbd5e1;">a messy user request</span>
+      <span style="color:#3b82f6;font-weight:800;">&#8594;</span>
+      <span style="border-radius:.5rem;border:1px solid rgba(59,130,246,.35);background:rgba(59,130,246,.08);padding:.35rem .7rem;color:#93c5fd;">three-phase pipeline</span>
+      <span style="color:#3b82f6;font-weight:800;">&#8594;</span>
+      <span style="border-radius:.5rem;border:1px solid rgba(34,197,94,.35);background:rgba(34,197,94,.08);padding:.35rem .7rem;color:#4ade80;">a valid, executable plan</span>
+    </div>
+  </div>
+
+  <!-- ═══ the three phases ═══ -->
+  <div style="padding:1rem 1.5rem 1.2rem;">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;">
+
+      <!-- Phase 1 -->
+      <div style="border-radius:1rem;border:1px solid rgba(59,130,246,.22);background:rgba(59,130,246,.04);overflow:hidden;">
+        <div style="padding:.6rem .9rem;border-bottom:1px solid rgba(59,130,246,.12);display:flex;align-items:center;gap:.5rem;">
+          <span style="flex-shrink:0;width:1.3rem;height:1.3rem;border-radius:.4rem;background:rgba(59,130,246,.18);color:#93c5fd;font-size:.7rem;font-weight:800;display:flex;align-items:center;justify-content:center;">1</span>
+          <span style="font-size:.78rem;font-weight:700;color:#e2e8f0;">Subtask identification</span>
+        </div>
+        <div style="padding:.8rem .9rem;">
+          <svg width="100%" height="52" viewBox="0 0 200 52" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="One request splits into three subtasks." style="margin-bottom:.5rem;">
+            <rect x="6" y="19" width="52" height="16" rx="4" fill="rgba(148,163,184,.15)" stroke="rgba(148,163,184,.4)"/><text x="32" y="30.5" font-size="8" fill="#cbd5e1" text-anchor="middle" font-family="system-ui">request</text>
+            <path d="M58 27 H84" stroke="#3b82f6" stroke-width="1.3" fill="none"/>
+            <path d="M84 27 L84 8 L120 8 M84 27 H120 M84 27 L84 46 L120 46" stroke="#3b82f6" stroke-width="1.3" fill="none"/>
+            <rect x="120" y="1" width="72" height="14" rx="4" fill="rgba(59,130,246,.12)" stroke="rgba(59,130,246,.4)"/><text x="156" y="11" font-size="7.5" fill="#93c5fd" text-anchor="middle" font-family="ui-monospace,monospace">subtask a</text>
+            <rect x="120" y="20" width="72" height="14" rx="4" fill="rgba(59,130,246,.12)" stroke="rgba(59,130,246,.4)"/><text x="156" y="30" font-size="7.5" fill="#93c5fd" text-anchor="middle" font-family="ui-monospace,monospace">subtask b</text>
+            <rect x="120" y="39" width="72" height="14" rx="4" fill="rgba(59,130,246,.12)" stroke="rgba(59,130,246,.4)"/><text x="156" y="49" font-size="7.5" fill="#93c5fd" text-anchor="middle" font-family="ui-monospace,monospace">subtask c</text>
+          </svg>
+          <p style="margin:0;font-size:.72rem;line-height:1.45;color:#94a3b8;">Break the request into small, single-purpose steps, so each one is simple enough for a small model to get right.</p>
+        </div>
+      </div>
+
+      <!-- Phase 2 -->
+      <div style="border-radius:1rem;border:1px solid rgba(99,102,241,.22);background:rgba(99,102,241,.04);overflow:hidden;">
+        <div style="padding:.6rem .9rem;border-bottom:1px solid rgba(99,102,241,.12);display:flex;align-items:center;gap:.5rem;">
+          <span style="flex-shrink:0;width:1.3rem;height:1.3rem;border-radius:.4rem;background:rgba(99,102,241,.18);color:#a5b4fc;font-size:.7rem;font-weight:800;display:flex;align-items:center;justify-content:center;">2</span>
+          <span style="font-size:.78rem;font-weight:700;color:#e2e8f0;">Dependency reasoning</span>
+        </div>
+        <div style="padding:.8rem .9rem;">
+          <svg width="100%" height="52" viewBox="0 0 200 52" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Subtasks arranged into a small dependency graph." style="margin-bottom:.5rem;">
+            <defs><marker id="slmPlanHead" markerWidth="7" markerHeight="7" refX="5" refY="2.4" orient="auto"><path d="M0,0 L5,2.4 L0,4.8 Z" fill="#818cf8"/></marker></defs>
+            <rect x="8" y="19" width="46" height="15" rx="4" fill="rgba(99,102,241,.14)" stroke="rgba(99,102,241,.45)"/><text x="31" y="29.5" font-size="7.5" fill="#c7d2fe" text-anchor="middle" font-family="ui-monospace,monospace">a</text>
+            <rect x="140" y="3" width="46" height="15" rx="4" fill="rgba(99,102,241,.14)" stroke="rgba(99,102,241,.45)"/><text x="163" y="13.5" font-size="7.5" fill="#c7d2fe" text-anchor="middle" font-family="ui-monospace,monospace">b</text>
+            <rect x="140" y="35" width="46" height="15" rx="4" fill="rgba(99,102,241,.14)" stroke="rgba(99,102,241,.45)"/><text x="163" y="45.5" font-size="7.5" fill="#c7d2fe" text-anchor="middle" font-family="ui-monospace,monospace">c</text>
+            <path d="M54 24 L138 11" stroke="#818cf8" stroke-width="1.3" fill="none" marker-end="url(#slmPlanHead)"/>
+            <path d="M54 28 L138 42" stroke="#818cf8" stroke-width="1.3" fill="none" marker-end="url(#slmPlanHead)"/>
+          </svg>
+          <p style="margin:0;font-size:.72rem;line-height:1.45;color:#94a3b8;">Work out the order: which steps can run now and which must wait for another step&rsquo;s output first.</p>
+        </div>
+      </div>
+
+      <!-- Phase 3 -->
+      <div style="border-radius:1rem;border:1px solid rgba(34,197,94,.22);background:rgba(34,197,94,.04);overflow:hidden;">
+        <div style="padding:.6rem .9rem;border-bottom:1px solid rgba(34,197,94,.12);display:flex;align-items:center;gap:.5rem;">
+          <span style="flex-shrink:0;width:1.3rem;height:1.3rem;border-radius:.4rem;background:rgba(34,197,94,.18);color:#4ade80;font-size:.7rem;font-weight:800;display:flex;align-items:center;justify-content:center;">3</span>
+          <span style="font-size:.78rem;font-weight:700;color:#e2e8f0;">Schema-constrained output</span>
+        </div>
+        <div style="padding:.8rem .9rem;">
+          <div style="margin-bottom:.5rem;border-radius:.5rem;background:rgba(15,23,42,.55);border:1px solid rgba(34,197,94,.25);padding:.45rem .6rem;font-family:ui-monospace,monospace;font-size:.62rem;line-height:1.5;color:#cbd5e1;overflow-x:auto;">
+            <div style="white-space:nowrap;"><span style="color:#64748b;">[</span></div>
+            <div style="white-space:nowrap;">&nbsp;&nbsp;{ <span style="color:#4ade80;">"step"</span>:1, <span style="color:#4ade80;">"needs"</span>:[] },</div>
+            <div style="white-space:nowrap;">&nbsp;&nbsp;{ <span style="color:#4ade80;">"step"</span>:2, <span style="color:#4ade80;">"needs"</span>:[1] }</div>
+            <div style="white-space:nowrap;"><span style="color:#64748b;">]</span></div>
+          </div>
+          <p style="margin:0;font-size:.72rem;line-height:1.45;color:#94a3b8;">Emit the plan as JSON locked to a fixed schema, so it always parses and can be run without hand-fixing.</p>
+        </div>
+      </div>
+
+    </div>
+    <p style="margin:.85rem .1rem 0;font-size:.72rem;line-height:1.5;color:#64748b;">Splitting reasoning from formatting is the key move: the model thinks in phases 1 and 2, then only has to fill in a rigid structure in phase 3, which is exactly where small models tend to slip.</p>
+  </div>
+</div>

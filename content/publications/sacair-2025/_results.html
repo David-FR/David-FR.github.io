@@ -1,0 +1,97 @@
+<div class="slm-reveal" style="margin-bottom:1.5rem;border-radius:1.25rem;border:1px solid rgba(34,197,94,.2);overflow:hidden;">
+  <!-- header -->
+  <div style="padding:1rem 1.5rem;border-bottom:1px solid rgba(34,197,94,.12);background:linear-gradient(135deg,rgba(34,197,94,.1),rgba(59,130,246,.05));display:flex;align-items:center;gap:.75rem;">
+    <span style="flex-shrink:0;width:2rem;height:2rem;border-radius:.625rem;background:rgba(34,197,94,.18);display:flex;align-items:center;justify-content:center;color:#4ade80;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg>
+    </span>
+    <div>
+      <div style="font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#4ade80;margin-bottom:.1rem;">What The Small Models Actually Did</div>
+      <div style="font-size:.8rem;color:#94a3b8;">Phi-4 led the field, matching advanced-level language work while running on ordinary hardware.</div>
+    </div>
+  </div>
+
+  <!-- ═══ headline stat band ═══ -->
+  <div style="padding:1.25rem 1.5rem;border-bottom:1px solid rgba(148,163,184,.08);">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem;">
+      <div style="text-align:center;padding:.5rem;">
+        <div style="font-size:1.9rem;font-weight:800;line-height:1;color:#4ade80;">C1</div>
+        <div style="font-size:.7rem;color:#94a3b8;margin-top:.35rem;line-height:1.35;">Phi-4 translation, on the CEFR scale (advanced)</div>
+      </div>
+      <div style="text-align:center;padding:.5rem;">
+        <div style="font-size:1.9rem;font-weight:800;line-height:1;color:#4ade80;">0.883</div>
+        <div style="font-size:.7rem;color:#94a3b8;margin-top:.35rem;line-height:1.35;">Phi-4 summarization, G-Eval score</div>
+      </div>
+      <div style="text-align:center;padding:.5rem;">
+        <div style="font-size:1.9rem;font-weight:800;line-height:1;color:#60a5fa;">3&ndash;4&times;</div>
+        <div style="font-size:.7rem;color:#94a3b8;margin-top:.35rem;line-height:1.35;">faster to answer than a cloud service</div>
+      </div>
+      <div style="text-align:center;padding:.5rem;">
+        <div style="font-size:1.9rem;font-weight:800;line-height:1;color:#c084fc;">7</div>
+        <div style="font-size:.7rem;color:#94a3b8;margin-top:.35rem;line-height:1.35;">open models under 7B params, benchmarked</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ two capabilities ═══ -->
+  <div style="padding:1.1rem 1.5rem;border-bottom:1px solid rgba(148,163,184,.08);">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.9rem;">
+      <div style="border-radius:1rem;border:1px solid rgba(34,197,94,.2);background:rgba(34,197,94,.04);padding:.9rem 1.1rem;">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:.5rem;margin-bottom:.4rem;">
+          <span style="font-size:.82rem;font-weight:700;color:#e2e8f0;">Translation</span>
+          <span style="font-size:.72rem;font-family:ui-monospace,monospace;color:#4ade80;font-weight:700;">C1 &middot; CEFR</span>
+        </div>
+        <p style="margin:0;font-size:.74rem;line-height:1.5;color:#94a3b8;">English to Afrikaans, graded by the two rival examiners. Phi-4 reached <strong style="color:#e2e8f0;">C1</strong>, the advanced tier a proficient human speaker sits at.</p>
+      </div>
+      <div style="border-radius:1rem;border:1px solid rgba(34,197,94,.2);background:rgba(34,197,94,.04);padding:.9rem 1.1rem;">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:.5rem;margin-bottom:.4rem;">
+          <span style="font-size:.82rem;font-weight:700;color:#e2e8f0;">Summarization</span>
+          <span style="font-size:.72rem;font-family:ui-monospace,monospace;color:#4ade80;font-weight:700;">0.883 &middot; G-Eval</span>
+        </div>
+        <p style="margin:0;font-size:.74rem;line-height:1.5;color:#94a3b8;">Scored with <strong style="color:#e2e8f0;">G-Eval</strong>, an LLM-graded quality measure on a 0 to 1 scale. Phi-4&rsquo;s <strong style="color:#e2e8f0;">0.883</strong> is close-to-frontier work from a sub-7B model.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ latency: edge vs cloud ═══ -->
+  <div style="padding:1.1rem 1.5rem;border-bottom:1px solid rgba(148,163,184,.08);">
+    <div style="font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#60a5fa;margin-bottom:.7rem;">Latency &middot; running on the device vs. calling the cloud</div>
+    <div style="display:flex;flex-direction:column;gap:.55rem;">
+      <!-- cloud bar -->
+      <div style="display:flex;align-items:center;gap:.75rem;">
+        <span style="flex-shrink:0;width:8.5rem;font-size:.74rem;color:#94a3b8;text-align:right;">Cloud API call</span>
+        <div style="flex:1;height:1.5rem;border-radius:.4rem;background:rgba(148,163,184,.08);overflow:hidden;">
+          <div class="slm-bar" style="height:100%;width:100%;border-radius:.4rem;background:linear-gradient(90deg,rgba(148,163,184,.35),rgba(148,163,184,.2));"></div>
+        </div>
+        <span style="flex-shrink:0;width:5.5rem;font-size:.72rem;color:#cbd5e1;font-family:ui-monospace,monospace;">baseline</span>
+      </div>
+      <!-- edge bar -->
+      <div style="display:flex;align-items:center;gap:.75rem;">
+        <span style="flex-shrink:0;width:8.5rem;font-size:.74rem;color:#e2e8f0;text-align:right;font-weight:600;">On-device<br><span style="font-size:.66rem;color:#94a3b8;font-weight:400;">local &amp; in-browser</span></span>
+        <div style="flex:1;height:1.5rem;border-radius:.4rem;background:rgba(148,163,184,.08);overflow:hidden;">
+          <div class="slm-bar" style="height:100%;width:28%;border-radius:.4rem;background:linear-gradient(90deg,#3b82f6,#60a5fa);"></div>
+        </div>
+        <span style="flex-shrink:0;width:5.5rem;font-size:.72rem;color:#60a5fa;font-family:ui-monospace,monospace;font-weight:700;">3&ndash;4&times; faster</span>
+      </div>
+    </div>
+    <p style="margin:.75rem .1rem 0;font-size:.7rem;line-height:1.5;color:#64748b;">Hosted with <strong style="color:#94a3b8;">WebLLM</strong> in the browser or run locally, the models answer 3 to 4 times faster than a round trip to a cloud API, with no per-call fee and no queue.</p>
+  </div>
+
+  <!-- ═══ where it runs ═══ -->
+  <div style="padding:1.1rem 1.5rem;">
+    <div style="font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#4ade80;margin-bottom:.7rem;">Where this unlocks deployment</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;">
+      <div style="border-radius:.8rem;border:1px solid rgba(148,163,184,.2);background:rgba(148,163,184,.04);padding:.75rem .9rem;">
+        <div style="font-size:.78rem;font-weight:700;color:#e2e8f0;margin-bottom:.25rem;">Privacy-sensitive</div>
+        <p style="margin:0;font-size:.72rem;line-height:1.45;color:#94a3b8;">Prompts and documents never leave the machine, so regulated data stays in-house.</p>
+      </div>
+      <div style="border-radius:.8rem;border:1px solid rgba(148,163,184,.2);background:rgba(148,163,184,.04);padding:.75rem .9rem;">
+        <div style="font-size:.78rem;font-weight:700;color:#e2e8f0;margin-bottom:.25rem;">Bandwidth-constrained</div>
+        <p style="margin:0;font-size:.72rem;line-height:1.45;color:#94a3b8;">No large payloads to the cloud on every call, so it works over weak or metered links.</p>
+      </div>
+      <div style="border-radius:.8rem;border:1px solid rgba(148,163,184,.2);background:rgba(148,163,184,.04);padding:.75rem .9rem;">
+        <div style="font-size:.78rem;font-weight:700;color:#e2e8f0;margin-bottom:.25rem;">Air-gapped</div>
+        <p style="margin:0;font-size:.72rem;line-height:1.45;color:#94a3b8;">Runs with no internet at all, for plants and sites that are offline by design.</p>
+      </div>
+    </div>
+  </div>
+</div>
