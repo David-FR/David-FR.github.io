@@ -1,0 +1,161 @@
+<div class="sasa-reveal" style="margin-bottom:1.5rem;border-radius:1.25rem;border:1px solid rgba(129,140,248,.2);overflow:hidden;">
+  <!-- header -->
+  <div style="padding:1rem 1.5rem;border-bottom:1px solid rgba(129,140,248,.12);background:linear-gradient(135deg,rgba(99,102,241,.1),rgba(168,85,247,.06));display:flex;align-items:center;gap:.75rem;">
+    <span style="flex-shrink:0;width:2rem;height:2rem;border-radius:.625rem;background:rgba(99,102,241,.18);display:flex;align-items:center;justify-content:center;color:#a5b4fc;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M6 6.878V6a2.25 2.25 0 012.25-2.25h7.5A2.25 2.25 0 0118 6v.878m-12 0c.235-.083.487-.128.75-.128h10.5c.263 0 .515.045.75.128m-12 0A2.25 2.25 0 004.5 9v.878m13.5-3A2.25 2.25 0 0119.5 9v.878m0 0a2.246 2.246 0 00-.75-.128H5.25c-.263 0-.515.045-.75.128m15 0A2.25 2.25 0 0121 12v6a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18v-6c0-.98.626-1.813 1.5-2.122"/></svg>
+    </span>
+    <div>
+      <div style="font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#a5b4fc;margin-bottom:.1rem;">How SASA Builds The Attack</div>
+      <div style="font-size:.8rem;color:#94a3b8;">Two frozen transformers say where the model looks; one shared shadow is optimized to sit there, then tested on classifiers it never touched.</div>
+    </div>
+  </div>
+
+  <!-- ═══ pipeline diagram ═══ -->
+  <div style="padding:.9rem 1rem .6rem;border-bottom:1px solid rgba(148,163,184,.08);">
+    <div class="sasa-scroll" tabindex="0" role="region" aria-label="Scrollable SASA pipeline diagram" style="overflow-x:auto;">
+      <svg viewBox="0 0 980 372" style="width:100%;min-width:760px;display:block;" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif" role="img" aria-label="SASA pipeline: a clean traffic-sign video sequence of thirty frames is passed to two frozen attention models, DINO and DeiT. Their per-frame attention maps are fused by temporal max-pooling into a single saliency heatmap. A differentiable shadow generator and optimizer produces one shared shadow mask, aligned to the top attention pixels by a top-k loss, using zero queries to the target model. The shared mask is applied uniformly to every frame to produce an adversarial sequence, which is then evaluated against four held-out, never-queried target classifiers: CNN, STN, EfficientNet-B0, and ViT.">
+        <defs>
+          <marker id="sasaSlate" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" refX="7" refY="3.4" orient="auto"><path d="M0,0 L8,3.4 L0,6.8 Z" fill="#64748b"/></marker>
+          <marker id="sasaIndigo" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" refX="7" refY="3.4" orient="auto"><path d="M0,0 L8,3.4 L0,6.8 Z" fill="#818cf8"/></marker>
+          <marker id="sasaViolet" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" refX="7" refY="3.4" orient="auto"><path d="M0,0 L8,3.4 L0,6.8 Z" fill="#a855f7"/></marker>
+          <marker id="sasaAmber" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" refX="7.5" refY="3.6" orient="auto"><path d="M0,0 L8.5,3.6 L0,7.2 Z" fill="#f59e0b"/></marker>
+          <radialGradient id="sasaBlobG" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#020617" stop-opacity=".7"/><stop offset="100%" stop-color="#020617" stop-opacity="0"/></radialGradient>
+          <linearGradient id="sasaSideG" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#020617" stop-opacity=".65"/><stop offset="100%" stop-color="#020617" stop-opacity="0"/></linearGradient>
+        </defs>
+
+        <!-- outer container -->
+        <rect x="6" y="6" width="968" height="360" rx="18" fill="rgba(99,102,241,.03)" stroke="rgba(99,102,241,.2)" stroke-width="1.2"/>
+
+        <!-- ═ Clean sequence (stacked frames) ═ -->
+        <g>
+          <rect x="24" y="150" width="46" height="54" rx="6" fill="rgba(59,130,246,.12)" stroke="rgba(59,130,246,.4)"/>
+          <rect x="34" y="142" width="46" height="54" rx="6" fill="rgba(59,130,246,.16)" stroke="rgba(59,130,246,.45)"/>
+          <rect x="44" y="134" width="46" height="54" rx="6" fill="rgba(59,130,246,.28)" stroke="#60a5fa"/>
+          <circle cx="67" cy="161" r="13" fill="none" stroke="#f87171" stroke-width="2.4"/>
+          <text x="60" y="222" font-size="9.5" font-weight="700" fill="#93c5fd" text-anchor="middle">Clean sequence</text>
+          <text x="60" y="234" font-size="8" fill="#94a3b8" text-anchor="middle">T = 30 frames</text>
+        </g>
+
+        <!-- ① clean → attention models -->
+        <line x1="92" y1="150" x2="146" y2="122" stroke="#64748b" stroke-width="1.5" marker-end="url(#sasaSlate)"/>
+        <line x1="92" y1="176" x2="146" y2="230" stroke="#64748b" stroke-width="1.5" marker-end="url(#sasaSlate)"/>
+        <circle cx="112" cy="150" r="9" fill="rgba(30,41,59,.95)" stroke="#94a3b8" stroke-width="1.2"/>
+        <text x="112" y="153.5" font-size="9" font-weight="800" fill="#cbd5e1" text-anchor="middle">1</text>
+
+        <!-- ═ Attention models ═ -->
+        <rect x="150" y="94" width="116" height="56" rx="12" fill="rgba(99,102,241,.12)" stroke="#818cf8" stroke-width="1.3"/>
+        <text x="208" y="112" font-size="12" font-weight="800" fill="#c7d2fe" text-anchor="middle">DINO</text>
+        <text x="208" y="126" font-size="7" fill="#94a3b8" text-anchor="middle">self-supervised</text>
+        <text x="208" y="137" font-size="7" fill="#94a3b8" text-anchor="middle">object-centric</text>
+        <rect x="150" y="202" width="116" height="56" rx="12" fill="rgba(99,102,241,.12)" stroke="#818cf8" stroke-width="1.3"/>
+        <text x="208" y="220" font-size="12" font-weight="800" fill="#c7d2fe" text-anchor="middle">DeiT</text>
+        <text x="208" y="234" font-size="7" fill="#94a3b8" text-anchor="middle">supervised</text>
+        <text x="208" y="245" font-size="7" fill="#94a3b8" text-anchor="middle">class-discriminative</text>
+        <text x="208" y="180" font-size="8" fill="#64748b" text-anchor="middle" font-style="italic">frozen &middot; never trained here</text>
+
+        <!-- ② attention → fused saliency -->
+        <line x1="266" y1="124" x2="298" y2="150" stroke="#818cf8" stroke-width="1.5" marker-end="url(#sasaIndigo)"/>
+        <line x1="266" y1="228" x2="298" y2="198" stroke="#818cf8" stroke-width="1.5" marker-end="url(#sasaIndigo)"/>
+        <circle cx="283" cy="176" r="9" fill="rgba(49,46,129,.9)" stroke="#818cf8" stroke-width="1.2"/>
+        <text x="283" y="179.5" font-size="9" font-weight="800" fill="#c7d2fe" text-anchor="middle">2</text>
+
+        <!-- ═ Fused saliency (heatmap) ═ -->
+        <rect x="300" y="130" width="118" height="92" rx="11" fill="rgba(168,85,247,.08)" stroke="#a855f7" stroke-width="1.3"/>
+        <text x="359" y="148" font-size="9.5" font-weight="800" fill="#d8b4fe" text-anchor="middle">Fused saliency</text>
+        <g>
+          <rect x="316" y="156" width="16" height="16" fill="rgba(59,130,246,.5)"/><rect x="332" y="156" width="16" height="16" fill="rgba(59,130,246,.35)"/><rect x="348" y="156" width="16" height="16" fill="rgba(250,204,21,.55)"/><rect x="364" y="156" width="16" height="16" fill="rgba(59,130,246,.3)"/><rect x="380" y="156" width="16" height="16" fill="rgba(59,130,246,.4)"/>
+          <rect x="316" y="172" width="16" height="16" fill="rgba(59,130,246,.35)"/><rect x="332" y="172" width="16" height="16" fill="rgba(250,204,21,.6)"/><rect x="348" y="172" width="16" height="16" fill="rgba(239,68,68,.75)"/><rect x="364" y="172" width="16" height="16" fill="rgba(250,204,21,.55)"/><rect x="380" y="172" width="16" height="16" fill="rgba(59,130,246,.35)"/>
+          <rect x="316" y="188" width="16" height="16" fill="rgba(59,130,246,.3)"/><rect x="332" y="188" width="16" height="16" fill="rgba(59,130,246,.4)"/><rect x="348" y="188" width="16" height="16" fill="rgba(250,204,21,.5)"/><rect x="364" y="188" width="16" height="16" fill="rgba(59,130,246,.35)"/><rect x="380" y="188" width="16" height="16" fill="rgba(59,130,246,.3)"/>
+        </g>
+        <text x="359" y="216" font-size="7" fill="#94a3b8" text-anchor="middle">max-pool across frames</text>
+
+        <!-- ③ saliency → generator -->
+        <line x1="418" y1="176" x2="452" y2="176" stroke="#a855f7" stroke-width="1.6" marker-end="url(#sasaViolet)"/>
+        <circle cx="435" cy="176" r="9" fill="rgba(49,46,129,.9)" stroke="#a855f7" stroke-width="1.2"/>
+        <text x="435" y="179.5" font-size="9" font-weight="800" fill="#e9d5ff" text-anchor="middle">3</text>
+
+        <!-- ═ Shadow generator + optimizer ═ -->
+        <rect x="456" y="92" width="216" height="168" rx="13" fill="rgba(245,158,11,.07)" stroke="#f59e0b" stroke-width="1.4"/>
+        <text x="564" y="112" font-size="10.5" font-weight="800" fill="#fbbf24" text-anchor="middle">Shadow generator + optimizer</text>
+        <!-- three shape chips -->
+        <g>
+          <rect x="470" y="124" width="60" height="44" rx="7" fill="rgba(148,163,184,.1)" stroke="rgba(148,163,184,.3)"/>
+          <circle cx="500" cy="146" r="15" fill="none" stroke="rgba(226,232,240,.35)" stroke-width="1.4"/><circle cx="505" cy="150" r="12" fill="url(#sasaBlobG)"/>
+          <text x="500" y="182" font-size="8" fill="#cbd5e1" text-anchor="middle">Blob</text>
+
+          <rect x="534" y="124" width="60" height="44" rx="7" fill="rgba(148,163,184,.1)" stroke="rgba(148,163,184,.3)"/>
+          <circle cx="564" cy="146" r="15" fill="none" stroke="rgba(226,232,240,.35)" stroke-width="1.4"/><polygon points="556,131 568,131 550,161 538,161" fill="rgba(2,6,23,.6)"/>
+          <text x="564" y="182" font-size="8" fill="#fbbf24" font-weight="700" text-anchor="middle">Strip &#9733;</text>
+
+          <rect x="598" y="124" width="60" height="44" rx="7" fill="rgba(148,163,184,.1)" stroke="rgba(148,163,184,.3)"/>
+          <circle cx="628" cy="146" r="15" fill="none" stroke="rgba(226,232,240,.35)" stroke-width="1.4"/><rect x="614" y="131" width="18" height="30" fill="url(#sasaSideG)"/>
+          <text x="628" y="182" font-size="8" fill="#cbd5e1" text-anchor="middle">Side</text>
+        </g>
+        <text x="564" y="206" font-size="8" fill="#94a3b8" text-anchor="middle">aligned to attention &middot; top-k loss</text>
+        <rect x="486" y="216" width="156" height="20" rx="6" fill="rgba(245,158,11,.14)" stroke="rgba(245,158,11,.4)"/>
+        <text x="564" y="230" font-size="8.5" font-weight="800" fill="#fbbf24" text-anchor="middle">0 queries to the target model</text>
+
+        <!-- ④ generator → adversarial sequence -->
+        <line x1="672" y1="176" x2="708" y2="176" stroke="#f59e0b" stroke-width="1.6" marker-end="url(#sasaAmber)"/>
+        <circle cx="690" cy="176" r="9" fill="rgba(120,53,15,.9)" stroke="#f59e0b" stroke-width="1.2"/>
+        <text x="690" y="179.5" font-size="9" font-weight="800" fill="#fbbf24" text-anchor="middle">4</text>
+
+        <!-- ═ Adversarial sequence (shared mask on every frame) ═ -->
+        <g>
+          <rect x="712" y="150" width="46" height="54" rx="6" fill="rgba(245,158,11,.1)" stroke="rgba(245,158,11,.4)"/>
+          <rect x="722" y="142" width="46" height="54" rx="6" fill="rgba(245,158,11,.14)" stroke="rgba(245,158,11,.45)"/>
+          <rect x="732" y="134" width="46" height="54" rx="6" fill="rgba(245,158,11,.2)" stroke="#f59e0b"/>
+          <circle cx="755" cy="161" r="13" fill="none" stroke="#f87171" stroke-width="2.4"/>
+          <polygon points="748,138 760,138 742,184 730,184" fill="rgba(2,6,23,.55)"/>
+          <text x="748" y="222" font-size="9" font-weight="700" fill="#fbbf24" text-anchor="middle">Adversarial</text>
+          <text x="748" y="234" font-size="8" fill="#94a3b8" text-anchor="middle">same mask, all frames</text>
+        </g>
+
+        <!-- ⑤ adversarial → target models -->
+        <line x1="780" y1="176" x2="854" y2="176" stroke="#64748b" stroke-width="1.6" marker-end="url(#sasaSlate)"/>
+        <circle cx="817" cy="176" r="9" fill="rgba(30,41,59,.95)" stroke="#94a3b8" stroke-width="1.2"/>
+        <text x="817" y="179.5" font-size="9" font-weight="800" fill="#cbd5e1" text-anchor="middle">5</text>
+
+        <!-- ═ Target models (held-out) ═ -->
+        <rect x="858" y="74" width="112" height="204" rx="12" fill="rgba(148,163,184,.06)" stroke="rgba(148,163,184,.3)" stroke-width="1.2"/>
+        <text x="914" y="94" font-size="9.5" font-weight="800" fill="#cbd5e1" text-anchor="middle">Target models</text>
+        <g font-size="9.5" font-family="ui-monospace,monospace" text-anchor="middle">
+          <rect x="872" y="104" width="84" height="26" rx="6" fill="rgba(59,130,246,.1)" stroke="rgba(59,130,246,.3)"/><text x="914" y="121" fill="#e2e8f0">CNN</text>
+          <rect x="872" y="136" width="84" height="26" rx="6" fill="rgba(59,130,246,.1)" stroke="rgba(59,130,246,.3)"/><text x="914" y="153" fill="#e2e8f0">STN</text>
+          <rect x="872" y="168" width="84" height="26" rx="6" fill="rgba(59,130,246,.1)" stroke="rgba(59,130,246,.3)"/><text x="914" y="185" fill="#e2e8f0">EffB0</text>
+          <rect x="872" y="200" width="84" height="26" rx="6" fill="rgba(239,68,68,.16)" stroke="rgba(239,68,68,.5)"/><text x="914" y="217" fill="#fecaca" font-weight="700">ViT</text>
+        </g>
+        <text x="914" y="248" font-size="7.5" fill="#94a3b8" text-anchor="middle">held-out &middot; black-box</text>
+        <text x="914" y="260" font-size="7.5" fill="#64748b" text-anchor="middle">never queried during the attack</text>
+      </svg>
+    </div>
+    <p style="margin:.4rem .25rem 0;font-size:.72rem;line-height:1.5;color:#64748b;text-align:center;">The attack is optimized entirely against the frozen attention maps. The classifiers it ultimately fools are only seen at evaluation time, which is what makes it a strict black-box attack.</p>
+  </div>
+
+  <!-- ═══ the pipeline in five steps ═══ -->
+  <div style="padding:.9rem 1.25rem;">
+    <div style="font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#a5b4fc;margin-bottom:.7rem;">The pipeline in five steps</div>
+    <div style="display:flex;flex-wrap:wrap;gap:.5rem;">
+      <div style="flex:1 1 160px;border-radius:.8rem;border:1px solid rgba(148,163,184,.22);background:rgba(148,163,184,.04);padding:.7rem .85rem;">
+        <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;"><span style="flex-shrink:0;width:1.15rem;height:1.15rem;border-radius:50%;background:rgba(148,163,184,.2);color:#cbd5e1;font-size:.65rem;font-weight:800;display:flex;align-items:center;justify-content:center;">1</span><span style="font-size:.72rem;font-weight:700;color:#e2e8f0;">Read the clip</span></div>
+        <p style="margin:0;font-size:.72rem;line-height:1.45;color:#94a3b8;">A 30-frame sign sequence is fed to two frozen vision transformers.</p>
+      </div>
+      <div style="flex:1 1 160px;border-radius:.8rem;border:1px solid rgba(99,102,241,.22);background:rgba(99,102,241,.04);padding:.7rem .85rem;">
+        <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;"><span style="flex-shrink:0;width:1.15rem;height:1.15rem;border-radius:50%;background:rgba(99,102,241,.18);color:#c7d2fe;font-size:.65rem;font-weight:800;display:flex;align-items:center;justify-content:center;">2</span><span style="font-size:.72rem;font-weight:700;color:#e2e8f0;">Fuse attention</span></div>
+        <p style="margin:0;font-size:.72rem;line-height:1.45;color:#94a3b8;">DINO and DeiT maps are max-pooled over time into one saliency heatmap.</p>
+      </div>
+      <div style="flex:1 1 160px;border-radius:.8rem;border:1px solid rgba(168,85,247,.22);background:rgba(168,85,247,.04);padding:.7rem .85rem;">
+        <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;"><span style="flex-shrink:0;width:1.15rem;height:1.15rem;border-radius:50%;background:rgba(168,85,247,.18);color:#e9d5ff;font-size:.65rem;font-weight:800;display:flex;align-items:center;justify-content:center;">3</span><span style="font-size:.72rem;font-weight:700;color:#e2e8f0;">Guide the shadow</span></div>
+        <p style="margin:0;font-size:.72rem;line-height:1.45;color:#94a3b8;">A top-k loss steers the shadow onto the most salient pixels, no target needed.</p>
+      </div>
+      <div style="flex:1 1 160px;border-radius:.8rem;border:1px solid rgba(245,158,11,.22);background:rgba(245,158,11,.04);padding:.7rem .85rem;">
+        <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;"><span style="flex-shrink:0;width:1.15rem;height:1.15rem;border-radius:50%;background:rgba(245,158,11,.18);color:#fbbf24;font-size:.65rem;font-weight:800;display:flex;align-items:center;justify-content:center;">4</span><span style="font-size:.72rem;font-weight:700;color:#e2e8f0;">Apply everywhere</span></div>
+        <p style="margin:0;font-size:.72rem;line-height:1.45;color:#94a3b8;">One optimized mask is painted onto every frame for temporal consistency.</p>
+      </div>
+      <div style="flex:1 1 160px;border-radius:.8rem;border:1px solid rgba(148,163,184,.22);background:rgba(148,163,184,.04);padding:.7rem .85rem;">
+        <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;"><span style="flex-shrink:0;width:1.15rem;height:1.15rem;border-radius:50%;background:rgba(148,163,184,.2);color:#cbd5e1;font-size:.65rem;font-weight:800;display:flex;align-items:center;justify-content:center;">5</span><span style="font-size:.72rem;font-weight:700;color:#e2e8f0;">Test unseen</span></div>
+        <p style="margin:0;font-size:.72rem;line-height:1.45;color:#94a3b8;">The clip is scored against four classifiers the attack never queried.</p>
+      </div>
+    </div>
+  </div>
+</div>

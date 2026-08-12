@@ -1,0 +1,85 @@
+<div class="sasa-reveal" style="margin-bottom:1.5rem;border-radius:1.25rem;border:1px solid rgba(245,158,11,.2);overflow:hidden;">
+  <!-- header -->
+  <div style="padding:1rem 1.5rem;border-bottom:1px solid rgba(245,158,11,.12);background:linear-gradient(135deg,rgba(245,158,11,.1),rgba(168,85,247,.05));display:flex;align-items:center;gap:.75rem;">
+    <span style="flex-shrink:0;width:2rem;height:2rem;border-radius:.625rem;background:rgba(245,158,11,.18);display:flex;align-items:center;justify-content:center;color:#fbbf24;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>
+    </span>
+    <div>
+      <div style="font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#fbbf24;margin-bottom:.1rem;">Three Physically Grounded Shadows</div>
+      <div style="font-size:.8rem;color:#94a3b8;">A differentiable generator casts each shape from a few geometric parameters, darkening only luminance so the shadow reads as natural shading.</div>
+    </div>
+  </div>
+
+  <div style="padding:1.1rem 1.5rem;">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;">
+
+      <!-- Blob -->
+      <div style="border-radius:1rem;border:1px solid rgba(245,158,11,.18);background:rgba(245,158,11,.03);overflow:hidden;">
+        <div style="padding:.6rem .9rem;border-bottom:1px solid rgba(245,158,11,.1);display:flex;align-items:baseline;justify-content:space-between;">
+          <span style="font-size:.85rem;font-weight:800;color:#e2e8f0;">Blob</span>
+          <span style="font-size:.66rem;color:#94a3b8;">radial</span>
+        </div>
+        <div style="padding:.9rem;display:flex;justify-content:center;">
+          <svg width="118" height="118" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A blue circular sign with a soft, diffuse shadow blob over one side.">
+            <defs>
+              <clipPath id="sasaClipBlob"><circle cx="60" cy="60" r="50"/></clipPath>
+              <radialGradient id="sasaBlob2" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#020617" stop-opacity=".72"/><stop offset="100%" stop-color="#020617" stop-opacity="0"/></radialGradient>
+            </defs>
+            <circle cx="60" cy="60" r="50" fill="#1d4ed8" stroke="#3b82f6" stroke-width="2"/>
+            <g fill="#f8fafc"><polygon points="36,60 56,42 56,78"/><rect x="52" y="52" width="26" height="16"/></g>
+            <g clip-path="url(#sasaClipBlob)"><circle cx="80" cy="42" r="40" fill="url(#sasaBlob2)"/></g>
+          </svg>
+        </div>
+        <div style="padding:0 .9rem .9rem;">
+          <p style="margin:0 0 .45rem;font-size:.72rem;line-height:1.45;color:#94a3b8;"><strong style="color:#e2e8f0;">Cast by</strong> clouds and tree cover: a soft, diffuse patch.</p>
+          <code style="font-size:.66rem;color:#fbbf24;">&theta; = (c&#8339;, c&#7527;, s)</code>
+        </div>
+      </div>
+
+      <!-- Strip (strongest) -->
+      <div style="border-radius:1rem;border:1px solid rgba(245,158,11,.5);background:rgba(245,158,11,.06);overflow:hidden;box-shadow:0 0 0 1px rgba(245,158,11,.15);">
+        <div style="padding:.6rem .9rem;border-bottom:1px solid rgba(245,158,11,.15);display:flex;align-items:baseline;justify-content:space-between;">
+          <span style="font-size:.85rem;font-weight:800;color:#fbbf24;">Strip &#9733;</span>
+          <span style="font-size:.62rem;font-weight:700;color:#78350f;background:#fbbf24;border-radius:.35rem;padding:.1rem .4rem;">strongest</span>
+        </div>
+        <div style="padding:.9rem;display:flex;justify-content:center;">
+          <svg width="118" height="118" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A blue circular sign with a sharp diagonal shadow band across it.">
+            <defs><clipPath id="sasaClipStrip"><circle cx="60" cy="60" r="50"/></clipPath></defs>
+            <circle cx="60" cy="60" r="50" fill="#1d4ed8" stroke="#3b82f6" stroke-width="2"/>
+            <g fill="#f8fafc"><polygon points="36,60 56,42 56,78"/><rect x="52" y="52" width="26" height="16"/></g>
+            <g clip-path="url(#sasaClipStrip)"><polygon points="30,4 62,4 104,116 72,116" fill="rgba(2,6,23,.6)"/></g>
+          </svg>
+        </div>
+        <div style="padding:0 .9rem .9rem;">
+          <p style="margin:0 0 .45rem;font-size:.72rem;line-height:1.45;color:#94a3b8;"><strong style="color:#e2e8f0;">Cast by</strong> poles, signposts, fences: a sharp directional band.</p>
+          <code style="font-size:.66rem;color:#fbbf24;">&theta; = (c&#8339;, c&#7527;, &alpha;, s)</code>
+        </div>
+      </div>
+
+      <!-- Side -->
+      <div style="border-radius:1rem;border:1px solid rgba(245,158,11,.18);background:rgba(245,158,11,.03);overflow:hidden;">
+        <div style="padding:.6rem .9rem;border-bottom:1px solid rgba(245,158,11,.1);display:flex;align-items:baseline;justify-content:space-between;">
+          <span style="font-size:.85rem;font-weight:800;color:#e2e8f0;">Side</span>
+          <span style="font-size:.66rem;color:#94a3b8;">lateral</span>
+        </div>
+        <div style="padding:.9rem;display:flex;justify-content:center;">
+          <svg width="118" height="118" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A blue circular sign with an asymmetric shadow projected from one side.">
+            <defs>
+              <clipPath id="sasaClipSide"><circle cx="60" cy="60" r="50"/></clipPath>
+              <linearGradient id="sasaSide2" x1="1" y1="0" x2="0" y2="0"><stop offset="0%" stop-color="#020617" stop-opacity=".68"/><stop offset="70%" stop-color="#020617" stop-opacity=".12"/><stop offset="100%" stop-color="#020617" stop-opacity="0"/></linearGradient>
+            </defs>
+            <circle cx="60" cy="60" r="50" fill="#1d4ed8" stroke="#3b82f6" stroke-width="2"/>
+            <g fill="#f8fafc"><polygon points="36,60 56,42 56,78"/><rect x="52" y="52" width="26" height="16"/></g>
+            <g clip-path="url(#sasaClipSide)"><rect x="52" y="6" width="68" height="108" fill="url(#sasaSide2)" transform="rotate(9 60 60)"/></g>
+          </svg>
+        </div>
+        <div style="padding:0 .9rem .9rem;">
+          <p style="margin:0 0 .45rem;font-size:.72rem;line-height:1.45;color:#94a3b8;"><strong style="color:#e2e8f0;">Cast by</strong> barriers and parked cars: an oblique, asymmetric shade.</p>
+          <code style="font-size:.66rem;color:#fbbf24;">&theta; = (c&#8339;, c&#7527;, &alpha;, f)</code>
+        </div>
+      </div>
+
+    </div>
+    <p style="margin:.85rem .1rem 0;font-size:.72rem;line-height:1.5;color:#64748b;">All three are rendered in CIELAB and applied only to the luminance channel, <code style="color:#94a3b8;">L&prime; = L &middot; (1 &minus; &gamma;M)</code>, so hue and saturation stay untouched and a single intensity <code style="color:#94a3b8;">&gamma;</code> dials the shadow from barely visible to heavy.</p>
+  </div>
+</div>

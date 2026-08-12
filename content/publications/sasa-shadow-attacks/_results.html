@@ -1,0 +1,112 @@
+<div class="sasa-reveal" style="margin-bottom:1.5rem;border-radius:1.25rem;border:1px solid rgba(34,197,94,.2);overflow:hidden;">
+  <!-- header -->
+  <div style="padding:1rem 1.5rem;border-bottom:1px solid rgba(34,197,94,.12);background:linear-gradient(135deg,rgba(34,197,94,.1),rgba(99,102,241,.05));display:flex;align-items:center;gap:.75rem;">
+    <span style="flex-shrink:0;width:2rem;height:2rem;border-radius:.625rem;background:rgba(34,197,94,.18);display:flex;align-items:center;justify-content:center;color:#4ade80;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg>
+    </span>
+    <div>
+      <div style="font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#4ade80;margin-bottom:.1rem;">What The Shadow Does On GTSRB</div>
+      <div style="font-size:.8rem;color:#94a3b8;">One attention-aligned shadow, no target access, and accuracy collapses, most of all on the transformers.</div>
+    </div>
+  </div>
+
+  <!-- ═══ headline stat band ═══ -->
+  <div style="padding:1.25rem 1.5rem;border-bottom:1px solid rgba(148,163,184,.08);">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem;">
+      <div style="text-align:center;padding:.5rem;">
+        <div style="font-size:1.75rem;font-weight:800;line-height:1;color:#f87171;">86 pts</div>
+        <div style="font-size:.7rem;color:#94a3b8;margin-top:.35rem;line-height:1.35;">frame accuracy lost on ViT</div>
+      </div>
+      <div style="text-align:center;padding:.5rem;">
+        <div style="font-size:1.75rem;font-weight:800;line-height:1;color:#f87171;">&gt;90 pts</div>
+        <div style="font-size:.7rem;color:#94a3b8;margin-top:.35rem;line-height:1.35;">sequence accuracy lost (seq@50)</div>
+      </div>
+      <div style="text-align:center;padding:.5rem;">
+        <div style="font-size:1.75rem;font-weight:800;line-height:1;color:#4ade80;">0</div>
+        <div style="font-size:.7rem;color:#94a3b8;margin-top:.35rem;line-height:1.35;">queries to the target model</div>
+      </div>
+      <div style="text-align:center;padding:.5rem;">
+        <div style="font-size:1.75rem;font-weight:800;line-height:1;color:#60a5fa;">4</div>
+        <div style="font-size:.7rem;color:#94a3b8;margin-top:.35rem;line-height:1.35;">unseen classifiers fooled</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ grouped bar chart ═══ -->
+  <div style="padding:1.1rem 1.5rem;border-bottom:1px solid rgba(148,163,184,.08);">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:.4rem;margin-bottom:.8rem;">
+      <span style="font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#4ade80;">Accuracy drop at high intensity (&gamma; = 0.8), StripShadow guided by DeiT</span>
+      <span style="font-size:.68rem;color:#94a3b8;"><span style="display:inline-block;width:.6rem;height:.6rem;border-radius:2px;background:#f59e0b;"></span> frame &nbsp; <span style="display:inline-block;width:.6rem;height:.6rem;border-radius:2px;background:#ef4444;"></span> sequence (seq@50)</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:.7rem;">
+      <!-- CNN -->
+      <div style="display:flex;align-items:center;gap:.6rem;">
+        <span style="flex-shrink:0;width:3.5rem;font-size:.74rem;color:#cbd5e1;text-align:right;font-family:ui-monospace,monospace;">CNN</span>
+        <div style="flex:1;display:flex;flex-direction:column;gap:.25rem;">
+          <div style="height:.85rem;border-radius:.25rem;background:rgba(148,163,184,.08);"><div class="sasa-bar" style="height:100%;width:40.6%;border-radius:.25rem;background:linear-gradient(90deg,#f59e0b,#fbbf24);"></div></div>
+          <div style="height:.85rem;border-radius:.25rem;background:rgba(148,163,184,.08);"><div class="sasa-bar" style="height:100%;width:47.5%;border-radius:.25rem;background:linear-gradient(90deg,#ef4444,#f87171);"></div></div>
+        </div>
+        <span style="flex-shrink:0;width:5.2rem;font-size:.68rem;color:#94a3b8;font-family:ui-monospace,monospace;">40.6 / 47.5</span>
+      </div>
+      <!-- STN -->
+      <div style="display:flex;align-items:center;gap:.6rem;">
+        <span style="flex-shrink:0;width:3.5rem;font-size:.74rem;color:#cbd5e1;text-align:right;font-family:ui-monospace,monospace;">STN</span>
+        <div style="flex:1;display:flex;flex-direction:column;gap:.25rem;">
+          <div style="height:.85rem;border-radius:.25rem;background:rgba(148,163,184,.08);"><div class="sasa-bar" style="height:100%;width:46.9%;border-radius:.25rem;background:linear-gradient(90deg,#f59e0b,#fbbf24);"></div></div>
+          <div style="height:.85rem;border-radius:.25rem;background:rgba(148,163,184,.08);"><div class="sasa-bar" style="height:100%;width:47.5%;border-radius:.25rem;background:linear-gradient(90deg,#ef4444,#f87171);"></div></div>
+        </div>
+        <span style="flex-shrink:0;width:5.2rem;font-size:.68rem;color:#94a3b8;font-family:ui-monospace,monospace;">46.9 / 47.5</span>
+      </div>
+      <!-- EffB0 -->
+      <div style="display:flex;align-items:center;gap:.6rem;">
+        <span style="flex-shrink:0;width:3.5rem;font-size:.74rem;color:#cbd5e1;text-align:right;font-family:ui-monospace,monospace;">EffB0</span>
+        <div style="flex:1;display:flex;flex-direction:column;gap:.25rem;">
+          <div style="height:.85rem;border-radius:.25rem;background:rgba(148,163,184,.08);"><div class="sasa-bar" style="height:100%;width:62.0%;border-radius:.25rem;background:linear-gradient(90deg,#f59e0b,#fbbf24);"></div></div>
+          <div style="height:.85rem;border-radius:.25rem;background:rgba(148,163,184,.08);"><div class="sasa-bar" style="height:100%;width:62.5%;border-radius:.25rem;background:linear-gradient(90deg,#ef4444,#f87171);"></div></div>
+        </div>
+        <span style="flex-shrink:0;width:5.2rem;font-size:.68rem;color:#94a3b8;font-family:ui-monospace,monospace;">62.0 / 62.5</span>
+      </div>
+      <!-- ViT -->
+      <div style="display:flex;align-items:center;gap:.6rem;">
+        <span style="flex-shrink:0;width:3.5rem;font-size:.74rem;color:#fca5a5;text-align:right;font-family:ui-monospace,monospace;font-weight:700;">ViT</span>
+        <div style="flex:1;display:flex;flex-direction:column;gap:.25rem;">
+          <div style="height:.85rem;border-radius:.25rem;background:rgba(148,163,184,.08);"><div class="sasa-bar" style="height:100%;width:86.3%;border-radius:.25rem;background:linear-gradient(90deg,#f59e0b,#fbbf24);"></div></div>
+          <div style="height:.85rem;border-radius:.25rem;background:rgba(148,163,184,.08);"><div class="sasa-bar" style="height:100%;width:92.5%;border-radius:.25rem;background:linear-gradient(90deg,#ef4444,#f87171);"></div></div>
+        </div>
+        <span style="flex-shrink:0;width:5.2rem;font-size:.68rem;color:#fca5a5;font-family:ui-monospace,monospace;font-weight:700;">86.3 / 92.5</span>
+      </div>
+    </div>
+    <p style="margin:.75rem .1rem 0;font-size:.7rem;line-height:1.5;color:#64748b;">Bars are percentage-point drops from the clean baseline. The transformer (ViT) loses the most; the convolutional model resists best, matching the paper&rsquo;s finding that global-attention models are the most exposed.</p>
+  </div>
+
+  <!-- ═══ frame vs sequence ═══ -->
+  <div style="padding:1.1rem 1.5rem;border-bottom:1px solid rgba(148,163,184,.08);">
+    <div style="border-radius:1rem;border:1px solid rgba(239,68,68,.2);background:rgba(239,68,68,.04);padding:.9rem 1.1rem;">
+      <div style="font-size:.78rem;font-weight:700;color:#fca5a5;margin-bottom:.35rem;">Why sequences fall harder than frames</div>
+      <p style="margin:0;font-size:.75rem;line-height:1.55;color:#94a3b8;">Sequence accuracy (<code style="color:#cbd5e1;">seq@50</code>) counts a clip as recognized only if at least half of its 30 frames are right. Because a single mask is held steady across the whole clip, the sign is not just occasionally misread, it is <strong style="color:#e2e8f0;">lost for the entire approach</strong>. That is why sequence-level drops run ahead of frame-level drops, and why frame-only evaluations understate the real risk.</p>
+    </div>
+  </div>
+
+  <!-- ═══ what wins, what breaks ═══ -->
+  <div style="padding:1.1rem 1.5rem;">
+    <div style="font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#4ade80;margin-bottom:.7rem;">What wins, what breaks</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;">
+      <div style="border-radius:.8rem;border:1px solid rgba(245,158,11,.22);background:rgba(245,158,11,.04);padding:.75rem .9rem;">
+        <div style="font-size:.76rem;font-weight:700;color:#fbbf24;margin-bottom:.25rem;">StripShadow wins everywhere</div>
+        <p style="margin:0;font-size:.72rem;line-height:1.45;color:#94a3b8;">The elongated band overlaps the high-attention regions on structured signs, and tops all four architectures.</p>
+      </div>
+      <div style="border-radius:.8rem;border:1px solid rgba(99,102,241,.22);background:rgba(99,102,241,.04);padding:.75rem .9rem;">
+        <div style="font-size:.76rem;font-weight:700;color:#a5b4fc;margin-bottom:.25rem;">DeiT beats DINO for aiming</div>
+        <p style="margin:0;font-size:.72rem;line-height:1.45;color:#94a3b8;">Class-discriminative attention places shadows more effectively than object-centric attention.</p>
+      </div>
+      <div style="border-radius:.8rem;border:1px solid rgba(239,68,68,.22);background:rgba(239,68,68,.04);padding:.75rem .9rem;">
+        <div style="font-size:.76rem;font-weight:700;color:#fca5a5;margin-bottom:.25rem;">Transformers are most exposed</div>
+        <p style="margin:0;font-size:.72rem;line-height:1.45;color:#94a3b8;">ViT and DeiT fall hardest; the CNN, with local receptive fields, holds up the best.</p>
+      </div>
+      <div style="border-radius:.8rem;border:1px solid rgba(34,197,94,.22);background:rgba(34,197,94,.04);padding:.75rem .9rem;">
+        <div style="font-size:.76rem;font-weight:700;color:#4ade80;margin-bottom:.25rem;">No target access needed</div>
+        <p style="margin:0;font-size:.72rem;line-height:1.45;color:#94a3b8;">Covering the top 50% of attention gives the strongest attacks, and even a plain L1 loss suffices.</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<style>
+/* ── Scroll-reveal: shared across intro / pipeline / shadows / results ──
+   Hiding is gated behind .sasa-js (set below only when IntersectionObserver
+   exists), so content stays visible without JS and under reduced motion. */
+@keyframes sasa-up {
+  from { opacity: 0; transform: translateY(18px) }
+  to   { opacity: 1; transform: none }
+}
+@keyframes sasa-grow { to { transform: scaleX(1) } }
+@media screen and (prefers-reduced-motion: no-preference) {
+  .sasa-js .sasa-reveal { opacity: 0 }
+  .sasa-js .sasa-reveal.sasa-visible { animation: sasa-up .55s ease forwards }
+  .sasa-js .sasa-reveal.sasa-d1.sasa-visible { animation-delay: .1s }
+  .sasa-js .sasa-reveal.sasa-d2.sasa-visible { animation-delay: .25s }
+  .sasa-js .sasa-reveal.sasa-d3.sasa-visible { animation-delay: .4s }
+
+  /* bars grow from zero when their own section scrolls into view */
+  .sasa-js .sasa-bar { transform: scaleX(0); transform-origin: left center }
+  .sasa-js .sasa-visible .sasa-bar { animation: sasa-grow 1s cubic-bezier(.22,1,.36,1) forwards }
+}
+
+/* ── Deliberately wide figure remains usable on touch and keyboard ── */
+.sasa-scroll {
+  overscroll-behavior-inline: contain;
+  scrollbar-color: rgba(129,140,248,.45) rgba(15,23,42,.45);
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+.sasa-scroll:focus-visible {
+  outline: 2px solid rgba(129,140,248,.75);
+  outline-offset: 3px;
+}
+.sasa-scroll::-webkit-scrollbar { height: 6px }
+.sasa-scroll::-webkit-scrollbar-track {
+  background: rgba(15,23,42,.45);
+  border-radius: 999px;
+}
+.sasa-scroll::-webkit-scrollbar-thumb {
+  background: rgba(129,140,248,.45);
+  border-radius: 999px;
+}
+</style>
+<script>if("IntersectionObserver" in window)document.documentElement.classList.add("sasa-js")</script>

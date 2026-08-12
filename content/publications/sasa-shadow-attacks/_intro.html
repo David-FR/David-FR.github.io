@@ -1,0 +1,16 @@
+<div class="not-prose" style="margin:0;padding:0;">
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.5rem;">
+    <div style="padding:1.1rem 1.25rem;border-radius:1rem;background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.2);">
+      <div style="font-size:.875rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#ef4444;margin-bottom:.5rem;">01 &nbsp;&middot;&nbsp; The Problem</div>
+      <p style="margin:0;font-size:.8rem;line-height:1.55;color:#94a3b8;">Most attacks fool a <strong style="color:#e2e8f0;">single still image</strong> with pixel noise and need to probe the model. But a car reads a sign across a <strong style="color:#e2e8f0;">video stream</strong>, and temporal filtering wipes flickering noise out before it reaches the classifier.</p>
+    </div>
+    <div style="padding:1.1rem 1.25rem;border-radius:1rem;background:rgba(99,102,241,.06);border:1px solid rgba(99,102,241,.2);">
+      <div style="font-size:.875rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#818cf8;margin-bottom:.5rem;">02 &nbsp;&middot;&nbsp; The Approach</div>
+      <p style="margin:0;font-size:.8rem;line-height:1.55;color:#94a3b8;">Cast <strong style="color:#e2e8f0;">one physically plausible shadow</strong>, the kind a pole or cloud throws, and hold it steady across all 30 frames. Place it where <strong style="color:#e2e8f0;">frozen DINO and DeiT</strong> transformers look, and never query the target model.</p>
+    </div>
+    <div style="padding:1.1rem 1.25rem;border-radius:1rem;background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.2);">
+      <div style="font-size:.875rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#22c55e;margin-bottom:.5rem;">03 &nbsp;&middot;&nbsp; The Finding</div>
+      <p style="margin:0;font-size:.8rem;line-height:1.55;color:#94a3b8;">The shadow transfers across four unseen classifiers, cutting frame accuracy by up to <strong style="color:#e2e8f0;">86 points</strong> on ViT and sequence-level accuracy by over <strong style="color:#e2e8f0;">90</strong>, with the elongated <strong style="color:#e2e8f0;">StripShadow</strong> the strongest variant.</p>
+    </div>
+  </div>
+</div>
