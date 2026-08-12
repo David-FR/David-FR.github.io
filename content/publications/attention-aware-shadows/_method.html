@@ -1,0 +1,173 @@
+<!-- self-contained attention-map gradients for this section -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+  <radialGradient id="aasMAttnClean" cx="50%" cy="44%" r="52%">
+    <stop offset="0%" stop-color="#f5f3ff"/><stop offset="22%" stop-color="#c4b5fd"/><stop offset="48%" stop-color="#8b5cf6"/><stop offset="78%" stop-color="#4c1d95"/><stop offset="100%" stop-color="#0b1020"/>
+  </radialGradient>
+  <radialGradient id="aasMAttnShadow" cx="66%" cy="60%" r="60%">
+    <stop offset="0%" stop-color="#ddd6fe"/><stop offset="22%" stop-color="#a78bfa"/><stop offset="50%" stop-color="#6d28d9"/><stop offset="82%" stop-color="#2e1065"/><stop offset="100%" stop-color="#0b1020"/>
+  </radialGradient>
+</defs></svg>
+
+<div class="aas-reveal" style="margin-bottom:1.5rem;border-radius:1.25rem;border:1px solid rgba(99,102,241,.2);overflow:hidden;">
+  <!-- header -->
+  <div style="padding:1rem 1.5rem;border-bottom:1px solid rgba(99,102,241,.12);background:linear-gradient(135deg,rgba(99,102,241,.1),rgba(168,85,247,.06));display:flex;align-items:center;gap:.75rem;">
+    <span style="flex-shrink:0;width:2rem;height:2rem;border-radius:.625rem;background:rgba(99,102,241,.18);display:flex;align-items:center;justify-content:center;color:#a5b4fc;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42"/></svg>
+    </span>
+    <div>
+      <div style="font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#a5b4fc;margin-bottom:.1rem;">How the Shadow Is Built</div>
+      <div style="font-size:.8rem;color:#94a3b8;">A plausible cast shadow that grows over time and is aimed at the model&rsquo;s focus.</div>
+    </div>
+  </div>
+
+  <!-- ═══ core idea · one shadow, scaled across a sequence (Figure 1) ═══ -->
+  <div style="padding:1.1rem 1.5rem .9rem;border-bottom:1px solid rgba(99,102,241,.08);">
+    <div style="font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#a5b4fc;margin-bottom:.15rem;">The Core Idea</div>
+    <p style="margin:0 0 .8rem;font-size:.8rem;line-height:1.5;color:#94a3b8;">One shadow, the same shape and opacity throughout, is scaled up frame after frame to mimic a sign coming into view. It stays subtle, yet it holds the wrong label for most of the clip.</p>
+    <div class="aas-scroll" tabindex="0" role="region" aria-label="Scrollable shadow sequence" style="display:flex;align-items:center;gap:.5rem;overflow-x:auto;">
+      <!-- frame series: mandatory "go straight" sign with a growing shadow -->
+      <div style="flex:none;display:flex;align-items:center;gap:.5rem;">
+        <!-- frame 1 -->
+        <div style="text-align:center;">
+          <svg width="58" height="58" viewBox="0 0 58 58" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Early frame: a blue go-straight sign with a faint shadow, still read correctly.">
+            <circle cx="29" cy="29" r="21" fill="#1d4ed8" stroke="#e2e8f0" stroke-width="2.4"/>
+            <path d="M29 18 L29 40 M29 18 L23.5 24 M29 18 L34.5 24" stroke="#fff" stroke-width="3.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 30 L28 26 L26 50 L8 50 Z" fill="rgba(2,6,23,.28)"/>
+          </svg>
+          <div style="font-size:.6rem;color:#64748b;margin-top:.15rem;">frame 1</div>
+        </div>
+        <svg width="16" height="12" viewBox="0 0 16 12"><path d="M0 6 L12 6 M8 2 L13 6 L8 10" stroke="#475569" stroke-width="1.4" fill="none"/></svg>
+        <!-- frame 2 -->
+        <div style="text-align:center;">
+          <svg width="58" height="58" viewBox="0 0 58 58" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mid frame: the shadow is larger.">
+            <circle cx="29" cy="29" r="21" fill="#1d4ed8" stroke="#e2e8f0" stroke-width="2.4"/>
+            <path d="M29 18 L29 40 M29 18 L23.5 24 M29 18 L34.5 24" stroke="#fff" stroke-width="3.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 26 L34 22 L31 52 L8 52 Z" fill="rgba(2,6,23,.4)"/>
+          </svg>
+          <div style="font-size:.6rem;color:#64748b;margin-top:.15rem;">frame 12</div>
+        </div>
+        <svg width="16" height="12" viewBox="0 0 16 12"><path d="M0 6 L12 6 M8 2 L13 6 L8 10" stroke="#475569" stroke-width="1.4" fill="none"/></svg>
+        <!-- frame 3 -->
+        <div style="text-align:center;">
+          <svg width="58" height="58" viewBox="0 0 58 58" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Later frame: the shadow covers a key region.">
+            <circle cx="29" cy="29" r="21" fill="#1d4ed8" stroke="#e2e8f0" stroke-width="2.4"/>
+            <path d="M29 18 L29 40 M29 18 L23.5 24 M29 18 L34.5 24" stroke="#fff" stroke-width="3.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 22 L40 20 L36 54 L8 54 Z" fill="rgba(2,6,23,.52)"/>
+          </svg>
+          <div style="font-size:.6rem;color:#64748b;margin-top:.15rem;">frame 24</div>
+        </div>
+        <svg width="16" height="12" viewBox="0 0 16 12"><path d="M0 6 L12 6 M8 2 L13 6 L8 10" stroke="#475569" stroke-width="1.4" fill="none"/></svg>
+        <!-- frame 4 -->
+        <div style="text-align:center;">
+          <svg width="58" height="58" viewBox="0 0 58 58" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Final frame: the shadow is largest.">
+            <circle cx="29" cy="29" r="21" fill="#1d4ed8" stroke="#e2e8f0" stroke-width="2.4"/>
+            <path d="M29 18 L29 40 M29 18 L23.5 24 M29 18 L34.5 24" stroke="#fff" stroke-width="3.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 20 L44 18 L40 56 L8 56 Z" fill="rgba(2,6,23,.6)"/>
+          </svg>
+          <div style="font-size:.6rem;color:#64748b;margin-top:.15rem;">frame 30</div>
+        </div>
+      </div>
+      <!-- verdict -->
+      <svg width="22" height="14" viewBox="0 0 22 14" style="flex:none;"><path d="M0 7 L17 7 M12 2 L19 7 L12 12" stroke="#f87171" stroke-width="1.7" fill="none"/></svg>
+      <div style="flex:none;border-radius:.8rem;border:1px solid rgba(248,113,113,.35);background:rgba(248,113,113,.06);padding:.6rem .8rem;min-width:150px;">
+        <div style="font-size:.6rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#f87171;margin-bottom:.25rem;">Classifier reads</div>
+        <div style="display:flex;align-items:center;gap:.5rem;font-size:.72rem;color:#cbd5e1;">
+          <span style="display:inline-flex;align-items:center;gap:.25rem;"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 2 L7 12 M7 2 L4 5 M7 2 L10 5" stroke="#94a3b8" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>class&nbsp;36</span>
+          <span style="color:#64748b;">&rarr;</span>
+          <span style="display:inline-flex;align-items:center;gap:.25rem;color:#f87171;font-weight:700;"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L12 7 M9 4 L12 7 M9 10 L12 7" stroke="#f87171" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>class&nbsp;40</span>
+        </div>
+        <div style="font-size:.62rem;color:#94a3b8;margin-top:.3rem;line-height:1.4;"><span style="color:#cbd5e1;">&ldquo;go straight&rdquo;</span> misread as <span style="color:#f87171;">&ldquo;turn right&rdquo;</span>, frame after frame.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ two shadow shapes (Figure 3) ═══ -->
+  <div style="padding:1rem 1.5rem .4rem;">
+    <div style="font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#a5b4fc;margin-bottom:.15rem;">Two Shadow Shapes, Aimed at the Focus</div>
+    <p style="margin:0 0 .8rem;font-size:.8rem;line-height:1.5;color:#94a3b8;">Shadows darken only the <strong style="color:#cbd5e1;">luminance channel in LAB space</strong>, so colour stays natural. Two shapes are searched, and both are steered onto the bright, high-attention regions the model relies on. Soft edges, motion blur, and brightness normalisation keep them looking like real cast shadows.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.9rem;">
+      <!-- polygon -->
+      <div style="border-radius:1rem;border:1px solid rgba(99,102,241,.22);background:rgba(99,102,241,.04);overflow:hidden;">
+        <div style="padding:.6rem .9rem;border-bottom:1px solid rgba(99,102,241,.12);display:flex;align-items:baseline;justify-content:space-between;">
+          <span style="font-size:.8rem;font-weight:700;color:#e2e8f0;">Polygon</span>
+          <span style="font-size:.6rem;font-family:ui-monospace,monospace;color:#a5b4fc;">4 corners</span>
+        </div>
+        <div style="padding:.8rem .9rem;display:flex;align-items:center;gap:.75rem;">
+          <svg width="62" height="62" viewBox="0 0 62 62" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Speed limit 30 sign with a four-sided shadow.">
+            <circle cx="31" cy="31" r="23" fill="#f8fafc" stroke="#dc2626" stroke-width="5"/>
+            <text x="31" y="39" font-size="19" font-weight="800" fill="#0f172a" text-anchor="middle" font-family="system-ui">30</text>
+            <polygon points="10,20 40,12 46,46 14,50" fill="rgba(2,6,23,.5)"/>
+          </svg>
+          <svg width="46" height="46" viewBox="0 0 46 46" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Its DINO attention map, with focus pulled off-centre."><rect width="46" height="46" rx="6" fill="url(#aasMAttnShadow)"/></svg>
+          <p style="margin:0;font-size:.7rem;line-height:1.45;color:#94a3b8;">Covers several angles at once; the strongest attacker overall.</p>
+        </div>
+      </div>
+      <!-- triangle -->
+      <div style="border-radius:1rem;border:1px solid rgba(168,85,247,.22);background:rgba(168,85,247,.04);overflow:hidden;">
+        <div style="padding:.6rem .9rem;border-bottom:1px solid rgba(168,85,247,.12);display:flex;align-items:baseline;justify-content:space-between;">
+          <span style="font-size:.8rem;font-weight:700;color:#e2e8f0;">Triangle</span>
+          <span style="font-size:.6rem;font-family:ui-monospace,monospace;color:#d8b4fe;">3 corners</span>
+        </div>
+        <div style="padding:.8rem .9rem;display:flex;align-items:center;gap:.75rem;">
+          <svg width="62" height="62" viewBox="0 0 62 62" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Speed limit 30 sign with a wedge-shaped shadow.">
+            <circle cx="31" cy="31" r="23" fill="#f8fafc" stroke="#dc2626" stroke-width="5"/>
+            <text x="31" y="39" font-size="19" font-weight="800" fill="#0f172a" text-anchor="middle" font-family="system-ui">30</text>
+            <polygon points="31,10 12,52 50,50" fill="rgba(2,6,23,.5)"/>
+          </svg>
+          <svg width="46" height="46" viewBox="0 0 46 46" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Its DINO attention map."><rect width="46" height="46" rx="6" fill="url(#aasMAttnClean)" opacity=".9"/><rect x="0" y="20" width="20" height="26" rx="6" fill="rgba(2,6,23,.45)"/></svg>
+          <p style="margin:0;font-size:.7rem;line-height:1.45;color:#94a3b8;">Mimics a wedge cast by a roadside pole or structure.</p>
+        </div>
+      </div>
+    </div>
+    <!-- parameter chips -->
+    <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.8rem;">
+      <span style="font-size:.68rem;background:rgba(99,102,241,.1);border:1px solid rgba(99,102,241,.28);color:#c7d2fe;border-radius:.35rem;padding:.15rem .5rem;">opacity &#945; &#8712; [0.1, 0.7]</span>
+      <span style="font-size:.68rem;background:rgba(99,102,241,.1);border:1px solid rgba(99,102,241,.28);color:#c7d2fe;border-radius:.35rem;padding:.15rem .5rem;">LAB luminance only</span>
+      <span style="font-size:.68rem;background:rgba(99,102,241,.1);border:1px solid rgba(99,102,241,.28);color:#c7d2fe;border-radius:.35rem;padding:.15rem .5rem;">Gaussian smoothing + motion blur</span>
+      <span style="font-size:.68rem;background:rgba(99,102,241,.1);border:1px solid rgba(99,102,241,.28);color:#c7d2fe;border-radius:.35rem;padding:.15rem .5rem;">temporal scale 0.6 &rarr; 1.0</span>
+    </div>
+  </div>
+
+  <!-- ═══ dual loss + SL-ASR ═══ -->
+  <div style="padding:1rem 1.5rem 1.2rem;">
+    <div style="display:grid;grid-template-columns:1.25fr 1fr;gap:.9rem;align-items:stretch;">
+      <!-- dual loss -->
+      <div style="border-radius:1rem;border:1px solid rgba(148,163,184,.18);background:rgba(15,23,42,.35);padding:.9rem 1rem;">
+        <div style="font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#e2e8f0;margin-bottom:.5rem;">The dual objective</div>
+        <div style="overflow-x:auto;background:rgba(15,23,42,.5);border:1px solid rgba(148,163,184,.18);border-left:3px solid #a855f7;border-radius:0 .5rem .5rem 0;padding:.6rem .85rem;font-family:ui-monospace,'Cascadia Code',monospace;font-size:.8rem;line-height:1.9;color:#e2e8f0;margin-bottom:.7rem;">
+          <div style="color:#64748b;font-size:.7rem;white-space:nowrap;">// averaged over the T = 30 frames</div>
+          <div style="white-space:nowrap;">L<sub style="font-size:.6rem;">total</sub> = L<sub style="font-size:.6rem;">cls</sub> &minus; &#955; &middot; L<sub style="font-size:.6rem;">attn</sub></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:.5rem;">
+          <div style="display:flex;align-items:baseline;gap:.5rem;">
+            <span style="flex-shrink:0;font-size:.6rem;font-weight:800;color:#60a5fa;letter-spacing:.04em;text-transform:uppercase;padding:.1rem .4rem;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.3);border-radius:.3rem;">L&#8203;<sub>cls</sub></span>
+            <p style="margin:0;font-size:.72rem;line-height:1.5;color:#94a3b8;"><strong style="color:#cbd5e1;">Fool the label.</strong> Push the CNN to lose confidence in the true class.</p>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:.5rem;">
+            <span style="flex-shrink:0;font-size:.6rem;font-weight:800;color:#c084fc;letter-spacing:.04em;text-transform:uppercase;padding:.1rem .4rem;background:rgba(168,85,247,.1);border:1px solid rgba(168,85,247,.3);border-radius:.3rem;">L&#8203;<sub>attn</sub></span>
+            <p style="margin:0;font-size:.72rem;line-height:1.5;color:#94a3b8;"><strong style="color:#cbd5e1;">Move the gaze.</strong> Maximise the gap between the clean and shadowed <span style="color:#d8b4fe;">DINO&nbsp;ViT</span> attention maps.</p>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:.5rem;">
+            <span style="flex-shrink:0;font-size:.6rem;font-weight:800;color:#fbbf24;letter-spacing:.04em;text-transform:uppercase;padding:.1rem .4rem;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);border-radius:.3rem;">&#955;</span>
+            <p style="margin:0;font-size:.72rem;line-height:1.5;color:#94a3b8;">Balances the two. <span style="font-family:ui-monospace,monospace;color:#cbd5e1;">&#955;&nbsp;=&nbsp;0.5</span> is the full attack; <span style="font-family:ui-monospace,monospace;color:#cbd5e1;">&#955;&nbsp;=&nbsp;0</span> ablates attention.</p>
+          </div>
+        </div>
+      </div>
+      <!-- SL-ASR metric -->
+      <div style="border-radius:1rem;border:1px solid rgba(34,197,94,.22);background:rgba(34,197,94,.04);padding:.9rem 1rem;">
+        <div style="font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#4ade80;margin-bottom:.5rem;">A sequence-level metric &middot; SL-ASR</div>
+        <p style="margin:0 0 .7rem;font-size:.72rem;line-height:1.5;color:#94a3b8;">An attack counts as a success only if <strong style="color:#cbd5e1;">at least &#964; of the T&nbsp;=&nbsp;30 frames</strong> are misclassified, so it must fail persistently, not just once.</p>
+        <!-- 30-frame strip with tau marker -->
+        <div style="display:flex;flex-wrap:wrap;gap:2px;margin-bottom:.5rem;" aria-hidden="true">
+          <!-- 30 cells: first 21 flipped (red), rest clean -->
+          <span style="width:8px;height:14px;border-radius:1px;background:#ef4444;"></span><span style="width:8px;height:14px;border-radius:1px;background:#ef4444;"></span><span style="width:8px;height:14px;border-radius:1px;background:#ef4444;"></span><span style="width:8px;height:14px;border-radius:1px;background:#ef4444;"></span><span style="width:8px;height:14px;border-radius:1px;background:#ef4444;"></span><span style="width:8px;height:14px;border-radius:1px;background:#ef4444;"></span><span style="width:8px;height:14px;border-radius:1px;background:#ef4444;"></span><span style="width:8px;height:14px;border-radius:1px;background:#ef4444;"></span><span style="width:8px;height:14px;border-radius:1px;background:#ef4444;"></span><span style="width:8px;height:14px;border-radius:1px;background:#ef4444;"></span><span style="width:8px;height:14px;border-radius:1px;background:#ef4444;"></span><span style="width:8px;height:14px;border-radius:1px;background:#ef4444;"></span><span style="width:8px;height:14px;border-radius:1px;background:#ef4444;"></span><span style="width:8px;height:14px;border-radius:1px;background:#ef4444;"></span><span style="width:8px;height:14px;border-radius:1px;background:#ef4444;"></span><span style="width:8px;height:14px;border-radius:1px;background:#ef4444;"></span><span style="width:8px;height:14px;border-radius:1px;background:#ef4444;"></span><span style="width:8px;height:14px;border-radius:1px;background:#ef4444;"></span><span style="width:8px;height:14px;border-radius:1px;background:#ef4444;"></span><span style="width:8px;height:14px;border-radius:1px;background:#ef4444;"></span><span style="width:8px;height:14px;border-radius:1px;background:#ef4444;"></span><span style="width:8px;height:14px;border-radius:1px;background:#334155;"></span><span style="width:8px;height:14px;border-radius:1px;background:#334155;"></span><span style="width:8px;height:14px;border-radius:1px;background:#334155;"></span><span style="width:8px;height:14px;border-radius:1px;background:#334155;"></span><span style="width:8px;height:14px;border-radius:1px;background:#334155;"></span><span style="width:8px;height:14px;border-radius:1px;background:#334155;"></span><span style="width:8px;height:14px;border-radius:1px;background:#334155;"></span><span style="width:8px;height:14px;border-radius:1px;background:#334155;"></span><span style="width:8px;height:14px;border-radius:1px;background:#334155;"></span>
+        </div>
+        <div style="display:flex;gap:1rem;font-size:.62rem;color:#94a3b8;">
+          <span><span style="display:inline-block;width:8px;height:8px;border-radius:1px;background:#ef4444;margin-right:.25rem;"></span>misclassified frame</span>
+          <span><span style="display:inline-block;width:8px;height:8px;border-radius:1px;background:#334155;margin-right:.25rem;"></span>correct frame</span>
+        </div>
+        <p style="margin:.55rem 0 0;font-size:.62rem;line-height:1.45;color:#64748b;">Thresholds tested: <span style="font-family:ui-monospace,monospace;color:#94a3b8;">&#964; = 17, 27, 29</span> out of 30.</p>
+      </div>
+    </div>
+  </div>
+</div>

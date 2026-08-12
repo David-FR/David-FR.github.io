@@ -1,0 +1,55 @@
+<style>
+/* ── Scroll-reveal: shared across intro / pipeline / method / results ──
+   Hiding is gated behind .aas-js (set below only when IntersectionObserver
+   exists), so content stays visible without JS and under reduced motion. */
+@keyframes aas-up {
+  from { opacity: 0; transform: translateY(18px) }
+  to   { opacity: 1; transform: none }
+}
+@keyframes aas-grow { to { transform: scaleX(1) } }
+@media screen and (prefers-reduced-motion: no-preference) {
+  .aas-js .aas-reveal { opacity: 0 }
+  .aas-js .aas-reveal.aas-visible { animation: aas-up .55s ease forwards }
+  .aas-js .aas-reveal.aas-d1.aas-visible { animation-delay: .1s }
+  .aas-js .aas-reveal.aas-d2.aas-visible { animation-delay: .25s }
+  .aas-js .aas-reveal.aas-d3.aas-visible { animation-delay: .4s }
+
+  /* bars grow from zero when their own section scrolls into view */
+  .aas-js .aas-bar { transform: scaleX(0); transform-origin: left center }
+  .aas-js .aas-visible .aas-bar { animation: aas-grow 1s cubic-bezier(.22,1,.36,1) forwards }
+}
+
+/* ── A shadow sweeping across a traffic sign (core-idea strip) ── */
+@keyframes aas-sweep {
+  0%,100% { transform: translateX(-14%) scale(.82); opacity:.75 }
+  50%     { transform: translateX(10%)  scale(1.05); opacity:.95 }
+}
+@media screen and (prefers-reduced-motion: no-preference) {
+  .aas-shadow-sweep { animation: aas-sweep 4.5s ease-in-out infinite }
+}
+@media screen and (prefers-reduced-motion: reduce) {
+  .aas-shadow-sweep { animation: none }
+}
+
+/* ── Deliberately wide figures remain usable on touch and keyboard ── */
+.aas-scroll {
+  overscroll-behavior-inline: contain;
+  scrollbar-color: rgba(129,140,248,.45) rgba(15,23,42,.45);
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+.aas-scroll:focus-visible {
+  outline: 2px solid rgba(129,140,248,.75);
+  outline-offset: 3px;
+}
+.aas-scroll::-webkit-scrollbar { height: 6px }
+.aas-scroll::-webkit-scrollbar-track {
+  background: rgba(15,23,42,.45);
+  border-radius: 999px;
+}
+.aas-scroll::-webkit-scrollbar-thumb {
+  background: rgba(129,140,248,.45);
+  border-radius: 999px;
+}
+</style>
+<script>if("IntersectionObserver" in window)document.documentElement.classList.add("aas-js")</script>

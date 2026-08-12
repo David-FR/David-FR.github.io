@@ -25,6 +25,16 @@ tags:
   - Traffic Sign Recognition
 
 featured: false
+profile: false
+
+pull_quote: 'A single moving shadow, shaped to fall exactly where the model looks, can flip a traffic sign''s label across a whole video, not just one frame, up to 87.5% of the time.'
+
+key_takeaways_lead: 'A self-driving car reads a traffic sign across a stream of frames as it drives closer, not from a single snapshot. This paper shows that a plain cast shadow, with no sticker or printed patch, can hold that sign at the wrong label for most of the approach. The trick is to evolve one shadow that falls exactly where the classifier is looking, then measure the attack over the whole clip rather than one lucky frame.'
+
+key_takeaways:
+  - "**The first shadow attack that works over a whole sequence.** Prior attacks fool a single still frame. This casts **one shadow** whose scale grows across all 30 frames, like natural shading on an approaching sign, so it stays plausible while the classifier stays wrong frame after frame."
+  - "**It aims at the model's attention, not just its label.** A term based on **DINO ViT** attention maps steers the shadow onto the exact region the model relies on. That adds **11 to 18%** attack success and, surprisingly, produces *smaller, less visible* shadows than a label-only attack."
+  - "**A metric built for video, not snapshots.** Sequence-Level Attack Success (SL-ASR) counts an attack as a win only when **at least &tau; of the 30 frames** flip, capturing persistence that single-frame scores miss. On GTSRB it reaches **52.3 to 87.5%**."
 
 links:
   - type: pdf
@@ -34,3 +44,10 @@ links:
   - type: doi
     url: https://doi.org/10.1109/CVPRW67362.2025.00344
 ---
+
+{{< pub-html "_styles.html" >}}
+{{< pub-html "_intro.html" >}}
+{{< pub-html "_pipeline.html" >}}
+{{< pub-html "_method.html" >}}
+{{< pub-html "_results.html" >}}
+{{< pub-html "_footer.html" >}}

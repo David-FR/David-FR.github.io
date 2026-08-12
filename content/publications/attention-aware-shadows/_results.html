@@ -1,0 +1,169 @@
+<div style="margin-bottom:1.5rem;border-radius:1.25rem;border:1px solid rgba(34,197,94,.2);overflow:hidden;background:linear-gradient(135deg,rgba(34,197,94,.05),rgba(59,130,246,.03));">
+  <!-- header -->
+  <div class="aas-reveal" style="padding:1rem 1.5rem;border-bottom:1px solid rgba(34,197,94,.12);display:flex;align-items:center;gap:.75rem;">
+    <span style="flex-shrink:0;width:2rem;height:2rem;border-radius:.625rem;background:rgba(34,197,94,.15);display:flex;align-items:center;justify-content:center;color:#4ade80;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg>
+    </span>
+    <div>
+      <div style="font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#4ade80;margin-bottom:.1rem;">Results</div>
+      <div style="font-size:.8rem;color:#94a3b8;">Evaluated on GTSRB, against a clean classifier that is right 97.3% of the time.</div>
+    </div>
+  </div>
+
+  <!-- headline stat band -->
+  <div class="aas-reveal aas-d1" style="padding:1rem 1.25rem;display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem;border-bottom:1px solid rgba(34,197,94,.1);">
+    <div style="text-align:center;padding:.6rem .5rem;border-radius:.75rem;background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.18);">
+      <div style="font-size:1.5rem;font-weight:800;font-family:ui-monospace,monospace;color:#4ade80;line-height:1;">87.5<span style="font-size:.8rem;">%</span></div>
+      <div style="font-size:.6rem;color:#94a3b8;margin-top:.3rem;line-height:1.3;">best sequence-level<br>attack success</div>
+    </div>
+    <div style="text-align:center;padding:.6rem .5rem;border-radius:.75rem;background:rgba(168,85,247,.06);border:1px solid rgba(168,85,247,.18);">
+      <div style="font-size:1.5rem;font-weight:800;font-family:ui-monospace,monospace;color:#c084fc;line-height:1;">+11&ndash;18<span style="font-size:.8rem;">%</span></div>
+      <div style="font-size:.6rem;color:#94a3b8;margin-top:.3rem;line-height:1.3;">lift from aiming<br>at attention</div>
+    </div>
+    <div style="text-align:center;padding:.6rem .5rem;border-radius:.75rem;background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.18);">
+      <div style="font-size:1.5rem;font-weight:800;font-family:ui-monospace,monospace;color:#60a5fa;line-height:1;">30</div>
+      <div style="font-size:.6rem;color:#94a3b8;margin-top:.3rem;line-height:1.3;">frames per sequence,<br>1,306 sequences</div>
+    </div>
+    <div style="text-align:center;padding:.6rem .5rem;border-radius:.75rem;background:rgba(129,140,248,.06);border:1px solid rgba(129,140,248,.18);">
+      <div style="font-size:1.5rem;font-weight:800;font-family:ui-monospace,monospace;color:#a5b4fc;line-height:1;">&darr; L2</div>
+      <div style="font-size:.6rem;color:#94a3b8;margin-top:.3rem;line-height:1.3;">attention shadows<br>are also stealthier</div>
+    </div>
+  </div>
+
+  <!-- ═══ A · attention lift (headline ablation, τ = 17) ═══ -->
+  <div class="aas-reveal" style="padding:1.1rem 1.5rem;border-bottom:1px solid rgba(34,197,94,.08);">
+    <div style="font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#c084fc;margin-bottom:.3rem;">A &middot; Aiming at Attention Pays Off</div>
+    <p style="margin:0 0 .9rem;font-size:.8rem;line-height:1.5;color:#94a3b8;">Turning the attention term on (<span style="font-family:ui-monospace,monospace;color:#cbd5e1;">&#955;&nbsp;=&nbsp;0.5</span>) beats the label-only attack (<span style="font-family:ui-monospace,monospace;color:#cbd5e1;">&#955;&nbsp;=&nbsp;0</span>) at every setting. Shown here at the <span style="color:#cbd5e1;">&#964;&nbsp;=&nbsp;17</span> threshold.</p>
+    <div style="display:flex;flex-direction:column;gap:1rem;">
+      <!-- Polygon -->
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.35rem;">
+          <span style="font-size:.8rem;font-weight:700;color:#e2e8f0;">Polygon shadow</span>
+          <span style="font-size:.7rem;font-family:ui-monospace,monospace;color:#4ade80;">+17.1 pts</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:.35rem;">
+          <div style="display:flex;align-items:center;gap:.5rem;">
+            <span style="width:64px;flex-shrink:0;font-size:.62rem;color:#94a3b8;font-family:ui-monospace,monospace;">&#955; = 0</span>
+            <div style="flex:1;height:1rem;border-radius:.3rem;background:rgba(148,163,184,.1);overflow:hidden;"><div class="aas-bar" style="height:100%;width:70.4%;background:linear-gradient(90deg,#475569,#64748b);border-radius:.3rem;"></div></div>
+            <span style="width:44px;flex-shrink:0;text-align:right;font-size:.7rem;font-family:ui-monospace,monospace;color:#94a3b8;">70.4%</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:.5rem;">
+            <span style="width:64px;flex-shrink:0;font-size:.62rem;color:#c084fc;font-family:ui-monospace,monospace;">&#955; = 0.5</span>
+            <div style="flex:1;height:1rem;border-radius:.3rem;background:rgba(148,163,184,.1);overflow:hidden;"><div class="aas-bar" style="height:100%;width:87.5%;background:linear-gradient(90deg,#7e22ce,#c084fc);border-radius:.3rem;"></div></div>
+            <span style="width:44px;flex-shrink:0;text-align:right;font-size:.7rem;font-family:ui-monospace,monospace;color:#e2e8f0;font-weight:700;">87.5%</span>
+          </div>
+        </div>
+      </div>
+      <!-- Triangle -->
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.35rem;">
+          <span style="font-size:.8rem;font-weight:700;color:#e2e8f0;">Triangle shadow</span>
+          <span style="font-size:.7rem;font-family:ui-monospace,monospace;color:#4ade80;">+18.5 pts</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:.35rem;">
+          <div style="display:flex;align-items:center;gap:.5rem;">
+            <span style="width:64px;flex-shrink:0;font-size:.62rem;color:#94a3b8;font-family:ui-monospace,monospace;">&#955; = 0</span>
+            <div style="flex:1;height:1rem;border-radius:.3rem;background:rgba(148,163,184,.1);overflow:hidden;"><div class="aas-bar" style="height:100%;width:65.7%;background:linear-gradient(90deg,#475569,#64748b);border-radius:.3rem;"></div></div>
+            <span style="width:44px;flex-shrink:0;text-align:right;font-size:.7rem;font-family:ui-monospace,monospace;color:#94a3b8;">65.7%</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:.5rem;">
+            <span style="width:64px;flex-shrink:0;font-size:.62rem;color:#c084fc;font-family:ui-monospace,monospace;">&#955; = 0.5</span>
+            <div style="flex:1;height:1rem;border-radius:.3rem;background:rgba(148,163,184,.1);overflow:hidden;"><div class="aas-bar" style="height:100%;width:84.2%;background:linear-gradient(90deg,#7e22ce,#c084fc);border-radius:.3rem;"></div></div>
+            <span style="width:44px;flex-shrink:0;text-align:right;font-size:.7rem;font-family:ui-monospace,monospace;color:#e2e8f0;font-weight:700;">84.2%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ B · full SL-ASR table (Table 1) ═══ -->
+  <div class="aas-reveal" style="padding:1.1rem 1.5rem;border-bottom:1px solid rgba(34,197,94,.08);">
+    <div style="font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#4ade80;margin-bottom:.3rem;">B &middot; SL-ASR at Every Threshold (Table 1)</div>
+    <p style="margin:0 0 .8rem;font-size:.8rem;line-height:1.5;color:#94a3b8;">A lower <span style="font-family:ui-monospace,monospace;color:#cbd5e1;">&#964;</span> asks fewer frames to flip, so success is easier; a higher <span style="font-family:ui-monospace,monospace;color:#cbd5e1;">&#964;</span> demands a near-constant failure. The attention lift (<span style="color:#4ade80;">&#916;</span>) holds up across the board.</p>
+    <div class="aas-scroll" tabindex="0" role="region" aria-label="Scrollable sequence-level attack success table" style="overflow-x:auto;">
+      <table style="width:100%;border-collapse:collapse;font-size:.72rem;min-width:460px;">
+        <thead>
+          <tr style="color:#94a3b8;">
+            <th rowspan="2" style="text-align:left;padding:.35rem .5rem;font-weight:600;border-bottom:1px solid rgba(148,163,184,.2);vertical-align:bottom;">Frames to flip (&#964;)</th>
+            <th colspan="3" style="text-align:center;padding:.3rem .4rem;font-weight:700;color:#d8b4fe;border-bottom:1px solid rgba(168,85,247,.25);">Triangle shadow</th>
+            <th colspan="3" style="text-align:center;padding:.3rem .4rem;font-weight:700;color:#93c5fd;border-bottom:1px solid rgba(59,130,246,.25);">Polygon shadow</th>
+          </tr>
+          <tr style="color:#64748b;font-size:.6rem;">
+            <th style="text-align:center;padding:.25rem .4rem;font-weight:600;">&#955; = 0</th>
+            <th style="text-align:center;padding:.25rem .4rem;font-weight:600;color:#c084fc;">&#955; = 0.5</th>
+            <th style="text-align:center;padding:.25rem .4rem;font-weight:600;color:#4ade80;">&#916;</th>
+            <th style="text-align:center;padding:.25rem .4rem;font-weight:600;">&#955; = 0</th>
+            <th style="text-align:center;padding:.25rem .4rem;font-weight:600;color:#c084fc;">&#955; = 0.5</th>
+            <th style="text-align:center;padding:.25rem .4rem;font-weight:600;color:#4ade80;">&#916;</th>
+          </tr>
+        </thead>
+        <tbody style="font-family:ui-monospace,monospace;color:#cbd5e1;">
+          <tr>
+            <td style="text-align:left;padding:.45rem .5rem;font-family:system-ui,sans-serif;border-bottom:1px solid rgba(148,163,184,.08);">29 <span style="color:#64748b;font-size:.62rem;">(strictest)</span></td>
+            <td style="text-align:center;padding:.45rem .4rem;border-bottom:1px solid rgba(148,163,184,.08);color:#94a3b8;">40.4</td>
+            <td style="text-align:center;padding:.45rem .4rem;border-bottom:1px solid rgba(148,163,184,.08);color:#e2e8f0;font-weight:700;">52.3</td>
+            <td style="text-align:center;padding:.45rem .4rem;border-bottom:1px solid rgba(148,163,184,.08);color:#4ade80;">+11.9</td>
+            <td style="text-align:center;padding:.45rem .4rem;border-bottom:1px solid rgba(148,163,184,.08);color:#94a3b8;">45.5</td>
+            <td style="text-align:center;padding:.45rem .4rem;border-bottom:1px solid rgba(148,163,184,.08);color:#e2e8f0;font-weight:700;">56.9</td>
+            <td style="text-align:center;padding:.45rem .4rem;border-bottom:1px solid rgba(148,163,184,.08);color:#4ade80;">+11.4</td>
+          </tr>
+          <tr>
+            <td style="text-align:left;padding:.45rem .5rem;font-family:system-ui,sans-serif;border-bottom:1px solid rgba(148,163,184,.08);">27</td>
+            <td style="text-align:center;padding:.45rem .4rem;border-bottom:1px solid rgba(148,163,184,.08);color:#94a3b8;">50.6</td>
+            <td style="text-align:center;padding:.45rem .4rem;border-bottom:1px solid rgba(148,163,184,.08);color:#e2e8f0;font-weight:700;">64.2</td>
+            <td style="text-align:center;padding:.45rem .4rem;border-bottom:1px solid rgba(148,163,184,.08);color:#4ade80;">+13.6</td>
+            <td style="text-align:center;padding:.45rem .4rem;border-bottom:1px solid rgba(148,163,184,.08);color:#94a3b8;">55.1</td>
+            <td style="text-align:center;padding:.45rem .4rem;border-bottom:1px solid rgba(148,163,184,.08);color:#e2e8f0;font-weight:700;">68.3</td>
+            <td style="text-align:center;padding:.45rem .4rem;border-bottom:1px solid rgba(148,163,184,.08);color:#4ade80;">+13.2</td>
+          </tr>
+          <tr>
+            <td style="text-align:left;padding:.45rem .5rem;font-family:system-ui,sans-serif;">17 <span style="color:#64748b;font-size:.62rem;">(loosest)</span></td>
+            <td style="text-align:center;padding:.45rem .4rem;color:#94a3b8;">65.7</td>
+            <td style="text-align:center;padding:.45rem .4rem;color:#e2e8f0;font-weight:700;">84.2</td>
+            <td style="text-align:center;padding:.45rem .4rem;color:#4ade80;">+18.5</td>
+            <td style="text-align:center;padding:.45rem .4rem;color:#94a3b8;">70.4</td>
+            <td style="text-align:center;padding:.45rem .4rem;background:rgba(34,197,94,.12);border-radius:.3rem;color:#4ade80;font-weight:800;">87.5</td>
+            <td style="text-align:center;padding:.45rem .4rem;color:#4ade80;">+17.1</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="font-size:.6rem;color:#64748b;margin-top:.45rem;line-height:1.4;">Values are SL-ASR (%). <span style="color:#4ade80;">&#916;</span> = points gained by adding attention supervision. Highlighted cell is the peak, 87.5%.</div>
+  </div>
+
+  <!-- ═══ C · stealth (Figure 4) ═══ -->
+  <div class="aas-reveal" style="padding:1.1rem 1.5rem;">
+    <div style="font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#a5b4fc;margin-bottom:.3rem;">C &middot; Stronger and Less Visible at Once</div>
+    <p style="margin:0 0 .9rem;font-size:.8rem;line-height:1.5;color:#94a3b8;">The surprise: guiding the shadow toward the model&rsquo;s focus lets it be <strong style="color:#cbd5e1;">smaller</strong>. Because it lands on the few pixels that matter, it does not need to darken half the sign, so its L2 distance from the clean image is lower.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.9rem;">
+      <!-- without attention: big shadow -->
+      <div style="border-radius:.9rem;border:1px solid rgba(148,163,184,.22);background:rgba(148,163,184,.04);padding:.8rem .9rem;">
+        <div style="display:flex;align-items:center;gap:.75rem;">
+          <svg width="58" height="58" viewBox="0 0 62 62" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Label-only attack: a large shadow darkening most of a 50 sign.">
+            <circle cx="31" cy="31" r="23" fill="#f8fafc" stroke="#dc2626" stroke-width="5"/>
+            <text x="31" y="39" font-size="19" font-weight="800" fill="#0f172a" text-anchor="middle" font-family="system-ui">50</text>
+            <path d="M8 14 L54 10 L52 54 L8 54 Z" fill="rgba(2,6,23,.62)"/>
+          </svg>
+          <div>
+            <div style="font-size:.7rem;font-weight:700;color:#e2e8f0;">Label only <span style="font-family:ui-monospace,monospace;font-weight:400;color:#64748b;">&#955; = 0</span></div>
+            <p style="margin:.2rem 0 0;font-size:.68rem;line-height:1.45;color:#94a3b8;">A large, obvious shadow darkens nearly half the sign.</p>
+          </div>
+        </div>
+      </div>
+      <!-- with attention: small targeted shadow -->
+      <div style="border-radius:.9rem;border:1px solid rgba(168,85,247,.28);background:rgba(168,85,247,.05);padding:.8rem .9rem;">
+        <div style="display:flex;align-items:center;gap:.75rem;">
+          <svg width="58" height="58" viewBox="0 0 62 62" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Attention-guided attack: a small shadow on the key stroke of a 50 sign.">
+            <circle cx="31" cy="31" r="23" fill="#f8fafc" stroke="#dc2626" stroke-width="5"/>
+            <text x="31" y="39" font-size="19" font-weight="800" fill="#0f172a" text-anchor="middle" font-family="system-ui">50</text>
+            <polygon points="34,18 46,24 42,40 32,34" fill="rgba(2,6,23,.6)"/>
+          </svg>
+          <div>
+            <div style="font-size:.7rem;font-weight:700;color:#e2e8f0;">Attention guided <span style="font-family:ui-monospace,monospace;font-weight:400;color:#c084fc;">&#955; = 0.5</span></div>
+            <p style="margin:.2rem 0 0;font-size:.68rem;line-height:1.45;color:#94a3b8;">A small patch on the key stroke does more damage, and hides better.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
