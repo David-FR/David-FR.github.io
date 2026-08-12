@@ -3,8 +3,8 @@
 {{/* Mobile grid collapse for publication partials: multi-column inline-styled
      grids never reflow on their own, so on narrow screens they force horizontal
      overflow. Collapse them via attribute selectors (only match the exact inline
-     values used in the _*.html partials). Scoped to <=640px, so desktop (>=768px,
-     where md:px-48 applies) renders identically. */}}
+     values used in the _*.html partials). Scoped to <=640px so wider layouts
+     retain their intended multi-column presentation. */}}
 <style>
 @media (max-width:640px){
   [style*="grid-template-columns:repeat(4,1fr)"]{grid-template-columns:repeat(2,1fr)!important}
@@ -13,6 +13,7 @@
   [style*="grid-template-columns:1fr 1fr"],
   [style*="grid-template-columns:auto 1fr"],
   [style*="grid-template-columns:1.3fr 1fr"],
+  [style*="grid-template-columns:1.25fr 1fr"],
   [style*="grid-template-columns:1.15fr .85fr"]{grid-template-columns:1fr!important}
 }
 </style>
@@ -31,7 +32,7 @@
 
 <div class="mx-auto flex max-w-none">
   <article class="w-full break-words flex min-h-[calc(100vh-var(--navbar-height))] min-w-0 justify-center pb-8">
-    <main class="w-full min-w-0 max-w-none px-5 pt-4 sm:px-8 md:px-48">
+    <main class="w-full min-w-0 max-w-none px-5 pt-4 sm:px-8 lg:px-24 xl:px-48">
 
       {{ if .Params.show_breadcrumb }}
       <div class="mb-4">
@@ -53,7 +54,7 @@
       {{ end }}
 
       <div class="w-full">
-      <h1 class="{{ if $has_overlap_icon }}mt-12{{ else }}mt-2{{ end }} text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100" data-pagefind-meta="title" data-pagefind-body>
+      <h1 class="{{ if $has_overlap_icon }}mt-12{{ else }}mt-2{{ end }} text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100" data-pagefind-meta="title" data-pagefind-body>
         {{/* Inline icon before title if specified */}}
         {{ if $cover }}
           {{ $icon_config := .Params.cover.icon | default (dict) }}
@@ -83,7 +84,7 @@
 
       {{ $display_date := .Params.event_start | default .Date }}
       <div class="mt-4 mb-16">
-      <div class="text-gray-500 dark:text-gray-300 text-sm flex items-center flex-wrap md:flex-nowrap gap-y-2">
+      <div class="text-gray-500 dark:text-gray-300 text-sm flex items-center flex-wrap gap-y-2">
         {{- if $display_date | and (.Params.show_date | default true) -}}
         <span class="mr-1 whitespace-nowrap">{{- (time $display_date) | time.Format (site.Params.hugoblox.locale.date_format | default ":date_long") -}}</span>
         {{- if .Params.authors }}<span class="mx-1">·</span>{{ end -}}
@@ -96,7 +97,7 @@
 
         {{ range $i, $slug := .Params.authors }}
           {{ $profile := partial "functions/get_author_profile" $slug }}
-          {{- if $i -}}<span class="mr-1">,</span>{{- end -}}
+          <span class="inline-flex items-center whitespace-nowrap">
           {{- if $profile.is_owner -}}
             <span class="inline-flex items-center gap-x-1.5 font-bold whitespace-nowrap mr-1">
               {{- with $profile.avatar -}}
@@ -143,6 +144,8 @@
               </span>
             {{- end -}}
           {{- end -}}
+          {{- if lt (add $i 1) (len $.Params.authors) -}}<span class="mr-1">,</span>{{- end -}}
+          </span>
         {{ end }}
 
         </div>
@@ -171,7 +174,14 @@
               Key Contributions & Takeaways
             </h3>
           </div>
-          
+
+          {{/* Optional plain-language framing of what the paper is about, shown above the contribution bullets */}}
+          {{ with .Params.key_takeaways_lead }}
+          <p class="text-[1.02rem] leading-relaxed text-slate-700 dark:text-slate-200 mb-5">
+            {{ . | markdownify }}
+          </p>
+          {{ end }}
+
           <ul class="space-y-3.5 text-slate-700 dark:text-slate-200">
             {{ range .Params.key_takeaways }}
             <li class="flex items-start gap-3.5 group">
