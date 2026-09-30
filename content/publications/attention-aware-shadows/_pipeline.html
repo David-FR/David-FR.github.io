@@ -1,19 +1,19 @@
 <div class="aas-reveal" style="margin-bottom:1.5rem;border-radius:1.25rem;border:1px solid rgba(168,85,247,.2);overflow:hidden;">
   <!-- header -->
-  <div style="padding:1rem 1.5rem;border-bottom:1px solid rgba(168,85,247,.12);background:linear-gradient(135deg,rgba(168,85,247,.1),rgba(59,130,246,.06));display:flex;align-items:center;gap:.75rem;">
+  <div style="padding:1rem min(1.5rem,var(--pub-panel-padding));border-bottom:1px solid rgba(168,85,247,.12);background:linear-gradient(135deg,rgba(168,85,247,.1),rgba(59,130,246,.06));display:flex;align-items:center;gap:.75rem;">
     <span style="flex-shrink:0;width:2rem;height:2rem;border-radius:.625rem;background:rgba(168,85,247,.18);display:flex;align-items:center;justify-content:center;color:#c084fc;">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"/></svg>
     </span>
     <div>
-      <div style="font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#c084fc;margin-bottom:.1rem;">The Framework</div>
-      <div style="font-size:.8rem;color:#94a3b8;">One optimization loop that evolves a shadow until it fools the model across the whole sequence.</div>
+      <div style="font-size:var(--pub-text-heading);font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#c084fc;margin-bottom:.1rem;">The Framework</div>
+      <div style="font-size:var(--pub-text-body);color:#94a3b8;">One optimization loop that evolves a shadow until it fools the model across the whole sequence.</div>
     </div>
   </div>
 
   <!-- ═══ optimization-loop overview ═══ -->
   <div style="padding:.9rem 1rem .6rem;border-bottom:1px solid rgba(148,163,184,.08);">
-    <div class="aas-scroll" tabindex="0" role="region" aria-label="Scrollable attack framework diagram" style="overflow-x:auto;">
-      <svg viewBox="0 0 900 440" style="width:100%;min-width:700px;display:block;" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif" role="img" aria-label="Attention-aware temporal shadow attack framework: a clean GTSRB traffic-sign sequence enters a genetic-algorithm optimizer that proposes shadow parameters; a shadow generator renders a temporally scaled shadow over the sequence; the shadowed frames are scored by a CNN traffic-sign classifier and a DINO ViT attention extractor; a multi-objective loss combines the classification error and the attention disruption and feeds updated parameters back to the optimizer, repeating until at least tau of T frames are misclassified.">
+    <div class="aas-scroll pub-scroll" tabindex="0" role="region" aria-label="Scrollable attack framework diagram" style="overflow-x:auto;">
+      <svg class="pub-diagram" viewBox="0 0 900 440" style="display:block;--pub-diagram-width:56.25rem;" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif" role="img" aria-label="Attention-aware temporal shadow attack framework: a clean GTSRB traffic-sign sequence enters a genetic-algorithm optimizer that proposes shadow parameters; a shadow generator renders a temporally scaled shadow over the sequence; the shadowed frames are scored by a CNN traffic-sign classifier and a DINO ViT attention extractor; a multi-objective loss combines the classification error and the attention disruption and feeds updated parameters back to the optimizer, repeating until at least tau of T frames are misclassified.">
         <defs>
           <radialGradient id="aasAttnClean" cx="50%" cy="44%" r="52%">
             <stop offset="0%" stop-color="#f5f3ff"/>
@@ -153,36 +153,36 @@
         <text x="815" y="316" font-size="9" font-family="ui-monospace,monospace" fill="#e2e8f0" text-anchor="middle">L = L&#8203;<tspan font-size="6.5" dy="2">cls</tspan><tspan dy="-2"> &minus; &#955;&#183;L</tspan><tspan font-size="6.5" dy="2">attn</tspan></text>
       </svg>
     </div>
-    <p style="margin:.4rem .25rem 0;font-size:.72rem;line-height:1.5;color:#64748b;text-align:center;">A candidate shadow is rendered across the sequence, scored by the CNN and DINO&nbsp;ViT, and updated through the dual loss until enough frames are misclassified.</p>
+    <p style="margin:.4rem .25rem 0;font-size:var(--pub-text-body);line-height:1.65;color:#64748b;text-align:center;">A candidate shadow is rendered across the sequence, scored by the CNN and DINO&nbsp;ViT, and updated through the dual loss until enough frames are misclassified.</p>
   </div>
 
   <!-- ═══ the loop in six steps ═══ -->
-  <div style="padding:.9rem 1.25rem;">
-    <div style="font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#c084fc;margin-bottom:.7rem;">The loop, step by step</div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;">
+  <div style="padding:.9rem min(1.25rem,var(--pub-panel-padding));">
+    <div style="font-size:var(--pub-text-label);font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#c084fc;margin-bottom:.7rem;">The loop, step by step</div>
+    <div class="pub-grid" style="display:grid;gap:.5rem;">
       <div style="border-radius:.8rem;border:1px solid rgba(245,158,11,.22);background:rgba(245,158,11,.04);padding:.7rem .85rem;">
-        <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;"><span style="flex-shrink:0;width:1.15rem;height:1.15rem;border-radius:50%;background:rgba(245,158,11,.18);color:#fbbf24;font-size:.65rem;font-weight:800;display:flex;align-items:center;justify-content:center;">1</span><span style="font-size:.72rem;font-weight:700;color:#e2e8f0;">Propose a shadow</span></div>
-        <p style="margin:0;font-size:.72rem;line-height:1.45;color:#94a3b8;">The GA holds a population of shadow shapes and opacities and picks candidates to try.</p>
+        <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;"><span style="flex-shrink:0;width:1.15rem;height:1.15rem;border-radius:50%;background:rgba(245,158,11,.18);color:#fbbf24;font-size:var(--pub-text-label);font-weight:800;display:flex;align-items:center;justify-content:center;">1</span><span style="font-size:var(--pub-text-heading);font-weight:700;color:#e2e8f0;">Propose a shadow</span></div>
+        <p style="margin:0;font-size:var(--pub-text-body);line-height:1.65;color:#94a3b8;">The GA holds a population of shadow shapes and opacities and picks candidates to try.</p>
       </div>
       <div style="border-radius:.8rem;border:1px solid rgba(99,102,241,.22);background:rgba(99,102,241,.04);padding:.7rem .85rem;">
-        <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;"><span style="flex-shrink:0;width:1.15rem;height:1.15rem;border-radius:50%;background:rgba(99,102,241,.18);color:#a5b4fc;font-size:.65rem;font-weight:800;display:flex;align-items:center;justify-content:center;">2</span><span style="font-size:.72rem;font-weight:700;color:#e2e8f0;">Render it over time</span></div>
-        <p style="margin:0;font-size:.72rem;line-height:1.45;color:#94a3b8;">The generator darkens only luminance and scales the shadow across all 30 frames.</p>
+        <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;"><span style="flex-shrink:0;width:1.15rem;height:1.15rem;border-radius:50%;background:rgba(99,102,241,.18);color:#a5b4fc;font-size:var(--pub-text-label);font-weight:800;display:flex;align-items:center;justify-content:center;">2</span><span style="font-size:var(--pub-text-heading);font-weight:700;color:#e2e8f0;">Render it over time</span></div>
+        <p style="margin:0;font-size:var(--pub-text-body);line-height:1.65;color:#94a3b8;">The generator darkens only luminance and scales the shadow across all 30 frames.</p>
       </div>
       <div style="border-radius:.8rem;border:1px solid rgba(148,163,184,.22);background:rgba(148,163,184,.04);padding:.7rem .85rem;">
-        <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;"><span style="flex-shrink:0;width:1.15rem;height:1.15rem;border-radius:50%;background:rgba(148,163,184,.2);color:#cbd5e1;font-size:.65rem;font-weight:800;display:flex;align-items:center;justify-content:center;">3</span><span style="font-size:.72rem;font-weight:700;color:#e2e8f0;">Look through two lenses</span></div>
-        <p style="margin:0;font-size:.72rem;line-height:1.45;color:#94a3b8;">A CNN reads the label; a DINO&nbsp;ViT reads where the model is looking.</p>
+        <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;"><span style="flex-shrink:0;width:1.15rem;height:1.15rem;border-radius:50%;background:rgba(148,163,184,.2);color:#cbd5e1;font-size:var(--pub-text-label);font-weight:800;display:flex;align-items:center;justify-content:center;">3</span><span style="font-size:var(--pub-text-heading);font-weight:700;color:#e2e8f0;">Look through two lenses</span></div>
+        <p style="margin:0;font-size:var(--pub-text-body);line-height:1.65;color:#94a3b8;">A CNN reads the label; a DINO&nbsp;ViT reads where the model is looking.</p>
       </div>
       <div style="border-radius:.8rem;border:1px solid rgba(34,197,94,.22);background:rgba(34,197,94,.04);padding:.7rem .85rem;">
-        <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;"><span style="flex-shrink:0;width:1.15rem;height:1.15rem;border-radius:50%;background:rgba(34,197,94,.18);color:#4ade80;font-size:.65rem;font-weight:800;display:flex;align-items:center;justify-content:center;">4</span><span style="font-size:.72rem;font-weight:700;color:#e2e8f0;">Score against clean</span></div>
-        <p style="margin:0;font-size:.72rem;line-height:1.45;color:#94a3b8;">Predictions and attention maps are compared to cached clean references for the sign.</p>
+        <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;"><span style="flex-shrink:0;width:1.15rem;height:1.15rem;border-radius:50%;background:rgba(34,197,94,.18);color:#4ade80;font-size:var(--pub-text-label);font-weight:800;display:flex;align-items:center;justify-content:center;">4</span><span style="font-size:var(--pub-text-heading);font-weight:700;color:#e2e8f0;">Score against clean</span></div>
+        <p style="margin:0;font-size:var(--pub-text-body);line-height:1.65;color:#94a3b8;">Predictions and attention maps are compared to cached clean references for the sign.</p>
       </div>
       <div style="border-radius:.8rem;border:1px solid rgba(34,197,94,.22);background:rgba(34,197,94,.04);padding:.7rem .85rem;">
-        <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;"><span style="flex-shrink:0;width:1.15rem;height:1.15rem;border-radius:50%;background:rgba(34,197,94,.18);color:#4ade80;font-size:.65rem;font-weight:800;display:flex;align-items:center;justify-content:center;">5</span><span style="font-size:.72rem;font-weight:700;color:#e2e8f0;">Combine both goals</span></div>
-        <p style="margin:0;font-size:.72rem;line-height:1.45;color:#94a3b8;">One loss adds the classification error and the attention shift, weighted by <span style="font-family:ui-monospace,monospace;">&#955;</span>.</p>
+        <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;"><span style="flex-shrink:0;width:1.15rem;height:1.15rem;border-radius:50%;background:rgba(34,197,94,.18);color:#4ade80;font-size:var(--pub-text-label);font-weight:800;display:flex;align-items:center;justify-content:center;">5</span><span style="font-size:var(--pub-text-heading);font-weight:700;color:#e2e8f0;">Combine both goals</span></div>
+        <p style="margin:0;font-size:var(--pub-text-body);line-height:1.65;color:#94a3b8;">One loss adds the classification error and the attention shift, weighted by <span style="font-family:ui-monospace,monospace;">&#955;</span>.</p>
       </div>
       <div style="border-radius:.8rem;border:1px solid rgba(245,158,11,.22);background:rgba(245,158,11,.04);padding:.7rem .85rem;">
-        <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;"><span style="flex-shrink:0;width:1.15rem;height:1.15rem;border-radius:50%;background:rgba(245,158,11,.18);color:#fbbf24;font-size:.65rem;font-weight:800;display:flex;align-items:center;justify-content:center;">6</span><span style="font-size:.72rem;font-weight:700;color:#e2e8f0;">Update and repeat</span></div>
-        <p style="margin:0;font-size:.72rem;line-height:1.45;color:#94a3b8;">Crossover and mutation breed the next generation, until enough frames flip.</p>
+        <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;"><span style="flex-shrink:0;width:1.15rem;height:1.15rem;border-radius:50%;background:rgba(245,158,11,.18);color:#fbbf24;font-size:var(--pub-text-label);font-weight:800;display:flex;align-items:center;justify-content:center;">6</span><span style="font-size:var(--pub-text-heading);font-weight:700;color:#e2e8f0;">Update and repeat</span></div>
+        <p style="margin:0;font-size:var(--pub-text-body);line-height:1.65;color:#94a3b8;">Crossover and mutation breed the next generation, until enough frames flip.</p>
       </div>
     </div>
   </div>

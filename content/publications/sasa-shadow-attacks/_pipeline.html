@@ -1,19 +1,19 @@
 <div class="sasa-reveal" style="margin-bottom:1.5rem;border-radius:1.25rem;border:1px solid rgba(129,140,248,.2);overflow:hidden;">
   <!-- header -->
-  <div style="padding:1rem 1.5rem;border-bottom:1px solid rgba(129,140,248,.12);background:linear-gradient(135deg,rgba(99,102,241,.1),rgba(168,85,247,.06));display:flex;align-items:center;gap:.75rem;">
+  <div style="padding:1rem min(1.5rem,var(--pub-panel-padding));border-bottom:1px solid rgba(129,140,248,.12);background:linear-gradient(135deg,rgba(99,102,241,.1),rgba(168,85,247,.06));display:flex;align-items:center;gap:.75rem;">
     <span style="flex-shrink:0;width:2rem;height:2rem;border-radius:.625rem;background:rgba(99,102,241,.18);display:flex;align-items:center;justify-content:center;color:#a5b4fc;">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M6 6.878V6a2.25 2.25 0 012.25-2.25h7.5A2.25 2.25 0 0118 6v.878m-12 0c.235-.083.487-.128.75-.128h10.5c.263 0 .515.045.75.128m-12 0A2.25 2.25 0 004.5 9v.878m13.5-3A2.25 2.25 0 0119.5 9v.878m0 0a2.246 2.246 0 00-.75-.128H5.25c-.263 0-.515.045-.75.128m15 0A2.25 2.25 0 0121 12v6a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18v-6c0-.98.626-1.813 1.5-2.122"/></svg>
     </span>
     <div>
-      <div style="font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#a5b4fc;margin-bottom:.1rem;">How SASA Builds The Attack</div>
-      <div style="font-size:.8rem;color:#94a3b8;">Two frozen transformers say where the model looks; one shared shadow is optimized to sit there, then tested on classifiers it never touched.</div>
+      <div style="font-size:var(--pub-text-heading);font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#a5b4fc;margin-bottom:.1rem;">How SASA Builds The Attack</div>
+      <div style="font-size:var(--pub-text-body);color:#94a3b8;">Two frozen transformers say where the model looks; one shared shadow is optimized to sit there, then tested on classifiers it never touched.</div>
     </div>
   </div>
 
   <!-- ═══ pipeline diagram ═══ -->
   <div style="padding:.9rem 1rem .6rem;border-bottom:1px solid rgba(148,163,184,.08);">
-    <div class="sasa-scroll" tabindex="0" role="region" aria-label="Scrollable SASA pipeline diagram" style="overflow-x:auto;">
-      <svg viewBox="0 0 980 372" style="width:100%;min-width:760px;display:block;" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif" role="img" aria-label="SASA pipeline: a clean traffic-sign video sequence of thirty frames is passed to two frozen attention models, DINO and DeiT. Their per-frame attention maps are fused by temporal max-pooling into a single saliency heatmap. A differentiable shadow generator and optimizer produces one shared shadow mask, aligned to the top attention pixels by a top-k loss, using zero queries to the target model. The shared mask is applied uniformly to every frame to produce an adversarial sequence, which is then evaluated against four held-out, never-queried target classifiers: CNN, STN, EfficientNet-B0, and ViT.">
+    <div class="sasa-scroll pub-scroll" tabindex="0" role="region" aria-label="Scrollable SASA pipeline diagram" style="overflow-x:auto;">
+      <svg class="pub-diagram" viewBox="0 0 980 372" style="display:block;--pub-diagram-width:61.25rem;" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif" role="img" aria-label="SASA pipeline: a clean traffic-sign video sequence of thirty frames is passed to two frozen attention models, DINO and DeiT. Their per-frame attention maps are fused by temporal max-pooling into a single saliency heatmap. A differentiable shadow generator and optimizer produces one shared shadow mask, aligned to the top attention pixels by a top-k loss, using zero queries to the target model. The shared mask is applied uniformly to every frame to produce an adversarial sequence, which is then evaluated against four held-out, never-queried target classifiers: CNN, STN, EfficientNet-B0, and ViT.">
         <defs>
           <marker id="sasaSlate" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" refX="7" refY="3.4" orient="auto"><path d="M0,0 L8,3.4 L0,6.8 Z" fill="#64748b"/></marker>
           <marker id="sasaIndigo" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" refX="7" refY="3.4" orient="auto"><path d="M0,0 L8,3.4 L0,6.8 Z" fill="#818cf8"/></marker>
@@ -129,32 +129,32 @@
         <text x="914" y="260" font-size="7.5" fill="#64748b" text-anchor="middle">never queried during the attack</text>
       </svg>
     </div>
-    <p style="margin:.4rem .25rem 0;font-size:.72rem;line-height:1.5;color:#64748b;text-align:center;">The attack is optimized entirely against the frozen attention maps. The classifiers it ultimately fools are only seen at evaluation time, which is what makes it a strict black-box attack.</p>
+    <p style="margin:.4rem .25rem 0;font-size:var(--pub-text-body);line-height:1.65;color:#64748b;text-align:center;">The attack is optimized entirely against the frozen attention maps. The classifiers it ultimately fools are only seen at evaluation time, which is what makes it a strict black-box attack.</p>
   </div>
 
   <!-- ═══ the pipeline in five steps ═══ -->
-  <div style="padding:.9rem 1.25rem;">
-    <div style="font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#a5b4fc;margin-bottom:.7rem;">The pipeline in five steps</div>
+  <div style="padding:.9rem min(1.25rem,var(--pub-panel-padding));">
+    <div style="font-size:var(--pub-text-label);font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#a5b4fc;margin-bottom:.7rem;">The pipeline in five steps</div>
     <div style="display:flex;flex-wrap:wrap;gap:.5rem;">
       <div style="flex:1 1 160px;border-radius:.8rem;border:1px solid rgba(148,163,184,.22);background:rgba(148,163,184,.04);padding:.7rem .85rem;">
-        <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;"><span style="flex-shrink:0;width:1.15rem;height:1.15rem;border-radius:50%;background:rgba(148,163,184,.2);color:#cbd5e1;font-size:.65rem;font-weight:800;display:flex;align-items:center;justify-content:center;">1</span><span style="font-size:.72rem;font-weight:700;color:#e2e8f0;">Read the clip</span></div>
-        <p style="margin:0;font-size:.72rem;line-height:1.45;color:#94a3b8;">A 30-frame sign sequence is fed to two frozen vision transformers.</p>
+        <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;"><span style="flex-shrink:0;width:1.15rem;height:1.15rem;border-radius:50%;background:rgba(148,163,184,.2);color:#cbd5e1;font-size:var(--pub-text-label);font-weight:800;display:flex;align-items:center;justify-content:center;">1</span><span style="font-size:var(--pub-text-heading);font-weight:700;color:#e2e8f0;">Read the clip</span></div>
+        <p style="margin:0;font-size:var(--pub-text-body);line-height:1.65;color:#94a3b8;">A 30-frame sign sequence is fed to two frozen vision transformers.</p>
       </div>
       <div style="flex:1 1 160px;border-radius:.8rem;border:1px solid rgba(99,102,241,.22);background:rgba(99,102,241,.04);padding:.7rem .85rem;">
-        <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;"><span style="flex-shrink:0;width:1.15rem;height:1.15rem;border-radius:50%;background:rgba(99,102,241,.18);color:#c7d2fe;font-size:.65rem;font-weight:800;display:flex;align-items:center;justify-content:center;">2</span><span style="font-size:.72rem;font-weight:700;color:#e2e8f0;">Fuse attention</span></div>
-        <p style="margin:0;font-size:.72rem;line-height:1.45;color:#94a3b8;">DINO and DeiT maps are max-pooled over time into one saliency heatmap.</p>
+        <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;"><span style="flex-shrink:0;width:1.15rem;height:1.15rem;border-radius:50%;background:rgba(99,102,241,.18);color:#c7d2fe;font-size:var(--pub-text-label);font-weight:800;display:flex;align-items:center;justify-content:center;">2</span><span style="font-size:var(--pub-text-heading);font-weight:700;color:#e2e8f0;">Fuse attention</span></div>
+        <p style="margin:0;font-size:var(--pub-text-body);line-height:1.65;color:#94a3b8;">DINO and DeiT maps are max-pooled over time into one saliency heatmap.</p>
       </div>
       <div style="flex:1 1 160px;border-radius:.8rem;border:1px solid rgba(168,85,247,.22);background:rgba(168,85,247,.04);padding:.7rem .85rem;">
-        <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;"><span style="flex-shrink:0;width:1.15rem;height:1.15rem;border-radius:50%;background:rgba(168,85,247,.18);color:#e9d5ff;font-size:.65rem;font-weight:800;display:flex;align-items:center;justify-content:center;">3</span><span style="font-size:.72rem;font-weight:700;color:#e2e8f0;">Guide the shadow</span></div>
-        <p style="margin:0;font-size:.72rem;line-height:1.45;color:#94a3b8;">A top-k loss steers the shadow onto the most salient pixels, no target needed.</p>
+        <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;"><span style="flex-shrink:0;width:1.15rem;height:1.15rem;border-radius:50%;background:rgba(168,85,247,.18);color:#e9d5ff;font-size:var(--pub-text-label);font-weight:800;display:flex;align-items:center;justify-content:center;">3</span><span style="font-size:var(--pub-text-heading);font-weight:700;color:#e2e8f0;">Guide the shadow</span></div>
+        <p style="margin:0;font-size:var(--pub-text-body);line-height:1.65;color:#94a3b8;">A top-k loss steers the shadow onto the most salient pixels, no target needed.</p>
       </div>
       <div style="flex:1 1 160px;border-radius:.8rem;border:1px solid rgba(245,158,11,.22);background:rgba(245,158,11,.04);padding:.7rem .85rem;">
-        <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;"><span style="flex-shrink:0;width:1.15rem;height:1.15rem;border-radius:50%;background:rgba(245,158,11,.18);color:#fbbf24;font-size:.65rem;font-weight:800;display:flex;align-items:center;justify-content:center;">4</span><span style="font-size:.72rem;font-weight:700;color:#e2e8f0;">Apply everywhere</span></div>
-        <p style="margin:0;font-size:.72rem;line-height:1.45;color:#94a3b8;">One optimized mask is painted onto every frame for temporal consistency.</p>
+        <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;"><span style="flex-shrink:0;width:1.15rem;height:1.15rem;border-radius:50%;background:rgba(245,158,11,.18);color:#fbbf24;font-size:var(--pub-text-label);font-weight:800;display:flex;align-items:center;justify-content:center;">4</span><span style="font-size:var(--pub-text-heading);font-weight:700;color:#e2e8f0;">Apply everywhere</span></div>
+        <p style="margin:0;font-size:var(--pub-text-body);line-height:1.65;color:#94a3b8;">One optimized mask is painted onto every frame for temporal consistency.</p>
       </div>
       <div style="flex:1 1 160px;border-radius:.8rem;border:1px solid rgba(148,163,184,.22);background:rgba(148,163,184,.04);padding:.7rem .85rem;">
-        <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;"><span style="flex-shrink:0;width:1.15rem;height:1.15rem;border-radius:50%;background:rgba(148,163,184,.2);color:#cbd5e1;font-size:.65rem;font-weight:800;display:flex;align-items:center;justify-content:center;">5</span><span style="font-size:.72rem;font-weight:700;color:#e2e8f0;">Test unseen</span></div>
-        <p style="margin:0;font-size:.72rem;line-height:1.45;color:#94a3b8;">The clip is scored against four classifiers the attack never queried.</p>
+        <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;"><span style="flex-shrink:0;width:1.15rem;height:1.15rem;border-radius:50%;background:rgba(148,163,184,.2);color:#cbd5e1;font-size:var(--pub-text-label);font-weight:800;display:flex;align-items:center;justify-content:center;">5</span><span style="font-size:var(--pub-text-heading);font-weight:700;color:#e2e8f0;">Test unseen</span></div>
+        <p style="margin:0;font-size:var(--pub-text-body);line-height:1.65;color:#94a3b8;">The clip is scored against four classifiers the attack never queried.</p>
       </div>
     </div>
   </div>

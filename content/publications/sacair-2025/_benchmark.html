@@ -1,19 +1,19 @@
 <div class="slm-reveal" style="margin-bottom:1.5rem;border-radius:1.25rem;border:1px solid rgba(168,85,247,.2);overflow:hidden;">
   <!-- header -->
-  <div style="padding:1rem 1.5rem;border-bottom:1px solid rgba(168,85,247,.12);background:linear-gradient(135deg,rgba(168,85,247,.1),rgba(59,130,246,.06));display:flex;align-items:center;gap:.75rem;">
+  <div style="padding:1rem min(1.5rem,var(--pub-panel-padding));border-bottom:1px solid rgba(168,85,247,.12);background:linear-gradient(135deg,rgba(168,85,247,.1),rgba(59,130,246,.06));display:flex;align-items:center;gap:.75rem;">
     <span style="flex-shrink:0;width:2rem;height:2rem;border-radius:.625rem;background:rgba(168,85,247,.18);display:flex;align-items:center;justify-content:center;color:#c084fc;">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/></svg>
     </span>
     <div>
-      <div style="font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#c084fc;margin-bottom:.1rem;">Contribution 1 &middot; A Bias-Resistant Benchmark</div>
-      <div style="font-size:.8rem;color:#94a3b8;">Grading a small model is subjective, so two rival graders must agree. Role-play makes them careful; consensus curbs single-judge bias.</div>
+      <div style="font-size:var(--pub-text-heading);font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#c084fc;margin-bottom:.1rem;">Contribution 1 &middot; A Bias-Resistant Benchmark</div>
+      <div style="font-size:var(--pub-text-body);color:#94a3b8;">Grading a small model is subjective, so two rival graders must agree. Role-play makes them careful; consensus curbs single-judge bias.</div>
     </div>
   </div>
 
   <!-- ═══ multi-agent grading pipeline ═══ -->
   <div style="padding:.9rem 1rem .6rem;border-bottom:1px solid rgba(148,163,184,.08);">
-    <div class="slm-scroll" tabindex="0" role="region" aria-label="Scrollable multi-agent benchmarking diagram" style="overflow-x:auto;">
-      <svg viewBox="0 0 900 470" style="width:100%;min-width:720px;display:block;" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif" role="img" aria-label="Role-based multi-agent benchmarking framework: an exam set is handed to a Proctor agent, which sends a translation exercise to each small language model cast as a student and collects its answer. The exercise and answer are passed to two independent grader agents, Mnr. Goddard powered by GPT-4 and Mev. Vorster powered by Claude, who discuss the work and reach a consensus grade on the CEFR scale. The agreed grade and review return to the Proctor, which records a structured benchmark result of student, languages, CEFR grade, and review summary.">
+    <div class="slm-scroll pub-scroll" tabindex="0" role="region" aria-label="Scrollable multi-agent benchmarking diagram" style="overflow-x:auto;">
+      <svg class="pub-diagram" viewBox="0 0 900 470" style="display:block;--pub-diagram-width:56.25rem;" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,sans-serif" role="img" aria-label="Role-based multi-agent benchmarking framework: an exam set is handed to a Proctor agent, which sends a translation exercise to each small language model cast as a student and collects its answer. The exercise and answer are passed to two independent grader agents, Mnr. Goddard powered by GPT-4 and Mev. Vorster powered by Claude, who discuss the work and reach a consensus grade on the CEFR scale. The agreed grade and review return to the Proctor, which records a structured benchmark result of student, languages, CEFR grade, and review summary.">
         <defs>
           <marker id="slmHeadSlate" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" refX="7" refY="3.4" orient="auto"><path d="M0,0 L8,3.4 L0,6.8 Z" fill="#64748b"/></marker>
           <marker id="slmHeadPurple" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" refX="7" refY="3.4" orient="auto"><path d="M0,0 L8,3.4 L0,6.8 Z" fill="#a855f7"/></marker>
@@ -125,41 +125,41 @@
         </g>
       </svg>
     </div>
-    <p style="margin:.4rem .25rem 0;font-size:.72rem;line-height:1.5;color:#64748b;text-align:center;">Each open model is examined as a language-learning student, then graded by two frontier models playing rival instructors who must reach a single CEFR verdict.</p>
+    <p style="margin:.4rem .25rem 0;font-size:var(--pub-text-body);line-height:1.65;color:#64748b;text-align:center;">Each open model is examined as a language-learning student, then graded by two frontier models playing rival instructors who must reach a single CEFR verdict.</p>
   </div>
 
   <!-- ═══ the loop in seven steps ═══ -->
-  <div style="padding:.9rem 1.25rem;">
-    <div style="font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#c084fc;margin-bottom:.7rem;">The exam loop, step by step</div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;">
+  <div style="padding:.9rem min(1.25rem,var(--pub-panel-padding));">
+    <div style="font-size:var(--pub-text-label);font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#c084fc;margin-bottom:.7rem;">The exam loop, step by step</div>
+    <div class="pub-grid" style="display:grid;gap:.5rem;">
       <div style="border-radius:.8rem;border:1px solid rgba(148,163,184,.22);background:rgba(148,163,184,.04);padding:.7rem .85rem;">
-        <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;"><span style="flex-shrink:0;width:1.15rem;height:1.15rem;border-radius:50%;background:rgba(148,163,184,.2);color:#cbd5e1;font-size:.65rem;font-weight:800;display:flex;align-items:center;justify-content:center;">1</span><span style="font-size:.72rem;font-weight:700;color:#e2e8f0;">Set the exam</span></div>
-        <p style="margin:0;font-size:.72rem;line-height:1.45;color:#94a3b8;">The Proctor agent draws a translation exercise, English to Afrikaans, from a fixed exam set.</p>
+        <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;"><span style="flex-shrink:0;width:1.15rem;height:1.15rem;border-radius:50%;background:rgba(148,163,184,.2);color:#cbd5e1;font-size:var(--pub-text-label);font-weight:800;display:flex;align-items:center;justify-content:center;">1</span><span style="font-size:var(--pub-text-heading);font-weight:700;color:#e2e8f0;">Set the exam</span></div>
+        <p style="margin:0;font-size:var(--pub-text-body);line-height:1.65;color:#94a3b8;">The Proctor agent draws a translation exercise, English to Afrikaans, from a fixed exam set.</p>
       </div>
       <div style="border-radius:.8rem;border:1px solid rgba(168,85,247,.22);background:rgba(168,85,247,.04);padding:.7rem .85rem;">
-        <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;"><span style="flex-shrink:0;width:1.15rem;height:1.15rem;border-radius:50%;background:rgba(168,85,247,.18);color:#d8b4fe;font-size:.65rem;font-weight:800;display:flex;align-items:center;justify-content:center;">2</span><span style="font-size:.72rem;font-weight:700;color:#e2e8f0;">Student answers</span></div>
-        <p style="margin:0;font-size:.72rem;line-height:1.45;color:#94a3b8;">Each SLM, cast as a student, returns a translation with no idea it is being scored.</p>
+        <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;"><span style="flex-shrink:0;width:1.15rem;height:1.15rem;border-radius:50%;background:rgba(168,85,247,.18);color:#d8b4fe;font-size:var(--pub-text-label);font-weight:800;display:flex;align-items:center;justify-content:center;">2</span><span style="font-size:var(--pub-text-heading);font-weight:700;color:#e2e8f0;">Student answers</span></div>
+        <p style="margin:0;font-size:var(--pub-text-body);line-height:1.65;color:#94a3b8;">Each SLM, cast as a student, returns a translation with no idea it is being scored.</p>
       </div>
       <div style="border-radius:.8rem;border:1px solid rgba(148,163,184,.22);background:rgba(148,163,184,.04);padding:.7rem .85rem;">
-        <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;"><span style="flex-shrink:0;width:1.15rem;height:1.15rem;border-radius:50%;background:rgba(148,163,184,.2);color:#cbd5e1;font-size:.65rem;font-weight:800;display:flex;align-items:center;justify-content:center;">3</span><span style="font-size:.72rem;font-weight:700;color:#e2e8f0;">Collect the answer</span></div>
-        <p style="margin:0;font-size:.72rem;line-height:1.45;color:#94a3b8;">The Proctor takes the answer back and keeps the grade hidden from the student.</p>
+        <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;"><span style="flex-shrink:0;width:1.15rem;height:1.15rem;border-radius:50%;background:rgba(148,163,184,.2);color:#cbd5e1;font-size:var(--pub-text-label);font-weight:800;display:flex;align-items:center;justify-content:center;">3</span><span style="font-size:var(--pub-text-heading);font-weight:700;color:#e2e8f0;">Collect the answer</span></div>
+        <p style="margin:0;font-size:var(--pub-text-body);line-height:1.65;color:#94a3b8;">The Proctor takes the answer back and keeps the grade hidden from the student.</p>
       </div>
       <div style="border-radius:.8rem;border:1px solid rgba(168,85,247,.22);background:rgba(168,85,247,.04);padding:.7rem .85rem;">
-        <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;"><span style="flex-shrink:0;width:1.15rem;height:1.15rem;border-radius:50%;background:rgba(168,85,247,.18);color:#d8b4fe;font-size:.65rem;font-weight:800;display:flex;align-items:center;justify-content:center;">4</span><span style="font-size:.72rem;font-weight:700;color:#e2e8f0;">Hand to graders</span></div>
-        <p style="margin:0;font-size:.72rem;line-height:1.45;color:#94a3b8;">The exercise and answer go to two grader agents, each a different frontier model.</p>
+        <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;"><span style="flex-shrink:0;width:1.15rem;height:1.15rem;border-radius:50%;background:rgba(168,85,247,.18);color:#d8b4fe;font-size:var(--pub-text-label);font-weight:800;display:flex;align-items:center;justify-content:center;">4</span><span style="font-size:var(--pub-text-heading);font-weight:700;color:#e2e8f0;">Hand to graders</span></div>
+        <p style="margin:0;font-size:var(--pub-text-body);line-height:1.65;color:#94a3b8;">The exercise and answer go to two grader agents, each a different frontier model.</p>
       </div>
       <div style="border-radius:.8rem;border:1px solid rgba(34,197,94,.22);background:rgba(34,197,94,.04);padding:.7rem .85rem;">
-        <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;"><span style="flex-shrink:0;width:1.15rem;height:1.15rem;border-radius:50%;background:rgba(34,197,94,.18);color:#4ade80;font-size:.65rem;font-weight:800;display:flex;align-items:center;justify-content:center;">5</span><span style="font-size:.72rem;font-weight:700;color:#e2e8f0;">Discuss to consensus</span></div>
-        <p style="margin:0;font-size:.72rem;line-height:1.45;color:#94a3b8;">Goddard (GPT-4) and Vorster (Claude) debate the work and agree one CEFR grade.</p>
+        <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;"><span style="flex-shrink:0;width:1.15rem;height:1.15rem;border-radius:50%;background:rgba(34,197,94,.18);color:#4ade80;font-size:var(--pub-text-label);font-weight:800;display:flex;align-items:center;justify-content:center;">5</span><span style="font-size:var(--pub-text-heading);font-weight:700;color:#e2e8f0;">Discuss to consensus</span></div>
+        <p style="margin:0;font-size:var(--pub-text-body);line-height:1.65;color:#94a3b8;">Goddard (GPT-4) and Vorster (Claude) debate the work and agree one CEFR grade.</p>
       </div>
       <div style="border-radius:.8rem;border:1px solid rgba(34,197,94,.22);background:rgba(34,197,94,.04);padding:.7rem .85rem;">
-        <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;"><span style="flex-shrink:0;width:1.15rem;height:1.15rem;border-radius:50%;background:rgba(34,197,94,.18);color:#4ade80;font-size:.65rem;font-weight:800;display:flex;align-items:center;justify-content:center;">6</span><span style="font-size:.72rem;font-weight:700;color:#e2e8f0;">Return the verdict</span></div>
-        <p style="margin:0;font-size:.72rem;line-height:1.45;color:#94a3b8;">The agreed grade and written review flow back to the Proctor.</p>
+        <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;"><span style="flex-shrink:0;width:1.15rem;height:1.15rem;border-radius:50%;background:rgba(34,197,94,.18);color:#4ade80;font-size:var(--pub-text-label);font-weight:800;display:flex;align-items:center;justify-content:center;">6</span><span style="font-size:var(--pub-text-heading);font-weight:700;color:#e2e8f0;">Return the verdict</span></div>
+        <p style="margin:0;font-size:var(--pub-text-body);line-height:1.65;color:#94a3b8;">The agreed grade and written review flow back to the Proctor.</p>
       </div>
     </div>
     <div style="border-radius:.8rem;border:1px solid rgba(245,158,11,.22);background:rgba(245,158,11,.04);padding:.7rem .85rem;margin-top:.5rem;">
-      <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;"><span style="flex-shrink:0;width:1.15rem;height:1.15rem;border-radius:50%;background:rgba(245,158,11,.18);color:#fbbf24;font-size:.65rem;font-weight:800;display:flex;align-items:center;justify-content:center;">7</span><span style="font-size:.72rem;font-weight:700;color:#e2e8f0;">Record the result</span></div>
-      <p style="margin:0;font-size:.72rem;line-height:1.45;color:#94a3b8;">The Proctor logs a structured record: student, language pair, agreed CEFR grade, and a review summary, ready to compare across all seven models.</p>
+      <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.3rem;"><span style="flex-shrink:0;width:1.15rem;height:1.15rem;border-radius:50%;background:rgba(245,158,11,.18);color:#fbbf24;font-size:var(--pub-text-label);font-weight:800;display:flex;align-items:center;justify-content:center;">7</span><span style="font-size:var(--pub-text-heading);font-weight:700;color:#e2e8f0;">Record the result</span></div>
+      <p style="margin:0;font-size:var(--pub-text-body);line-height:1.65;color:#94a3b8;">The Proctor logs a structured record: student, language pair, agreed CEFR grade, and a review summary, ready to compare across all seven models.</p>
     </div>
   </div>
 </div>

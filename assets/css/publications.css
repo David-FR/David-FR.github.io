@@ -1,0 +1,142 @@
+/* Publication text uses the same scale in the page chrome and custom figures. */
+.publication-page {
+  --pub-text-body: 1.0625rem;
+  --pub-text-small: 0.9375rem;
+  --pub-text-label: 0.875rem;
+  --pub-text-heading: 1.0625rem;
+  --pub-panel-padding: clamp(0.75rem, 2vw, 1.5rem);
+  width: 100%;
+  max-width: 90rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.publication-page .publication-content,
+.publication-page .publication-body {
+  font-size: var(--pub-text-body);
+  line-height: 1.65;
+}
+
+.publication-page h1 {
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  line-height: 1.2;
+}
+
+.publication-content :where(div, p, span) {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+/* Cards respond to their available width, including when nested in a column. */
+.publication-content .pub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+}
+
+.publication-content .pub-grid > * {
+  min-width: 0;
+}
+
+.publication-content .pub-definitions {
+  grid-template-columns: max-content minmax(0, 1fr);
+}
+
+.publication-content .pub-flow-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+}
+
+/* Preserve diagrams and equations at a readable size inside the page width.
+   These regions support touch, trackpad, and keyboard scrolling. */
+.publication-content .pub-scroll {
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: auto;
+}
+
+.publication-content .pub-scroll:focus-visible {
+  outline: 2px solid #818cf8;
+  outline-offset: 2px;
+}
+
+.publication-content .pub-diagram {
+  display: block;
+  width: 100%;
+  min-width: var(--pub-diagram-width);
+  max-width: none;
+  height: auto;
+}
+
+.publication-content .pub-chart-label {
+  flex-shrink: 0;
+  width: auto;
+  min-width: 5.5em;
+}
+
+.publication-content .pub-chart-value {
+  flex-shrink: 0;
+  width: auto;
+  min-width: 4em;
+}
+
+.publication-content .pub-chart-row {
+  display: flex;
+}
+
+.publication-content .pub-chart-axis {
+  padding-inline: 6rem;
+}
+
+@media (min-width: 48rem) {
+  .publication-page {
+    padding-inline: 2rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .publication-page {
+    --pub-text-body: 1.125rem;
+    padding-inline: 3rem;
+  }
+}
+
+@media (max-width: 40rem) {
+  .publication-content .pub-flow-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .publication-content .pub-flow-grid > :nth-child(2) > svg {
+    transform: rotate(90deg);
+  }
+
+  /* Put labels above each bar so charts retain their full width on phones. */
+  .publication-content .pub-chart-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .publication-content .pub-chart-row > :nth-child(2) {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .publication-content .pub-chart-row > :last-child {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .publication-content .pub-chart-axis {
+    padding-inline: 0;
+  }
+
+  .publication-content .pub-definitions {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .publication-content .pub-definitions > :nth-child(even) {
+    margin-bottom: 0.75rem;
+  }
+}
