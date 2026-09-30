@@ -1,26 +1,124 @@
 <style>
-/* ── Scroll-reveal: shared across problem / framework / results ──
-   Hiding is gated behind .mc-js (set below only when IntersectionObserver
-   exists), so content stays visible without JS and under reduced motion. */
+/* Shared scene and numbered module symptoms: stack first for narrow screens. */
+.mc-attribution { margin: 1rem 0 0 }
+.mc-attribution-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: .75rem;
+  align-items: center;
+}
+.mc-scene-panel {
+  min-width: 0;
+  width: 100%;
+  max-width: 40rem;
+  margin-inline: auto;
+  overflow: hidden;
+  border: 1px solid rgba(148,163,184,.22);
+  border-radius: .9rem;
+  background: #0f172a;
+}
+.mc-scene-heading { padding: 1rem 1rem .75rem }
+.mc-figure-label {
+  display: block;
+  margin-bottom: .3rem;
+  color: #94a3b8;
+  font-size: var(--pub-text-label);
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.mc-scene-heading strong {
+  display: block;
+  color: #e2e8f0;
+  font-size: var(--pub-text-heading);
+  line-height: 1.5;
+}
+.mc-road-scene { position: relative }
+.mc-road-scene > svg { display: block; width: 100%; height: auto; margin: 0 }
+.mc-tsr { --mc-accent: #f87171; --mc-tint: rgba(248,113,113,.05); --mc-border: rgba(248,113,113,.28) }
+.mc-alc { --mc-accent: #2dd4bf; --mc-tint: rgba(45,212,191,.05); --mc-border: rgba(45,212,191,.28) }
+.mc-od { --mc-accent: #60a5fa; --mc-tint: rgba(96,165,250,.05); --mc-border: rgba(96,165,250,.28) }
+.mc-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 1.8rem;
+  height: 1.8rem;
+  border: 1px solid var(--mc-accent);
+  border-radius: 50%;
+  color: var(--mc-accent);
+  background: #0f172a;
+  font: 800 var(--pub-text-small)/1 ui-sans-serif, system-ui, sans-serif;
+}
+.mc-scene-marker { position: absolute; transform: translate(-50%, -50%) }
+.mc-scene-note {
+  padding: .75rem 1rem;
+  border-top: 1px solid rgba(148,163,184,.15);
+  color: #94a3b8;
+  font-size: var(--pub-text-small);
+  line-height: 1.5;
+}
+.mc-scene-connector { display: flex; justify-content: center; padding: .5rem 0 }
+.mc-scene-connector svg { display: block; width: 2.5rem; height: 1.5rem; transform: rotate(90deg) }
+.mc-symptoms { display: grid; gap: .65rem; min-width: 0 }
+.mc-symptom {
+  padding: .75rem 1rem;
+  border: 1px solid var(--mc-border);
+  border-radius: .8rem;
+  background: var(--mc-tint);
+}
+.mc-symptom-header { display: flex; align-items: center; gap: .65rem }
+.mc-module-name { flex: 1; line-height: 1.4 }
+.mc-module-name strong { display: block; color: var(--mc-accent); font-size: var(--pub-text-heading); letter-spacing: .04em }
+.mc-module-name span { display: block; color: #94a3b8; font-size: var(--pub-text-small) }
+.mc-module-icon { flex-shrink: 0; width: 4.25rem; height: auto; color: var(--mc-accent); margin: 0 }
+.mc-symptom p { margin: .45rem 0 0; color: #94a3b8; font-size: var(--pub-text-body); line-height: 1.65 }
+.mc-attribution figcaption {
+  margin-top: 1rem;
+  padding: .75rem 1rem;
+  border: 1px dashed rgba(148,163,184,.25);
+  border-radius: .65rem;
+  color: #94a3b8;
+  font-size: var(--pub-text-body);
+  line-height: 1.65;
+  text-align: center;
+}
+.mc-attribution figcaption strong { color: #e2e8f0 }
+@media (min-width: 64rem) {
+  .mc-attribution-layout { grid-template-columns: minmax(0, 1.1fr) 2.5rem minmax(0, 1fr) }
+  .mc-scene-connector { padding: 0 }
+  .mc-scene-connector svg { transform: none }
+}
+@media (max-width: 24rem) {
+  .mc-symptom { padding: .75rem }
+  .mc-symptom-header { gap: .5rem }
+  .mc-module-icon { width: 3.25rem }
+}
+
+/* Content stays visible by default. IntersectionObserver only adds a brief
+   entrance animation; failed or interrupted JS must never hide the paper. */
 @keyframes mc-up {
   from { opacity: 0; transform: translateY(18px) }
   to   { opacity: 1; transform: none }
 }
-@keyframes mc-grow { to { transform: scaleX(1) } }
+@keyframes mc-grow {
+  from { transform: scaleX(0) }
+  to   { transform: scaleX(1) }
+}
 @keyframes mc-pulse {
   0%,100% { opacity: .35; transform: scale(1) }
   50%     { opacity: 1;   transform: scale(1.08) }
 }
 @media screen and (prefers-reduced-motion: no-preference) {
-  .mc-js .mc-reveal { opacity: 0 }
-  .mc-js .mc-reveal.mc-visible { animation: mc-up .55s ease forwards }
-  .mc-js .mc-reveal.mc-d1.mc-visible { animation-delay: .1s }
-  .mc-js .mc-reveal.mc-d2.mc-visible { animation-delay: .25s }
-  .mc-js .mc-reveal.mc-d3.mc-visible { animation-delay: .4s }
+  .mc-reveal.mc-visible { animation: mc-up .55s ease backwards }
+  .mc-reveal.mc-d1.mc-visible { animation-delay: .1s }
+  .mc-reveal.mc-d2.mc-visible { animation-delay: .25s }
+  .mc-reveal.mc-d3.mc-visible { animation-delay: .4s }
 
   /* bars grow from zero when their own section scrolls into view */
-  .mc-js .mc-bar { transform: scaleX(0); transform-origin: left center }
-  .mc-js .mc-visible .mc-bar { animation: mc-grow 1s cubic-bezier(.22,1,.36,1) forwards }
+  .mc-bar { transform-origin: left center }
+  .mc-visible .mc-bar { animation: mc-grow 1s cubic-bezier(.22,1,.36,1) backwards }
 
   .mc-dsl-pulse { animation: mc-pulse 2.2s ease-in-out infinite }
 }
@@ -43,4 +141,3 @@
   }
 }
 </style>
-<script>if("IntersectionObserver" in window)document.documentElement.classList.add("mc-js")</script>

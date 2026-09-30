@@ -27,35 +27,129 @@
   </div>
 
   <!-- ═══ Why it is hard: one scene, three symptoms ═══ -->
-  <div style="padding:1.1rem min(1.5rem,var(--pub-panel-padding));border-bottom:1px solid rgba(239,68,68,.08);">
+  <div id="why-it-is-hard" style="padding:1.1rem min(1.5rem,var(--pub-panel-padding));border-bottom:1px solid rgba(239,68,68,.08);scroll-margin-top:6rem;">
     <div style="font-size:var(--pub-text-label);font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#f87171;margin-bottom:.3rem;">Why It Is Hard</div>
     <p style="margin:0 0 .9rem;font-size:var(--pub-text-body);line-height:1.65;color:#94a3b8;">A single problem in the world rarely shows up in a single module. Take one common case: <strong style="color:#e2e8f0;">a faded STOP sign at a foggy intersection</strong>. One condition breaks three modules at once, so no single one is obviously to blame.</p>
-    <div class="pub-grid" style="display:grid;gap:1rem;align-items:center;">
-      <!-- the scene -->
-      <div style="text-align:center;padding:.9rem .8rem;border-radius:.9rem;background:rgba(148,163,184,.06);border:1px solid rgba(148,163,184,.2);min-width:120px;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#cbd5e1" stroke-width="1.5" style="margin-bottom:.35rem;"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z"/></svg>
-        <div style="font-size:var(--pub-text-heading);font-weight:700;color:#e2e8f0;line-height:1.3;">Faded STOP sign,<br>foggy intersection</div>
-        <div style="font-size:var(--pub-text-small);color:#64748b;margin-top:.35rem;">one condition</div>
+    <figure class="mc-attribution" aria-labelledby="mc-attribution-caption">
+      <div class="mc-attribution-layout">
+        <div class="mc-scene-panel">
+          <div class="mc-scene-heading">
+            <span class="mc-figure-label">One shared scene</span>
+            <strong>Faded STOP sign, foggy intersection</strong>
+          </div>
+          <div class="mc-road-scene">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" width="480" height="320" role="img" aria-labelledby="mc-road-title mc-road-desc">
+              <title id="mc-road-title">One foggy intersection affects three perception modules</title>
+              <desc id="mc-road-desc">Highlight 1 marks a faded STOP sign, linked to sign recognition. Highlight 2 marks lane edges disappearing in fog, linked to lane centering. Highlight 3 marks a nearby vehicle with uncertain position, linked to object detection.</desc>
+              <defs>
+                <linearGradient id="mc-road-sky" x2="0" y2="1">
+                  <stop stop-color="#0f172a"/>
+                  <stop offset="1" stop-color="#334155"/>
+                </linearGradient>
+                <linearGradient id="mc-road-fog" x2="0" y2="1">
+                  <stop stop-color="#cbd5e1" stop-opacity="0"/>
+                  <stop offset=".42" stop-color="#cbd5e1" stop-opacity=".19"/>
+                  <stop offset="1" stop-color="#cbd5e1" stop-opacity="0"/>
+                </linearGradient>
+                <linearGradient id="mc-lane-fade" x2="0" y2="1">
+                  <stop stop-color="#2dd4bf" stop-opacity=".05"/>
+                  <stop offset="1" stop-color="#2dd4bf" stop-opacity=".85"/>
+                </linearGradient>
+              </defs>
+              <path fill="url(#mc-road-sky)" d="M0 0h480v320H0z"/>
+              <!-- Distant buildings and a cross street recede into the fog. -->
+              <path d="M0 150V88h42v62m14 0V63h54v87m264 0V80h44v70m15 0V104h47v46" fill="#475569" opacity=".2"/>
+              <path d="M0 157h480v40H0z" fill="#475569" opacity=".35"/>
+              <path d="M0 178h480" stroke="#94a3b8" stroke-dasharray="18 22" opacity=".18"/>
+              <!-- Perspective road and markings. -->
+              <path d="M204 137h72l170 183H34z" fill="#182336"/>
+              <path d="M198 148 53 320m229-172 145 172" stroke="#64748b" stroke-width="2" opacity=".35"/>
+              <path d="m218 160-88 145m132-145 88 145" stroke="url(#mc-lane-fade)" stroke-width="4" stroke-dasharray="24 13" fill="none"/>
+              <path d="M240 168v13m0 22v23m0 30v45" stroke="#cbd5e1" stroke-width="3" opacity=".2"/>
+              <path d="m171 248-33 57m171-57 33 57" stroke="#2dd4bf" stroke-width="20" opacity=".06"/>
+              <!-- Faded sign, with worn patches instead of crisp lettering. -->
+              <path d="M112 168v94" stroke="#64748b" stroke-width="6"/>
+              <path d="m94 101 36 0 25 25v36l-25 25H94l-25-25v-36z" fill="#75464e" stroke="#cba5ab" stroke-opacity=".55" stroke-width="2"/>
+              <text x="112" y="152" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="21" font-weight="800" fill="#e2c3c6" opacity=".5">STOP</text>
+              <path d="m81 131 50-10m-39 36 48-10m-50 26 27-5" stroke="#94a3b8" stroke-width="6" opacity=".3"/>
+              <!-- Vehicle and overlapping detection boxes suggest ambiguity. -->
+              <g opacity=".7">
+                <path d="m294 181 8-20h34l10 20 5 5v24h-64v-24z" fill="#475569" stroke="#94a3b8" stroke-width="2"/>
+                <path d="m305 167-5 14h39l-6-14z" fill="#1e293b"/>
+                <path d="M295 209v8m48-8v8" stroke="#0f172a" stroke-width="7" stroke-linecap="round"/>
+                <path d="M294 194h10m31 0h10" stroke="#cbd5e1" stroke-width="3"/>
+              </g>
+              <!-- Fog crosses the sign, road and car together. -->
+              <path d="M0 60h480v205H0z" fill="url(#mc-road-fog)"/>
+              <g fill="none" stroke="#cbd5e1" stroke-linecap="round">
+                <path d="M22 79h120m26 0h118m32 0h128" stroke-width="9" opacity=".07"/>
+                <path d="M0 121h55m100 0h185m31 0h109" stroke-width="13" opacity=".1"/>
+                <path d="M12 163h50m101 0h129m78 0h96M27 229h136m191 0h107" stroke-width="8" opacity=".1"/>
+              </g>
+              <!-- Colored callouts match the numbered HTML badges and cards. -->
+              <rect x="59" y="91" width="106" height="106" rx="15" fill="none" stroke="#f87171" stroke-width="2" stroke-dasharray="5 5" opacity=".8"/>
+              <path d="m163 294 26-24" fill="none" stroke="#2dd4bf" stroke-width="2"/>
+              <rect x="280" y="150" width="82" height="76" rx="8" fill="none" stroke="#60a5fa" stroke-width="2" stroke-dasharray="6 5" opacity=".85"/>
+              <rect x="292" y="143" width="82" height="76" rx="8" fill="none" stroke="#60a5fa" stroke-width="2" stroke-dasharray="3 7" opacity=".3"/>
+              <path d="m362 150 22-19" stroke="#60a5fa" stroke-width="2"/>
+            </svg>
+            <!-- HTML keeps the numbers legible as the illustration scales. -->
+            <span class="mc-scene-marker mc-number mc-tsr" aria-hidden="true" style="left:12.3%;top:28.4%;">1</span>
+            <span class="mc-scene-marker mc-number mc-alc" aria-hidden="true" style="left:39.4%;top:84.4%;">2</span>
+            <span class="mc-scene-marker mc-number mc-od" aria-hidden="true" style="left:80%;top:40.9%;">3</span>
+          </div>
+          <div class="mc-scene-note">The same fog obscures several visual cues.</div>
+        </div>
+
+        <div class="mc-scene-connector" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 24" width="40" height="24" fill="none" stroke="#64748b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h32m-8-8 8 8-8 8"/></svg>
+        </div>
+
+        <div class="mc-symptoms">
+          <div class="mc-symptom mc-tsr">
+            <div class="mc-symptom-header">
+              <span class="mc-number">1</span>
+              <div class="mc-module-name"><strong>TSR</strong><span>sign recognition</span></div>
+              <svg class="mc-module-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 60" width="80" height="60" fill="none" aria-hidden="true">
+                <path d="M34 43v13" stroke="#64748b" stroke-width="3"/>
+                <path d="M26 6h16l12 12v16L42 46H26L14 34V18z" fill="currentColor" fill-opacity=".12" stroke="currentColor" stroke-opacity=".65" stroke-width="1.8"/>
+                <path d="m23 20 22-3m-24 12 24-3m-19 11 18-3" stroke="currentColor" stroke-width="3" opacity=".25"/>
+                <path d="M60 16h10m-10 10h6m-6 10h3" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".65"/>
+              </svg>
+            </div>
+            <p>Cannot read the faded sign: lost contrast.</p>
+          </div>
+          <div class="mc-symptom mc-alc">
+            <div class="mc-symptom-header">
+              <span class="mc-number">2</span>
+              <div class="mc-module-name"><strong>ALC</strong><span>lane centering</span></div>
+              <svg class="mc-module-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 60" width="80" height="60" fill="none" aria-hidden="true">
+                <path d="M30 6 8 55h64L50 6" fill="currentColor" fill-opacity=".05"/>
+                <path d="m20 36-9 19m49-19 9 19" stroke="currentColor" stroke-width="2.5"/>
+                <path d="m27 20-4 9m30-9 4 9" stroke="currentColor" stroke-width="2.5" opacity=".45"/>
+                <path d="m32 8-2 5m18-5 2 5M40 9v6m0 12v9m0 10v10" stroke="currentColor" stroke-width="2" opacity=".2"/>
+                <path d="M10 14h60M5 23h70" stroke="#94a3b8" stroke-width="3" opacity=".2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <p>Cannot see lane edges through the fog.</p>
+          </div>
+          <div class="mc-symptom mc-od">
+            <div class="mc-symptom-header">
+              <span class="mc-number">3</span>
+              <div class="mc-module-name"><strong>OD</strong><span>object detection</span></div>
+              <svg class="mc-module-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 60" width="80" height="60" fill="none" aria-hidden="true">
+                <rect x="10" y="13" width="51" height="40" rx="5" stroke="currentColor" stroke-width="1.5" stroke-dasharray="5 4"/>
+                <rect x="20" y="5" width="51" height="40" rx="5" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 5" opacity=".3"/>
+                <path d="m23 30 5-12h18l6 12 4 4v12H20V34z" fill="currentColor" fill-opacity=".12" stroke="currentColor" stroke-opacity=".7" stroke-width="1.5"/>
+                <path d="M26 36h5m14 0h5M24 46v4m28-4v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <p>Cannot judge depth to nearby vehicles.</p>
+          </div>
+        </div>
       </div>
-      <!-- three symptoms -->
-      <div class="pub-grid" style="display:grid;gap:.6rem;">
-        <div style="border-radius:.8rem;border:1px solid rgba(248,113,113,.28);background:rgba(248,113,113,.05);padding:.6rem .65rem;">
-          <div style="font-size:var(--pub-text-heading);font-weight:800;color:#f87171;letter-spacing:.04em;">TSR</div>
-          <div style="font-size:var(--pub-text-small);color:#64748b;margin-bottom:.3rem;">sign recognition</div>
-          <p style="margin:0;font-size:var(--pub-text-body);line-height:1.65;color:#94a3b8;">Cannot read the faded sign: lost contrast.</p>
-        </div>
-        <div style="border-radius:.8rem;border:1px solid rgba(45,212,191,.28);background:rgba(45,212,191,.05);padding:.6rem .65rem;">
-          <div style="font-size:var(--pub-text-heading);font-weight:800;color:#2dd4bf;letter-spacing:.04em;">ALC</div>
-          <div style="font-size:var(--pub-text-small);color:#64748b;margin-bottom:.3rem;">lane centering</div>
-          <p style="margin:0;font-size:var(--pub-text-body);line-height:1.65;color:#94a3b8;">Cannot see lane edges through the fog.</p>
-        </div>
-        <div style="border-radius:.8rem;border:1px solid rgba(96,165,250,.28);background:rgba(96,165,250,.05);padding:.6rem .65rem;">
-          <div style="font-size:var(--pub-text-heading);font-weight:800;color:#60a5fa;letter-spacing:.04em;">OD</div>
-          <div style="font-size:var(--pub-text-small);color:#64748b;margin-bottom:.3rem;">object detection</div>
-          <p style="margin:0;font-size:var(--pub-text-body);line-height:1.65;color:#94a3b8;">Cannot judge depth to nearby vehicles.</p>
-        </div>
-      </div>
-    </div>
+      <figcaption id="mc-attribution-caption"><strong>Three overlapping symptoms.</strong> Which module is responsible?</figcaption>
+    </figure>
   </div>
 
   <!-- ═══ Method comparison ═══ -->
