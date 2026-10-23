@@ -1,0 +1,82 @@
+<section class="not-prose pb-section" aria-labelledby="pb-physical-title">
+  <header class="pb-header">
+    <h2 id="pb-physical-title">From digital optimization to a printed patch</h2>
+    <p>A small print–capture pilot tests a bottle patch under changes in distance, viewpoint, and object instance.</p>
+  </header>
+  <div class="pb-body">
+    <p>YOLOv5 detected the bottle with confidence above 0.90 in clean shots. With the printed patch, the reported conditions produced different kinds of errors:</p>
+    <div class="pb-pilot-grid"><figure class="pb-pilot-card pb-attack">
+      <div class="pb-pilot-heading"><span class="pb-kicker">01 · Frontal</span><h3>Original bottle</h3><span class="pb-note">40 cm · 0°</span></div>
+      <svg class="pb-pilot-art" viewBox="0 0 300 230" role="img" aria-label="Schematic original bottle: misclassified. Reported prediction Chair · 0.59. Bounding box geometry is illustrative.">
+        <path d="M0 0h300v230H0z" fill="url(#pb-sky)"/><path d="M0 0h300v230H0z" fill="url(#pb-grid)"/>
+        <path d="M0 202h300v28H0z" fill="#1e293b"/><path d="M0 202h300" stroke="#475569"/>
+        <g transform="translate(150 117) rotate(0) scale(1) translate(-150 -117)">
+          <use href="#pb-bottle" x="90" y="20" width="120" height="190"/>
+          <rect x="128" y="121" width="44" height="40" rx="2" fill="url(#pb-pixels)" stroke="#fbbf24"/>
+        </g>
+        <rect x="90" y="23" width="106" height="180" rx="5" fill="none" stroke="#fb7185" stroke-width="2" stroke-dasharray="6 4"/>
+      </svg>
+      <figcaption class="pb-pilot-result"><span>Top prediction</span><strong>Chair · 0.59</strong><span class="pb-outcome">Misclassified</span></figcaption>
+    </figure><figure class="pb-pilot-card pb-attack">
+      <div class="pb-pilot-heading"><span class="pb-kicker">02 · Tilted</span><h3>Original bottle</h3><span class="pb-note">50 cm · 10°</span></div>
+      <svg class="pb-pilot-art" viewBox="0 0 300 230" role="img" aria-label="Schematic original bottle: misclassified. Reported prediction TV monitor · 0.35. Bounding box geometry is illustrative.">
+        <path d="M0 0h300v230H0z" fill="url(#pb-sky)"/><path d="M0 0h300v230H0z" fill="url(#pb-grid)"/>
+        <path d="M0 202h300v28H0z" fill="#1e293b"/><path d="M0 202h300" stroke="#475569"/>
+        <g transform="translate(150 117) rotate(-10) scale(1) translate(-150 -117)">
+          <use href="#pb-bottle" x="90" y="20" width="120" height="190"/>
+          <rect x="128" y="121" width="44" height="40" rx="2" fill="url(#pb-pixels)" stroke="#fbbf24"/>
+        </g>
+        <rect x="72" y="29" width="126" height="165" rx="5" fill="none" stroke="#fb7185" stroke-width="2" stroke-dasharray="6 4"/>
+      </svg>
+      <figcaption class="pb-pilot-result"><span>Top prediction</span><strong>TV monitor · 0.35</strong><span class="pb-outcome">Misclassified</span></figcaption>
+    </figure><figure class="pb-pilot-card pb-warning">
+      <div class="pb-pilot-heading"><span class="pb-kicker">03 · Transfer</span><h3>New bottle #1</h3><span class="pb-note">54 cm · 0°</span></div>
+      <svg class="pb-pilot-art" viewBox="0 0 300 230" role="img" aria-label="Schematic new bottle #1: wrong box / low confidence. Reported prediction Bottle · 0.41. Bounding box geometry is illustrative.">
+        <path d="M0 0h300v230H0z" fill="url(#pb-sky)"/><path d="M0 0h300v230H0z" fill="url(#pb-grid)"/>
+        <path d="M0 202h300v28H0z" fill="#1e293b"/><path d="M0 202h300" stroke="#475569"/>
+        <g transform="translate(150 117) rotate(0) scale(0.85) translate(-150 -117)">
+          <use href="#pb-bottle" x="90" y="20" width="120" height="190"/>
+          <rect x="128" y="121" width="44" height="40" rx="2" fill="url(#pb-pixels)" stroke="#fbbf24"/>
+        </g>
+        <rect x="146" y="51" width="107" height="144" rx="5" fill="none" stroke="#fbbf24" stroke-width="2" stroke-dasharray="6 4"/>
+      </svg>
+      <figcaption class="pb-pilot-result"><span>Top prediction</span><strong>Bottle · 0.41</strong><span class="pb-outcome">Wrong box / low confidence</span></figcaption>
+    </figure><figure class="pb-pilot-card pb-warning">
+      <div class="pb-pilot-heading"><span class="pb-kicker">04 · Transfer</span><h3>New bottle #2</h3><span class="pb-note">54 cm · 0°</span></div>
+      <svg class="pb-pilot-art" viewBox="0 0 300 230" role="img" aria-label="Schematic new bottle #2: wrong box. Reported prediction Bottle · 0.81. Bounding box geometry is illustrative.">
+        <path d="M0 0h300v230H0z" fill="url(#pb-sky)"/><path d="M0 0h300v230H0z" fill="url(#pb-grid)"/>
+        <path d="M0 202h300v28H0z" fill="#1e293b"/><path d="M0 202h300" stroke="#475569"/>
+        <g transform="translate(150 117) rotate(0) scale(1.07) translate(-150 -117)">
+          <use href="#pb-bottle" x="90" y="20" width="120" height="190"/>
+          <rect x="128" y="121" width="44" height="40" rx="2" fill="url(#pb-pixels)" stroke="#fbbf24"/>
+        </g>
+        <rect x="57" y="80" width="123" height="123" rx="5" fill="none" stroke="#fbbf24" stroke-width="2" stroke-dasharray="6 4"/>
+      </svg>
+      <figcaption class="pb-pilot-result"><span>Top prediction</span><strong>Bottle · 0.81</strong><span class="pb-outcome">Wrong box</span></figcaption>
+    </figure></div>
+    <p class="pb-note">Original schematic illustrations of the four conditions in Table 4. Predictions, scores, distances, and viewing angles are reported measurements; bottle shapes, patch textures, and box positions are illustrative.</p>
+    <p class="pb-note">These are individual pilot observations, not a physical success-rate benchmark. A wrong bounding box or class change is distinct from satisfying the digital strict-suppression test.</p>
+  </div>
+</section>
+
+<section class="not-prose pb-section pb-limits" aria-labelledby="pb-limits-title">
+  <header class="pb-header"><h2 id="pb-limits-title">What the evidence supports—and its limits</h2></header>
+  <div class="pb-body pub-grid" style="display:grid;gap:1rem;">
+    <div>
+      <h3>Score access and scene context</h3>
+      <p>The attack needs detector confidence scores. Placement features also use ground-truth boxes; a label-only API or an unannotated scene does not provide the same information.</p>
+    </div>
+    <div>
+      <h3>Measured suppression, not universal failure</h3>
+      <p>The digital metric targets the original top class. It does not establish that all detections vanish, or that one universal patch achieves the same rates across arbitrary scenes.</p>
+    </div>
+    <div>
+      <h3>Preliminary physical transfer</h3>
+      <p>The bottle pilot supports transfer in the tested conditions. Wider claims about lighting, long distances, and deployment environments need broader physical evaluation.</p>
+    </div>
+  </div>
+  <div class="pb-body pb-divider">
+    <p><strong>The practical lesson:</strong> evaluate adversarial patches against a joint budget of queries and visible area, and keep plain-image suppression separate from robustness across transformations.</p>
+    <p class="pb-note">Source: <a href="https://arxiv.org/pdf/2606.18318" target="_blank" rel="noopener">the paper, arXiv:2606.18318v1</a>, Sections 3–4 and Tables 2–4. The DOI and BibTeX refer to the arXiv version; the venue is listed as accepted to ICIP 2026.</p>
+  </div>
+</section>

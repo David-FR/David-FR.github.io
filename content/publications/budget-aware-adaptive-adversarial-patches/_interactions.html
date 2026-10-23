@@ -1,0 +1,58 @@
+<script>
+(function () {
+  var root = document.getElementById('pb-tradeoffs');
+  if (!root || root.dataset.ready) return;
+  root.dataset.ready = 'true';
+  var data = JSON.parse(document.getElementById('pb-trade-data').textContent);
+  var series = [
+    { name: 'Baseline', color: '#a5b4fc' },
+    { name: 'GP5', color: '#2dd4bf' },
+    { name: 'Fixed 160 px', color: '#fbbf24' }
+  ];
+  function format(value) { return value.toLocaleString('en-US'); }
+  function point(i, x, y) {
+    var color = series[i].color;
+    if (i === 0) return '<circle cx="' + x + '" cy="' + y + '" r="10" fill="#0f172a" stroke="' + color + '" stroke-width="3"/>';
+    if (i === 1) return '<path d="M' + x + ' ' + (y - 7) + 'l7 7-7 7-7-7z" fill="' + color + '" stroke="#0f172a" stroke-width="1.5"/>';
+    return '<rect x="' + (x - 6) + '" y="' + (y - 6) + '" width="12" height="12" rx="1" fill="' + color + '"/>';
+  }
+  function render(key) {
+    var selected = data[key];
+    var marks = '', topMarks = '', descriptions = [];
+    selected.rows.forEach(function (row, i) {
+      var success = row[0], area = row[1], queries = row[2];
+      var x = 60 + area / 16 * 540, y = 300 - success / 100 * 240;
+      var lx = selected.labels[i][0], ly = selected.labels[i][1];
+      var name = series[i].name, color = series[i].color;
+      marks += '<g><path d="M' + x + ' ' + y + 'L' + (lx + 80) + ' ' + (ly + 21) + '" fill="none" stroke="' + color + '" stroke-opacity=".65"/>' + point(i, x, y)
+        + '<rect x="' + lx + '" y="' + ly + '" width="160" height="47" rx="8" fill="#101b2c" stroke="' + color + '" stroke-opacity=".45"/>'
+        + '<text x="' + (lx + 12) + '" y="' + (ly + 19) + '" fill="' + color + '" font-weight="700">' + name + '</text>'
+        + '<text x="' + (lx + 12) + '" y="' + (ly + 37) + '" fill="#cbd5e1" font-size="13">' + format(queries) + ' median queries</text></g>';
+      topMarks += point(i, x, y);
+      descriptions.push(name + ': ' + success + ' percent success, ' + area + ' percent area, ' + queries + ' median queries.');
+      var card = root.querySelector('[data-series="' + i + '"]');
+      card.querySelector('[data-value="success"]').textContent = success.toFixed(1) + '%';
+      card.querySelector('[data-value="area"]').textContent = area.toFixed(2) + '%';
+      card.querySelector('[data-value="queries"]').textContent = format(queries);
+      var size = Math.sqrt(area / 100) * 100;
+      var patch = card.querySelector('[data-footprint]');
+      patch.setAttribute('x', 106 - size); patch.setAttribute('y', 106 - size);
+      patch.setAttribute('width', size); patch.setAttribute('height', size);
+      card.querySelector('svg').setAttribute('aria-label', area + '% median image area covered by the patch');
+    });
+    document.getElementById('pb-trade-marks').innerHTML = marks + '<g aria-hidden="true">' + topMarks + '</g>';
+    document.getElementById('pb-chart-heading').textContent = selected.label;
+    document.getElementById('pb-trade-svg-title').textContent = selected.label + ': strict success versus median patch area';
+    document.getElementById('pb-trade-svg-desc').textContent = descriptions.join(' ');
+    document.getElementById('pb-trade-insight').textContent = selected.note;
+    root.querySelectorAll('[data-detector]').forEach(function (button) {
+      button.setAttribute('aria-pressed', String(button.dataset.detector === key));
+    });
+  }
+  root.querySelectorAll('[data-detector]').forEach(function (button) {
+    button.addEventListener('click', function () { render(button.dataset.detector); });
+  });
+  document.getElementById('pb-detector-controls').hidden = false;
+
+}());
+</script>

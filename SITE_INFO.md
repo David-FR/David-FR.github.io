@@ -102,6 +102,15 @@
 
 ---
 
+### 10. Budget-Aware Adaptive Adversarial Patches
+- **Title:** Budget-Aware Adaptive Adversarial Patches for Black-Box Object Detection
+- **Authors:** Pedram MohajerAnsari, Amir Salarpour, David Fernandez, Mert D. Pesé
+- **Venue:** 2026 IEEE International Conference on Image Processing (ICIP 2026)
+- **Link:** https://arxiv.org/pdf/2606.18318
+- **Status:** Accepted (per arXiv); preprint posted June 16, 2026
+
+---
+
 ## Links
 
 - **Google Scholar:** https://scholar.google.com/citations?user=KICgEp8AAAAJ&hl=en

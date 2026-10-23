@@ -1,0 +1,41 @@
+<section class="not-prose pb-section pb-results" aria-labelledby="pb-results-title">
+  <header class="pb-header">
+    <h2 id="pb-results-title">Success, footprint, and query cost</h2>
+    <p>Three detector families expose different vulnerabilities. These baseline results use the paper’s strict plain-image criterion.</p>
+  </header>
+  <div class="pb-body">
+    <div class="pb-metrics pub-grid">
+      <div class="pb-card"><h3>YOLOv5</h3><span class="pb-stat">77.5%</span><span class="pb-note">One-stage CNN · strict success</span></div>
+      <div class="pb-card"><h3>Faster R-CNN</h3><span class="pb-stat">89.7%</span><span class="pb-note">Two-stage CNN · strict success</span></div>
+      <div class="pb-card"><h3>YOLOS</h3><span class="pb-stat">59.1%</span><span class="pb-note">ViT transformer · strict success</span></div>
+    </div>
+    <div class="pub-scroll" tabindex="0" role="region" aria-label="Baseline detector results; scroll horizontally on small screens">
+      <table class="pb-table">
+        <caption>Baseline PatchBandit (ctx-strict), Table 2</caption>
+        <thead><tr><th scope="col">Detector</th><th scope="col">Strict success</th><th scope="col">Median patch area</th><th scope="col">Median queries</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">YOLOv5</th><td>77.5%</td><td>8.32%</td><td>1,079</td></tr>
+          <tr><th scope="row">Faster R-CNN</th><td>89.7%</td><td>0.92%</td><td>177</td></tr>
+          <tr><th scope="row">YOLOS</th><td>59.1%</td><td>8.32%</td><td>290</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="pb-note">Area is a percentage of the image. These numbers are reproduced from Table 2; the fixed-size ablation in Table 3 reports different query counts for the CNN detectors.</p>
+  </div>
+  <div class="pb-body pb-divider">
+    <h3>On YOLOv5, earlier growth roughly halves queries</h3>
+    <p>GP5 shortens the patience before increasing patch size. It retains almost the same success rate and median footprint as the baseline.</p>
+    <figure class="pb-comparison" aria-labelledby="pb-query-caption">
+      <div>
+        <div class="pb-bar-label"><span>Baseline</span><strong>1,079 queries</strong></div>
+        <div class="pb-bar-track" aria-hidden="true"><div class="pb-bar" style="width:100%"></div></div>
+      </div>
+      <div>
+        <div class="pb-bar-label"><span>GP5 · faster growth</span><strong>529 queries</strong></div>
+        <div class="pb-bar-track" aria-hidden="true"><div class="pb-bar pb-fast" style="width:49.03%"></div></div>
+      </div>
+      <figcaption id="pb-query-caption">YOLOv5, Table 2: median queries fall by approximately 51%; strict success changes from 77.5% to 77.7%, with median patch area unchanged at 8.32%.</figcaption>
+    </figure>
+    <p>The trade-off changes on <strong>YOLOS</strong>: GP5 cuts median queries from 290 to 47.5 and raises success from 59.1% to 60.8%, but increases median area from 8.32% to 14.79%.</p>
+  </div>
+</section>

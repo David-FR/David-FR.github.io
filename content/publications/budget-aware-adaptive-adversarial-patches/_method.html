@@ -1,0 +1,66 @@
+<section class="not-prose pb-section" aria-labelledby="pb-method-title">
+  <header class="pb-header">
+    <h2 id="pb-method-title">Inside PatchBandit</h2>
+    <p>A detector returns boxes, classes, and confidence scores. Its weights and gradients stay hidden.</p>
+  </header>
+  <div class="pb-body">
+    <figure aria-labelledby="pb-flow-caption">
+      <ol class="pb-flow">
+        <li>
+          <span class="pb-step-number" aria-hidden="true">1</span>
+          <h3>Choose where</h3>
+          <svg class="pb-step-art" viewBox="0 0 300 180" role="img" aria-label="Schematic placement search: candidate grid cells surround a bottle; one cell near the object is selected.">
+<rect x="1" y="1" width="298" height="178" rx="10" fill="#0b1424" stroke="#334155"/>
+<use href="#pb-bottle" x="90" y="-2" width="110" height="174" opacity=".7"/>
+<g fill="none" stroke="#475569" stroke-opacity=".65"><path d="M30 30h240v120H30zM30 60h240M30 90h240M30 120h240M60 30v120M90 30v120M120 30v120M150 30v120M180 30v120M210 30v120M240 30v120"/></g>
+<rect x="90" y="60" width="30" height="30" fill="#818cf8" opacity=".15"/><rect x="180" y="90" width="30" height="30" fill="#818cf8" opacity=".25"/>
+<rect x="120" y="90" width="30" height="30" rx="3" fill="#818cf8" fill-opacity=".35" stroke="#c7d2fe" stroke-width="2"/>
+<path d="m126 105 6 6 12-13" fill="none" stroke="#c7d2fe" stroke-width="2"/>
+</svg>
+          <p>A <strong>contextual Thompson-sampling</strong> policy explores candidate grid cells. Features describe proximity to annotated objects, texture variation, and image borders.</p>
+        </li>
+        <li>
+          <span class="pb-step-number" aria-hidden="true">2</span>
+          <h3>Improve the pattern</h3>
+          <svg class="pb-step-art" viewBox="0 0 300 180" role="img" aria-label="Schematic texture update: several pixel perturbations are scored, then used to improve the patch.">
+<rect x="1" y="1" width="298" height="178" rx="10" fill="#0b1424" stroke="#334155"/>
+<rect x="22" y="60" width="58" height="58" rx="4" fill="url(#pb-pixels)" stroke="#c7d2fe"/>
+<path d="M87 89h18m-5-5 5 5-5 5M174 89h23m-5-5 5 5-5 5" fill="none" stroke="#94a3b8" stroke-width="2"/>
+<g stroke="#818cf8"><rect x="114" y="29" width="45" height="45" rx="3" fill="url(#pb-pixels)"/><rect x="121" y="67" width="45" height="45" rx="3" fill="url(#pb-pixels)"/><rect x="128" y="105" width="45" height="45" rx="3" fill="url(#pb-pixels)"/></g>
+<path d="M114 29h15v15h-15zM143 67h23v12h-23zM128 129h20v21h-20z" fill="#67e8f9"/>
+<rect x="209" y="60" width="65" height="65" rx="4" fill="url(#pb-pixels)" stroke="#4ade80" stroke-width="2"/><path d="M209 60h32v16h-32zM241 108h33v17h-33z" fill="#2dd4bf"/>
+</svg>
+          <p><strong>Natural Evolution Strategies</strong> tests pixel perturbations and uses the resulting confidence changes to update the patch, without backpropagating through the detector.</p>
+        </li>
+        <li>
+          <span class="pb-step-number" aria-hidden="true">3</span>
+          <h3>Grow only if stalled</h3>
+          <svg class="pb-step-art" viewBox="0 0 300 180" role="img" aria-label="Schematic size ladder: the patch starts small and expands only after optimization stalls.">
+<rect x="1" y="1" width="298" height="178" rx="10" fill="#0b1424" stroke="#334155"/>
+<path d="M25 145h250" stroke="#475569" stroke-dasharray="4 4"/>
+<rect x="29" y="110" width="34" height="34" rx="3" fill="url(#pb-pixels)" stroke="#c7d2fe"/>
+<rect x="109" y="84" width="60" height="60" rx="3" fill="url(#pb-pixels)" stroke="#c7d2fe"/>
+<rect x="175" y="44" width="100" height="100" rx="3" fill="none" stroke="#475569" stroke-dasharray="5 5"/>
+<rect x="195" y="64" width="80" height="80" rx="3" fill="url(#pb-pixels)" stroke="#fbbf24" stroke-width="2"/>
+<path d="M69 125h30m-6-5 6 5-6 5M175 112h14m-6-5 6 5-6 5" fill="none" stroke="#a5b4fc" stroke-width="2"/>
+<path d="M30 43h43l12-12 12 4h45l12-12h31" stroke="#fbbf24" stroke-width="2" fill="none"/>
+<circle cx="170" cy="23" r="4" fill="#fbbf24"/>
+</svg>
+          <p>If the reward stops improving for a set number of iterations, the patch moves to the next size and the placement grid is rebuilt. Otherwise, its footprint stays small.</p>
+        </li>
+      </ol>
+      <div class="pb-loop-note"><strong>Repeat with feedback:</strong> update the placement policy from observed rewards, then search again. Stop at strict success or the query cap.</div>
+      <figcaption id="pb-flow-caption">Conceptual flow of the method in Section 3 and Algorithm 1. The digital attack optimizes each image separately; it does not assume access to detector parameters.</figcaption>
+    </figure>
+  </div>
+  <div class="pb-body pb-divider">
+    <h3>What counts as success?</h3>
+    <p>The target is the <strong>highest-confidence class in the clean image</strong>. On the patched, untransformed image, both conditions must hold:</p>
+    <div class="pb-rule" aria-label="Both success conditions must hold">
+      <span>Confidence drop ≥ 0.25</span>
+      <strong>and</strong>
+      <span>Remaining confidence ≤ 0.10</span>
+    </div>
+    <p class="pb-note">Confidence is the maximum score for that class across detected boxes, or zero if the class is absent. Suppressing that class does not mean every object disappears. Expectation over Transformation (EOT) tests transformed views separately; an EOT average is not a replacement for this plain-image test.</p>
+  </div>
+</section>

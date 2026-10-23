@@ -1,0 +1,33 @@
+<section class="not-prose pb-section pb-examples" aria-labelledby="pb-examples-title">
+  <header class="pb-header"><h2 id="pb-examples-title">Same object. Different prediction.</h2><p>A localized pattern changes the detector’s output while the object remains in view.</p></header>
+  <div class="pb-body"><figure aria-labelledby="pb-examples-caption"><div class="pb-example-grid"><div class="pb-example-group"><div class="pb-example-heading"><h3>Physical example</h3><span class="pb-chip">160 px patch</span></div><div class="pb-scene-pair"><div class="pb-scene-card pb-clean">
+          <div class="pb-scene-heading"><span>Clean view</span><span class="pb-status-dot" aria-hidden="true"></span></div>
+          <svg class="pb-scene" viewBox="0 0 360 220" role="img" aria-label="Schematic bike scene without a patch; reported prediction: Bicycle · 0.95">
+            <use href="#pb-bike-scene"/>
+            <rect x="48" y="43" width="268" height="148" rx="6" fill="none" stroke="#4ade80" stroke-width="2" stroke-dasharray="none"/>
+          </svg>
+          <div class="pb-prediction"><span>Top prediction</span><strong>Bicycle · 0.95</strong></div>
+        </div><div class="pb-scene-card pb-attack">
+          <div class="pb-scene-heading"><span>With patch</span><span class="pb-status-dot" aria-hidden="true"></span></div>
+          <svg class="pb-scene" viewBox="0 0 360 220" role="img" aria-label="Schematic bike scene with an illustrative patch; reported prediction: Motorbike · 0.36">
+            <use href="#pb-bike-scene"/><rect x="157" y="94" width="44" height="44" rx="2" fill="url(#pb-pixels)" stroke="#fbbf24" stroke-width="2"/>
+            <rect x="48" y="43" width="268" height="148" rx="6" fill="none" stroke="#fb7185" stroke-width="2" stroke-dasharray="7 5"/>
+          </svg>
+          <div class="pb-prediction"><span>Top prediction</span><strong>Motorbike · 0.36</strong></div>
+        </div></div></div><div class="pb-example-group"><div class="pb-example-heading"><h3>Digital example</h3><span class="pb-chip">60 px patch</span></div><div class="pb-scene-pair"><div class="pb-scene-card pb-clean">
+          <div class="pb-scene-heading"><span>Clean view</span><span class="pb-status-dot" aria-hidden="true"></span></div>
+          <svg class="pb-scene" viewBox="0 0 360 220" role="img" aria-label="Schematic boat scene without a patch; reported prediction: Boat · 0.91">
+            <use href="#pb-boat-scene"/>
+            <rect x="67" y="30" width="241" height="152" rx="6" fill="none" stroke="#4ade80" stroke-width="2" stroke-dasharray="none"/>
+          </svg>
+          <div class="pb-prediction"><span>Top prediction</span><strong>Boat · 0.91</strong></div>
+        </div><div class="pb-scene-card pb-attack">
+          <div class="pb-scene-heading"><span>With patch</span><span class="pb-status-dot" aria-hidden="true"></span></div>
+          <svg class="pb-scene" viewBox="0 0 360 220" role="img" aria-label="Schematic boat scene with an illustrative patch; reported prediction: Cat · 0.92">
+            <use href="#pb-boat-scene"/><rect x="205" y="111" width="28" height="28" rx="2" fill="url(#pb-pixels)" stroke="#fbbf24" stroke-width="2"/>
+            <rect x="67" y="30" width="241" height="152" rx="6" fill="none" stroke="#fb7185" stroke-width="2" stroke-dasharray="7 5"/>
+          </svg>
+          <div class="pb-prediction"><span>Top prediction</span><strong>Cat · 0.92</strong></div>
+        </div></div></div></div>
+  <figcaption id="pb-examples-caption">Original schematic drawings of the examples reported in Figure 1. Labels, confidence scores, and nominal patch sizes are from the paper; scene geometry, boxes, and patch patterns are illustrative and not to scale. These top-label changes do not by themselves establish strict suppression.</figcaption></figure></div>
+</section>
