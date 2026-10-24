@@ -134,6 +134,9 @@ in a topic includes the paper. Selecting All resets the topic filter. A visible
 order. The controls are enabled by
 `assets/js/publication-filters.js`, styled by `assets/css/publication-filters.css`;
 without JavaScript, all papers remain visible and filter controls stay hidden.
+On screens below 640px, All and the first three topics are shown initially;
+More topics/Fewer topics toggles the remaining buttons. A selected topic always
+stays visible when collapsed. Desktop shows all topics without a toggle.
 It reuses `layouts/_partials/views/publication-list.html` for each entry; the collection
 view's start/end fragments remain available for flat lists elsewhere. Per-item rendering:
 
@@ -141,6 +144,7 @@ view's start/end fragments remain available for flat lists elsewhere. Per-item r
 - **Year** in parens after authors (from `event_start` or `date`)
 - **Title** linked to the publication's detail page
 - **Venue** rendered from `publication` (or `publication_short` fallback) via `markdownify` so the `*...*` markdown italics produce `<em>`
+- **Award** gold badge beneath the venue for each `links` entry with `type: award` and a URL; uses its `label` and links to the award source. The same metadata already enables the award link on the detail page.
 - **PDF** button if `links` has `type: pdf` or a sibling `<basename>.pdf` exists
 - **Cite** button if a sibling `cite.bib` exists
 

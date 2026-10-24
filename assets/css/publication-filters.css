@@ -38,3 +38,21 @@
 .pub-empty { padding-block: 1rem 2rem; color: var(--pub-filter-muted); }
 
 .pub-filter-status { margin-top: 1rem; color: var(--pub-filter-muted); font-size: .875rem; }
+
+.pub-topics-toggle { display: none; }
+@media (max-width: 639px) {
+  .pub-topic-buttons[data-expanded="false"] .pub-topic-extra:not([aria-pressed="true"]) {
+    display: none;
+  }
+  .pub-topics-toggle {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+    padding: .5rem .25rem;
+    color: var(--pub-filter-muted);
+    font-size: .875rem;
+    text-decoration: underline;
+    text-underline-offset: .2em;
+    cursor: pointer;
+  }
+}
