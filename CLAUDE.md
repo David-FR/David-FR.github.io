@@ -69,10 +69,9 @@ Key fields under schema `hugoblox/author/v1`:
 
 ## Homepage (`content/_index.md`)
 
-Two sections:
+The **`resume-biography-3`** block renders the "About Me" header, name, role, bio, education cards, and interests. The heading text is overridden via `headings.about: 'About Me'`.
 
-1. **`resume-biography-3`** block — renders the "About Me" header, name, role, bio, education cards, and interests. The heading text is overridden via `headings.about: 'About Me'`.
-2. **`collection`** block (`id: papers`, `view: publication-list`) — the custom publications list, sorted newest-first.
+The publications list lives on its own page, configured in `content/publications/_index.md`.
 
 ## Publications
 
@@ -116,7 +115,27 @@ Publication actions use PDF → Slides → Code → DOI → Cite order, omitting
 
 ## Custom publication list view
 
-Located at `layouts/_partials/views/publication-list{,-start,-end}.html`. Per-item rendering:
+The publications page uses `layouts/_partials/hbx/blocks/publications-filtered/block.html`
+to render one continuous list across all years. `publication_order` in each paper's
+frontmatter sets the editorial venue priority (lower numbers first; use increments
+of 10 to leave room for additions). Papers at the same priority are newest-first;
+papers without a priority follow ranked papers. The current venue order is DSN,
+IEEE IV, ICIP, CVPR Workshops, VehicleSec, AdvML@CVPR, SAE WCX, SACAIR, then arXiv.
+The list includes topic buttons for LLMs & Generative AI, VLMs & Multimodal AI,
+Agentic AI, AI Security & Robustness, Model Evaluation, Explainable AI,
+Efficient & Edge AI, Computer Vision, and Autonomous Driving.
+Model Evaluation covers papers contributing comparative model studies, benchmarks,
+or evaluation metrics. Efficient & Edge AI includes model-size/quality tradeoffs
+and on-device inference. Topic membership should be supported by each paper,
+not inferred from the author's broader work experience.
+`data/publication_topics.yaml` maps each topic to publication tags. Matching any tag
+in a topic includes the paper. Selecting All resets the topic filter. A visible
+"Showing X of Y papers" count updates with the selection without changing paper
+order. The controls are enabled by
+`assets/js/publication-filters.js`, styled by `assets/css/publication-filters.css`;
+without JavaScript, all papers remain visible and filter controls stay hidden.
+It reuses `layouts/_partials/views/publication-list.html` for each entry; the collection
+view's start/end fragments remain available for flat lists elsewhere. Per-item rendering:
 
 - **Authors** comma-separated; the slug `me` (or any author with `is_owner: true` in their data file) is bolded
 - **Year** in parens after authors (from `event_start` or `date`)
@@ -125,7 +144,7 @@ Located at `layouts/_partials/views/publication-list{,-start,-end}.html`. Per-it
 - **PDF** button if `links` has `type: pdf` or a sibling `<basename>.pdf` exists
 - **Cite** button if a sibling `cite.bib` exists
 
-**Cite button behavior** (custom JS in `publication-list--end.html`): on click, builds a `text/plain` Blob from the embedded bib content, opens it in a new tab (so server MIME on GitHub Pages doesn't matter), and triggers a `.bib` download. The bib text is embedded as a `data-cite-text` attribute at build time — no fetch, no popup-blocker issues.
+**Cite button behavior** (shared JS in `layouts/_partials/components/publication-cite-script.html`): on click, builds a `text/plain` Blob from the embedded bib content, opens it in a new tab (so server MIME on GitHub Pages doesn't matter), and triggers a `.bib` download. The bib text is embedded as a `data-cite-text` attribute at build time — no fetch, no popup-blocker issues.
 
 **To enable Cite for a publication**: drop a `cite.bib` next to its `index.md`. Hugo Blox auto-detects the filename; no frontmatter change required.
 

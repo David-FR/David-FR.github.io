@@ -1,0 +1,33 @@
+- label: LLMs & Generative AI
+  tags:
+    - Large Language Models
+    - Small Language Models
+- label: VLMs & Multimodal AI
+  tags:
+    - Vision Language Models
+- label: Agentic AI
+  tags:
+    - Agentic AI
+- label: AI Security & Robustness
+  tags:
+    - Adversarial Attacks
+    - AI Security
+- label: Model Evaluation
+  tags:
+    - Model Evaluation
+- label: Explainable AI
+  tags:
+    - Explainable AI
+- label: Efficient & Edge AI
+  tags:
+    - Edge AI
+    - Efficient AI
+- label: Computer Vision
+  tags:
+    - Computer Vision
+    - Object Detection
+    - Vision Language Models
+- label: Autonomous Driving
+  tags:
+    - Autonomous Vehicles
+    - Traffic Sign Recognition

@@ -11,6 +11,7 @@ authors:
   - Mert D. Pesé
 
 date: '2026-06-22T00:00:00Z'
+publication_order: 20
 publishDate: '2026-06-22T00:00:00Z'
 
 publication_types: ['paper-conference']
@@ -21,6 +22,7 @@ publication_short: '*IEEE IV 2026*'
 abstract: 'Vision-language models are emerging for autonomous driving, yet their robustness to physical adversarial attacks remains unexplored. This paper presents a systematic framework for comparative adversarial evaluation across three VLM architectures: Dolphins, OmniDrive (Omni-L), and LeapVAD. Using black-box optimization with semantic homogenization for fair comparison, we evaluate physically realizable patch attacks in CARLA simulation. Results reveal severe vulnerabilities across all architectures, sustained multi-frame failures, and critical object detection degradation. Our analysis exposes distinct architectural vulnerability patterns, demonstrating that current VLM designs inadequately address adversarial threats in safety-critical autonomous driving applications.'
 
 tags:
+  - Model Evaluation
   - Adversarial Attacks
   - Vision Language Models
   - Autonomous Vehicles

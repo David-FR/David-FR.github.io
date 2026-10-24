@@ -9,6 +9,7 @@ authors:
   - Mert D. Pese
 
 date: '2025-06-01T00:00:00Z'
+publication_order: 60
 publishDate: '2025-06-01T00:00:00Z'
 
 publication_types: ['paper-conference']

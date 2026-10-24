@@ -1,0 +1,33 @@
+{{ $page := .wcPage }}
+{{ $title := .wcBlock.content.title | default $page.Title }}
+
+<div class="flex flex-col items-center max-w-prose mx-auto px-6">
+  <h1 class="mb-6 text-3xl font-bold text-gray-900 dark:text-white">{{ $title }}</h1>
+</div>
+
+<div class="flex flex-col items-center px-6">
+  <div class="pub-browser mt-12 sm:mt-16 mx-auto max-w-5xl w-full px-6" data-publication-browser>
+    <div class="pub-filters" hidden>
+      <div class="pub-filter-bar">
+        <div class="pub-topic-buttons" role="group" aria-label="Filter publications by topic">
+          <button type="button" class="pub-topic-button" data-topic-tags="[]" aria-pressed="true">All</button>
+          {{ range hugo.Data.publication_topics }}
+            <button type="button" class="pub-topic-button" data-topic-tags="{{ .tags | jsonify }}" aria-pressed="false">{{ .label }}</button>
+          {{ end }}
+        </div>
+      </div>
+      <p class="pub-filter-status" role="status" aria-live="polite" aria-atomic="true"></p>
+    </div>
+    <p class="pub-empty" hidden>No papers match this topic. Select All to see every paper.</p>
+    <ol class="pub-results flex flex-col space-y-8 list-none p-0">
+      {{/* Venue priority across all years; newest first within a priority. */}}
+      {{ range ($page.RegularPages.ByDate.Reverse).ByParam "publication_order" }}
+        {{ partial "views/publication-list.html" (dict "item" .) }}
+      {{ end }}
+    </ol>
+  </div>
+</div>
+
+{{ partial "components/publication-cite-script.html" . }}
+{{ $script := resources.Get "js/publication-filters.js" | minify | fingerprint }}
+<script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}" crossorigin="anonymous" defer></script>

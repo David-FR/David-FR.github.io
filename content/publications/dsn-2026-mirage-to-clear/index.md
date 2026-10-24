@@ -11,6 +11,7 @@ authors:
   - Mert D. Pese
 
 date: '2026-06-22T00:00:00Z'
+publication_order: 10
 publishDate: '2026-06-22T00:00:00Z'
 
 publication_types: ['paper-conference']

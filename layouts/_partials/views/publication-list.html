@@ -77,7 +77,7 @@
   {{ $bib_text = delimit $lines "\n" }}
 {{ end }}
 
-<li class="pub-list-item">
+<li class="pub-list-item" data-topics="{{ ($item.Params.tags | default slice) | jsonify }}">
   <div class="pub-authors text-base text-gray-600 dark:text-gray-400">
     {{- $authors := $item.Params.authors -}}
     {{- if $authors -}}
