@@ -3,6 +3,24 @@
 
 {{ $built := partial "functions/build_links" (dict "page" $page "is_list" $is_list) }}
 
+{{/* Keep publication actions consistent regardless of frontmatter link order. */}}
+{{ if eq $page.Section "publications" }}
+  {{ $primary_types := slice "pdf" "slides" "code" "doi" }}
+  {{ $ordered := slice }}
+  {{ range $type := $primary_types }}
+    {{ range $built }}
+      {{ if eq .type $type }}{{ $ordered = $ordered | append . }}{{ end }}
+    {{ end }}
+    {{ if eq $type "slides" }}
+      {{ $ordered = $ordered | append (dict "type" "local-presentations") }}
+    {{ end }}
+  {{ end }}
+  {{ range $built }}
+    {{ if not (in $primary_types .type) }}{{ $ordered = $ordered | append . }}{{ end }}
+  {{ end }}
+  {{ $built = $ordered }}
+{{ end }}
+
 {{ $ctx := cond $is_list "list" "page" }}
 
 {{/* Build BibTeX from frontmatter for Cite button */}}
@@ -53,7 +71,9 @@
 {{ $seen_types := slice }}
 <div class="flex flex-wrap gap-2 mt-1">
 {{ range $built }}
-  {{ if in .contexts $ctx }}
+  {{ if eq .type "local-presentations" }}
+    {{ partial "components/presentation-links.html" (dict "page" $page "is_list" $is_list "exclude_urls" $seen_urls) }}
+  {{ else if in .contexts $ctx }}
     {{ $url := .url | default "" }}
     {{ $scheme := (urls.Parse $url).Scheme }}
     {{ $target := "" }}

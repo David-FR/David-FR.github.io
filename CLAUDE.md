@@ -103,6 +103,17 @@ links:
 
 **Hosting policy**: SAE papers are paywalled — must be hosted. arXiv, USENIX, CVF, OpenReview — link directly, no need to host.
 
+### Presentation slides
+
+Publication folders use `content/publications/<venue-year-short-title>/`; an explicit
+`slug` in each `index.md` preserves the existing public URL when a folder is renamed.
+Drop slide PDFs into the paper's `presentations/` folder (e.g. `presentations/icip-2026.pdf`).
+The shared `layouts/_partials/components/presentation-links.html` partial automatically
+adds Slides buttons to both the publication list and paper page. No frontmatter edit is needed.
+PDFs open in a new tab; `.ppt` and `.pptx` files download with their format in the button label.
+Multiple files get filename-based labels. Missing or empty folders produce no buttons.
+Publication actions use PDF → Slides → Code → DOI → Cite order, omitting unavailable links.
+
 ## Custom publication list view
 
 Located at `layouts/_partials/views/publication-list{,-start,-end}.html`. Per-item rendering:
