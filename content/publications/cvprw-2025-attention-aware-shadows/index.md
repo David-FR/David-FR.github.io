@@ -1,4 +1,5 @@
 ---
+slug: 'attention-aware-shadows'
 title: 'Attention-Aware Temporal Adversarial Shadows on Traffic Sign Sequences'
 
 authors:

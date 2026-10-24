@@ -1,4 +1,5 @@
 ---
+slug: 'david-vs-goliath'
 title: 'David vs. Goliath: A Comparative Study of Different-Sized LLMs for Code Generation in the Domain of Automotive Scenario Generation'
 
 authors:

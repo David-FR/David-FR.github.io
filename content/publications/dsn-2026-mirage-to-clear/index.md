@@ -1,4 +1,5 @@
 ---
+slug: 'mirage-to-clear'
 title: 'From MIRAGE to CLEAR: Component-Level Explainable Anomaly Reasoning for Autonomous Vehicle Perception Systems'
 
 authors:

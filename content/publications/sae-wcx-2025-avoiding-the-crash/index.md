@@ -1,4 +1,5 @@
 ---
+slug: 'avoiding-the-crash'
 title: 'Avoiding the Crash: A Vision-Language Model Evaluation of Critical Traffic Scenarios'
 
 authors:

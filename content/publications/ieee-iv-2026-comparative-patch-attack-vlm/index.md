@@ -1,4 +1,5 @@
 ---
+slug: 'comparative-patch-attack-vlm'
 title: 'Comparative Analysis of Patch Attack on VLM-Based Autonomous Driving Architectures'
 
 authors:

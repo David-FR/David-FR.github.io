@@ -1,4 +1,5 @@
 ---
+slug: 'budget-aware-adaptive-adversarial-patches'
 title: 'Budget-Aware Adaptive Adversarial Patches for Black-Box Object Detection'
 
 authors:

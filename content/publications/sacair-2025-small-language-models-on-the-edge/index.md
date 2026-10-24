@@ -1,4 +1,5 @@
 ---
+slug: 'sacair-2025'
 title: 'Small Language Models on the Edge for Real-World Agentic Systems in Industry'
 
 authors:

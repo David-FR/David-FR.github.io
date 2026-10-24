@@ -1,4 +1,5 @@
 ---
+slug: 'vehiclesec-2025'
 title: 'WIP: From Detection to Explanation: Using LLMs for Adversarial Scenario Analysis in Vehicles'
 
 authors:

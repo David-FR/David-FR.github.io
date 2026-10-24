@@ -1,4 +1,5 @@
 ---
+slug: 'adversarial-transferability-vlm'
 title: 'Understanding Adversarial Transferability in Vision-Language Models for Autonomous Driving: A Cross-Architecture Analysis'
 
 authors:

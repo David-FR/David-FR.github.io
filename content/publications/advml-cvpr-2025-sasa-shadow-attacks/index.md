@@ -1,4 +1,5 @@
 ---
+slug: 'sasa-shadow-attacks'
 title: 'SASA: Sequence-Aware Shadow Attacks via Attention Alignment for Traffic Sign Recognition'
 
 authors:
