@@ -106,6 +106,10 @@
     </a>
   </div>
 
+  {{ with $item.Params.list_summary }}
+    <p class="pub-summary mt-2 text-base text-gray-600 dark:text-gray-400">{{ . }}</p>
+  {{ end }}
+
   {{ with ($item.Params.publication | default $item.Params.publication_short) }}
     <div class="pub-venue text-base text-gray-700 dark:text-gray-300 italic mt-1">
       {{ . | markdownify }}

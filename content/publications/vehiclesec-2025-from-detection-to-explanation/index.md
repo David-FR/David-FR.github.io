@@ -1,6 +1,7 @@
 ---
 slug: 'vehiclesec-2025'
 title: 'WIP: From Detection to Explanation: Using LLMs for Adversarial Scenario Analysis in Vehicles'
+list_summary: 'Tests whether language models can distinguish perception errors from attacks and explain driving anomalies using traffic rules.'
 
 authors:
   - me

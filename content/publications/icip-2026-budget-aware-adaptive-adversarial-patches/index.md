@@ -1,6 +1,7 @@
 ---
 slug: 'budget-aware-adaptive-adversarial-patches'
 title: 'Budget-Aware Adaptive Adversarial Patches for Black-Box Object Detection'
+list_summary: 'Optimizes adversarial patches under limited queries to expose object-detector vulnerabilities without access to model internals.'
 
 authors:
   - Pedram MohajerAnsari

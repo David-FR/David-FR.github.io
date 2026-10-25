@@ -1,6 +1,7 @@
 ---
 slug: 'sasa-shadow-attacks'
 title: 'SASA: Sequence-Aware Shadow Attacks via Attention Alignment for Traffic Sign Recognition'
+list_summary: 'Creates realistic shadow attacks that fool traffic sign recognition across video frames without querying the target model.'
 
 authors:
   - Amir Salarpour

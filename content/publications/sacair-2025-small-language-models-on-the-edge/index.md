@@ -1,6 +1,7 @@
 ---
 slug: 'sacair-2025'
 title: 'Small Language Models on the Edge for Real-World Agentic Systems in Industry'
+list_summary: 'Combines small language models with agent workflows to run enterprise tasks locally, reducing latency and dependence on cloud services.'
 
 authors:
   - Edward B. Duffy

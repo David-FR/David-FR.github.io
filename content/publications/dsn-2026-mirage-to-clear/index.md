@@ -1,6 +1,7 @@
 ---
 slug: 'mirage-to-clear'
 title: 'From MIRAGE to CLEAR: Component-Level Explainable Anomaly Reasoning for Autonomous Vehicle Perception Systems'
+list_summary: 'Uses language models to identify which vehicle perception components failed and explain the failures using traffic rules.'
 
 authors:
   - me

@@ -1,6 +1,7 @@
 ---
 slug: 'avoiding-the-crash'
 title: 'Avoiding the Crash: A Vision-Language Model Evaluation of Critical Traffic Scenarios'
+list_summary: 'Evaluates vision-language models on real crash videos to measure whether their driving decisions could help prevent collisions.'
 
 authors:
   - me

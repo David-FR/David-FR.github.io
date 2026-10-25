@@ -1,6 +1,7 @@
 ---
 slug: 'adversarial-transferability-vlm'
 title: 'Understanding Adversarial Transferability in Vision-Language Models for Autonomous Driving: A Cross-Architecture Analysis'
+list_summary: 'Measures how attacks transfer between vision-language driving systems, revealing security risks when the target model is unknown.'
 
 authors:
   - me

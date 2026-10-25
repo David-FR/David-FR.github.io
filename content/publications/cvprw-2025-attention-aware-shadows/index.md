@@ -1,6 +1,7 @@
 ---
 slug: 'attention-aware-shadows'
 title: 'Attention-Aware Temporal Adversarial Shadows on Traffic Sign Sequences'
+list_summary: 'Uses model attention to optimize realistic shadow attacks across video frames, exposing weaknesses in traffic sign recognition.'
 
 authors:
   - Pedram MohajerAnsari

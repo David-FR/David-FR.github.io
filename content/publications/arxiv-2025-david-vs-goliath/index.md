@@ -1,6 +1,7 @@
 ---
 slug: 'david-vs-goliath'
 title: 'David vs. Goliath: A Comparative Study of Different-Sized LLMs for Code Generation in the Domain of Automotive Scenario Generation'
+list_summary: 'Benchmarks language models for generating driving simulations, showing how retrieved examples improve smaller models and comparing quality across model sizes.'
 
 authors:
   - Philipp Bauerfeind

@@ -143,6 +143,7 @@ view's start/end fragments remain available for flat lists elsewhere. Per-item r
 - **Authors** comma-separated; the slug `me` (or any author with `is_owner: true` in their data file) is bolded
 - **Year** in parens after authors (from `event_start` or `date`)
 - **Title** linked to the publication's detail page
+- **Summary** optional `list_summary` frontmatter: one plain-language sentence beneath the title, describing the contribution for recruiters. Keep it grounded in the paper; it wraps naturally on small screens and does not replace the abstract or detail-page pull quote.
 - **Venue** rendered from `publication` (or `publication_short` fallback) via `markdownify` so the `*...*` markdown italics produce `<em>`
 - **Award** gold badge beneath the venue for each `links` entry with `type: award` and a URL; uses its `label` and links to the award source. The same metadata already enables the award link on the detail page.
 - **PDF** button if `links` has `type: pdf` or a sibling `<basename>.pdf` exists

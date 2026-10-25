@@ -1,6 +1,7 @@
 ---
 slug: 'comparative-patch-attack-vlm'
 title: 'Comparative Analysis of Patch Attack on VLM-Based Autonomous Driving Architectures'
+list_summary: 'Benchmarks vision-language driving systems against physical patch attacks, revealing how their security weaknesses differ.'
 
 authors:
   - me
