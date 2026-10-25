@@ -9,15 +9,12 @@
   <div class="pub-browser mt-12 sm:mt-16 mx-auto max-w-5xl w-full px-6" data-publication-browser>
     <div class="pub-filters" hidden>
       <div class="pub-filter-bar">
-        <div id="publication-topics" class="pub-topic-buttons" role="group" aria-label="Filter publications by topic" data-expanded="false">
+        <div class="pub-topic-buttons" role="group" aria-label="Filter publications by topic">
           <button type="button" class="pub-topic-button" data-topic-tags="[]" aria-pressed="true">All</button>
-          {{ range $index, $topic := hugo.Data.publication_topics }}
-            <button type="button" class="pub-topic-button{{ if ge $index 3 }} pub-topic-extra{{ end }}" data-topic-tags="{{ $topic.tags | jsonify }}" aria-pressed="false">{{ $topic.label }}</button>
+          {{ range hugo.Data.publication_topics }}
+            <button type="button" class="pub-topic-button" data-topic-tags="{{ .tags | jsonify }}" aria-pressed="false">{{ .label }}</button>
           {{ end }}
         </div>
-        {{ if gt (len hugo.Data.publication_topics) 3 }}
-          <button type="button" class="pub-topics-toggle" aria-expanded="false" aria-controls="publication-topics">More topics</button>
-        {{ end }}
       </div>
       <p class="pub-filter-status" role="status" aria-live="polite" aria-atomic="true"></p>
     </div>

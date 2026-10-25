@@ -134,9 +134,9 @@ in a topic includes the paper. Selecting All resets the topic filter. A visible
 order. The controls are enabled by
 `assets/js/publication-filters.js`, styled by `assets/css/publication-filters.css`;
 without JavaScript, all papers remain visible and filter controls stay hidden.
-On screens below 640px, All and the first three topics are shown initially;
-More topics/Fewer topics toggles the remaining buttons. A selected topic always
-stays visible when collapsed. Desktop shows all topics without a toggle.
+All topic buttons are visible on both desktop and mobile, wrapping as needed.
+The topic buttons and result count are centered above a narrower, centered paper
+column. Publication text and action buttons remain left-aligned; summaries wrap naturally.
 It reuses `layouts/_partials/views/publication-list.html` for each entry; the collection
 view's start/end fragments remain available for flat lists elsewhere. Per-item rendering:
 

@@ -2,8 +2,6 @@
   document.querySelectorAll('[data-publication-browser]').forEach(browser => {
     const controls = browser.querySelector('.pub-filters');
     const buttons = Array.from(controls.querySelectorAll('.pub-topic-button'));
-    const topicGroup = controls.querySelector('.pub-topic-buttons');
-    const toggle = controls.querySelector('.pub-topics-toggle');
     const status = controls.querySelector('.pub-filter-status');
     const empty = browser.querySelector('.pub-empty');
     let selectedTags = [];
@@ -31,14 +29,6 @@
         applyFilters();
       });
     });
-    if (toggle) {
-      toggle.addEventListener('click', () => {
-        const expanded = toggle.getAttribute('aria-expanded') !== 'true';
-        toggle.setAttribute('aria-expanded', String(expanded));
-        topicGroup.dataset.expanded = String(expanded);
-        toggle.textContent = expanded ? 'Fewer topics' : 'More topics';
-      });
-    }
     applyFilters();
     controls.hidden = false;
   });
