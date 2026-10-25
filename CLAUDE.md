@@ -71,6 +71,18 @@ Key fields under schema `hugoblox/author/v1`:
 
 The **`resume-biography-3`** block renders the "About Me" header, name, role, bio, education cards, and interests. The heading text is overridden via `headings.about: 'About Me'`.
 
+The **`selected-research`** block follows the biography with three publication cards.
+Its `content.papers` entries in `content/_index.md` set the publication page path,
+research area, accent, short summary, and optional `affiliation` (name, context, logo). Titles,
+venue labels, and links resolve from the publication pages. Cards appear in three
+columns on desktop and stack on mobile; styling lives in `assets/css/selected-research.css`.
+Affiliation footers align at the bottom of each card. Logos live under
+`assets/media/affiliations/`; TigerSec and VIPR-GS were supplied by the site owner.
+The BMW Group wordmark comes from `https://www.bmwgroup.com/etc.clientlibs/grpw-web/clientlibs/grpw-base/resources/images/logo/BMWGroup_light.svg`.
+Its dark-theme variant comes from `https://www.bmwgroup.com/etc.clientlibs/grpw-web/clientlibs/grpw-base/resources/images/logo/BMWGroup_dark.svg`.
+Affiliations can set `logo_dark` for a dark-theme asset and `backing: muted` for a
+subtle light backing when needed for legibility; other logo backgrounds are transparent.
+
 The publications list lives on its own page, configured in `content/publications/_index.md`.
 
 ## Publications

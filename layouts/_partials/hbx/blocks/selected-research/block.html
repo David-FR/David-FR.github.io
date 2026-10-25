@@ -1,0 +1,42 @@
+{{ $content := .wcBlock.content }}
+<div class="selected-research">
+  <h2 class="selected-research-heading">{{ $content.title | default "Research Highlights" }}</h2>
+  <div class="selected-research-grid">
+    {{ range $content.papers }}
+      {{ $entry := . }}
+      {{ with site.GetPage $entry.page }}
+        <article class="research-card" data-accent="{{ $entry.accent }}">
+          <p class="research-card-area">{{ $entry.area }}</p>
+          <h3 class="research-card-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          <p class="research-card-venue">{{ (.Params.publication_short | default .Params.publication) | markdownify }}</p>
+          <p class="research-card-summary">{{ $entry.summary }}</p>
+          {{ with $entry.affiliation }}
+            {{ $affiliation := . }}
+            <div class="research-card-affiliation">
+              <span class="research-affiliation-context">{{ .context }}</span>
+              {{ with resources.Get .logo }}
+                <div class="research-affiliation-logo" data-backing="{{ $affiliation.backing | default "none" }}" data-size="{{ $affiliation.logo_size | default "normal" }}">
+                  <img{{ if $affiliation.logo_dark }} class="research-logo-light"{{ end }} src="{{ .RelPermalink }}" alt="{{ $affiliation.name }}" width="112" height="48" loading="lazy" decoding="async">
+                  {{ with $affiliation.logo_dark }}
+                    {{ with resources.Get . }}
+                      <img class="research-logo-dark" src="{{ .RelPermalink }}" alt="{{ $affiliation.name }}" width="112" height="48" loading="lazy" decoding="async">
+                    {{ end }}
+                  {{ end }}
+                </div>
+              {{ else }}
+                {{ errorf "Selected Research: affiliation logo not found: %s" .logo }}
+              {{ end }}
+            </div>
+          {{ end }}
+        </article>
+      {{ else }}
+        {{ errorf "Selected Research: publication not found: %s" $entry.page }}
+      {{ end }}
+    {{ end }}
+  </div>
+  {{ with site.GetPage "/publications" }}
+    <div class="selected-research-footer">
+      <a href="{{ .RelPermalink }}">View all publications <span aria-hidden="true">→</span></a>
+    </div>
+  {{ end }}
+</div>
