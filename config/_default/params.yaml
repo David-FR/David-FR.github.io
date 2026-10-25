@@ -21,7 +21,7 @@ hugoblox:
     # Short tagline displayed on your site
     tagline: "PhD Candidate in Computer Science at Clemson University"
     # Site meta description for search engines and social sharing
-    description: "Personal academic website of David Fernandez, PhD candidate at Clemson University researching explainable AI, vision-language models, and AI security for autonomous systems."
+    description: "David Fernandez is a PhD candidate at Clemson University and AI Researcher at BMW Group, working on explainable AI, LLMs, VLMs, agentic systems, and AI security."
     # Social accounts (used for meta tags like Twitter Cards)
     social:
       twitter: ""
