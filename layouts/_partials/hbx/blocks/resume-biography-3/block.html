@@ -335,7 +335,8 @@
         </div>
         {{ end }}
 
-        {{/* CV Download Button */}}
+        {{/* Profile actions */}}
+        <div class="biography-actions flex flex-wrap items-center justify-center gap-3">
         {{ $button_raw := index $content "button" }}
         {{ if and $button_raw (reflect.IsMap $button_raw) }}
           {{ $button_text := "" }}
@@ -357,12 +358,29 @@
               {{ $target = "target=\"_blank\" rel=\"noopener\"" }}
             {{ end }}
             <a href="{{ $button_link | safeURL }}" {{ $target | safeHTMLAttr }}
-               class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-700 hover:to-secondary-700 text-white font-bold rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+               class="inline-flex items-center px-4 py-3 bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-700 hover:to-secondary-700 text-white font-bold rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-500">
               {{ partial "functions/get_icon" (dict "name" "document-arrow-down" "attributes" "class='w-5 h-5 mr-2'") }}
               {{ $button_text }}
             </a>
           {{ end }}
         {{ end }}
+        {{ with $content.contact_button }}
+          {{ $contact_label := . }}
+          {{ $contact_url := "" }}
+          {{ range $profile.links }}
+            {{ if and (not $contact_url) (hasPrefix .url "mailto:") }}
+              {{ $contact_url = .url }}
+            {{ end }}
+          {{ end }}
+          {{ with $contact_url }}
+            <a href="{{ . | safeURL }}"
+               class="inline-flex items-center px-4 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 font-bold rounded-xl transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-500">
+              {{ partial "functions/get_icon" (dict "name" "envelope" "attributes" "class='w-5 h-5 mr-2' aria-hidden='true'") }}
+              {{ $contact_label }}
+            </a>
+          {{ end }}
+        {{ end }}
+        </div>
       </div>
 
       {{/* Right Column: Flexible span */}}
