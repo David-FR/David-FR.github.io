@@ -22,6 +22,8 @@ sections:
         education: ''
         interests: ''
     design:
+      spacing:
+        padding: ['6rem', '0', '0', '0']
       background:
         gradient_mesh:
           enable: true
