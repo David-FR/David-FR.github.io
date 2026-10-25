@@ -31,8 +31,20 @@
   .paper-navigation a:hover { background: rgb(129 140 248 / .12); }
   .paper-navigation a:focus-visible { outline: 2px solid #818cf8; outline-offset: 2px; }
   .paper-section-anchor { scroll-margin-top: calc(var(--navbar-height, 5rem) + 6rem); }
+  /* Phones: drop the section links and the sticky panel, keep a plain back link. */
   @media (max-width: 48rem) {
-    .paper-section-anchor { scroll-margin-top: calc(var(--navbar-height, 5rem) + 11rem); }
+    .paper-navigation {
+      position: static;
+      padding: 0;
+      border: 0;
+      background: none;
+      box-shadow: none;
+    }
+    .dark .paper-navigation { background: none; }
+    .paper-navigation a { padding-left: 0; padding-right: 0; }
+    .paper-navigation a:hover { background: none; text-decoration: underline; }
+    .paper-navigation-sections { display: none; }
+    .paper-section-anchor { scroll-margin-top: calc(var(--navbar-height, 5rem) + 1rem); }
   }
 </style>
 <nav class="paper-navigation" aria-label="Paper sections">

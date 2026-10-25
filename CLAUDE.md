@@ -96,7 +96,8 @@ with `label` and `anchor`. The shared template provides `paper-overview` for key
 takeaways, `paper-abstract`, and `paper-details`; custom sections provide their own
 unique IDs with `paper-section-anchor` and `tabindex="-1"`. Link only to sections
 present on the page. The bar includes a Back to publications link and is rendered
-by `layouts/_partials/components/paper-navigation.html`.
+by `layouts/_partials/components/paper-navigation.html`. On phones (≤48rem) the
+section links and sticky panel are hidden, leaving a plain Back to publications link.
 
 Each publication is a folder under `content/publications/<slug>/` with an `index.md`. Minimum frontmatter:
 
