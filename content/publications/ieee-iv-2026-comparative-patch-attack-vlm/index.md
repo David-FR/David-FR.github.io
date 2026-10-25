@@ -29,6 +29,16 @@ tags:
   - Autonomous Vehicles
   - AI Security
 
+paper_navigation:
+  - label: Overview
+    anchor: paper-overview
+  - label: Method
+    anchor: paper-method
+  - label: Results
+    anchor: paper-results
+  - label: Findings
+    anchor: paper-impact
+
 featured: true
 
 pull_quote: 'All three VLM driving models fail against real, printable patches: 73 to 76% attack success, sustained for 6 to 8 frames in a row. Each one fails in its own way.'

@@ -140,8 +140,11 @@
       </div>
 
       {{/* KEY TAKEAWAYS & CONTRIBUTIONS BOX */}}
+      {{ if .Params.paper_navigation }}
+        {{ partial "components/paper-navigation.html" . }}
+      {{ end }}
       {{ if .Params.key_takeaways }}
-      <div class="w-full mt-8 mb-6">
+      <div class="w-full mt-8 mb-6{{ if .Params.paper_navigation }} paper-section-anchor{{ end }}"{{ if .Params.paper_navigation }} id="paper-overview" tabindex="-1"{{ end }}>
         <div class="relative overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:shadow-2xl border border-slate-200/20 dark:border-slate-800/30 bg-gradient-to-br from-indigo-500/5 to-purple-500/5 dark:from-indigo-500/10 dark:to-purple-500/10 backdrop-blur-md glass-shadow">
           <!-- Glassmorphic glow effects -->
           <div class="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-indigo-500/10 blur-3xl pointer-events-none"></div>
@@ -282,7 +285,7 @@
 
       {{/* EVENT / PUBLICATION METADATA */}}
       {{ if .Params.abstract | or (eq .Type "publications") | or (eq .Type "events") }}
-      <div class="w-full my-8">
+      <div class="w-full my-8{{ if .Params.paper_navigation }} paper-section-anchor{{ end }}"{{ if .Params.paper_navigation }} id="paper-abstract" tabindex="-1"{{ end }}>
         <div class="relative overflow-hidden rounded-2xl p-6 sm:p-8 border border-slate-200/20 dark:border-slate-800/30 bg-slate-50/30 dark:bg-slate-900/30 backdrop-blur-md glass-shadow">
           <!-- Dynamic glassmorphic background gradient -->
           <div class="absolute -right-24 -bottom-24 h-48 w-48 rounded-full bg-purple-500/5 blur-3xl pointer-events-none"></div>
@@ -307,7 +310,7 @@
           {{ if or $pub_type_display .Params.publication .Params.event_name .Params.location }}
           <div class="border-t border-slate-200/10 dark:border-slate-800/20 my-6"></div>
           
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4{{ if .Params.paper_navigation }} paper-section-anchor{{ end }}"{{ if .Params.paper_navigation }} id="paper-details" tabindex="-1"{{ end }}>
             
             {{/* Publication Type badge */}}
             {{ if $pub_type_display }}

@@ -28,6 +28,16 @@ tags:
   - Anomaly Detection
   - Large Language Models
 
+paper_navigation:
+  - label: Overview
+    anchor: paper-overview
+  - label: Method
+    anchor: paper-method
+  - label: Results
+    anchor: paper-results
+  - label: Findings
+    anchor: paper-impact
+
 featured: true
 
 pull_quote: 'When a self-driving car''s perception fails, today''s tools tell you that it failed, not which part. MIRAGE-CLEAR traces each failure to a specific module and cites the regulation it broke.'

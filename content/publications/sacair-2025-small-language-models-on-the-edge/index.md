@@ -28,6 +28,15 @@ tags:
   - Agentic AI
 
 featured: false
+paper_navigation:
+  - label: Overview
+    anchor: paper-overview
+  - label: Method
+    anchor: paper-method
+  - label: Results
+    anchor: paper-results
+  - label: Why it matters
+    anchor: paper-impact
 
 pull_quote: 'Small models on ordinary hardware, graded by two rival AI examiners that have to agree, reach advanced C1-level translation and answer 3 to 4 times faster than the cloud, without a byte of data leaving the device.'
 

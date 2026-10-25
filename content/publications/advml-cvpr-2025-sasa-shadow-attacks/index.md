@@ -26,6 +26,16 @@ tags:
   - Computer Vision
   - Traffic Sign Recognition
 
+paper_navigation:
+  - label: Overview
+    anchor: paper-overview
+  - label: Method
+    anchor: paper-method
+  - label: Results
+    anchor: paper-results
+  - label: Why it matters
+    anchor: paper-impact
+
 featured: false
 
 pull_quote: 'One physically plausible shadow, placed where a frozen vision transformer looks and held steady across all thirty frames, cuts traffic-sign accuracy by up to 86 points, without ever querying the model it fools.'

@@ -91,6 +91,13 @@ The publications list lives on its own page, configured in `content/publications
 
 ## Publications
 
+Paper pages use a sticky navigation bar configured by `paper_navigation` entries
+with `label` and `anchor`. The shared template provides `paper-overview` for key
+takeaways, `paper-abstract`, and `paper-details`; custom sections provide their own
+unique IDs with `paper-section-anchor` and `tabindex="-1"`. Link only to sections
+present on the page. The bar includes a Back to publications link and is rendered
+by `layouts/_partials/components/paper-navigation.html`.
+
 Each publication is a folder under `content/publications/<slug>/` with an `index.md`. Minimum frontmatter:
 
 ```yaml

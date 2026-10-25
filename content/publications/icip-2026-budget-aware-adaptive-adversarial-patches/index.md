@@ -25,6 +25,16 @@ tags:
   - AI Security
   - Black-Box Optimization
 
+paper_navigation:
+  - label: Overview
+    anchor: paper-overview
+  - label: Method
+    anchor: paper-method
+  - label: Results
+    anchor: paper-results
+  - label: Physical tests
+    anchor: paper-impact
+
 featured: false
 
 pull_quote: 'PatchBandit learns where to place a patch, how to change its pixels, and when to enlarge it, using only detector outputs. Its success depends on both the query budget and the space the patch occupies.'

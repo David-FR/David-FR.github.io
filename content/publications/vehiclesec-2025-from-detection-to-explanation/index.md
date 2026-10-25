@@ -29,6 +29,16 @@ tags:
   - Large Language Models
   - AI Security
 
+paper_navigation:
+  - label: Overview
+    anchor: paper-overview
+  - label: Method
+    anchor: paper-method
+  - label: Results
+    anchor: paper-results
+  - label: Findings
+    anchor: paper-impact
+
 featured: true
 
 pull_quote: 'Nine LLMs can all spot a rogue road sign. Only Gemini can tell you which regulation it breaks. Detecting the problem is the easy half; explaining it is where the models split.'

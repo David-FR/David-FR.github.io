@@ -27,6 +27,16 @@ tags:
   - Autonomous Vehicles
   - AI Security
 
+paper_navigation:
+  - label: Overview
+    anchor: paper-overview
+  - label: Threat model
+    anchor: paper-threat
+  - label: Method
+    anchor: paper-method
+  - label: Implications
+    anchor: paper-impact
+
 featured: true
 
 pull_quote: 'Adversarial patches transfer across VLM architectures at 73–91% success — an attacker needs no knowledge of which model the target vehicle runs.'

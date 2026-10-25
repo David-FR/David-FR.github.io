@@ -29,6 +29,12 @@ tags:
   - Code Generation
   - Autonomous Vehicles
 
+paper_navigation:
+  - label: Abstract
+    anchor: paper-abstract
+  - label: Publication details
+    anchor: paper-details
+
 featured: false
 
 links:
