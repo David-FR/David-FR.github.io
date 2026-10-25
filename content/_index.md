@@ -12,7 +12,7 @@ sections:
       headline:
         - text: PhD Candidate · Clemson University
         - text: AI Researcher · BMW Group
-        - text: Research Assistant · Supporting the U.S. Army’s Next Generation Combat Vehicle program
+        - text: Research Assistant · U.S. Army’s Next Generation Combat Vehicle program
       button:
         text: Download CV
         url: files/cv_davidfernandez.pdf
