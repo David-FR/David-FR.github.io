@@ -223,6 +223,13 @@
             <p class="text-lg text-gray-600 dark:text-gray-400">({{ . }})</p>
           {{ end }}
           
+          {{ with $content.headline }}
+            <div class="biography-headline space-y-2">
+              {{ range . }}
+                <p class="{{ if .secondary }}text-base leading-relaxed text-gray-600 dark:text-gray-400{{ else }}text-lg font-semibold text-primary-600 dark:text-primary-400{{ end }}">{{ .text }}</p>
+              {{ end }}
+            </div>
+          {{ else }}
           {{ $role_text := "" }}
           {{ with $profile.role }}
             {{ if eq (printf "%T" .) "string" }}
@@ -277,6 +284,7 @@
                 {{ end }}
               </p>
             {{ end }}
+          {{ end }}
           {{ end }}
         </div>
 

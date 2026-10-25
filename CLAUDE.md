@@ -72,6 +72,8 @@ Key fields under schema `hugoblox/author/v1`:
 The **`resume-biography-3`** block renders the "About Me" header, name, role, bio, education cards, and interests. The heading text is overridden via `headings.about: 'About Me'`.
 Its optional `content.contact_button` label enables a Contact button beside Download CV,
 using the first `mailto:` link in the author profile. The buttons wrap on narrow screens.
+An optional `content.headline` list replaces the displayed role and affiliation lines;
+each entry has `text` and can set `secondary: true` for supporting context.
 
 The **`selected-research`** block follows the biography with three publication cards.
 Its `content.papers` entries in `content/_index.md` set the publication page path,

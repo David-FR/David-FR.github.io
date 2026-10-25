@@ -9,28 +9,19 @@ role: PhD Candidate in Computer Science
 
 bio: |
   David Fernandez is a PhD candidate in Computer Science at Clemson
-  University, working on safe, efficient, and explainable AI for
-  safety-critical systems. His research spans perception, adversarial
-  robustness, and on-device deployment of large foundation models,
-  including LLMs and VLMs, with five first-authored publications on
-  component-level explainability, zero-shot reasoning, and adversarial
-  scenario analysis, alongside collaborative work on edge AI for
-  industrial agentic systems. Much of this research is grounded in
-  autonomous driving, where trustworthiness, latency, and robustness
-  constraints are unforgiving, but the underlying methods transfer
-  broadly to other high-stakes domains.
+  University and an AI Researcher at BMW Group. His research focuses on
+  safe, efficient, and explainable AI, spanning large language models,
+  vision-language models, agentic systems, and adversarial robustness.
+  His 10 papers include five first-authored studies on component-level
+  explainability, zero-shot reasoning, and adversarial scenario analysis.
 
-  As a member of Clemson's VIPR-GS Research Program, he develops
-  hierarchical LLM reasoning frameworks and VLM evaluation systems for the
-  U.S. Army's Next Generation Combat Vehicle (NGCV) program, focusing on
-  zero-shot reasoning and component-level explainability under real-world
-  deployment constraints.
+  At BMW Group, he develops enterprise AI agents, automated prompt
+  optimization, and defenses against multi-turn adversarial attacks.
+  His work also includes edge AI for industrial agentic systems.
 
-  At BMW Group, he designs agentic AI systems for enterprise environments,
-  building autonomous prompt optimization pipelines that enable continual
-  agent improvement without model retraining and context-aware moderation
-  frameworks that detect coordinated multi-turn adversarial attacks in
-  production deployments.
+  Through Clemson’s Virtual Prototyping of Ground Systems (VIPR-GS)
+  program, he develops explainable reasoning and multimodal evaluation
+  systems for the U.S. Army’s Next Generation Combat Vehicle program.
 
 affiliations:
   - name: Clemson University
