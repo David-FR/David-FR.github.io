@@ -48,7 +48,7 @@ Hugo Blox has migrated author profiles. The **old** location (`content/authors/<
 | Homepage sections | `content/_index.md` |
 | Publications | `content/publications/<slug>/index.md` |
 | Hosted PDFs | `static/files/publications/` |
-| CV PDF | `static/files/CV_DavidFernandez.pdf` |
+| CV PDF | `static/files/cv_davidfernandez.pdf` |
 | Custom publication list view | `layouts/_partials/views/publication-list*.html` |
 | Site reference (links, bios, pub info) | `SITE_INFO.md` |
 
